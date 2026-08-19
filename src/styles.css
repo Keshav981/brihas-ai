@@ -5600,29 +5600,132 @@ html, body {
     z-index: 999 !important;
   }
 
-  /* Hero Constellation Floating Stage (NO HORIZONTAL RIGHT-SCROLLING) */
+  /* Hero Constellation Floating Stage (Dedicated Mobile Floating Coordinates - ZERO OVERLAPPING) */
   .stage-wrap-mobile {
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
-    overflow: hidden !important;
-    height: 380px !important;
+    align-items: center !important;
+    overflow: visible !important;
+    height: 560px !important;
+    margin: 10px 0 !important;
   }
 
   .stage {
     position: relative !important;
-    width: 520px !important;
-    height: 650px !important;
-    transform: scale(0.58) !important;
-    transform-origin: top center !important;
-    margin-bottom: -270px !important;
+    width: 360px !important;
+    height: 540px !important;
+    transform: none !important;
+    margin: 0 auto !important;
     display: block !important;
     overflow: visible !important;
   }
 
+  .stage__glow {
+    position: absolute !important;
+    left: 50% !important;
+    top: 270px !important;
+    width: 170px !important;
+    height: 170px !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 1 !important;
+  }
+
+  .stage__ring {
+    position: absolute !important;
+    left: 50% !important;
+    top: 270px !important;
+    width: 155px !important;
+    height: 155px !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 4 !important;
+  }
+
+  .stage__brain {
+    position: absolute !important;
+    left: 50% !important;
+    top: 270px !important;
+    width: 150px !important;
+    height: 150px !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 5 !important;
+    pointer-events: none !important;
+  }
+
+  .stage__brain span {
+    font-size: 76px !important;
+  }
+
+  /* 7 Floating Cards - Spaced out with ZERO overlapping */
   .glass {
     position: absolute !important;
-    animation: float 6s ease-in-out infinite !important;
+    width: 142px !important;
+    padding: 11px 13px !important;
+    border-radius: 18px !important;
+    z-index: 2 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3px !important;
+  }
+
+  .glass__icon {
+    font-size: 17px !important;
+  }
+
+  .glass__title {
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+  }
+
+  .glass__sub {
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Floating Physics Positions */
+  .c-relationships {
+    left: 0px !important;
+    top: 0px !important;
+    animation: float-a 7s ease-in-out infinite !important;
+  }
+
+  .c-career {
+    right: 0px !important;
+    top: 0px !important;
+    animation: float-b 9s ease-in-out infinite 0.5s !important;
+  }
+
+  .c-mind {
+    left: 50% !important;
+    top: 115px !important;
+    transform: translateX(-50%) !important;
+    width: 158px !important;
+    animation: float-b 8s ease-in-out infinite 1s !important;
+    z-index: 3 !important;
+  }
+
+  .c-finance {
+    left: -6px !important;
+    top: 250px !important;
+    animation: float-a 10s ease-in-out infinite 1.5s !important;
+  }
+
+  .c-decisions {
+    right: -6px !important;
+    top: 250px !important;
+    animation: float-a 9.5s ease-in-out infinite 2s !important;
+  }
+
+  .c-goals {
+    left: 4px !important;
+    top: 415px !important;
+    animation: float-a 8.5s ease-in-out infinite 2.5s !important;
+  }
+
+  .c-wellbeing {
+    right: 4px !important;
+    top: 415px !important;
+    animation: float-b 10s ease-in-out infinite 3s !important;
   }
 
   /* Hero Copy & Badges */
@@ -5703,6 +5806,20 @@ html, body {
 }
 
 @media (max-width: 480px) {
+  .stage {
+    width: 325px !important;
+    height: 510px !important;
+  }
+
+  .glass {
+    width: 130px !important;
+    padding: 10px 11px !important;
+  }
+
+  .c-mind {
+    width: 145px !important;
+  }
+
   .who-mock-grid {
     grid-template-columns: 1fr !important;
     gap: 10px !important;
@@ -5715,10 +5832,5 @@ html, body {
   .hero__copy h1 {
     font-size: 27px !important;
     letter-spacing: -0.8px !important;
-  }
-
-  .stage {
-    transform: scale(0.52) !important;
-    margin-bottom: -310px !important;
   }
 }
