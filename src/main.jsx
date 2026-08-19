@@ -36,20 +36,20 @@ const quotientDimensions = [
 
 const mindNodesData = [
   { id: 'Identity', label: 'Identity', x: 50, y: 48, category: 'Core Life', isCore: true, desc: 'Who you are at your core when external noise drops away.', connections: ['Values', 'Beliefs', 'Confidence', 'Purpose'] },
-  { id: 'Career', label: 'Career', x: 25, y: 24, category: 'Action Areas', desc: 'Direction, ambition, and balancing effort with fulfilment.', connections: ['Burnout', 'Work', 'Goals', 'Money'] },
-  { id: 'Relationships', label: 'Relationships', x: 73, y: 52, category: 'Core Life', desc: 'The bonds that support, test, and shape your daily energy.', connections: ['Love', 'Boundaries', 'Friendship', 'Family'] },
-  { id: 'Health', label: 'Health', x: 25, y: 72, category: 'Core Life', desc: 'Physical stamina, mental rest, and somatic awareness.', connections: ['Rest', 'Energy', 'Burnout'] },
-  { id: 'Finance', label: 'Finance', x: 65, y: 76, category: 'Action Areas', desc: 'Resource security, decision clarity, and long term peace.', connections: ['Money', 'Career', 'Future'] },
+  { id: 'Career', label: 'Career', x: 26, y: 24, category: 'Action Areas', desc: 'Direction, ambition, and balancing effort with fulfilment.', connections: ['Burnout', 'Work', 'Goals', 'Money'] },
+  { id: 'Relationships', label: 'Relationships', x: 62, y: 52, category: 'Core Life', desc: 'The bonds that support, test, and shape your daily energy.', connections: ['Love', 'Boundaries', 'Friendship', 'Family'] },
+  { id: 'Health', label: 'Health', x: 26, y: 72, category: 'Core Life', desc: 'Physical stamina, mental rest, and somatic awareness.', connections: ['Rest', 'Energy', 'Burnout'] },
+  { id: 'Finance', label: 'Finance', x: 58, y: 76, category: 'Action Areas', desc: 'Resource security, decision clarity, and long term peace.', connections: ['Money', 'Career', 'Future'] },
   { id: 'Burnout', label: 'Burnout', x: 30, y: 40, category: 'Internal State', desc: 'Early warning indicators of cognitive depletion.', connections: ['Health', 'Work', 'Rest'] },
-  { id: 'Confidence', label: 'Confidence', x: 62, y: 58, category: 'Internal State', desc: 'Trusting your choices without constant second guessing.', connections: ['Identity', 'Growth', 'Change'] },
+  { id: 'Confidence', label: 'Confidence', x: 58, y: 58, category: 'Internal State', desc: 'Trusting your choices without constant second guessing.', connections: ['Identity', 'Growth', 'Change'] },
   { id: 'Purpose', label: 'Purpose', x: 48, y: 82, category: 'Internal State', desc: 'The underlying why behind how you allocate your time.', connections: ['Identity', 'Values', 'Goals'] },
   { id: 'Boundaries', label: 'Boundaries', x: 38, y: 76, category: 'Action Areas', desc: 'Saying no to preserve room for what actually matters.', connections: ['Relationships', 'Rest', 'Energy'] },
-  { id: 'Growth', label: 'Growth', x: 58, y: 15, category: 'Action Areas', desc: 'Evolving beyond old patterns through intentional choices.', connections: ['Confidence', 'Learning', 'Change'] },
+  { id: 'Growth', label: 'Growth', x: 54, y: 15, category: 'Action Areas', desc: 'Evolving beyond old patterns through intentional choices.', connections: ['Confidence', 'Learning', 'Change'] },
   { id: 'Beliefs', label: 'Beliefs', x: 34, y: 62, category: 'Core Life', desc: 'Assumptions about yourself and the world driving choices.', connections: ['Identity', 'Values'] },
   { id: 'Values', label: 'Values', x: 42, y: 20, category: 'Core Life', desc: 'Non negotiable principles guiding hard trade offs.', connections: ['Identity', 'Purpose'] },
-  { id: 'Rest', label: 'Rest', x: 18, y: 84, category: 'Internal State', desc: 'Deliberate recovery for body and mind.', connections: ['Health', 'Burnout', 'Boundaries'] },
+  { id: 'Rest', label: 'Rest', x: 20, y: 84, category: 'Internal State', desc: 'Deliberate recovery for body and mind.', connections: ['Health', 'Burnout', 'Boundaries'] },
   { id: 'Energy', label: 'Energy', x: 38, y: 10, category: 'Internal State', desc: 'Daily vitality and emotional bandwidth.', connections: ['Health', 'Boundaries'] },
-  { id: 'Goals', label: 'Goals', x: 54, y: 28, category: 'Action Areas', desc: 'Tangible milestones aligned with your identity.', connections: ['Career', 'Purpose'] },
+  { id: 'Goals', label: 'Goals', x: 52, y: 28, category: 'Action Areas', desc: 'Tangible milestones aligned with your identity.', connections: ['Career', 'Purpose'] },
 ];
 
 const faqs = [

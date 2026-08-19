@@ -2832,7 +2832,7 @@ h2 span {
   }
 }
 
-/* Compact Mobile Hero Phone Stage (No Huge Scroll) */
+/* Compact Mobile Hero Phone Stage & Compact 11 Topic Pills Row (No Huge Scroll) */
 .hero-phone-stage {
   width: 100%;
   max-width: 380px;
@@ -2851,33 +2851,107 @@ h2 span {
 }
 
 @media (max-width: 768px) {
+  /* 2D & 3D Mind Map Mobile Bounds - ZERO RIGHT SIDE CLIPPING */
+  .mindmap-section-clean .wrap > div:nth-child(3) {
+    height: 480px !important;
+    padding: 10px !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  .mindmap-section-clean div[style*="position: absolute"][style*="border-radius: 100px"] {
+    padding: 4px 9px !important;
+    font-size: 10.5px !important;
+    letter-spacing: -0.2px !important;
+    max-width: 130px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  }
+
   .hero-phone-stage {
     max-width: 100% !important;
   }
 
   .iphone-15-pro-frame {
-    height: 420px !important;
-    border-radius: 28px !important;
+    height: 390px !important;
+    border-radius: 26px !important;
     padding: 6px !important;
   }
 
   .brihas-app-screen {
-    border-radius: 24px !important;
+    border-radius: 22px !important;
+  }
+
+  /* Make the 11 topic bar super small horizontal chip pills (No Huge Scroll) */
+  .brihas-topics-scroll {
+    display: flex !important;
+    gap: 6px !important;
+    padding: 5px 10px !important;
+    border-bottom: 1px solid #F2F2EE !important;
+    background: #FAFAFA !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    align-items: center !important;
+  }
+
+  .brihas-topics-scroll::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .brihas-topic-item {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: auto !important;
+    padding: 3px 9px !important;
+    background: #FFFFFF !important;
+    border: 1px solid #EBEFE8 !important;
+    border-radius: 99px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .brihas-topic-circle {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 11px !important;
+    margin-bottom: 0 !important;
+    border-radius: 50% !important;
+  }
+
+  .brihas-topic-title {
+    font-size: 10px !important;
+    white-space: nowrap !important;
+    font-weight: 600 !important;
+    color: #1C251D !important;
+  }
+
+  .brihas-app-subhead {
+    padding: 4px 10px !important;
+  }
+
+  .brihas-app-navbar {
+    padding: 4px 10px !important;
+  }
+
+  .brihas-nav-circle-btn {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 12px !important;
   }
 
   .brihas-app-chat-body {
-    padding: 10px 12px !important;
-    gap: 8px !important;
+    padding: 8px 10px !important;
+    gap: 6px !important;
   }
 
   .brihas-user-bubble {
-    padding: 8px 12px !important;
-    font-size: 12.5px !important;
+    padding: 7px 11px !important;
+    font-size: 12px !important;
   }
 
   .brihas-ai-bubble {
-    padding: 10px 12px !important;
-    font-size: 12.5px !important;
+    padding: 8px 11px !important;
+    font-size: 12px !important;
   }
 }
 
