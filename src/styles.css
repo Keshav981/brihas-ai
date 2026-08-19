@@ -2702,54 +2702,113 @@ h2 span {
 /* 3D Mind Map Mobile Responsiveness */
 @media (max-width: 860px) {
   .mindmap-3d-viewport-container {
-    height: 720px;
+    height: 600px !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
   }
 
   .widget-top-left {
-    top: 14px;
-    left: 14px;
-    width: 200px;
-    padding: 12px;
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    width: auto !important;
+    max-width: calc(100% - 110px) !important;
+    padding: 10px 12px !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 0 8px 24px rgba(28, 37, 29, 0.08) !important;
+  }
+
+  .widget-header-title small {
+    font-size: 10px !important;
   }
 
   .widget-header-title h2 {
-    font-size: 18px;
+    font-size: 16px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .widget-header-title p {
+    display: none !important;
+  }
+
+  .widget-focus-pill {
+    padding: 6px 10px !important;
+    margin-bottom: 8px !important;
+    gap: 6px !important;
+    border-radius: 10px !important;
+  }
+
+  .widget-streak {
+    padding: 6px 10px !important;
+    border-radius: 10px !important;
   }
 
   .widget-top-right {
-    top: 14px;
-    right: 14px;
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    padding: 6px !important;
+  }
+
+  .ctrl-btn {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    border-radius: 8px !important;
   }
 
   .widget-mid-right {
-    top: auto;
-    bottom: 90px;
-    right: 14px;
-    width: 200px;
-    padding: 12px;
+    position: absolute !important;
+    top: auto !important;
+    bottom: 64px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    max-width: calc(100% - 20px) !important;
+    padding: 10px 14px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08) !important;
+    z-index: 25 !important;
+    margin: 0 auto !important;
+  }
+
+  .insight-text {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
   }
 
   .widget-bottom-right {
-    display: none;
+    display: none !important;
   }
 
   .widget-bottom-left-stack {
-    bottom: 14px;
-    left: 14px;
-  }
-
-  .widget-audio-player {
-    width: 170px;
-    padding: 8px 10px;
+    display: none !important;
   }
 
   .quick-thought-input-bar {
-    width: calc(100vw - 40px);
-    max-width: 320px;
+    position: absolute !important;
+    bottom: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    max-width: calc(100% - 20px) !important;
+    transform: none !important;
+    z-index: 30 !important;
+  }
+
+  .quick-thought-input-bar input {
+    padding: 10px 14px !important;
+    font-size: 12.5px !important;
   }
 
   .orbit-3d-stage {
-    transform: scale(0.72) rotateX(62deg) !important;
+    transform: scale(0.55) rotateX(60deg) !important;
+    transform-origin: center center !important;
   }
 }
 
