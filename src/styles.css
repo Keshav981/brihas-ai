@@ -428,9 +428,9 @@ h2 span {
 /* card stage */
 .stage { position: relative; flex: 0 0 520px; width: 520px; max-width: 100%; height: 650px; }
 .stage__glow { position: absolute; left: 50%; top: 395px; width: 230px; height: 230px; transform: translate(-50%,-50%); border-radius: 50%;
-  background: radial-gradient(circle, rgba(176,138,231,.4), transparent 68%); animation: glow-pulse 8s ease-in-out infinite; }
-.stage__ring { position: absolute; left: 50%; top: 395px; width: 190px; height: 190px; transform: translate(-50%,-50%); animation: ring-spin 46s linear infinite; overflow: visible; }
-.stage__brain { position: absolute; left: 50%; top: 395px; transform: translate(-50%,-50%); display: flex; align-items: center; justify-content: center; width: 200px; height: 200px; }
+  background: radial-gradient(circle, rgba(176,138,231,.4), transparent 68%); animation: glow-pulse 8s ease-in-out infinite; z-index: 1; }
+.stage__ring { position: absolute; left: 50%; top: 395px; width: 190px; height: 190px; transform: translate(-50%,-50%); animation: ring-spin 46s linear infinite; overflow: visible; z-index: 4; }
+.stage__brain { position: absolute; left: 50%; top: 395px; transform: translate(-50%,-50%); display: flex; align-items: center; justify-content: center; width: 200px; height: 200px; z-index: 5; pointer-events: none; }
 .stage__brain span { font-size: 104px; line-height: 1; filter: saturate(.8) contrast(1.04) drop-shadow(0 18px 26px rgba(90,60,150,.28)); animation: float-brain 8s ease-in-out infinite; }
 
 /* liquid-glass card (iOS Liquid Glass Effect) */
@@ -441,13 +441,14 @@ h2 span {
   border: 1.5px solid rgba(255,255,255,.85);
   box-shadow: 0 20px 44px -24px rgba(19,26,21,.22), inset 0 1px 0 rgba(255,255,255,.98), inset 0 -12px 24px -20px rgba(255,255,255,.9);
   transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: flex; flex-direction: column; gap: 5px; text-decoration: none; }
+  display: flex; flex-direction: column; gap: 5px; text-decoration: none; z-index: 2; }
 .glass:hover {
   background-color: rgba(255,255,255,.92);
   background-image: linear-gradient(135deg, #ffffff, rgba(228,246,234,.92) 45%, rgba(240,228,254,.95));
   border-color: rgba(255,255,255,0.98);
   box-shadow: 0 32px 64px -18px rgba(107, 63, 184, 0.4), 0 0 0 1.5px rgba(107, 63, 184, 0.35), inset 0 1.5px 0 #ffffff, inset 0 -14px 28px -18px rgba(255,255,255,.95);
   transform: translateY(-8px) scale(1.05) rotate(0.6deg);
+  z-index: 10;
 }
 .glass:active { background-color: rgba(255,255,255,.75); border-color: rgba(255,255,255,1);
   box-shadow: 0 10px 24px -12px rgba(19,26,21,.35), inset 0 1px 0 #ffffff, inset 0 -22px 34px -22px rgba(255,255,255,.95);
@@ -457,14 +458,54 @@ h2 span {
 .glass__title { font-size: 16px; font-weight: 500; letter-spacing: -.01em; color: var(--ink); }
 .glass__sub { font-size: 13px; color: var(--muted); }
 
-/* card placement */
-.c-relationships { left: 0;   top: 0;     animation: float-a 9s    ease-in-out infinite; }
-.c-career        { right: 0;  top: 0;     animation: float-b 11s   ease-in-out infinite .6s; }
-.c-mind          { left: 170px; top: 155px; width: 180px; animation: float-b 10s ease-in-out infinite 1.4s; }
-.c-finance       { left: 0;   top: 322px; width: 140px; animation: float-a 11.5s ease-in-out infinite 2.8s; }
-.c-decisions     { right: 0;  top: 322px; width: 140px; animation: float-a 12s  ease-in-out infinite .9s; }
-.c-goals         { left: 0;   top: 512px; animation: float-a 10.5s ease-in-out infinite 1.9s; }
-.c-wellbeing     { right: 0;  top: 512px; animation: float-b 9.5s  ease-in-out infinite 2.4s; }
+/* card placement - spaced out to keep center brain icon completely open & uncovered */
+.c-relationships { left: 0;   top: 10px;    animation: float-a 9s    ease-in-out infinite; }
+.c-career        { right: 0;  top: 10px;    animation: float-b 11s   ease-in-out infinite .6s; }
+.c-mind          { left: 170px; top: 130px; width: 180px; animation: float-b 10s ease-in-out infinite 1.4s; }
+.c-finance       { left: -10px;  top: 350px; width: 155px; animation: float-a 11.5s ease-in-out infinite 2.8s; }
+.c-decisions     { right: -10px; top: 350px; width: 155px; animation: float-a 12s  ease-in-out infinite .9s; }
+.c-goals         { left: 10px;  top: 530px; animation: float-a 10.5s ease-in-out infinite 1.9s; }
+.c-wellbeing     { right: 10px; top: 530px; animation: float-b 9.5s  ease-in-out infinite 2.4s; }
+
+/* Store badges styling */
+.stores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.store-badge-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.store-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid #ECEEEA;
+  box-shadow: 0 4px 16px rgba(28, 37, 29, 0.06);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1C251D;
+  transition: all 0.25s ease;
+}
+
+.store-badge-pill:hover {
+  transform: translateY(-2px);
+  border-color: #2D6043;
+  box-shadow: 0 8px 20px rgba(45, 96, 67, 0.12);
+}
 
 /* trust bar */
 .trust { max-width: 1240px; margin: 0 auto 70px; padding: 0 40px; }
