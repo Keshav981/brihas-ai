@@ -5421,16 +5421,22 @@ footer {
   }
 }
 
-/* ————— site-wide background wash ————— */
+/* ————— site-wide background wash with cursor-tracking dynamic gradient ————— */
+:root {
+  --mouse-x: 50%;
+  --mouse-y: 30%;
+}
+
 body {
   background:
-    radial-gradient(900px 620px at 6% 0%, rgba(167,207,175,.34), transparent 62%),
-    radial-gradient(820px 640px at 94% 12%, rgba(250,214,176,.3), transparent 64%),
-    radial-gradient(880px 700px at 20% 52%, rgba(199,172,231,.26), transparent 66%),
-    radial-gradient(820px 640px at 88% 78%, rgba(167,207,175,.24), transparent 66%),
-    radial-gradient(760px 600px at 30% 100%, rgba(250,214,176,.24), transparent 66%),
+    radial-gradient(920px 650px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(167, 207, 175, 0.45), transparent 64%),
+    radial-gradient(860px 650px at calc(100% - var(--mouse-x, 50%)) calc(100% - var(--mouse-y, 30%)), rgba(226, 205, 236, 0.42), transparent 66%),
+    radial-gradient(900px 700px at 20% 52%, rgba(250, 214, 176, 0.35), transparent 66%),
+    radial-gradient(820px 640px at 88% 78%, rgba(167, 207, 175, 0.28), transparent 66%),
+    radial-gradient(760px 600px at 30% 100%, rgba(250, 214, 176, 0.28), transparent 66%),
     #fbfaf7 !important;
   background-attachment: fixed !important;
+  transition: background 0.05s ease-out;
 }
 .section,
 .who-mock-style,
