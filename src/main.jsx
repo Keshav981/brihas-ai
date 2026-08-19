@@ -2584,10 +2584,55 @@ const conversationScenarios = [
   }
 ];
 
+const topicCategories = [
+  {
+    id: 'mind',
+    title: 'Mind & Emotional Balance',
+    icon: '🧠',
+    accentColor: '#7C3AED',
+    bgColor: '#F5EEFD',
+    borderColor: '#E9D5FC',
+    topics: ['Burnout & Overwhelm', 'Stress & Overthinking', 'Self Doubt'],
+    scenarioIdx: 0
+  },
+  {
+    id: 'relationships',
+    title: 'Relationships & Family',
+    icon: '💖',
+    accentColor: '#E55B6E',
+    bgColor: '#FDEEEF',
+    borderColor: '#FCCEE3',
+    topics: ['Partner & Marriage', 'Family & Parenting', 'Boundary Setting'],
+    scenarioIdx: 0
+  },
+  {
+    id: 'career',
+    title: 'Career & Financial Growth',
+    icon: '🎯',
+    accentColor: '#2D6043',
+    bgColor: '#EAF4EC',
+    borderColor: '#CBE5D3',
+    topics: ['Career & Work', 'Financial Stress', 'Decision Paralysis'],
+    scenarioIdx: 1
+  },
+  {
+    id: 'purpose',
+    title: 'Purpose & Daily Habits',
+    icon: '🌱',
+    accentColor: '#D97706',
+    bgColor: '#FEF3E8',
+    borderColor: '#FDE0C2',
+    topics: ['Purpose & Trajectory', 'Habit Building'],
+    scenarioIdx: 0
+  }
+];
+
 const LiveBrihasAppMockup = () => {
+  const [activeCategoryIdx, setActiveCategoryIdx] = useState(0);
   const [scenarioIndex, setScenarioIndex] = useState(0);
   const [visibleMsgCount, setVisibleMsgCount] = useState(2);
 
+  const activeCategory = topicCategories[activeCategoryIdx];
   const currentScenario = conversationScenarios[scenarioIndex];
   const chatEndRef = useRef(null);
 
@@ -2624,71 +2669,98 @@ const LiveBrihasAppMockup = () => {
   }, [visibleMsgCount]);
 
   return (
-    <div className="hero-phone-stage">
-      <motion.div 
-        className="iphone-15-pro-frame"
-        initial={{ opacity: 0, y: 30, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.15 }}
-      >
-        {/* iPhone 15 Pro Dynamic Island Notch */}
-        <div className="dynamic-island-pill">
-          <div className="camera-dot" />
+    <div style={{ width: '100%' }}>
+      {/* 4 Category Cards Flow Section */}
+      <div className="category-cards-flow-section">
+        <p className="kicker" style={{ textAlign: 'center', marginBottom: '14px', letterSpacing: '0.12em', color: '#576359' }}>
+          11 LIFE TOPICS · BUCKETED INTO 4 CORE CATEGORIES
+        </p>
+        <div className="category-cards-grid">
+          {topicCategories.map((cat, idx) => {
+            const isActive = activeCategoryIdx === idx;
+            return (
+              <motion.div
+                key={cat.id}
+                className={`category-flow-card ${isActive ? 'active' : ''}`}
+                onClick={() => {
+                  setActiveCategoryIdx(idx);
+                  setScenarioIndex(cat.scenarioIdx);
+                  setVisibleMsgCount(2);
+                }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                style={{
+                  borderColor: isActive ? cat.accentColor : '#EAECE8',
+                  boxShadow: isActive ? `0 10px 24px ${cat.borderColor}` : '0 4px 14px rgba(0,0,0,0.03)'
+                }}
+              >
+                <div className="cat-card-header">
+                  <span className="cat-card-icon" style={{ background: cat.bgColor, color: cat.accentColor }}>{cat.icon}</span>
+                  <span className="cat-topic-badge" style={{ color: cat.accentColor, background: cat.bgColor }}>{cat.topics.length} Topics</span>
+                </div>
+                <h4 className="cat-card-title">{cat.title}</h4>
+                <div className="cat-topics-list">
+                  {cat.topics.map((t, i) => (
+                    <span key={i} className="cat-topic-tag">{t}</span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
+      </div>
 
-        <div className="brihas-app-screen">
-          {/* iOS Status Bar */}
-          <div className="brihas-app-top-status">
-            <span>4:43</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ fontSize: '11px' }}>📶 5G</span>
-              <div className="brihas-battery-badge">79%⚡</div>
-            </div>
+      <div className="hero-phone-stage">
+        <motion.div 
+          className="iphone-15-pro-frame"
+          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+        >
+          {/* iPhone 15 Pro Dynamic Island Notch */}
+          <div className="dynamic-island-pill">
+            <div className="camera-dot" />
           </div>
 
-          {/* Brihas App Top Navbar */}
-          <div className="brihas-app-navbar">
-            <button className="brihas-nav-circle-btn">✕</button>
-            <span className="brihas-nav-logo-text">brihas.ai</span>
-            <button className="brihas-nav-circle-btn">☰</button>
-          </div>
+          <div className="brihas-app-screen">
+            {/* iOS Status Bar */}
+            <div className="brihas-app-top-status">
+              <span>4:43</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ fontSize: '11px' }}>📶 5G</span>
+                <div className="brihas-battery-badge">79%⚡</div>
+              </div>
+            </div>
 
-          {/* Subheader Bar */}
-          <div className="brihas-app-subhead">
-            <div className="brihas-subhead-left">
-              <div className="brihas-icon-btn-pill">←</div>
-              <div className="brihas-icon-btn-pill">⟲</div>
+            {/* Brihas App Top Navbar */}
+            <div className="brihas-app-navbar">
+              <button className="brihas-nav-circle-btn">✕</button>
+              <span className="brihas-nav-logo-text">brihas.ai</span>
+              <button className="brihas-nav-circle-btn">☰</button>
             </div>
-            <div className="brihas-brand-center">
-              <div className="brihas-logo-mark">⅄</div>
-              <span>Brihas</span>
-            </div>
-            <span className="brihas-quota-badge">1/6 today</span>
-          </div>
 
-          {/* Horizontal Topics Scroll Bar */}
-          <div className="brihas-topics-scroll">
-            <div className="brihas-topic-item">
-              <div className="brihas-topic-circle" style={{ background: '#FDF3EE', color: '#E07A5F' }}>🔥</div>
-              <span className="brihas-topic-title">Burnout & Overwhelm</span>
+            {/* Subheader Bar */}
+            <div className="brihas-app-subhead">
+              <div className="brihas-subhead-left">
+                <div className="brihas-icon-btn-pill">←</div>
+                <div className="brihas-icon-btn-pill">⟲</div>
+              </div>
+              <div className="brihas-brand-center">
+                <div className="brihas-logo-mark">⅄</div>
+                <span>{activeCategory.title.split('&')[0]}</span>
+              </div>
+              <span className="brihas-quota-badge">1/6 today</span>
             </div>
-            <div className="brihas-topic-item">
-              <div className="brihas-topic-circle" style={{ background: '#EAF4FE', color: '#3A8DFF' }}>🌧️</div>
-              <span className="brihas-topic-title">Stress & Overthinking</span>
+
+            {/* Sub-Topics Pill Row for Selected Category */}
+            <div className="brihas-topics-scroll">
+              {activeCategory.topics.map((t, i) => (
+                <div key={i} className="brihas-topic-item">
+                  <div className="brihas-topic-circle" style={{ background: activeCategory.bgColor, color: activeCategory.accentColor }}>{activeCategory.icon}</div>
+                  <span className="brihas-topic-title">{t}</span>
+                </div>
+              ))}
             </div>
-            <div className="brihas-topic-item">
-              <div className="brihas-topic-circle" style={{ background: '#FDEEEF', color: '#E55B6E' }}>💖</div>
-              <span className="brihas-topic-title">Partner & Marriage</span>
-            </div>
-            <div className="brihas-topic-item">
-              <div className="brihas-topic-circle" style={{ background: '#F4EEFD', color: '#8B5CF6' }}>👥</div>
-              <span className="brihas-topic-title">Family & Parenting</span>
-            </div>
-            <div className="brihas-topic-item">
-              <div className="brihas-topic-circle" style={{ background: '#EAF4EC', color: '#2D6043' }}>🎯</div>
-              <span className="brihas-topic-title">Career & Work</span>
-            </div>
-          </div>
 
           {/* Chat Conversation Body */}
           <div className="brihas-app-chat-body">
@@ -2764,6 +2836,7 @@ const LiveBrihasAppMockup = () => {
           </div>
         </div>
       </motion.div>
+    </div>
     </div>
   );
 };
