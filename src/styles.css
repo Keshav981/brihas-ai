@@ -467,11 +467,11 @@ h2 span {
 .c-goals         { left: 20px;  top: 470px; animation: float-a 9.5s ease-in-out infinite 1.9s; }
 .c-wellbeing     { right: 20px; top: 470px; animation: float-b 10.5s ease-in-out infinite 2.4s; }
 
-/* Store badges styling */
+/* Store badges styling - Left-aligned with heading in desktop web view */
 .stores {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   margin-top: 22px;
 }
@@ -481,7 +481,7 @@ h2 span {
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .store-badge-pill {
