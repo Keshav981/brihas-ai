@@ -7870,3 +7870,156 @@ footer {
   font-weight: 600 !important;
   color: #556358 !important;
 }
+
+
+/* ══════════ COMPACT READING CARD MOBILE TYPOGRAPHY OVERRIDES ══════════ */
+@media (max-width: 760px) {
+  .reading-card-wrapper {
+    margin-bottom: 12px !important;
+  }
+
+  .illustrative-badge {
+    font-size: 9px !important;
+    padding: 2px 6px !important;
+    top: -9px !important;
+    right: 12px !important;
+  }
+
+  .reading-card {
+    padding: 16px 14px 12px !important;
+    border-radius: 18px !important;
+  }
+
+  .card-header {
+    margin-bottom: 10px !important;
+  }
+
+  .card-tag {
+    font-size: 9px !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .card-status {
+    font-size: 10.5px !important;
+  }
+
+  .status-dot {
+    width: 6px !important;
+    height: 6px !important;
+  }
+
+  .score-row {
+    margin-bottom: 8px !important;
+  }
+
+  .score-value {
+    font-size: 20px !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .score-label {
+    font-size: 11px !important;
+  }
+
+  .score-progress {
+    height: 4px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .dim-item {
+    padding: 7px 6px !important;
+    border-radius: 8px !important;
+  }
+
+  .dim-left {
+    gap: 8px !important;
+  }
+
+  .dim-icon {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .dim-title {
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+  }
+
+  .dim-badge {
+    font-size: 9.5px !important;
+    padding: 3px 8px !important;
+    border-radius: 50px !important;
+  }
+
+  /* Dimension Inspector Detail Card on Mobile */
+  .dimension-detail-card {
+    padding: 14px 14px !important;
+    border-radius: 18px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .detail-header {
+    margin-bottom: 10px !important;
+    gap: 8px !important;
+  }
+
+  .detail-header h4 {
+    font-size: 13.5px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .detail-score-meter {
+    margin-bottom: 10px !important;
+  }
+
+  .meter-label {
+    font-size: 10.5px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .meter-track {
+    height: 4px !important;
+  }
+
+  .detail-body {
+    font-size: 11.5px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .detail-action-box {
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+  }
+
+  .detail-action-box small {
+    font-size: 9px !important;
+    margin-bottom: 3px !important;
+  }
+
+  .detail-action-box p {
+    font-size: 11.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  .reading-highlights {
+    gap: 8px !important;
+  }
+
+  .highlight-col {
+    padding: 8px 10px !important;
+    border-radius: 12px !important;
+  }
+
+  .hl-num {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 9.5px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .highlight-col p {
+    font-size: 10.5px !important;
+    line-height: 1.25 !important;
+  }
+}
