@@ -1631,25 +1631,25 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
 
 const pebbleWordsAbsolute = [
   // ROW 1: TOP ARC (Y: 18% - 22%)
-  { text: 'Stress', left: '25%', top: '19%', fontSize: '16px', weight: 500, color: '#65606E' },
-  { text: 'Anxiety', left: '37%', top: '18%', fontSize: '17px', weight: 500, color: '#5F5D6B' },
-  { text: 'Self doubt', left: '50%', top: '18%', fontSize: '22px', weight: 700, color: '#4A5551' },
+  { text: 'Stress', left: '23%', top: '19%', fontSize: '16px', weight: 500, color: '#65606E' },
+  { text: 'Anxiety', left: '35%', top: '18%', fontSize: '17px', weight: 500, color: '#5F5D6B' },
+  { text: 'Self doubt', left: '49%', top: '18%', fontSize: '22px', weight: 700, color: '#4A5551' },
   { text: 'Feeling stuck', left: '68%', top: '19%', fontSize: '18px', weight: 600, color: '#5E665D' },
 
-  // ROW 2: UPPER MID (Y: 26% - 30%)
-  { text: 'Pressure', left: '19%', top: '27%', fontSize: '16px', weight: 500, color: '#685E6E' },
-  { text: 'Overthinking', left: '33%', top: '26%', fontSize: '38px', weight: 800, color: '#5C4A68' },
-  { text: 'Overwhelm', left: '57%', top: '26%', fontSize: '24px', weight: 700, color: '#6B4A5C' },
-  { text: 'Career', left: '73%', top: '26%', fontSize: '36px', weight: 800, color: '#44634B' },
+  // ROW 2: UPPER MID (Y: 26% - 31%)
+  { text: 'Pressure', left: '16%', top: '26%', fontSize: '16px', weight: 500, color: '#685E6E' },
+  { text: 'Overthinking', left: '27%', top: '27%', fontSize: '38px', weight: 800, color: '#5C4A68' },
+  { text: 'Overwhelm', left: '59%', top: '27%', fontSize: '24px', weight: 700, color: '#6B4A5C' },
+  { text: 'Career', left: '74%', top: '26%', fontSize: '36px', weight: 800, color: '#44634B' },
 
   // ROW 3: MID UPPER (Y: 33% - 37%)
-  { text: 'Boundaries', left: '17%', top: '35%', fontSize: '16px', weight: 500, color: '#686B60' },
-  { text: 'Motivation', left: '32%', top: '34%', fontSize: '15px', weight: 500, color: '#7D7569' },
-  { text: 'Inner Peace', left: '46%', top: '33%', fontSize: '20px', weight: 600, color: '#4F685B' },
-  { text: 'Future', left: '78%', top: '34%', fontSize: '20px', weight: 600, color: '#6A587A' },
+  { text: 'Boundaries', left: '16%', top: '35%', fontSize: '16px', weight: 500, color: '#686B60' },
+  { text: 'Motivation', left: '33%', top: '35%', fontSize: '15px', weight: 500, color: '#7D7569' },
+  { text: 'Inner Peace', left: '48%', top: '34%', fontSize: '20px', weight: 600, color: '#4F685B' },
+  { text: 'Future', left: '79%', top: '34%', fontSize: '20px', weight: 600, color: '#6A587A' },
 
   // ROW 4: CENTER CORE (Y: 40% - 44%)
-  { text: 'Bullying', left: '16%', top: '43%', fontSize: '19px', weight: 600, color: '#7B4E59' },
+  { text: 'Bullying', left: '15%', top: '43%', fontSize: '19px', weight: 600, color: '#7B4E59' },
   { text: 'Purpose', left: '28%', top: '41%', fontSize: '28px', weight: 700, color: '#5B6858' },
   { text: 'Burnout', left: '50%', top: '39%', fontSize: '46px', weight: 900, color: '#2E4034' },
   { text: 'Health', left: '74%', top: '42%', fontSize: '22px', weight: 600, color: '#586259' },
@@ -1661,8 +1661,8 @@ const pebbleWordsAbsolute = [
   { text: 'Confidence', left: '76%', top: '49%', fontSize: '21px', weight: 600, color: '#5A6158' },
 
   // ROW 6: LOWER CENTER (Y: 55% - 59%)
-  { text: 'Communication', left: '18%', top: '56%', fontSize: '15px', weight: 400, color: '#7A6458' },
-  { text: 'Identity', left: '35%', top: '56%', fontSize: '26px', weight: 700, color: '#5C4F6B' },
+  { text: 'Communication', left: '17%', top: '56%', fontSize: '15px', weight: 400, color: '#7A6458' },
+  { text: 'Identity', left: '34%', top: '56%', fontSize: '26px', weight: 700, color: '#5C4F6B' },
   { text: 'Fulfillment', left: '49%', top: '56%', fontSize: '19px', weight: 600, color: '#65546D' },
   { text: 'Growth', left: '66%', top: '56%', fontSize: '21px', weight: 600, color: '#5B6E5F' },
 
