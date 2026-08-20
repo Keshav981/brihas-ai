@@ -448,17 +448,17 @@ h2 span {
 
 .hero-editorial-input-card {
   width: 100%;
-  max-width: 640px;
+  max-width: 680px;
   background: #FFFFFF;
   border: 1.5px solid #E2E5E0;
-  border-radius: 24px;
+  border-radius: 28px;
   padding: 16px 20px 16px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 12px 36px rgba(28, 37, 29, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02);
   transition: all 0.25s ease;
-  margin-bottom: 18px;
+  margin: 0 auto 24px;
 }
 
 .hero-editorial-input-card:focus-within {
@@ -502,83 +502,82 @@ h2 span {
   border-color: #1C251D;
 }
 
-.hero-editorial-subtext {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14.5px;
-  line-height: 1.5;
-  color: #576359;
-  margin: 0 0 28px;
-}
-
-.hero-prompt-cards-row {
+/* START ANYWHERE Row (Centered Matching Mockup) */
+.hero-start-anywhere-row {
   display: flex;
-  gap: 14px;
+  align-items: center;
   justify-content: center;
+  gap: 12px;
+  margin: 0 auto 24px;
   flex-wrap: wrap;
+  text-align: center;
   width: 100%;
-  margin-bottom: 44px;
 }
 
-.hero-prompt-card {
-  background: rgba(244, 240, 230, 0.85);
-  border: 1px solid rgba(222, 216, 202, 0.9);
-  border-radius: 18px;
-  padding: 16px 20px;
+.start-anywhere-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #8A928B;
+  text-transform: uppercase;
+}
+
+.start-anywhere-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.start-pill {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(222, 216, 202, 0.9);
+  border-radius: 99px;
+  padding: 8px 18px;
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: #2C352D;
   cursor: pointer;
-  text-align: center;
   transition: all 0.2s ease;
-  flex: 1 1 230px;
-  max-width: 270px;
 }
 
-.hero-prompt-card:hover {
+.start-pill:hover {
   background: #FFFFFF;
   border-color: #1C251D;
-  box-shadow: 0 8px 24px rgba(28, 37, 29, 0.08);
+  box-shadow: 0 4px 14px rgba(28, 37, 29, 0.08);
+  transform: translateY(-1px);
 }
 
-.hero-editorial-banner {
-  width: 100%;
-  padding-top: 24px;
-  border-top: 1px solid rgba(226, 222, 210, 0.8);
-}
-
-.hero-editorial-banner p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.5;
-  color: #1C251D;
-  margin: 0;
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-/* Store Badge Coming Soon Pills Row in Hero */
-.hero-store-pills-row {
+/* COMING SOON ON Row (Centered Matching Mockup) */
+.hero-coming-soon-row {
   display: flex;
-  gap: 12px;
   align-items: center;
   justify-content: center;
-  margin: 16px 0 24px;
+  gap: 14px;
+  margin: 0 auto 32px;
   flex-wrap: wrap;
+  text-align: center;
+  width: 100%;
 }
 
-.badge-coming-soon-tag {
+.coming-soon-kicker {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: rgba(147, 51, 234, 0.1);
-  color: #7C3AED;
-  padding: 3px 8px;
-  border-radius: 99px;
-  margin-left: 4px;
+  font-size: 11px;
   font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #8A928B;
+  text-transform: uppercase;
+}
+
+.coming-soon-pills {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* ══════════ ORGANIC WATERCOLOR PEBBLE WORD CLOUD (EXACT 2D CLOUD MATCH) ══════════ */
