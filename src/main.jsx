@@ -3197,10 +3197,8 @@ function App() {
       {/* Plans Section - Prices Hidden */}
       <motion.section className="section plans" id="plans" {...sectionMotion}>
         <div className="wrap">
-          <div className="centered-heading">
-            <p className="eyebrow">Plans & Access</p>
-            <h2>Choose your path to <em>daily clarity.</em></h2>
-            <p>Start with a 7 day trial or select a plan tailored to your daily rhythm.</p>
+          <div className="centered-heading" style={{ textAlign: 'center', marginBottom: '24px' }}>
+            <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> PLANS &amp; ACCESS</p>
           </div>
 
           {/* Introductory Trial Banner */}
