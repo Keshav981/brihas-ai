@@ -502,23 +502,24 @@ h2 span {
   border-color: #1C251D;
 }
 
-/* START ANYWHERE Row (Centered Matching Mockup) */
+/* START ANYWHERE Row (100% Absolute Center Symmetrical Alignment) */
 .hero-start-anywhere-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin: 0 auto 24px;
-  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 auto 26px;
   text-align: center;
   width: 100%;
+  max-width: 780px;
 }
 
 .start-anywhere-kicker {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   color: #8A928B;
   text-transform: uppercase;
 }
@@ -526,22 +527,24 @@ h2 span {
 .start-anywhere-pills {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 }
 
 .start-pill {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1.5px solid rgba(222, 216, 202, 0.9);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(222, 216, 202, 0.95);
   border-radius: 99px;
-  padding: 8px 18px;
+  padding: 8px 20px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 500;
   color: #2C352D;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
 }
 
 .start-pill:hover {
@@ -551,23 +554,24 @@ h2 span {
   transform: translateY(-1px);
 }
 
-/* COMING SOON ON Row (Centered Matching Mockup) */
+/* COMING SOON ON Row (100% Absolute Center Symmetrical Alignment) */
 .hero-coming-soon-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  margin: 0 auto 32px;
-  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 auto 36px;
   text-align: center;
   width: 100%;
+  max-width: 780px;
 }
 
 .coming-soon-kicker {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   color: #8A928B;
   text-transform: uppercase;
 }
@@ -575,9 +579,10 @@ h2 span {
 .coming-soon-pills {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 }
 
 /* ══════════ ORGANIC WATERCOLOR PEBBLE WORD CLOUD (EXACT 2D CLOUD MATCH) ══════════ */
