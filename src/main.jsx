@@ -1786,20 +1786,11 @@ const CleanInteractiveMindMapSection = () => {
     >
       <div className="wrap">
         {/* Intro Header Grid */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '32px', flexWrap: 'wrap', gap: '20px' }}>
-          <div>
-            <p className="eyebrow" style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.08em', color: '#6E786F', marginBottom: '12px', textTransform: 'uppercase' }}>
-              INTERACTIVE MIND MAP
-            </p>
-            <h2 style={{ fontSize: 'clamp(32px, 3.8vw, 54px)', letterSpacing: '-2.4px', fontWeight: 500, lineHeight: 1.08, margin: 0, color: '#1C251D' }}>
-              Understand yourself.<br />
-              Decide with <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontWeight: 500, color: '#2B7858' }}>confidence.</em>
-            </h2>
-          </div>
-
-          <p style={{ fontSize: '14px', color: '#6E786F', maxWidth: '340px', margin: 0, lineHeight: 1.5, textAlign: 'right' }}>
-            Click any node to explore how your life patterns link together.
-          </p>
+        <div style={{ marginBottom: '28px' }}>
+          <p className="eyebrow green-eyebrow" style={{ marginBottom: '12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> MIND MAP</p>
+          <h2 style={{ fontSize: 'clamp(32px, 3.8vw, 54px)', letterSpacing: '-2px', fontWeight: 700, margin: 0, color: '#1C251D' }}>
+            Interactive <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: '#2B7858' }}>mind map.</em>
+          </h2>
         </div>
 
         {/* Filter Pills & Legend Row */}
@@ -2981,10 +2972,11 @@ function App() {
       {/* 4TH SECTION: MODERN INTERACTIVE READING / QUOTIENT SECTION (WHAT THIS IS FOR) */}
       <motion.section className="section quotient" id="quotient" {...sectionMotion}>
         <div className="wrap">
-          <div className="reading-header">
-            <p className="eyebrow green-eyebrow"><i></i> YOUR DAILY CLARITY SCORE</p>
-            <h2>A clear mirror<br/>for your <em>mind.</em></h2>
-            <p className="reading-sub">Track how balanced you feel across 6 core areas of your life.</p>
+          <div className="reading-header" style={{ marginBottom: '28px' }}>
+            <p className="eyebrow green-eyebrow" style={{ marginBottom: '12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> CLARITY SCORE</p>
+            <h2 style={{ fontSize: 'clamp(32px, 3.8vw, 54px)', letterSpacing: '-2px', fontWeight: 700, margin: 0, color: '#1C251D' }}>
+              Your daily <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: '#2B7858' }}>clarity score.</em>
+            </h2>
           </div>
 
           <div className="reading-toolbar">
@@ -3314,9 +3306,11 @@ function App() {
 
       {/* FAQ Section */}
       <section className="faq wrap" id="faq">
-        <div>
-          <p className="eyebrow">FAQ</p>
-          <h2>FAQ.</h2>
+        <div style={{ marginBottom: '28px' }}>
+          <p className="eyebrow green-eyebrow" style={{ marginBottom: '12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> FREQUENTLY ASKED QUESTIONS</p>
+          <h2 style={{ fontSize: 'clamp(32px, 3.8vw, 54px)', letterSpacing: '-2px', fontWeight: 700, margin: 0, color: '#1C251D' }}>
+            <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: '#2B7858' }}>FAQ.</em>
+          </h2>
         </div>
         <div className="faq-list">
           {faqs.map(([q,a],i) => (
