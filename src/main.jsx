@@ -3308,18 +3308,7 @@ function App() {
             </div>
           </motion.div>
 
-          {/* Intro Statement Banner */}
-          <motion.div 
-            className="hero-editorial-banner"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <p>
-              Brihas is a private AI thinking partner for life's harder questions.<br />
-              It looks for patterns, contradictions, and what you may be missing.
-            </p>
-          </motion.div>
+
 
           {/* Organic Watercolor Pebble Word Cloud in Hero Section */}
           <OrganicPebbleWordCloud 
