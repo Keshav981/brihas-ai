@@ -7441,3 +7441,75 @@ a:hover{ color:#131a15; }
   display:block !important;
   grid-template-columns:none !important;
 }
+
+
+/* ══════════ COMPACT ELEGANT VERTICAL SPACING OVERRIDES ══════════ */
+.hero-exact .hero__inner {
+  padding: 64px 24px 36px !important;
+  max-width: 860px !important;
+}
+
+.trust {
+  margin-top: 16px !important;
+  margin-bottom: 32px !important;
+}
+
+.trust__cell {
+  padding: 18px 22px !important;
+}
+
+.section,
+.who-mock-style,
+.how-mock-style,
+.mindmap-section-clean,
+.quotient,
+.comparison,
+.plans,
+.faq {
+  padding: 44px 0 !important;
+}
+
+.weighing-mind-header,
+.how-mock-header,
+.reading-header,
+.comparison-intro,
+.centered-heading {
+  margin-bottom: 20px !important;
+}
+
+.wc {
+  margin-bottom: 24px !important;
+}
+
+.simple-trial-card {
+  margin-bottom: 28px !important;
+  padding: 22px 28px !important;
+}
+
+.bento-section {
+  padding: 44px 0 !important;
+}
+
+footer {
+  padding-top: 36px !important;
+}
+
+.footer-top {
+  padding-bottom: 32px !important;
+}
+
+@media (max-width: 760px) {
+  .hero-exact .hero__inner {
+    padding: 48px 16px 24px !important;
+  }
+  .section,
+  .who-mock-style,
+  .how-mock-style,
+  .mindmap-section-clean,
+  .quotient,
+  .comparison,
+  .plans,
+  .faq {
+    padding: 32px 0 !important;
+  }
+}
