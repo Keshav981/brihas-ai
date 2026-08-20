@@ -7568,3 +7568,80 @@ footer {
   box-shadow: 0 0 10px #2B7858 !important;
   display: inline-block !important;
 }
+
+
+/* ══════════ MOBILE RESPONSIVE FIXES FOR WORD CLOUD & MIND MAP ══════════ */
+@media (max-width: 768px) {
+  /* Word Cloud Mobile Fixes */
+  .organic-pebble-container {
+    padding: 0 10px !important;
+  }
+
+  .pebble-blob-card {
+    height: 580px !important;
+    min-height: 580px !important;
+    border-radius: 36px !important;
+    padding: 20px 12px !important;
+  }
+
+  .pebble-header-absolute {
+    top: 20px !important;
+  }
+
+  .pebble-kicker {
+    font-size: 11px !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .pebble-absolute-tag {
+    font-size: clamp(10.5px, 3.2vw, 22px) !important;
+    padding: 2px 6px !important;
+  }
+
+  .botanical-branch-svg {
+    width: 90px !important;
+    height: 90px !important;
+    bottom: 16px !important;
+    left: 16px !important;
+    opacity: 0.65 !important;
+  }
+
+  /* Mind Map Mobile Fixes */
+  .mindmap-section-clean {
+    padding: 36px 0 !important;
+  }
+
+  .mindmap-section-clean .wrap {
+    padding: 0 12px !important;
+  }
+
+  .mindmap-canvas-stage {
+    height: 440px !important;
+    border-radius: 20px !important;
+  }
+
+  .mindmap-filter-row {
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 8px !important;
+    gap: 6px !important;
+  }
+
+  .mindmap-filter-pill {
+    padding: 6px 14px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mindmap-node-tag {
+    padding: 5px 11px !important;
+    font-size: 10.5px !important;
+  }
+
+  .mindmap-detail-card {
+    padding: 16px 18px !important;
+    border-radius: 18px !important;
+  }
+}

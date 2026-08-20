@@ -1309,8 +1309,7 @@ const LifeMapNavigationVisual = () => {
 
       {/* Floating Bottom Right: Today's Insight Card */}
       <AnimatePresence mode="wait">
-        <motion.div 
-          key={currentNode.id}
+        <motion.div className="mindmap-detail-card" key={currentNode.id}
           className="lifemap-insight-card"
           initial={{ opacity: 0, y: 12, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -1793,14 +1792,13 @@ const CleanInteractiveMindMapSection = () => {
         </div>
 
         {/* Filter Pills & Legend Row */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '16px' }}>
+        <div className="mindmap-filter-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '16px' }}>
           {/* Category Filter Pills */}
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
             {['All', 'Core Life', 'Action Areas', 'Internal State'].map(cat => {
               const isActive = activeFilter === cat;
               return (
-                <button
-                  key={cat}
+                <button className="mindmap-filter-pill" key={cat}
                   onClick={() => setActiveFilter(cat)}
                   style={{
                     padding: '8px 18px',
@@ -1836,11 +1834,7 @@ const CleanInteractiveMindMapSection = () => {
         </div>
 
         {/* Ethereal Mind Map Canvas Container */}
-        <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: '540px',
+        <div className="mindmap-canvas-stage" style={{ position: 'relative', width: '100%', height: '540px',
             borderRadius: '28px',
             background: 'linear-gradient(135deg, #d8e5d7 0%, #c4d7c3 40%, #dce7dc 100%)',
             border: '1px solid rgba(255, 255, 255, 0.7)',
@@ -1912,8 +1906,7 @@ const CleanInteractiveMindMapSection = () => {
             const isHighlight = highlightedNodeIds.includes(node.id);
 
             return (
-              <motion.div
-                key={node.id}
+              <motion.div className="mindmap-node-tag" key={node.id}
                 onClick={() => setSelectedNode(node.id)}
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.95 }}
@@ -1952,8 +1945,7 @@ const CleanInteractiveMindMapSection = () => {
 
         {/* Pattern Insight Drawer under the canvas */}
         {currentNode && currentNode.insight && (
-          <motion.div
-            key={currentNode.id}
+          <motion.div className="mindmap-detail-card" key={currentNode.id}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
