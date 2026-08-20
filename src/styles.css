@@ -7847,3 +7847,26 @@ footer {
     display: none !important;
   }
 }
+
+
+/* ══════════ REFINED SMALLER CAPSULE SECTION HEADERS ══════════ */
+.eyebrow.green-eyebrow,
+.how-mock-header .green-eyebrow,
+.reading-header .green-eyebrow,
+.comparison-intro .green-eyebrow,
+.centered-heading .green-eyebrow,
+.weighing-mind-header .green-eyebrow {
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  padding: 8px 18px !important;
+  border-radius: 100px !important;
+  color: #1C3B2B !important;
+}
+
+.pebble-kicker {
+  font-size: 11px !important;
+  letter-spacing: 0.1em !important;
+  font-weight: 600 !important;
+  color: #556358 !important;
+}
