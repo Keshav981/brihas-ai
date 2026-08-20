@@ -2945,7 +2945,7 @@ function App() {
       <motion.section className="section weighing-mind-section" id="topics" {...sectionMotion}>
         <div className="wrap" style={{ textAlign: 'center' }}>
           <div className="weighing-mind-header" style={{ textAlign: 'center', marginBottom: '24px' }}>
-            <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> EXPLORE CONCERNS</p>
+            <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> WHAT IS WEIGHING ON YOUR MIND?</p>
           </div>
 
           {/* Organic Watercolor Pebble Word Cloud */}
