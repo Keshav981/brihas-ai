@@ -581,51 +581,117 @@ h2 span {
   font-weight: 600;
 }
 
-/* ══════════ MIND MAP GALAXY STAGE (MATCHING ATTACHED DESIGN) ══════════ */
-.galaxy-mindmap-section {
+/* ══════════ SIMPLE BRAIN & THOUGHT CLOUD SILHOUETTE ══════════ */
+.simple-brain-cloud-section {
   width: 100%;
-  max-width: 1100px;
+  max-width: 960px;
   margin: 36px auto;
-  padding: 32px 16px;
+  padding: 24px 16px;
   text-align: center;
-  position: relative;
 }
 
-.galaxy-mindmap-header {
-  margin-bottom: 32px;
+.brain-cloud-header {
+  margin-bottom: 28px;
 }
 
-.galaxy-header-title {
+.brain-badge-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7C3AED;
+  background: rgba(124, 58, 237, 0.08);
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.brain-cloud-title {
   font-family: 'DM Sans', sans-serif;
-  font-size: clamp(26px, 3.6vw, 44px);
+  font-size: clamp(24px, 3.4vw, 42px);
   font-weight: 700;
   line-height: 1.25;
   color: #1C251D;
+  margin: 0;
   letter-spacing: -0.02em;
 }
 
-.galaxy-header-title .gradient-highlight {
+.purple-gradient-text {
   color: #9333EA;
   background: linear-gradient(135deg, #A855F7, #6366F1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.galaxy-stage {
+.brain-silhouette-card {
   position: relative;
   width: 100%;
-  min-height: 680px;
+  padding: 44px 28px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(226, 222, 210, 0.8);
+  border-radius: 36px;
+  box-shadow: 0 16px 50px rgba(180, 160, 210, 0.08);
+  overflow: hidden;
+}
+
+.brain-contour-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.brain-center-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(147, 51, 234, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 40px;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1.5px solid rgba(230, 226, 216, 0.85);
-  box-shadow: 0 20px 60px rgba(180, 160, 210, 0.08);
-  overflow: hidden;
-  padding: 40px 20px;
+  font-size: 22px;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 14px rgba(147, 51, 234, 0.12);
+  position: relative;
+  z-index: 5;
+}
+
+.brain-words-grid {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.brain-word-pill {
+  border-radius: 99px;
+  border: 1.5px solid;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+}
+
+.brain-word-pill:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .galaxy-lines-svg {

@@ -1638,239 +1638,104 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
   );
 };
 
-const galaxyClusters = [
-  {
-    id: 'emotions',
-    title: 'Emotions & Inner Thoughts',
-    icon: '🧠',
-    accentColor: '#8B5CF6',
-    bgColor: '#F5F3FF',
-    glowColor: 'rgba(139, 92, 246, 0.22)',
-    words: [
-      { text: 'Burnout', weight: 'xl' },
-      { text: 'Overthinking', weight: 'lg' },
-      { text: 'Self Doubt', weight: 'lg' },
-      { text: 'Stress', weight: 'md' },
-      { text: 'Feeling Stuck', weight: 'md' },
-      { text: 'Emotional Exhaustion', weight: 'sm' },
-      { text: 'Pressure', weight: 'sm' },
-      { text: 'Motivation', weight: 'sm' },
-      { text: 'Worries', weight: 'sm' },
-      { text: 'Feeling Lost', weight: 'md' }
-    ]
-  },
-  {
-    id: 'career',
-    title: 'Work & Career',
-    icon: '💼',
-    accentColor: '#2563EB',
-    bgColor: '#EFF6FF',
-    glowColor: 'rgba(37, 99, 235, 0.22)',
-    words: [
-      { text: 'Career', weight: 'xl' },
-      { text: 'Job Stress', weight: 'md' },
-      { text: 'Career Change', weight: 'md' },
-      { text: 'Work Pressure', weight: 'xl' },
-      { text: 'Growth', weight: 'lg' },
-      { text: 'Goals', weight: 'md' },
-      { text: 'Leadership', weight: 'sm' },
-      { text: 'Productivity', weight: 'sm' },
-      { text: 'Work Life Balance', weight: 'md' },
-      { text: 'Finding Purpose', weight: 'lg' },
-      { text: 'Skills', weight: 'sm' }
-    ]
-  },
-  {
-    id: 'decisions',
-    title: 'Decisions & Life Changes',
-    icon: '🪧',
-    accentColor: '#D97706',
-    bgColor: '#FEF3C7',
-    glowColor: 'rgba(217, 119, 6, 0.22)',
-    words: [
-      { text: 'Big Decisions', weight: 'xl' },
-      { text: 'Life Direction', weight: 'lg' },
-      { text: 'Change', weight: 'md' },
-      { text: 'Moving On', weight: 'md' },
-      { text: 'Transitions', weight: 'sm' },
-      { text: 'Starting Over', weight: 'sm' },
-      { text: 'New Beginning', weight: 'md' }
-    ]
-  },
-  {
-    id: 'growth',
-    title: 'Self Growth',
-    icon: '🌱',
-    accentColor: '#7C3AED',
-    bgColor: '#F3E8FF',
-    glowColor: 'rgba(124, 58, 237, 0.22)',
-    words: [
-      { text: 'Self Worth', weight: 'lg' },
-      { text: 'Confidence', weight: 'xl' },
-      { text: 'Identity', weight: 'lg' },
-      { text: 'Habits', weight: 'md' },
-      { text: 'Dreams', weight: 'md' },
-      { text: 'Values', weight: 'sm' },
-      { text: 'Reflection', weight: 'md' },
-      { text: 'Clarity', weight: 'xl' },
-      { text: 'Self Discovery', weight: 'lg' },
-      { text: 'Happiness', weight: 'md' }
-    ]
-  },
-  {
-    id: 'money',
-    title: 'Money & Stability',
-    icon: '👛',
-    accentColor: '#10B981',
-    bgColor: '#ECFDF5',
-    glowColor: 'rgba(16, 185, 129, 0.22)',
-    words: [
-      { text: 'Money', weight: 'xl' },
-      { text: 'Savings', weight: 'md' },
-      { text: 'Financial Stress', weight: 'lg' },
-      { text: 'Independence', weight: 'md' },
-      { text: 'Security', weight: 'md' },
-      { text: 'Wealth', weight: 'sm' }
-    ]
-  },
-  {
-    id: 'relationships',
-    title: 'Relationships',
-    icon: '💖',
-    accentColor: '#E11D48',
-    bgColor: '#FFF1F2',
-    glowColor: 'rgba(225, 29, 72, 0.22)',
-    words: [
-      { text: 'Love', weight: 'xl' },
-      { text: 'Marriage', weight: 'lg' },
-      { text: 'Family', weight: 'lg' },
-      { text: 'Trust Issues', weight: 'md' },
-      { text: 'Communication', weight: 'xl' },
-      { text: 'Connection', weight: 'lg' },
-      { text: 'Friendship', weight: 'md' },
-      { text: 'Conflict', weight: 'sm' }
-    ]
-  }
+const brainCloudWords = [
+  // Center Core
+  { text: 'Clarity', fontSize: '32px', weight: 800, color: '#2D6043', bg: '#E4EFE4' },
+  { text: 'Purpose', fontSize: '30px', weight: 800, color: '#7C3AED', bg: '#F3E8FF' },
+  { text: 'Balance', fontSize: '28px', weight: 700, color: '#14B8A6', bg: '#CCFBF1' },
+  { text: 'Identity', fontSize: '26px', weight: 700, color: '#2563EB', bg: '#EFF6FF' },
+  { text: 'Big Decisions', fontSize: '28px', weight: 700, color: '#D97706', bg: '#FEF3C7' },
+  { text: 'Reflection', fontSize: '24px', weight: 600, color: '#3B82F6', bg: '#EFF6FF' },
+
+  // Inner Mind / Emotions
+  { text: 'Burnout', fontSize: '30px', weight: 800, color: '#E07A5F', bg: '#FFF5F2' },
+  { text: 'Overthinking', fontSize: '28px', weight: 700, color: '#EC4899', bg: '#FDF2F8' },
+  { text: 'Self Doubt', fontSize: '26px', weight: 700, color: '#8B5CF6', bg: '#F5F3FF' },
+  { text: 'Stress', fontSize: '24px', weight: 600, color: '#8B5CF6', bg: '#F5F3FF' },
+  { text: 'Anxiety', fontSize: '24px', weight: 600, color: '#8B5CF6', bg: '#F5F3FF' },
+  { text: 'Fear', fontSize: '18px', weight: 500, color: '#EC4899', bg: '#FDF2F8' },
+  { text: 'Feeling Lost', fontSize: '24px', weight: 600, color: '#7C3AED', bg: '#EDE9FE' },
+  { text: 'Work Pressure', fontSize: '22px', weight: 600, color: '#E07A5F', bg: '#FFF5F2' },
+  { text: 'Breakup', fontSize: '20px', weight: 500, color: '#E07A5F', bg: '#FFF5F2' },
+  { text: 'Family', fontSize: '22px', weight: 600, color: '#3B82F6', bg: '#EFF6FF' },
+  { text: 'Love', fontSize: '24px', weight: 600, color: '#EC4899', bg: '#FDF2F8' },
+  { text: 'Trust', fontSize: '20px', weight: 500, color: '#3B82F6', bg: '#EFF6FF' },
+  { text: 'Relationships', fontSize: '28px', weight: 700, color: '#EC4899', bg: '#FDF2F8' },
+
+  // Growth & Future
+  { text: 'Growth', fontSize: '28px', weight: 700, color: '#14B8A6', bg: '#CCFBF1' },
+  { text: 'Confidence', fontSize: '26px', weight: 700, color: '#14B8A6', bg: '#CCFBF1' },
+  { text: 'Career', fontSize: '28px', weight: 700, color: '#2D6043', bg: '#E4EFE4' },
+  { text: 'Money', fontSize: '22px', weight: 600, color: '#D97706', bg: '#FEF3C7' },
+  { text: 'Goals', fontSize: '22px', weight: 600, color: '#D97706', bg: '#FEF3C7' },
+  { text: 'Motivation', fontSize: '22px', weight: 600, color: '#D97706', bg: '#FEF3C7' },
+  { text: 'Future', fontSize: '24px', weight: 600, color: '#3B82F6', bg: '#EFF6FF' },
+  { text: 'Change', fontSize: '20px', weight: 500, color: '#65A30D', bg: '#F7FEE7' },
+  { text: 'Habits', fontSize: '20px', weight: 500, color: '#65A30D', bg: '#F7FEE7' },
+  { text: 'Discipline', fontSize: '20px', weight: 500, color: '#2D6043', bg: '#E4EFE4' },
+  { text: 'Communication', fontSize: '22px', weight: 600, color: '#14B8A6', bg: '#CCFBF1' },
+  { text: 'Finance', fontSize: '20px', weight: 500, color: '#D97706', bg: '#FEF3C7' },
+  { text: 'Success', fontSize: '22px', weight: 600, color: '#2D6043', bg: '#E4EFE4' },
+  { text: 'Dreams', fontSize: '22px', weight: 600, color: '#8B5CF6', bg: '#F5F3FF' }
 ];
 
-const MindMapGalaxyVisualizer = ({ onSelectTopic }) => {
-  const [activeCluster, setActiveCluster] = useState(null);
+const SimpleBrainCloudVisualizer = ({ onSelectWord }) => {
+  const [selectedWord, setSelectedWord] = useState(null);
 
   return (
-    <div className="galaxy-mindmap-section">
-      {/* Title Header Matching User Image */}
-      <div className="galaxy-mindmap-header">
-        <h2 className="galaxy-header-title">
-          Whatever you're thinking,<br />
-          <span className="gradient-highlight">Brihas</span> is here for it.
+    <div className="simple-brain-cloud-section">
+      <div className="brain-cloud-header">
+        <span className="brain-badge-kicker">BRAIN &amp; THOUGHT SILHOUETTE</span>
+        <h2 className="brain-cloud-title">
+          Whatever you're processing,<br />
+          <span className="purple-gradient-text">Brihas brings clarity.</span>
         </h2>
       </div>
 
-      {/* Main Galaxy Interactive Stage */}
-      <div className="galaxy-stage">
-        {/* Curved Connection Lines SVG */}
-        <svg className="galaxy-lines-svg" viewBox="0 0 800 650" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="grad-emotions" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#EC4899" stopOpacity="0.2" />
-            </linearGradient>
-            <linearGradient id="grad-career" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#60A5FA" stopOpacity="0.2" />
-            </linearGradient>
-            <linearGradient id="grad-decisions" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#D97706" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#F59E0B" stopOpacity="0.2" />
-            </linearGradient>
-            <linearGradient id="grad-growth" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#A78BFA" stopOpacity="0.2" />
-            </linearGradient>
-            <linearGradient id="grad-money" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#10B981" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#34D399" stopOpacity="0.2" />
-            </linearGradient>
-            <linearGradient id="grad-relationships" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#E11D48" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#FB7185" stopOpacity="0.2" />
-            </linearGradient>
-          </defs>
-
-          <path d="M 400 325 Q 400 180 400 130" stroke="url(#grad-emotions)" strokeWidth="1.8" fill="none" strokeDasharray="4 4" />
-          <path d="M 400 325 Q 550 240 640 210" stroke="url(#grad-career)" strokeWidth="1.8" fill="none" strokeDasharray="4 4" />
-          <path d="M 400 325 Q 560 420 640 480" stroke="url(#grad-decisions)" strokeWidth="1.8" fill="none" strokeDasharray="4 4" />
-          <path d="M 400 325 Q 400 480 400 530" stroke="url(#grad-growth)" strokeWidth="1.8" fill="none" strokeDasharray="4 4" />
-          <path d="M 400 325 Q 240 420 160 480" stroke="url(#grad-money)" strokeWidth="1.8" fill="none" strokeDasharray="4 4" />
-          <path d="M 400 325 Q 240 240 160 210" stroke="url(#grad-relationships)" strokeWidth="1.8" fill="none" strokeDasharray="4 4" />
+      <div className="brain-silhouette-card">
+        {/* Soft SVG Brain / Thought Cloud Contour Lines */}
+        <svg className="brain-contour-svg" viewBox="0 0 800 480" fill="none" preserveAspectRatio="none">
+          <path d="M 280 80 C 140 70, 70 170, 90 300 C 110 420, 250 450, 380 430" stroke="rgba(139, 92, 246, 0.22)" strokeWidth="2" strokeDasharray="6 6" fill="none" />
+          <path d="M 520 80 C 660 70, 730 170, 710 300 C 690 420, 550 450, 420 430" stroke="rgba(16, 185, 129, 0.22)" strokeWidth="2" strokeDasharray="6 6" fill="none" />
+          <path d="M 380 430 Q 400 410 420 430" stroke="rgba(217, 119, 6, 0.28)" strokeWidth="2" fill="none" />
+          <path d="M 280 80 Q 400 110 520 80" stroke="rgba(147, 51, 234, 0.28)" strokeWidth="2" fill="none" />
         </svg>
 
-        {/* Central Core Orb: "YOU" */}
-        <motion.div 
-          className="galaxy-center-you-orb"
-          whileHover={{ scale: 1.06 }}
-          animate={{ scale: [1, 1.03, 1] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <div className="you-orb-inner">
-            <span className="you-orb-star">✦</span>
-            <span className="you-orb-text">YOU</span>
-            <span className="you-orb-sub">Your thoughts.<br />Understood.</span>
-          </div>
-        </motion.div>
+        {/* Central Brain Icon Tag */}
+        <div className="brain-center-icon">
+          <span>🧠</span>
+        </div>
 
-        {/* 6 Category Radial Clusters */}
-        {galaxyClusters.map((cluster) => {
-          const isActive = activeCluster === cluster.id;
-          return (
-            <div 
-              key={cluster.id} 
-              className={`galaxy-cluster-group cluster-${cluster.id} ${isActive ? 'active' : ''}`}
-            >
+        {/* Words Grid Contour */}
+        <div className="brain-words-grid">
+          {brainCloudWords.map((item, idx) => {
+            const isSelected = selectedWord === item.text;
+            return (
               <motion.button
+                key={idx}
                 type="button"
-                className="galaxy-hub-pill"
+                className={`brain-word-pill ${isSelected ? 'active' : ''}`}
                 style={{
-                  backgroundColor: cluster.bgColor,
-                  borderColor: cluster.accentColor,
-                  color: cluster.accentColor,
-                  boxShadow: `0 8px 24px ${cluster.glowColor}`
+                  fontSize: item.fontSize,
+                  fontWeight: item.weight,
+                  color: isSelected ? '#FFFFFF' : item.color,
+                  backgroundColor: isSelected ? item.color : item.bg,
+                  borderColor: isSelected ? item.color : 'rgba(0, 0, 0, 0.05)'
                 }}
                 onClick={() => {
-                  setActiveCluster(isActive ? null : cluster.id);
-                  if (onSelectTopic) onSelectTopic(cluster.title);
+                  setSelectedWord(item.text);
+                  if (onSelectWord) onSelectWord(item.text);
                 }}
-                whileHover={{ scale: 1.08 }}
+                whileHover={{ scale: 1.12, y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                animate={{ y: [0, idx % 2 === 0 ? -3 : 3, 0] }}
+                transition={{ duration: 3.5 + (idx % 3), repeat: Infinity, ease: 'easeInOut' }}
               >
-                <span className="hub-icon">{cluster.icon}</span>
-                <span className="hub-title">{cluster.title}</span>
+                {item.text}
               </motion.button>
-
-              <div className="galaxy-words-cloud">
-                {cluster.words.map((w, idx) => (
-                  <motion.button
-                    key={idx}
-                    type="button"
-                    className={`galaxy-word-pill weight-${w.weight}`}
-                    style={{
-                      color: cluster.accentColor,
-                      backgroundColor: 'rgba(255, 255, 255, 0.92)',
-                      borderColor: 'rgba(0, 0, 0, 0.05)'
-                    }}
-                    onClick={() => onSelectTopic && onSelectTopic(w.text)}
-                    whileHover={{ scale: 1.12, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    animate={{ y: [0, idx % 2 === 0 ? -3 : 3, 0] }}
-                    transition={{ duration: 3 + (idx % 3), repeat: Infinity, ease: 'easeInOut' }}
-                  >
-                    {w.text}
-                  </motion.button>
-                ))}
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
@@ -2096,9 +1961,9 @@ const InteractiveWhoThisIsForSection = ({ sectionMotion, stagger, item }) => {
           })}
         </motion.div>
 
-        {/* Radial Galaxy Mind Map Section 2 (Matching Attached Design) */}
-        <MindMapGalaxyVisualizer 
-          onSelectTopic={(topic) => {
+        {/* Simple Brain & Thought Cloud Silhouette Word Cloud (Section 2) */}
+        <SimpleBrainCloudVisualizer 
+          onSelectWord={(word) => {
             const el = document.getElementById('map');
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }}
@@ -3428,9 +3293,9 @@ function App() {
             </p>
           </motion.div>
 
-          {/* Mind Map Galaxy Visualizer in Hero Section */}
-          <MindMapGalaxyVisualizer 
-            onSelectTopic={(topic) => setHeroInputText(`I want to reflect on ${topic.toLowerCase()}...`)}
+          {/* Simple Brain & Thought Cloud Silhouette Word Cloud in Hero Section */}
+          <SimpleBrainCloudVisualizer 
+            onSelectWord={(word) => setHeroInputText(`I want to reflect on ${word.toLowerCase()}...`)}
           />
         </div>
       </section>
