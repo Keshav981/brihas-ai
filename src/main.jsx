@@ -1639,63 +1639,79 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
 };
 
 const pebbleWords = [
-  // Giant Focal Keywords
-  { text: 'Burnout', fontSize: '44px', weight: 800, color: '#2D4233' },
-  { text: 'Clarity', fontSize: '42px', weight: 800, color: '#2B4C3E' },
-  { text: 'Overthinking', fontSize: '38px', weight: 700, color: '#6B4B70' },
-  { text: 'Relationships', fontSize: '36px', weight: 700, color: '#83536B' },
-  { text: 'Career', fontSize: '34px', weight: 700, color: '#4B6E52' },
-  { text: 'Purpose', fontSize: '30px', weight: 600, color: '#5A6856' },
-  { text: 'Money', fontSize: '30px', weight: 600, color: '#856950' },
-  { text: 'Big decisions', fontSize: '28px', weight: 600, color: '#546051' },
-  { text: 'Identity', fontSize: '26px', weight: 600, color: '#625275' },
-
-  // Medium Keywords
-  { text: 'Self doubt', fontSize: '22px', weight: 600, color: '#5A685D' },
-  { text: 'Confidence', fontSize: '22px', weight: 600, color: '#687062' },
-  { text: 'Growth', fontSize: '22px', weight: 600, color: '#5B6E5F' },
-  { text: 'Future', fontSize: '22px', weight: 600, color: '#6E5879' },
-  { text: 'Bullying', fontSize: '22px', weight: 600, color: '#7B4E59' },
-  { text: 'Health', fontSize: '20px', weight: 500, color: '#586E5D' },
-  { text: 'Stress', fontSize: '20px', weight: 500, color: '#5A5868' },
+  // Top Row (Stress, Anxiety, Self doubt, Feeling stuck)
+  { text: 'Stress', fontSize: '19px', weight: 500, color: '#5A5868' },
   { text: 'Anxiety', fontSize: '20px', weight: 500, color: '#555866' },
-  { text: 'Feeling stuck', fontSize: '20px', weight: 500, color: '#626B5F' },
-  { text: 'Work pressure', fontSize: '18px', weight: 500, color: '#6E5E58' },
-  { text: 'Boundaries', fontSize: '18px', weight: 500, color: '#686B60' },
-  { text: 'Pressure', fontSize: '17px', weight: 500, color: '#685E6E' },
+  { text: 'Self doubt', fontSize: '24px', weight: 600, color: '#4B554F' },
+  { text: 'Feeling stuck', fontSize: '20px', weight: 500, color: '#5E665D' },
 
-  // Small Supporting Keywords
-  { text: 'Motivation', fontSize: '15px', weight: 400, color: '#7D7569' },
-  { text: 'Communication', fontSize: '16px', weight: 400, color: '#7A6458' },
-  { text: 'Conflict', fontSize: '15px', weight: 400, color: '#826569' },
-  { text: 'Family', fontSize: '16px', weight: 400, color: '#70645A' },
-  { text: 'Breakup', fontSize: '15px', weight: 400, color: '#856165' },
-  { text: 'Connection', fontSize: '15px', weight: 400, color: '#806864' },
-  { text: 'Loneliness', fontSize: '15px', weight: 400, color: '#6A6578' },
-  { text: 'Emotions', fontSize: '15px', weight: 400, color: '#75685B' },
-  { text: 'Work life balance', fontSize: '15px', weight: 400, color: '#5D6C5E' },
-  { text: 'Productivity', fontSize: '15px', weight: 400, color: '#6A7368' },
-  { text: 'New beginning', fontSize: '15px', weight: 400, color: '#6D7364' },
-  { text: 'Starting over', fontSize: '15px', weight: 400, color: '#687063' },
-  { text: 'Balance', fontSize: '15px', weight: 400, color: '#5C6C60' },
-  { text: 'What next?', fontSize: '15px', weight: 400, color: '#70675C' }
+  // Upper Mid Row
+  { text: 'Pressure', fontSize: '18px', weight: 500, color: '#685E6E' },
+  { text: 'Overthinking', fontSize: '42px', weight: 800, color: '#5C4A68' },
+  { text: 'Motivation', fontSize: '16px', weight: 400, color: '#7D7569' },
+  { text: 'Career', fontSize: '36px', weight: 800, color: '#44634B' },
+  { text: 'Future', fontSize: '24px', weight: 600, color: '#6E587A' },
+
+  // Center Core
+  { text: 'Boundaries', fontSize: '18px', weight: 500, color: '#686B60' },
+  { text: 'Purpose', fontSize: '32px', weight: 700, color: '#5A6856' },
+  { text: 'Burnout', fontSize: '50px', weight: 900, color: '#2E4034' },
+  { text: 'Health', fontSize: '24px', weight: 600, color: '#586E5D' },
+  { text: 'Confidence', fontSize: '24px', weight: 600, color: '#5A6158' },
+
+  // Mid Center
+  { text: 'Bullying', fontSize: '24px', weight: 600, color: '#7B4E59' },
+  { text: 'Money', fontSize: '32px', weight: 700, color: '#78604B' },
+  { text: 'What next?', fontSize: '16px', weight: 400, color: '#70675C' },
+  { text: 'Big decisions', fontSize: '30px', weight: 700, color: '#546051' },
+  { text: 'Growth', fontSize: '24px', weight: 600, color: '#5B6E5F' },
+
+  // Lower Mid Row
+  { text: 'Communication', fontSize: '17px', weight: 400, color: '#7A6458' },
+  { text: 'Conflict', fontSize: '16px', weight: 400, color: '#826569' },
+  { text: 'Identity', fontSize: '28px', weight: 700, color: '#5C4F6B' },
+  { text: 'Clarity', fontSize: '46px', weight: 900, color: '#274C3A' },
+
+  // Bottom Center Focal
+  { text: 'Relationships', fontSize: '40px', weight: 800, color: '#7D4D59' },
+
+  // Bottom Rows & Supporting
+  { text: 'Family', fontSize: '17px', weight: 400, color: '#70645A' },
+  { text: 'Breakup', fontSize: '16px', weight: 400, color: '#856165' },
+  { text: 'Work pressure', fontSize: '17px', weight: 500, color: '#6E5E58' },
+  { text: 'Work life balance', fontSize: '17px', weight: 500, color: '#5B665C' },
+  { text: 'Starting over', fontSize: '16px', weight: 400, color: '#5D635B' },
+
+  { text: 'Connection', fontSize: '16px', weight: 400, color: '#806864' },
+  { text: 'Friendship', fontSize: '16px', weight: 400, color: '#6B665E' },
+  { text: 'Productivity', fontSize: '16px', weight: 400, color: '#6A7368' },
+  { text: 'New beginning', fontSize: '16px', weight: 400, color: '#5E6359' },
+
+  { text: 'Loneliness', fontSize: '16px', weight: 400, color: '#666170' },
+  { text: 'Emotions', fontSize: '16px', weight: 400, color: '#6B625A' },
+  { text: 'Balance', fontSize: '16px', weight: 400, color: '#5C6C60' }
 ];
 
 const OrganicPebbleWordCloud = ({ onSelectWord }) => {
   return (
     <div className="organic-pebble-container">
       <div className="pebble-blob-card">
-        {/* Botanical Leaf SVG Accent on Bottom Left */}
-        <svg className="botanical-leaf-svg" viewBox="0 0 120 120" fill="none">
-          <path d="M 20 100 C 40 80, 50 40, 90 20 C 70 50, 60 80, 20 100 Z" fill="#8FA68E" opacity="0.45" />
-          <path d="M 20 100 C 30 70, 60 50, 100 40 C 70 60, 40 80, 20 100 Z" fill="#6A8569" opacity="0.35" />
-          <path d="M 20 100 Q 55 60 90 20" stroke="#4A6548" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.6" />
+        {/* Botanical Leaf Stem SVG Accent on Bottom Left */}
+        <svg className="botanical-branch-svg" viewBox="0 0 160 160" fill="none">
+          <path d="M 10 150 Q 50 110 120 40" stroke="#5E7860" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+          <path d="M 35 125 C 20 110 15 90 30 85 C 45 80 50 100 35 125 Z" fill="#7A9878" opacity="0.85" />
+          <path d="M 40 120 C 55 105 75 105 75 120 C 75 135 55 135 40 120 Z" fill="#8DAA8B" opacity="0.8" />
+          <path d="M 65 95 C 45 80 40 60 55 55 C 70 50 75 70 65 95 Z" fill="#5F7E5D" opacity="0.9" />
+          <path d="M 70 90 C 85 75 105 75 105 90 C 105 105 85 105 70 90 Z" fill="#7A9878" opacity="0.85" />
+          <path d="M 95 65 C 80 50 75 35 90 30 C 105 25 110 45 95 65 Z" fill="#4B6849" opacity="0.95" />
+          <path d="M 100 60 C 115 45 135 45 135 60 C 135 75 115 75 100 60 Z" fill="#6A8A68" opacity="0.85" />
+          <path d="M 120 40 C 120 20 140 15 145 30 C 150 45 135 55 120 40 Z" fill="#5F7E5D" opacity="0.9" />
         </svg>
 
         {/* Header inside Watercolor Blob */}
         <div className="pebble-header">
           <div className="cloud-icon-badge">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#576359" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A574C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
             </svg>
           </div>
