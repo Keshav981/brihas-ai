@@ -3237,54 +3237,7 @@ function App() {
             </button>
           </motion.form>
 
-          {/* Subtitle Text */}
-          <motion.p 
-            className="hero-editorial-subtext"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            Say what you're really thinking.<br />
-            Private by design. You control what Brihas remembers.
-          </motion.p>
 
-          {/* 3 Prompt Cards Row */}
-          <motion.div 
-            className="hero-prompt-cards-row"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <motion.button 
-              type="button"
-              className="hero-prompt-card"
-              whileHover={{ y: -3, scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => setHeroInputText("I've been offered a job I'm not sure I want.")}
-            >
-              I've been offered a job I'm not sure I want.
-            </motion.button>
-
-            <motion.button 
-              type="button"
-              className="hero-prompt-card"
-              whileHover={{ y: -3, scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => setHeroInputText("Unspoken friction with my partner.")}
-            >
-              Unspoken friction with my partner.
-            </motion.button>
-
-            <motion.button 
-              type="button"
-              className="hero-prompt-card"
-              whileHover={{ y: -3, scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => setHeroInputText("I look fine, I don't feel fine.")}
-            >
-              I look fine, I don't feel fine.
-            </motion.button>
-          </motion.div>
 
           {/* Intro Statement Banner */}
           <motion.div 
