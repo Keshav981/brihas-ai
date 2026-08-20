@@ -254,7 +254,7 @@ const InteractiveHeroBrainMascot = () => {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
             >
-              <CloudBubble className="t-relationships" emoji="🎯" text="3-Day Action Plan!" isClarity />
+              <CloudBubble className="t-relationships" emoji="🎯" text="3 day Action Plan!" isClarity />
             </motion.div>
 
             <motion.div 
@@ -1528,9 +1528,9 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
     {
       num: '04',
       title: 'You get clear\nmicro-actions.',
-      desc: 'A 3-day try or a 7-day shift sized to your moment. Clear, practical steps — never generic advice or homework.',
+      desc: 'A 3 day try or a 7 day shift sized to your moment. Clear, practical steps — never generic advice or homework.',
       icon: '⚡',
-      tag: '3 & 7-Day Action Shifts',
+      tag: '3 & 7 day Action Shifts',
       accentColor: '#3B82F6',
       bgColor: '#EFF6FF',
       preview: {
@@ -1744,235 +1744,6 @@ const OrganicPebbleWordCloud = ({ onSelectWord }) => {
   );
 };
 
-const InteractiveWhoThisIsForSection = ({ sectionMotion, stagger, item }) => {
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const [selectedTopics, setSelectedTopics] = useState(['burnout']);
-  const [activePersona, setActivePersona] = useState('quiet-decision');
-  const [activeCloudWords, setActiveCloudWords] = useState(['Burnout', 'Overthinking', 'Clarity']);
-
-  const toggleTopic = (id) => {
-    setSelectedTopics(prev => 
-      prev.includes(id) ? prev.filter(t => t !== id) : [...prev, id]
-    );
-  };
-
-  const topics = [
-    {
-      id: 'burnout',
-      title: 'Burnout & Overwhelm',
-      sub: 'Feeling drained or exhausted',
-      icon: '🔥',
-      bgColor: '#FFF5F2',
-      accentColor: '#E07A5F',
-      shadowColor: 'rgba(224, 122, 95, 0.22)'
-    },
-    {
-      id: 'stress',
-      title: 'Stress & Overthinking',
-      sub: 'Racing thoughts, constant worry',
-      icon: '🧠',
-      bgColor: '#F5F3FF',
-      accentColor: '#8B5CF6',
-      shadowColor: 'rgba(139, 92, 246, 0.22)'
-    },
-    {
-      id: 'partner',
-      title: 'Partner & Marriage',
-      sub: 'Love, conflicts, connection',
-      icon: '💖',
-      bgColor: '#FDF2F8',
-      accentColor: '#EC4899',
-      shadowColor: 'rgba(236, 72, 153, 0.22)'
-    },
-    {
-      id: 'family',
-      title: 'Family & Parenting',
-      sub: 'Something at home is weighing on me',
-      icon: '🏡',
-      bgColor: '#EFF6FF',
-      accentColor: '#3B82F6',
-      shadowColor: 'rgba(59, 130, 246, 0.22)'
-    },
-    {
-      id: 'career',
-      title: 'Career & Work',
-      sub: 'Stuck, unhappy or confused about work',
-      icon: '🎯',
-      bgColor: '#E4EFE4',
-      accentColor: '#2D6043',
-      shadowColor: 'rgba(45, 96, 67, 0.22)'
-    },
-    {
-      id: 'money',
-      title: 'Money & Financial Stress',
-      sub: 'Money is constantly on my mind',
-      icon: '💎',
-      bgColor: '#FEF3C7',
-      accentColor: '#D97706',
-      shadowColor: 'rgba(217, 119, 6, 0.22)'
-    },
-    {
-      id: 'direction',
-      title: 'Life Direction',
-      sub: "I don't know what I want next",
-      icon: '🧭',
-      bgColor: '#EDE9FE',
-      accentColor: '#7C3AED',
-      shadowColor: 'rgba(124, 58, 237, 0.22)'
-    },
-    {
-      id: 'decision',
-      title: 'A Difficult Decision',
-      sub: 'I need clarity before I choose',
-      icon: '⚖️',
-      bgColor: '#FEF9C3',
-      accentColor: '#CA8A04',
-      shadowColor: 'rgba(202, 138, 4, 0.22)'
-    },
-    {
-      id: 'motivation',
-      title: 'Motivation & Discipline',
-      sub: "I know what to do, but I'm not doing it",
-      icon: '⚡',
-      bgColor: '#FEF3C7',
-      accentColor: '#D97706',
-      shadowColor: 'rgba(217, 119, 6, 0.22)'
-    },
-    {
-      id: 'confidence',
-      title: 'Confidence & Self Worth',
-      sub: "I'm doubting myself",
-      icon: '✨',
-      bgColor: '#CCFBF1',
-      accentColor: '#14B8A6',
-      shadowColor: 'rgba(20, 184, 166, 0.22)'
-    },
-    {
-      id: 'change',
-      title: 'Change, Loss & Moving On',
-      sub: "Something changed and I'm struggling to move forward",
-      icon: '🌱',
-      bgColor: '#F7FEE7',
-      accentColor: '#65A30D',
-      shadowColor: 'rgba(101, 163, 13, 0.22)'
-    },
-    {
-      id: 'else',
-      title: 'Something else',
-      sub: 'Anything else on your mind, no topic is off limits',
-      icon: '💭',
-      bgColor: '#F8FAFC',
-      accentColor: '#64748B',
-      shadowColor: 'rgba(100, 116, 139, 0.22)'
-    }
-  ];
-
-  const personas = [
-    {
-      id: 'quiet-decision',
-      title: 'The quiet decision maker',
-      sub: 'Weighing a job change, a move, a relationship to leave. Alone, at 1am, on a loop.',
-      insight: 'Brihas gives you an objective mirror to test your options at 1am without pressure.',
-      icon: '🌌',
-      bgColor: '#F3E8FF',
-      accentColor: '#8B5CF6'
-    },
-    {
-      id: 'high-functioning',
-      title: 'The high functioning tired',
-      sub: "Looks fine. Doesn't feel fine. Can't name what's off, or to whom.",
-      insight: 'Express exact fatigue, unpick hidden stressors, and restore balance quietly.',
-      icon: '🔋',
-      bgColor: '#FFF5F2',
-      accentColor: '#E07A5F'
-    },
-    {
-      id: 'pattern-repeater',
-      title: 'The pattern repeater',
-      sub: 'Same fight, different partner. Same burnout, different job. You want to know why.',
-      insight: 'Brihas connects dots across past weeks to show why the same pattern loops.',
-      icon: '🔄',
-      bgColor: '#E4EFE4',
-      accentColor: '#2D6043'
-    }
-  ];
-
-  return (
-    <motion.section className="section who-mock-style" id="who" {...sectionMotion}>
-      <div className="wrap">
-        {/* Main Section Header */}
-        <div className="who-mock-header" style={{ marginBottom: '40px' }}>
-          <p className="eyebrow green-eyebrow" style={{ marginBottom: '10px' }}>WHO THIS IS FOR</p>
-          <h2 style={{ fontSize: 'clamp(32px, 3.8vw, 54px)', letterSpacing: '-2px', fontWeight: 700, margin: '0 0 12px', color: '#1C251D' }}>
-            Not crisis. <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: '#2B7858' }}>Attention.</em>
-          </h2>
-          <p className="who-mock-sub" style={{ maxWidth: '720px', margin: '0 auto', fontSize: '16.5px', lineHeight: 1.55, color: '#576359' }}>
-            For questions with no owner. Not sick enough for therapy. Too important for a group chat. Too personal for a search bar.
-          </p>
-        </div>
-
-        {/* 3 Core Persona Cards with Click Interaction */}
-        <motion.div className="persona-feature-grid" {...stagger}>
-          {personas.map(p => {
-            const isSelected = activePersona === p.id;
-            return (
-              <motion.article
-                key={p.id}
-                className={`persona-feature-card ${isSelected ? 'selected' : ''}`}
-                onClick={() => setActivePersona(p.id)}
-                whileHover={{ y: -6 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: 'spring', stiffness: 350, damping: 22 }}
-                style={{
-                  borderColor: isSelected ? p.accentColor : '#ECEEEA',
-                  backgroundColor: isSelected ? p.bgColor : '#FFFFFF',
-                  boxShadow: isSelected ? `0 16px 35px -8px ${p.accentColor}30, 0 0 0 2px ${p.accentColor}` : '0 8px 24px rgba(28, 37, 29, 0.03)',
-                  cursor: 'pointer'
-                }}
-                {...item}
-              >
-                <div className="persona-badge" style={{ backgroundColor: isSelected ? '#FFFFFF' : p.bgColor }}>
-                  {p.icon}
-                </div>
-                <h3 className="persona-title">{p.title}</h3>
-                <p className="persona-sub">{p.sub}</p>
-
-                {/* Click Interactive Revealed Insight Text */}
-                <AnimatePresence>
-                  {isSelected && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                      animate={{ opacity: 1, height: 'auto', marginTop: 14 }}
-                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                      style={{
-                        background: '#FFFFFF',
-                        border: `1px solid ${p.accentColor}40`,
-                        borderRadius: '14px',
-                        padding: '12px 14px',
-                        fontSize: '13.5px',
-                        fontWeight: 500,
-                        color: p.accentColor,
-                        lineHeight: 1.45
-                      }}
-                    >
-                      ✨ <strong>How Brihas Helps:</strong> {p.insight}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.article>
-            );
-          })}
-        </motion.div>
-
-        
-
-
-
-
-      </div>
-    </motion.section>
-  );
-};
 
 
 const CleanInteractiveMindMapSection = () => {
@@ -2393,14 +2164,14 @@ const Interactive3DMindMapDashboard = () => {
         </div>
         <div className="plan-progress-item">
           <div className="progress-info">
-            <span>3-Day Plan</span>
+            <span>3 day Plan</span>
             <small>2/3</small>
           </div>
           <div className="progress-track"><div className="progress-fill" style={{ width: '66%' }}></div></div>
         </div>
         <div className="plan-progress-item">
           <div className="progress-info">
-            <span>7-Day Plan</span>
+            <span>7 day Plan</span>
             <small>5/7</small>
           </div>
           <div className="progress-track"><div className="progress-fill" style={{ width: '71%' }}></div></div>
@@ -3066,7 +2837,7 @@ function App() {
           <div className="wordmark">brihas<span>.ai</span></div>
           <nav className="nav__links">
             <a href="#what">What it is</a>
-            <a href="#who">Who it's for</a>
+            <a href="#topics">What's on your mind</a>
             <a href="#how">How it works</a>
             <a href="#plans">Plans</a>
           </nav>
@@ -3205,7 +2976,7 @@ function App() {
       </motion.section>
 
       {/* 3RD SECTION: WHO THIS IS FOR */}
-      <InteractiveWhoThisIsForSection sectionMotion={sectionMotion} stagger={stagger} item={item} />
+      
 
       {/* 3RD SECTION: HOW IT WORKS */}
       <InteractiveHowItWorksSection sectionMotion={sectionMotion} stagger={stagger} item={item} />
@@ -3380,7 +3151,7 @@ function App() {
                   ['Remembers across weeks','Yes, if you stay','Only if re-read','No, resets each chat','✓ Living Continuity'],
                   ['Structured score','Rarely','No','No','✓ 6D Quotient'],
                   ['Available at 1am','No','Yes','Yes','✓ 24/7 Access'],
-                  ['Action plan','Sometimes','No','No','✓ 3 & 7-Day Plans'],
+                  ['Action plan','Sometimes','No','No','✓ 3 & 7 day Plans'],
                   ['Living timeline','Session notes','Static pages','Resets each chat','✓ Evolving Timeline'],
                   ['Maps life beliefs','In your head','No','No','✓ Personal Life Map']
                 ].map(row => (
@@ -3420,7 +3191,7 @@ function App() {
                   ['Remembers across weeks', mobileCompTab === 'THERAPY' ? 'Yes, if you stay' : mobileCompTab === 'JOURNALING' ? 'Only if re-read' : 'No, resets each chat', '✓ Living Continuity'],
                   ['Structured score', mobileCompTab === 'THERAPY' ? 'Rarely' : 'No', '✓ 6D Quotient'],
                   ['Available at 1am', mobileCompTab === 'THERAPY' ? 'No' : 'Yes', '✓ 24/7 Access'],
-                  ['Action plan', mobileCompTab === 'THERAPY' ? 'Sometimes' : 'No', '✓ 3 & 7-Day Plans'],
+                  ['Action plan', mobileCompTab === 'THERAPY' ? 'Sometimes' : 'No', '✓ 3 & 7 day Plans'],
                   ['Living Timeline', mobileCompTab === 'THERAPY' ? 'Session notes' : mobileCompTab === 'JOURNALING' ? 'Static pages' : 'Resets each chat', '✓ Evolving Timeline'],
                   ['Maps life beliefs', mobileCompTab === 'THERAPY' ? 'In your head' : 'No', '✓ Personal Life Map']
                 ].map(([feature, altVal, brihasVal]) => (
@@ -3444,21 +3215,21 @@ function App() {
           <div className="centered-heading">
             <p className="eyebrow">Plans & Access</p>
             <h2>Choose your path to <em>daily clarity.</em></h2>
-            <p>Start with a 7-day trial or select a plan tailored to your daily rhythm.</p>
+            <p>Start with a 7 day trial or select a plan tailored to your daily rhythm.</p>
           </div>
 
           {/* Introductory Trial Banner */}
           <motion.article className="simple-trial-card" {...item}>
             <div className="trial-left">
-              <span className="trial-badge">⚡ 7-DAY TRIAL</span>
-              <h3>Start with a 7-Day Trial</h3>
+              <span className="trial-badge">⚡ 7 day TRIAL</span>
+              <h3>Start with a 7 day Trial</h3>
               <p>Experience daily Brihas conversations and get your first Quotient reading before committing.</p>
             </div>
             <div className="trial-middle">
               <span className="trial-chip">3 Sessions · 30 Mins Total</span>
             </div>
             <div className="trial-right">
-              <a className="button button-dark" href="#plans">Start 7-Day Trial <Icon name="arrow"/></a>
+              <a className="button button-dark" href="#plans">Start 7 day Trial <Icon name="arrow"/></a>
             </div>
           </motion.article>
 
@@ -3470,7 +3241,7 @@ function App() {
                 subtitle: 'Light, steady check-ins to stay mindful.',
                 allocation: '🌿 30 Sessions · 10 mins/day',
                 features: [
-                  'Daily 1:1 conversation at your pace',
+                  'Daily one on one conversation at your pace',
                   'Full Brihas Quotient reading',
                   'Key insights saved in session notes',
                   '24/7 private access anytime'
@@ -3495,7 +3266,7 @@ function App() {
                 allocation: '🌌 120 Sessions · 40 mins/day',
                 features: [
                   'Everything in Converse',
-                  'Personalised 3 & 7-day action plans',
+                  'Personalised 3 & 7 day action plans',
                   'Full interactive Mind Map access',
                   'Weekly review & direction compass'
                 ],
