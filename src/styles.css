@@ -7535,3 +7535,36 @@ footer {
   box-shadow: 0 8px 20px rgba(45, 96, 67, 0.12), 0 0 0 1px rgba(45, 96, 67, 0.18) !important;
   color: #1C251D !important;
 }
+
+
+/* ══════════ LARGE H1-STYLE CAPSULE SECTION HEADERS ══════════ */
+.eyebrow.green-eyebrow,
+.how-mock-header .green-eyebrow,
+.reading-header .green-eyebrow,
+.comparison-intro .green-eyebrow,
+.centered-heading .green-eyebrow {
+  font-family: 'DM Mono', monospace !important;
+  font-size: clamp(15px, 1.6vw, 20px) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #1C3B2B !important;
+  background: linear-gradient(135deg, #EBF2EC 0%, #DCE8DD 100%) !important;
+  border: 1.5px solid #B8D4BA !important;
+  padding: 10px 24px !important;
+  border-radius: 100px !important;
+  box-shadow: 0 4px 18px rgba(45, 96, 67, 0.1) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin: 0 auto !important;
+}
+
+.eyebrow.green-eyebrow i {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background-color: #2B7858 !important;
+  box-shadow: 0 0 10px #2B7858 !important;
+  display: inline-block !important;
+}

@@ -3114,9 +3114,8 @@ function App() {
       {/* 6TH SECTION: Comparison Table & Non-Scrollable Mobile Comparison View */}
       <section className="comparison">
         <div className="wrap">
-          <div className="comparison-intro">
-            <p className="eyebrow">Why not therapy, journaling, or ChatGPT?</p>
-            <h2>Brihas brings together<br/>what others do <em>separately.</em></h2>
+          <div className="comparison-intro" style={{ textAlign: 'center', marginBottom: '28px' }}>
+            <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> WHY BRIHAS</p>
           </div>
           
           {/* Desktop Table View */}
