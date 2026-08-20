@@ -2977,6 +2977,9 @@ function App() {
     setMousePos({ x: Math.round(x), y: Math.round(y) });
   };
 
+  // Hero Section Input State
+  const [heroInputText, setHeroInputText] = useState('');
+
   // Quotient Section State
   const [dimFilter, setDimFilter] = useState('All');
   const [activeDimId, setActiveDimId] = useState('clarity');
@@ -3077,110 +3080,141 @@ function App() {
       </AnimatePresence>
 
       {/* Exact Hero Stage with Dynamic Cursor Mouse Tracking Background Mesh */}
+      {/* Editorial Warm Hero Section (Matching User Mockup) */}
       <section 
-        className="hero-exact"
+        className="hero-editorial-section"
         onMouseMove={handleHeroMouseMove}
         style={{
           backgroundImage: `
-            radial-gradient(760px 620px at ${mousePos.x}% ${mousePos.y}%, rgba(198,222,199,0.92), transparent 66%),
-            radial-gradient(700px 620px at 62% 88%, rgba(226,205,236,0.68), transparent 70%),
-            radial-gradient(680px 560px at 100% 4%, rgba(248,228,208,0.78), transparent 68%)
+            radial-gradient(800px 600px at ${mousePos.x}% ${mousePos.y}%, rgba(246,242,232,0.96), transparent 70%),
+            radial-gradient(700px 550px at 15% 85%, rgba(226,238,228,0.7), transparent 60%),
+            radial-gradient(700px 550px at 85% 85%, rgba(238,228,244,0.7), transparent 60%)
           `
         }}
       >
-        <div className="hero__inner">
-          <div className="hero__copy">
-            <h1>Life gets complicated.<br />Brihas brings <em>clarity.</em></h1>
-            <p className="hero__sub">
-              Understand your thoughts. Navigate every decision. <strong>All in one private space.</strong>
+        <div className="hero-editorial-container">
+          {/* Main Editorial Headline */}
+          <motion.h1 
+            className="hero-editorial-title"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Too important for a group chat.<br />
+            Too personal for a search bar.
+          </motion.h1>
+
+          {/* Sub-kicker */}
+          <motion.div 
+            className="hero-editorial-kicker"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            HONEST WITH YOU. ABOUT YOU.
+          </motion.div>
+
+          {/* Interactive Search Input Card */}
+          <motion.form 
+            className="hero-editorial-input-card"
+            initial={{ opacity: 0, y: 20, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (heroInputText.trim()) {
+                const el = document.getElementById('map');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            <input 
+              type="text" 
+              placeholder="Whats on your mind?"
+              value={heroInputText}
+              onChange={(e) => setHeroInputText(e.target.value)}
+            />
+            <button type="submit" className="hero-input-arrow-btn" aria-label="Start reflection">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </button>
+          </motion.form>
+
+          {/* Subtitle Text */}
+          <motion.p 
+            className="hero-editorial-subtext"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            Say what you're really thinking.<br />
+            Private by design. You control what Brihas remembers.
+          </motion.p>
+
+          {/* 3 Prompt Cards Row */}
+          <motion.div 
+            className="hero-prompt-cards-row"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <motion.button 
+              type="button"
+              className="hero-prompt-card"
+              whileHover={{ y: -3, scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setHeroInputText("I've been offered a job I'm not sure I want.")}
+            >
+              I've been offered a job I'm not sure I want.
+            </motion.button>
+
+            <motion.button 
+              type="button"
+              className="hero-prompt-card"
+              whileHover={{ y: -3, scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setHeroInputText("Unspoken friction with my partner.")}
+            >
+              Unspoken friction with my partner.
+            </motion.button>
+
+            <motion.button 
+              type="button"
+              className="hero-prompt-card"
+              whileHover={{ y: -3, scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setHeroInputText("I look fine, I don't feel fine.")}
+            >
+              I look fine, I don't feel fine.
+            </motion.button>
+          </motion.div>
+
+          {/* Intro Statement Banner */}
+          <motion.div 
+            className="hero-editorial-banner"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <p>
+              Brihas is a private AI thinking partner for life's harder questions.<br />
+              It looks for patterns, contradictions, and what you may be missing.
             </p>
-            <div className="stores">
-              <span className="kicker">Coming soon on</span>
-              <div className="store-badge-group">
-                <div className="store-badge-pill">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M3.609 1.814L13.792 12 3.61 22.186a1.94 1.94 0 0 1-.61-1.393V3.207c0-.53.221-1.025.609-1.393z" fill="#2196F3"/>
-                    <path d="M17.18 8.612l-3.388 3.388 3.388 3.388 4.298-2.457c.928-.53.928-1.389 0-1.919l-4.298-2.4 0 0z" fill="#FFC107"/>
-                    <path d="M3.609 1.814L13.792 12 17.18 8.612 5.528.932C4.78.504 3.978.852 3.609 1.814z" fill="#4CAF50"/>
-                    <path d="M3.609 22.186c.369.962 1.171 1.31 1.919.882l11.652-7.68-3.388-3.388L3.609 22.186z" fill="#F44336"/>
-                  </svg>
-                  <span>Google Play</span>
-                </div>
-                <div className="store-badge-pill">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#1C251D">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.82c.67-.82 1.12-1.96.99-3.1-.96.04-2.13.64-2.82 1.44-.61.71-1.14 1.87-1 3 .01 0 .04.01.07.01 1.08 0 2.1-.53 2.76-1.35z"/>
-                  </svg>
-                  <span>App Store</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Interactive Floating Liquid Glass Card Stage Container */}
-          <div className="stage-wrap-mobile">
-            <div className="stage">
-            <div className="stage__glow"></div>
-
-            <svg className="stage__ring" viewBox="0 0 300 300">
-              <defs>
-                <path id="brihas-ring" d="M150,150 m-124,0 a124,124 0 1,1 248,0 a124,124 0 1,1 -248,0"></path>
-              </defs>
-              <text font-family="'JetBrains Mono', monospace" font-size="17" letter-spacing="3.4" fill="#6b3fb8">
-                <textPath href="#brihas-ring" startOffset="0%">BRIHAS ✦ DECIDE ✦ MOVE FORWARD ✦ REAL CONVERSATIONS ✦ </textPath>
-              </text>
-            </svg>
-
-            <div className="stage__brain"><span>🧠</span></div>
-
-            <div className="glass c-relationships">
-              <span className="glass__icon">❤️</span>
-              <span className="glass__title">Relationships</span>
-              <span className="glass__sub">Who you keep choosing</span>
-            </div>
-            <div className="glass c-career">
-              <span className="glass__icon">💼</span>
-              <span className="glass__title">Career</span>
-              <span className="glass__sub">Stay, or make the move</span>
-            </div>
-            <div className="glass c-mind">
-              <span className="glass__icon">🌀</span>
-              <span className="glass__title">Mind & Thoughts</span>
-              <span className="glass__sub">What's actually looping</span>
-            </div>
-            <div className="glass c-finance">
-              <span className="glass__icon">💰</span>
-              <span className="glass__title">Finance</span>
-              <span className="glass__sub">Enough for what</span>
-            </div>
-            <div className="glass c-decisions">
-              <span className="glass__icon">🎯</span>
-              <span className="glass__title">Life Decisions</span>
-              <span className="glass__sub">The 1am ones</span>
-            </div>
-            <div className="glass c-goals">
-              <span className="glass__icon">🌱</span>
-              <span className="glass__title">Goals & Growth</span>
-              <span className="glass__sub">What you actually want</span>
-            </div>
-            <div className="glass c-wellbeing">
-              <span className="glass__icon">☀️</span>
-              <span className="glass__title">Wellbeing</span>
-              <span className="glass__sub">Sleep, energy, steadiness</span>
-            </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Trust Ribbon Bar */}
-        <div className="trust">
-          <div className="trust__inner">
-            <div className="trust__cell"><b>What you share stays here</b><span>Fully private &amp; encrypted.</span></div>
-            <div className="trust__cell"><b>Zero ads. Never sold.</b><span>Your trust is everything.</span></div>
-            <div className="trust__cell"><b>Delete history anytime</b><span>In one click.</span></div>
-            <div className="trust__cell"><b>AI advises. You decide.</b><span>Not therapy, not a diagnosis.</span></div>
-          </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* Trust Ribbon Bar */}
+      <div className="trust">
+        <div className="trust__inner">
+          <div className="trust__cell"><b>What you share stays here</b><span>Fully private &amp; encrypted.</span></div>
+          <div className="trust__cell"><b>Zero ads. Never sold.</b><span>Your trust is everything.</span></div>
+          <div className="trust__cell"><b>Delete history anytime</b><span>In one click.</span></div>
+          <div className="trust__cell"><b>AI advises. You decide.</b><span>Not therapy, not a diagnosis.</span></div>
+        </div>
+      </div>
 
       {/* 2ND SECTION: WHO THIS IS FOR */}
       <InteractiveWhoThisIsForSection sectionMotion={sectionMotion} stagger={stagger} item={item} />
