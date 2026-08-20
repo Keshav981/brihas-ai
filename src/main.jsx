@@ -1968,25 +1968,7 @@ const InteractiveWhoThisIsForSection = ({ sectionMotion, stagger, item }) => {
 
 
 
-        {/* Bottom Callout Banner */}
-        <motion.div 
-          className="who-mock-banner" 
-          whileHover={{ scale: 1.01 }}
-          style={{
-            textAlign: 'center',
-            background: 'linear-gradient(135deg, #FAF9F6 0%, #F4F7F4 100%)',
-            border: '1px solid #ECEEEA',
-            padding: '28px 36px',
-            borderRadius: '26px'
-          }}
-        >
-          <h4 style={{ fontSize: '20px', fontWeight: 700, color: '#1C251D', margin: '0 0 6px', letterSpacing: '-0.3px' }}>
-            Built for depth. Designed for privacy.
-          </h4>
-          <p style={{ fontSize: '15px', color: '#576359', margin: 0, fontWeight: 500 }}>
-            No judgment. No advice by default. Just real understanding.
-          </p>
-        </motion.div>
+
       </div>
     </motion.section>
   );
