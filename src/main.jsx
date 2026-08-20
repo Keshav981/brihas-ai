@@ -1631,76 +1631,75 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
 
 const pebbleWordsAbsolute = [
   // Top Row
-  { text: 'Stress', left: '26%', top: '22%', fontSize: '17px', weight: 500, color: '#65606E' },
-  { text: 'Anxiety', left: '38%', top: '22%', fontSize: '17px', weight: 500, color: '#5F5D6B' },
-  { text: 'Self doubt', left: '52%', top: '21%', fontSize: '21px', weight: 600, color: '#545A57' },
-  { text: 'Feeling stuck', left: '69%', top: '22%', fontSize: '18px', weight: 500, color: '#5E665D' },
+  { text: 'Stress', left: '26%', top: '21%', fontSize: '17px', weight: 500, color: '#65606E' },
+  { text: 'Anxiety', left: '38%', top: '21%', fontSize: '17px', weight: 500, color: '#5F5D6B' },
+  { text: 'Self doubt', left: '52%', top: '20%', fontSize: '21px', weight: 600, color: '#545A57' },
+  { text: 'Feeling stuck', left: '69%', top: '21%', fontSize: '18px', weight: 500, color: '#5E665D' },
 
   // Upper Mid
-  { text: 'Pressure', left: '21%', top: '30%', fontSize: '16px', weight: 500, color: '#685E6E' },
-  { text: 'Overthinking', left: '36%', top: '29%', fontSize: '38px', weight: 800, color: '#5C4A68' },
-  { text: 'Career', left: '71%', top: '29%', fontSize: '36px', weight: 800, color: '#44634B' },
-  { text: 'Future', left: '76%', top: '36%', fontSize: '20px', weight: 600, color: '#6A587A' },
+  { text: 'Pressure', left: '20%', top: '29%', fontSize: '16px', weight: 500, color: '#685E6E' },
+  { text: 'Overthinking', left: '36%', top: '28%', fontSize: '38px', weight: 800, color: '#5C4A68' },
+  { text: 'Career', left: '71%', top: '28%', fontSize: '36px', weight: 800, color: '#44634B' },
+  { text: 'Future', left: '76%', top: '35%', fontSize: '20px', weight: 600, color: '#6A587A' },
 
   // Center Core
-  { text: 'Boundaries', left: '19%', top: '38%', fontSize: '16px', weight: 500, color: '#686B60' },
-  { text: 'Purpose', left: '32%', top: '41%', fontSize: '28px', weight: 700, color: '#5B6858' },
-  { text: 'Burnout', left: '52%', top: '39%', fontSize: '46px', weight: 900, color: '#2E4034' },
-  { text: 'Motivation', left: '44%', top: '35%', fontSize: '14px', weight: 400, color: '#7D7569' },
-  { text: 'Health', left: '72%', top: '43%', fontSize: '22px', weight: 600, color: '#586259' },
+  { text: 'Boundaries', left: '18%', top: '37%', fontSize: '16px', weight: 500, color: '#686B60' },
+  { text: 'Purpose', left: '31%', top: '40%', fontSize: '28px', weight: 700, color: '#5B6858' },
+  { text: 'Burnout', left: '52%', top: '38%', fontSize: '46px', weight: 900, color: '#2E4034' },
+  { text: 'Motivation', left: '44%', top: '34.5%', fontSize: '14px', weight: 400, color: '#7D7569' },
+  { text: 'Health', left: '72%', top: '42%', fontSize: '22px', weight: 600, color: '#586259' },
 
   // Mid Center
-  { text: 'Bullying', left: '18%', top: '47%', fontSize: '20px', weight: 600, color: '#7B4E59' },
-  { text: 'Money', left: '30%', top: '49%', fontSize: '30px', weight: 700, color: '#78604B' },
-  { text: 'What next?', left: '42%', top: '46%', fontSize: '14px', weight: 400, color: '#70675C' },
-  { text: 'Big decisions', left: '53%', top: '48%', fontSize: '26px', weight: 700, color: '#596053' },
-  { text: 'Confidence', left: '74%', top: '50%', fontSize: '21px', weight: 600, color: '#5A6158' },
-  { text: 'Growth', left: '66%', top: '56%', fontSize: '21px', weight: 600, color: '#5B6E5F' },
+  { text: 'Bullying', left: '17%', top: '46%', fontSize: '20px', weight: 600, color: '#7B4E59' },
+  { text: 'Money', left: '29%', top: '48%', fontSize: '30px', weight: 700, color: '#78604B' },
+  { text: 'What next?', left: '43%', top: '45.5%', fontSize: '14px', weight: 400, color: '#70675C' },
+  { text: 'Big decisions', left: '53%', top: '47.5%', fontSize: '26px', weight: 700, color: '#596053' },
+  { text: 'Confidence', left: '74%', top: '49%', fontSize: '21px', weight: 600, color: '#5A6158' },
+  { text: 'Growth', left: '65%', top: '54.5%', fontSize: '21px', weight: 600, color: '#5B6E5F' },
 
   // Lower Mid
-  { text: 'Communication', left: '20%', top: '55%', fontSize: '15px', weight: 400, color: '#7A6458' },
-  { text: 'Conflict', left: '22%', top: '61%', fontSize: '15px', weight: 400, color: '#826569' },
-  { text: 'Identity', left: '45%', top: '56%', fontSize: '26px', weight: 700, color: '#5C4F6B' },
-  { text: 'Clarity', left: '76%', top: '63%', fontSize: '42px', weight: 900, color: '#274C3A' },
-  { text: 'Relationships', left: '42%', top: '65%', fontSize: '36px', weight: 800, color: '#7D4D59' },
+  { text: 'Communication', left: '19%', top: '54%', fontSize: '15px', weight: 400, color: '#7A6458' },
+  { text: 'Conflict', left: '21%', top: '60%', fontSize: '15px', weight: 400, color: '#826569' },
+  { text: 'Identity', left: '45%', top: '55%', fontSize: '26px', weight: 700, color: '#5C4F6B' },
+  { text: 'Clarity', left: '76%', top: '62%', fontSize: '42px', weight: 900, color: '#274C3A' },
+  { text: 'Relationships', left: '42%', top: '64%', fontSize: '36px', weight: 800, color: '#7D4D59' },
 
   // Bottom Rows & Supporting
-  { text: 'Family', left: '24%', top: '67%', fontSize: '15px', weight: 400, color: '#70645A' },
-  { text: 'Breakup', left: '30%', top: '72%', fontSize: '14px', weight: 400, color: '#856165' },
-  { text: 'Work pressure', left: '44%', top: '72%', fontSize: '15px', weight: 500, color: '#665F5C' },
-  { text: 'Work life balance', left: '60%', top: '72%', fontSize: '15px', weight: 500, color: '#5B665C' },
-  { text: 'Starting over', left: '76%', top: '71%', fontSize: '14px', weight: 400, color: '#5D635B' },
+  { text: 'Family', left: '23%', top: '66%', fontSize: '15px', weight: 400, color: '#70645A' },
+  { text: 'Breakup', left: '29%', top: '71%', fontSize: '14px', weight: 400, color: '#856165' },
+  { text: 'Work pressure', left: '43%', top: '71%', fontSize: '15px', weight: 500, color: '#665F5C' },
+  { text: 'Work life balance', left: '59%', top: '71%', fontSize: '15px', weight: 500, color: '#5B665C' },
+  { text: 'Starting over', left: '76%', top: '70%', fontSize: '14px', weight: 400, color: '#5D635B' },
 
-  { text: 'Friendship', left: '36%', top: '77%', fontSize: '14px', weight: 400, color: '#6B665E' },
-  { text: 'Productivity', left: '52%', top: '77%', fontSize: '14px', weight: 400, color: '#6A7368' },
-  { text: 'New beginning', left: '67%', top: '77%', fontSize: '14px', weight: 400, color: '#5E6359' },
+  { text: 'Friendship', left: '35%', top: '76.5%', fontSize: '14px', weight: 400, color: '#6B665E' },
+  { text: 'Productivity', left: '51%', top: '76.5%', fontSize: '14px', weight: 400, color: '#6A7368' },
+  { text: 'New beginning', left: '66%', top: '76.5%', fontSize: '14px', weight: 400, color: '#5E6359' },
 
-  { text: 'Connection', left: '31%', top: '82%', fontSize: '14px', weight: 400, color: '#736560' },
-  { text: 'Loneliness', left: '44%', top: '82%', fontSize: '14px', weight: 400, color: '#666170' },
-  { text: 'Emotions', left: '46%', top: '87%', fontSize: '14px', weight: 400, color: '#6B625A' },
-  { text: 'Balance', left: '80%', top: '65%', fontSize: '14px', weight: 400, color: '#5C6C60' }
+  { text: 'Connection', left: '30%', top: '81.5%', fontSize: '14px', weight: 400, color: '#736560' },
+  { text: 'Loneliness', left: '43%', top: '81.5%', fontSize: '14px', weight: 400, color: '#666170' },
+  { text: 'Emotions', left: '45%', top: '86.5%', fontSize: '14px', weight: 400, color: '#6B625A' },
+  { text: 'Balance', left: '80%', top: '65.5%', fontSize: '14px', weight: 400, color: '#5C6C60' }
 ];
 
 const OrganicPebbleWordCloud = ({ onSelectWord }) => {
   return (
     <div className="organic-pebble-container">
       <div className="pebble-blob-card">
-        {/* Botanical Leaf Stem SVG Accent on Bottom Left */}
-        <svg className="botanical-branch-svg" viewBox="0 0 160 160" fill="none">
-          <path d="M 10 150 Q 50 110 120 40" stroke="#5E7860" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-          <path d="M 35 125 C 20 110 15 90 30 85 C 45 80 50 100 35 125 Z" fill="#7A9878" opacity="0.85" />
-          <path d="M 40 120 C 55 105 75 105 75 120 C 75 135 55 135 40 120 Z" fill="#8DAA8B" opacity="0.8" />
-          <path d="M 65 95 C 45 80 40 60 55 55 C 70 50 75 70 65 95 Z" fill="#5F7E5D" opacity="0.9" />
-          <path d="M 70 90 C 85 75 105 75 105 90 C 105 105 85 105 70 90 Z" fill="#7A9878" opacity="0.85" />
-          <path d="M 95 65 C 80 50 75 35 90 30 C 105 25 110 45 95 65 Z" fill="#4B6849" opacity="0.95" />
-          <path d="M 100 60 C 115 45 135 45 135 60 C 135 75 115 75 100 60 Z" fill="#6A8A68" opacity="0.85" />
-          <path d="M 120 40 C 120 20 140 15 145 30 C 150 45 135 55 120 40 Z" fill="#5F7E5D" opacity="0.9" />
+        {/* Elegant Botanical Leaf Stem Accent */}
+        <svg className="botanical-branch-svg" viewBox="0 0 200 200" fill="none">
+          <path d="M 20 180 C 60 140 100 100 160 30" stroke="#4B6849" strokeWidth="2.2" strokeLinecap="round" opacity="0.8" fill="none" />
+          <path d="M 45 155 C 30 140 25 120 40 115 C 55 110 60 130 45 155 Z" fill="#6A8A68" opacity="0.85" />
+          <path d="M 50 150 C 65 135 85 135 85 150 C 85 165 65 165 50 150 Z" fill="#8DAA8B" opacity="0.75" />
+          <path d="M 80 120 C 60 105 55 85 70 80 C 85 75 90 95 80 120 Z" fill="#4B6849" opacity="0.9" />
+          <path d="M 85 115 C 100 100 120 100 120 115 C 120 130 100 130 85 115 Z" fill="#7A9878" opacity="0.8" />
+          <path d="M 120 80 C 105 65 100 50 115 45 C 130 40 135 60 120 80 Z" fill="#3D563C" opacity="0.95" />
+          <path d="M 125 75 C 140 60 160 60 160 75 C 160 90 140 90 125 75 Z" fill="#6A8A68" opacity="0.85" />
         </svg>
 
         {/* Header inside Watercolor Blob */}
         <div className="pebble-header-absolute">
           <div className="cloud-icon-badge">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A574C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2D6043" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
             </svg>
           </div>
@@ -1721,9 +1720,9 @@ const OrganicPebbleWordCloud = ({ onSelectWord }) => {
                 color: item.color
               }}
               onClick={() => onSelectWord && onSelectWord(item.text)}
-              whileHover={{ scale: 1.18, zIndex: 30 }}
+              whileHover={{ scale: 1.16, zIndex: 30 }}
               whileTap={{ scale: 0.95 }}
-              animate={{ y: [0, idx % 2 === 0 ? -3 : 3, 0] }}
+              animate={{ y: [0, idx % 2 === 0 ? -2.5 : 2.5, 0] }}
               transition={{ duration: 3.5 + (idx % 3), repeat: Infinity, ease: 'easeInOut' }}
             >
               {item.text}

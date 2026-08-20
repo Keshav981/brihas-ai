@@ -727,12 +727,18 @@ h2 span {
 
 .botanical-branch-svg {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  width: 130px;
-  height: 130px;
+  bottom: 28px;
+  left: 40px;
+  width: 155px;
+  height: 155px;
   pointer-events: none;
   z-index: 2;
+  filter: drop-shadow(0 4px 12px rgba(45, 96, 67, 0.15));
+  transition: transform 0.4s ease;
+}
+
+.pebble-blob-card:hover .botanical-branch-svg {
+  transform: scale(1.04) rotate(-2deg);
 }
 
 .pebble-header-absolute {
@@ -7512,4 +7518,20 @@ footer {
   .faq {
     padding: 32px 0 !important;
   }
+}
+
+
+/* ══════════ ENHANCED ORGANIC PEBBLE WORD TAG STYLING ══════════ */
+.pebble-absolute-tag {
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.pebble-absolute-tag:hover {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  box-shadow: 0 8px 20px rgba(45, 96, 67, 0.12), 0 0 0 1px rgba(45, 96, 67, 0.18) !important;
+  color: #1C251D !important;
 }
