@@ -1576,9 +1576,6 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
                 </div>
                 <h3 className="how-step-title" style={{ whiteSpace: 'pre-line' }}>{s.title}</h3>
                 <p className="how-step-desc">{s.desc}</p>
-                <span className="how-tag-pill" style={{ color: s.accentColor, backgroundColor: '#FFFFFF', borderColor: s.accentColor + '40' }}>
-                  {s.tag}
-                </span>
               </motion.article>
             );
           })}
