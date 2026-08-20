@@ -3310,10 +3310,6 @@ function App() {
 
 
 
-          {/* Organic Watercolor Pebble Word Cloud in Hero Section */}
-          <OrganicPebbleWordCloud 
-            onSelectWord={(word) => setHeroInputText(`I want to reflect on ${word.toLowerCase()}...`)}
-          />
         </div>
       </section>
 
@@ -3327,7 +3323,28 @@ function App() {
         </div>
       </div>
 
-      {/* 2ND SECTION: WHO THIS IS FOR */}
+      {/* 2ND SECTION: WHAT IS WEIGHING ON YOUR MIND */}
+      <motion.section className="section weighing-mind-section" id="topics" {...sectionMotion}>
+        <div className="wrap" style={{ textAlign: 'center' }}>
+          <div className="weighing-mind-header" style={{ marginBottom: '32px' }}>
+            <p className="eyebrow green-eyebrow" style={{ justifyContent: 'center' }}><i></i> EXPLORE REAL CONCERNS</p>
+            <h2 style={{ fontFamily: "'DM Sans', 'Poppins', sans-serif", fontSize: 'clamp(28px, 3.8vw, 44px)', fontWeight: '700', color: '#1C251D', margin: '8px 0 12px', letterSpacing: '-0.02em' }}>What is weighing on your mind?</h2>
+            <p className="weighing-mind-sub" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '16px', color: '#576359', maxWidth: '640px', margin: '0 auto', lineHeight: '1.55' }}>
+              Burnout, overthinking, career decisions, relationships, or self doubt — click any topic below to start reflecting.
+            </p>
+          </div>
+
+          {/* Organic Watercolor Pebble Word Cloud */}
+          <OrganicPebbleWordCloud 
+            onSelectWord={(word) => {
+              setHeroInputText(`I want to reflect on ${word.toLowerCase()}...`);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        </div>
+      </motion.section>
+
+      {/* 3RD SECTION: WHO THIS IS FOR */}
       <InteractiveWhoThisIsForSection sectionMotion={sectionMotion} stagger={stagger} item={item} />
 
       {/* 3RD SECTION: HOW IT WORKS */}

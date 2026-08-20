@@ -585,11 +585,19 @@ h2 span {
   width: 100%;
 }
 
+/* 2ND SECTION: WHAT IS WEIGHING ON YOUR MIND */
+.weighing-mind-section {
+  background: #FAF8F3;
+  padding: 64px 24px 60px;
+  position: relative;
+  border-bottom: 1px solid rgba(226, 222, 210, 0.6);
+}
+
 /* ══════════ ORGANIC WATERCOLOR PEBBLE WORD CLOUD (EXACT 2D CLOUD MATCH) ══════════ */
 .organic-pebble-container {
   width: 100%;
   max-width: 960px;
-  margin: 36px auto;
+  margin: 16px auto 0;
   padding: 16px;
   display: flex;
   justify-content: center;
