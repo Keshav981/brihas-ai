@@ -7779,3 +7779,71 @@ footer {
     font-size: 20px !important;
   }
 }
+
+
+/* ══════════ PERFECT MOBILE FLUID WORD CLOUD OVERRIDES ══════════ */
+@media (max-width: 760px) {
+  .pebble-blob-card {
+    height: auto !important;
+    min-height: 420px !important;
+    padding: 68px 16px 28px !important;
+    border-radius: 36px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .pebble-header-absolute {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    margin-bottom: 18px !important;
+  }
+
+  .pebble-absolute-canvas {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 6px 8px !important;
+    padding: 0 6px !important;
+  }
+
+  .pebble-absolute-tag {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    padding: 6px 12px !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+    border: 1px solid rgba(45, 96, 67, 0.15) !important;
+    border-radius: 100px !important;
+    box-shadow: 0 2px 6px rgba(28, 37, 29, 0.04) !important;
+    white-space: nowrap !important;
+  }
+
+  .pebble-absolute-tag:nth-child(3n) {
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(45, 96, 67, 0.28) !important;
+  }
+
+  .pebble-absolute-tag:nth-child(5n) {
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    opacity: 0.88 !important;
+  }
+
+  .botanical-branch-svg {
+    display: none !important;
+  }
+}
