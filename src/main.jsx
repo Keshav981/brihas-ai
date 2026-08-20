@@ -1638,58 +1638,58 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
   );
 };
 
-const pebbleWords = [
-  // Top Row (Stress, Anxiety, Self doubt, Feeling stuck)
-  { text: 'Stress', fontSize: '19px', weight: 500, color: '#5A5868' },
-  { text: 'Anxiety', fontSize: '20px', weight: 500, color: '#555866' },
-  { text: 'Self doubt', fontSize: '24px', weight: 600, color: '#4B554F' },
-  { text: 'Feeling stuck', fontSize: '20px', weight: 500, color: '#5E665D' },
+const pebbleWordsAbsolute = [
+  // Top Row
+  { text: 'Stress', left: '30%', top: '23%', fontSize: '18px', weight: 500, color: '#65606E' },
+  { text: 'Anxiety', left: '41%', top: '23%', fontSize: '18px', weight: 500, color: '#5F5D6B' },
+  { text: 'Self doubt', left: '52%', top: '23%', fontSize: '23px', weight: 600, color: '#545A57' },
+  { text: 'Feeling stuck', left: '66%', top: '23%', fontSize: '19px', weight: 500, color: '#5E665D' },
 
-  // Upper Mid Row
-  { text: 'Pressure', fontSize: '18px', weight: 500, color: '#685E6E' },
-  { text: 'Overthinking', fontSize: '42px', weight: 800, color: '#5C4A68' },
-  { text: 'Motivation', fontSize: '16px', weight: 400, color: '#7D7569' },
-  { text: 'Career', fontSize: '36px', weight: 800, color: '#44634B' },
-  { text: 'Future', fontSize: '24px', weight: 600, color: '#6E587A' },
+  // Upper Mid
+  { text: 'Pressure', left: '26%', top: '29%', fontSize: '17px', weight: 500, color: '#685E6E' },
+  { text: 'Overthinking', left: '46%', top: '30%', fontSize: '42px', weight: 800, color: '#5C4A68' },
+  { text: 'Motivation', left: '51%', top: '36%', fontSize: '15px', weight: 400, color: '#7D7569' },
+  { text: 'Career', left: '68%', top: '30%', fontSize: '36px', weight: 800, color: '#44634B' },
+  { text: 'Future', left: '74%', top: '37%', fontSize: '23px', weight: 600, color: '#6A587A' },
 
   // Center Core
-  { text: 'Boundaries', fontSize: '18px', weight: 500, color: '#686B60' },
-  { text: 'Purpose', fontSize: '32px', weight: 700, color: '#5A6856' },
-  { text: 'Burnout', fontSize: '50px', weight: 900, color: '#2E4034' },
-  { text: 'Health', fontSize: '24px', weight: 600, color: '#586E5D' },
-  { text: 'Confidence', fontSize: '24px', weight: 600, color: '#5A6158' },
+  { text: 'Boundaries', left: '23%', top: '35%', fontSize: '17px', weight: 500, color: '#686B60' },
+  { text: 'Purpose', left: '31%', top: '41%', fontSize: '30px', weight: 700, color: '#5B6858' },
+  { text: 'Burnout', left: '50%', top: '41%', fontSize: '52px', weight: 900, color: '#2E4034' },
+  { text: 'Health', left: '69%', top: '43%', fontSize: '24px', weight: 600, color: '#586259' },
+  { text: 'Confidence', left: '72%', top: '49%', fontSize: '23px', weight: 600, color: '#5A6158' },
 
   // Mid Center
-  { text: 'Bullying', fontSize: '24px', weight: 600, color: '#7B4E59' },
-  { text: 'Money', fontSize: '32px', weight: 700, color: '#78604B' },
-  { text: 'What next?', fontSize: '16px', weight: 400, color: '#70675C' },
-  { text: 'Big decisions', fontSize: '30px', weight: 700, color: '#546051' },
-  { text: 'Growth', fontSize: '24px', weight: 600, color: '#5B6E5F' },
+  { text: 'Bullying', left: '21%', top: '46%', fontSize: '22px', weight: 600, color: '#7B4E59' },
+  { text: 'Money', left: '33%', top: '49%', fontSize: '32px', weight: 700, color: '#78604B' },
+  { text: 'What next?', left: '43%', top: '46%', fontSize: '15px', weight: 400, color: '#70675C' },
+  { text: 'Big decisions', left: '53%', top: '49%', fontSize: '29px', weight: 700, color: '#596053' },
+  { text: 'Growth', left: '67%', top: '55%', fontSize: '23px', weight: 600, color: '#5B6E5F' },
 
-  // Lower Mid Row
-  { text: 'Communication', fontSize: '17px', weight: 400, color: '#7A6458' },
-  { text: 'Conflict', fontSize: '16px', weight: 400, color: '#826569' },
-  { text: 'Identity', fontSize: '28px', weight: 700, color: '#5C4F6B' },
-  { text: 'Clarity', fontSize: '46px', weight: 900, color: '#274C3A' },
+  // Lower Mid
+  { text: 'Communication', left: '22%', top: '53%', fontSize: '16px', weight: 400, color: '#7A6458' },
+  { text: 'Conflict', left: '24%', top: '59%', fontSize: '16px', weight: 400, color: '#826569' },
+  { text: 'Identity', left: '48%', top: '56%', fontSize: '27px', weight: 700, color: '#5C4F6B' },
+  { text: 'Clarity', left: '65%', top: '62%', fontSize: '48px', weight: 900, color: '#274C3A' },
 
   // Bottom Center Focal
-  { text: 'Relationships', fontSize: '40px', weight: 800, color: '#7D4D59' },
+  { text: 'Relationships', left: '44%', top: '63%', fontSize: '38px', weight: 800, color: '#7D4D59' },
 
   // Bottom Rows & Supporting
-  { text: 'Family', fontSize: '17px', weight: 400, color: '#70645A' },
-  { text: 'Breakup', fontSize: '16px', weight: 400, color: '#856165' },
-  { text: 'Work pressure', fontSize: '17px', weight: 500, color: '#6E5E58' },
-  { text: 'Work life balance', fontSize: '17px', weight: 500, color: '#5B665C' },
-  { text: 'Starting over', fontSize: '16px', weight: 400, color: '#5D635B' },
+  { text: 'Family', left: '26%', top: '65%', fontSize: '16px', weight: 400, color: '#70645A' },
+  { text: 'Breakup', left: '32%', top: '69%', fontSize: '15px', weight: 400, color: '#856165' },
+  { text: 'Work pressure', left: '45%', top: '69%', fontSize: '16px', weight: 500, color: '#665F5C' },
+  { text: 'Work life balance', left: '57%', top: '69%', fontSize: '16px', weight: 500, color: '#5B665C' },
+  { text: 'Starting over', left: '71%', top: '68%', fontSize: '15px', weight: 400, color: '#5D635B' },
 
-  { text: 'Connection', fontSize: '16px', weight: 400, color: '#806864' },
-  { text: 'Friendship', fontSize: '16px', weight: 400, color: '#6B665E' },
-  { text: 'Productivity', fontSize: '16px', weight: 400, color: '#6A7368' },
-  { text: 'New beginning', fontSize: '16px', weight: 400, color: '#5E6359' },
+  { text: 'Friendship', left: '39%', top: '74%', fontSize: '15px', weight: 400, color: '#6B665E' },
+  { text: 'Productivity', left: '54%', top: '74%', fontSize: '15px', weight: 400, color: '#6A7368' },
+  { text: 'New beginning', left: '67%', top: '74%', fontSize: '15px', weight: 400, color: '#5E6359' },
 
-  { text: 'Loneliness', fontSize: '16px', weight: 400, color: '#666170' },
-  { text: 'Emotions', fontSize: '16px', weight: 400, color: '#6B625A' },
-  { text: 'Balance', fontSize: '16px', weight: 400, color: '#5C6C60' }
+  { text: 'Connection', left: '33%', top: '78%', fontSize: '15px', weight: 400, color: '#736560' },
+  { text: 'Loneliness', left: '44%', top: '79%', fontSize: '15px', weight: 400, color: '#666170' },
+  { text: 'Emotions', left: '47%', top: '84%', fontSize: '15px', weight: 400, color: '#6B625A' },
+  { text: 'Balance', left: '77%', top: '62%', fontSize: '15px', weight: 400, color: '#5C6C60' }
 ];
 
 const OrganicPebbleWordCloud = ({ onSelectWord }) => {
@@ -1709,7 +1709,7 @@ const OrganicPebbleWordCloud = ({ onSelectWord }) => {
         </svg>
 
         {/* Header inside Watercolor Blob */}
-        <div className="pebble-header">
+        <div className="pebble-header-absolute">
           <div className="cloud-icon-badge">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A574C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
@@ -1718,19 +1718,21 @@ const OrganicPebbleWordCloud = ({ onSelectWord }) => {
           <p className="pebble-kicker">WHAT'S WEIGHING ON YOUR MIND TODAY?</p>
         </div>
 
-        {/* Word Cloud Typography Cluster */}
-        <div className="pebble-words-cloud">
-          {pebbleWords.map((item, idx) => (
+        {/* 2D Absolute Word Canvas */}
+        <div className="pebble-absolute-canvas">
+          {pebbleWordsAbsolute.map((item, idx) => (
             <motion.span
               key={idx}
-              className="pebble-word-tag"
+              className="pebble-absolute-tag"
               style={{
+                left: item.left,
+                top: item.top,
                 fontSize: item.fontSize,
                 fontWeight: item.weight,
                 color: item.color
               }}
               onClick={() => onSelectWord && onSelectWord(item.text)}
-              whileHover={{ scale: 1.15, y: -2 }}
+              whileHover={{ scale: 1.18, zIndex: 30 }}
               whileTap={{ scale: 0.95 }}
               animate={{ y: [0, idx % 2 === 0 ? -3 : 3, 0] }}
               transition={{ duration: 3.5 + (idx % 3), repeat: Infinity, ease: 'easeInOut' }}
