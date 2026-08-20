@@ -2944,12 +2944,8 @@ function App() {
       {/* 2ND SECTION: WHAT IS WEIGHING ON YOUR MIND */}
       <motion.section className="section weighing-mind-section" id="topics" {...sectionMotion}>
         <div className="wrap" style={{ textAlign: 'center' }}>
-          <div className="weighing-mind-header" style={{ marginBottom: '32px' }}>
-            <p className="eyebrow green-eyebrow" style={{ justifyContent: 'center' }}><i></i> EXPLORE REAL CONCERNS</p>
-            <h2 style={{ fontFamily: "'DM Sans', 'Poppins', sans-serif", fontSize: 'clamp(28px, 3.8vw, 44px)', fontWeight: '700', color: '#1C251D', margin: '8px 0 12px', letterSpacing: '-0.02em' }}>What is weighing on your mind?</h2>
-            <p className="weighing-mind-sub" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '16px', color: '#576359', maxWidth: '640px', margin: '0 auto', lineHeight: '1.55' }}>
-              Burnout, overthinking, career decisions, relationships, or self doubt — click any topic below to start reflecting.
-            </p>
+          <div className="weighing-mind-header" style={{ textAlign: 'center', marginBottom: '24px' }}>
+            <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> EXPLORE CONCERNS</p>
           </div>
 
           {/* Organic Watercolor Pebble Word Cloud */}
