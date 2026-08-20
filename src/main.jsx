@@ -3086,9 +3086,10 @@ function App() {
         onMouseMove={handleHeroMouseMove}
         style={{
           backgroundImage: `
-            radial-gradient(800px 600px at ${mousePos.x}% ${mousePos.y}%, rgba(246,242,232,0.96), transparent 70%),
-            radial-gradient(700px 550px at 15% 85%, rgba(226,238,228,0.7), transparent 60%),
-            radial-gradient(700px 550px at 85% 85%, rgba(238,228,244,0.7), transparent 60%)
+            radial-gradient(850px 650px at ${mousePos.x}% ${mousePos.y}%, rgba(202, 236, 218, 0.75), transparent 70%),
+            radial-gradient(800px 600px at 82% 18%, rgba(226, 206, 248, 0.75), transparent 68%),
+            radial-gradient(750px 580px at 18% 82%, rgba(249, 228, 237, 0.7), transparent 65%),
+            linear-gradient(180deg, #FAF5EE 0%, #F5EFF8 50%, #F0FAF5 100%)
           `
         }}
       >
