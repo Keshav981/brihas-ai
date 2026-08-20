@@ -1638,10 +1638,47 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
   );
 };
 
+const wordCloudData = [
+  { text: 'Burnout', weight: 'xl', bg: '#FFF5F2', color: '#E07A5F' },
+  { text: 'Stress', weight: 'lg', bg: '#F5F3FF', color: '#8B5CF6' },
+  { text: 'Overthinking', weight: 'xl', bg: '#FDF2F8', color: '#EC4899' },
+  { text: 'Career', weight: 'lg', bg: '#E4EFE4', color: '#2D6043' },
+  { text: 'Money', weight: 'md', bg: '#FEF3C7', color: '#D97706' },
+  { text: 'Relationships', weight: 'xl', bg: '#FDF2F8', color: '#EC4899' },
+  { text: 'Breakup', weight: 'md', bg: '#FFF5F2', color: '#E07A5F' },
+  { text: 'Family', weight: 'lg', bg: '#EFF6FF', color: '#3B82F6' },
+  { text: 'Confidence', weight: 'lg', bg: '#CCFBF1', color: '#14B8A6' },
+  { text: 'Self Doubt', weight: 'xl', bg: '#EDE9FE', color: '#7C3AED' },
+  { text: 'Motivation', weight: 'md', bg: '#FEF3C7', color: '#D97706' },
+  { text: 'Purpose', weight: 'xl', bg: '#E4EFE4', color: '#2D6043' },
+  { text: 'Big Decisions', weight: 'xl', bg: '#FEF9C3', color: '#CA8A04' },
+  { text: 'Future', weight: 'lg', bg: '#EFF6FF', color: '#3B82F6' },
+  { text: 'Change', weight: 'md', bg: '#F7FEE7', color: '#65A30D' },
+  { text: 'Growth', weight: 'lg', bg: '#CCFBF1', color: '#14B8A6' },
+  { text: 'Goals', weight: 'md', bg: '#FEF3C7', color: '#D97706' },
+  { text: 'Work Pressure', weight: 'lg', bg: '#FFF5F2', color: '#E07A5F' },
+  { text: 'Feeling Lost', weight: 'xl', bg: '#EDE9FE', color: '#7C3AED' },
+  { text: 'Anxiety', weight: 'lg', bg: '#F5F3FF', color: '#8B5CF6' },
+  { text: 'Fear', weight: 'sm', bg: '#FDF2F8', color: '#EC4899' },
+  { text: 'Habits', weight: 'md', bg: '#F7FEE7', color: '#65A30D' },
+  { text: 'Discipline', weight: 'md', bg: '#E4EFE4', color: '#2D6043' },
+  { text: 'Identity', weight: 'lg', bg: '#EDE9FE', color: '#7C3AED' },
+  { text: 'Love', weight: 'lg', bg: '#FDF2F8', color: '#EC4899' },
+  { text: 'Trust', weight: 'md', bg: '#EFF6FF', color: '#3B82F6' },
+  { text: 'Communication', weight: 'lg', bg: '#CCFBF1', color: '#14B8A6' },
+  { text: 'Finance', weight: 'md', bg: '#FEF3C7', color: '#D97706' },
+  { text: 'Success', weight: 'md', bg: '#E4EFE4', color: '#2D6043' },
+  { text: 'Dreams', weight: 'lg', bg: '#F5F3FF', color: '#8B5CF6' },
+  { text: 'Balance', weight: 'xl', bg: '#CCFBF1', color: '#14B8A6' },
+  { text: 'Reflection', weight: 'md', bg: '#EFF6FF', color: '#3B82F6' },
+  { text: 'Clarity', weight: 'xl', bg: '#E4EFE4', color: '#2D6043' }
+];
+
 const InteractiveWhoThisIsForSection = ({ sectionMotion, stagger, item }) => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [selectedTopics, setSelectedTopics] = useState(['burnout']);
   const [activePersona, setActivePersona] = useState('quiet-decision');
+  const [activeCloudWords, setActiveCloudWords] = useState(['Burnout', 'Overthinking', 'Clarity']);
 
   const toggleTopic = (id) => {
     setSelectedTopics(prev => 
@@ -1857,13 +1894,61 @@ const InteractiveWhoThisIsForSection = ({ sectionMotion, stagger, item }) => {
           })}
         </motion.div>
 
+        {/* 33 Word Cloud Section Widget */}
+        <div className="word-cloud-widget">
+          <div className="word-cloud-header">
+            <span className="kicker" style={{ color: '#2D6043', letterSpacing: '0.14em', fontFamily: "'DM Mono', monospace", fontSize: '11px' }}>
+              INTERACTIVE THOUGHT CLOUD · 33 CORE AREAS
+            </span>
+            <h3 className="word-cloud-title">Every thought has a safe space</h3>
+            <p className="word-cloud-sub">
+              Tap any keyword below to explore how Brihas connects patterns across your mind and daily decisions.
+            </p>
+          </div>
+
+          <div className="word-cloud-container">
+            {wordCloudData.map((item, idx) => {
+              const isSelected = activeCloudWords.includes(item.text);
+              return (
+                <motion.button
+                  key={idx}
+                  type="button"
+                  className={`word-cloud-chip weight-${item.weight} ${isSelected ? 'active' : ''}`}
+                  style={{
+                    backgroundColor: isSelected ? item.color : item.bg,
+                    color: isSelected ? '#FFFFFF' : item.color,
+                    borderColor: isSelected ? item.color : 'rgba(0,0,0,0.06)'
+                  }}
+                  onClick={() => {
+                    setActiveCloudWords(prev => 
+                      prev.includes(item.text) 
+                        ? prev.filter(w => w !== item.text) 
+                        : [...prev, item.text]
+                    );
+                  }}
+                  whileHover={{ scale: 1.08, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={{
+                    y: [0, (idx % 2 === 0 ? -3 : 3), 0]
+                  }}
+                  transition={{
+                    y: { duration: 3 + (idx % 4), repeat: Infinity, ease: 'easeInOut' }
+                  }}
+                >
+                  {item.text}
+                </motion.button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* 11 Topics to Chat On Section Header */}
         <div style={{ textTransform: 'uppercase', textAlign: 'center', marginBottom: '24px' }}>
           <p className="eyebrow" style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.1em', color: '#6E786F', marginBottom: '6px' }}>
             11 TOPICS TO CHAT ON
           </p>
           <h3 style={{ fontSize: '24px', fontWeight: 700, color: '#1C251D', margin: 0 }}>
-            What’s weighing on your mind today?
+            What's weighing on your mind today?
           </h3>
         </div>
 

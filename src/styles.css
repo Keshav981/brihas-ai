@@ -558,6 +558,87 @@ h2 span {
   margin: 0 auto;
 }
 
+/* ══════════ 33 WORD CLOUD WIDGET (SECTION 2) ══════════ */
+.word-cloud-widget {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid #EAECE8;
+  border-radius: 28px;
+  padding: 36px 28px;
+  margin: 44px 0;
+  box-shadow: 0 16px 44px rgba(28, 37, 29, 0.04);
+  text-align: center;
+}
+
+.word-cloud-header {
+  margin-bottom: 24px;
+}
+
+.word-cloud-title {
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 700;
+  color: #1C251D;
+  margin: 6px 0 8px;
+  letter-spacing: -0.5px;
+}
+
+.word-cloud-sub {
+  font-size: 14.5px;
+  color: #576359;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.word-cloud-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 12px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+.word-cloud-chip {
+  border-radius: 99px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.word-cloud-chip.weight-xl {
+  font-size: 17px;
+  padding: 12px 22px;
+  font-weight: 700;
+}
+
+.word-cloud-chip.weight-lg {
+  font-size: 15px;
+  padding: 10px 18px;
+  font-weight: 600;
+}
+
+.word-cloud-chip.weight-md {
+  font-size: 13.5px;
+  padding: 8.5px 15px;
+  font-weight: 500;
+}
+
+.word-cloud-chip.weight-sm {
+  font-size: 12px;
+  padding: 7px 12px;
+  font-weight: 500;
+}
+
+.word-cloud-chip:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
 @media (max-width: 768px) {
   .hero-editorial-section {
     padding: 36px 16px 40px;
