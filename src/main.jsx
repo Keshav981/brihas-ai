@@ -1546,13 +1546,10 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
       <div className="wrap">
         {/* Section Header */}
         <div className="how-mock-header" style={{ textAlign: 'center', marginBottom: '44px' }}>
-          <p className="eyebrow green-eyebrow" style={{ marginBottom: '10px' }}>HOW IT WORKS</p>
-          <h2 style={{ fontSize: 'clamp(32px, 3.8vw, 54px)', letterSpacing: '-2px', fontWeight: 700, margin: '0 0 14px', color: '#1C251D' }}>
-            One conversation a day. <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: '#2B7858' }}>A reading of your life.</em>
+          <p className="eyebrow green-eyebrow" style={{ marginBottom: '12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> HOW IT WORKS</p>
+          <h2 style={{ fontSize: 'clamp(32px, 3.8vw, 54px)', letterSpacing: '-2px', fontWeight: 700, margin: 0, color: '#1C251D' }}>
+            <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: '#2B7858' }}>How it works.</em>
           </h2>
-          <p style={{ maxWidth: '680px', margin: '0 auto', fontSize: '16.5px', lineHeight: 1.55, color: '#576359' }}>
-            No rigid forms. No homework. Just an intelligent, quiet companion that listens, connects patterns, and guides your daily decisions.
-          </p>
         </div>
 
         {/* 4 Pipeline Step Cards Row */}
