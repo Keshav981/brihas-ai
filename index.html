@@ -20,179 +20,103 @@
   </style>
   
 
-<style id="custom-hero-center-overrides">
-  /* ══════════ HERO SECTION PERFECT CENTER & SPACING OVERRIDES ══════════ */
-  .hero-exact, .hero-editorial-section, section.hero {
-    background: #FAF8F3 !important;
-    padding: 64px 24px 54px !important;
+
+
+<style id="force-hero-center-global">
+  /* ══════════ ABSOLUTE GLOBAL HERO CENTER ALIGNMENT OVERRIDES ══════════ */
+  .hero-exact, 
+  section.hero, 
+  .hero-editorial-section,
+  .hero-exact .hero__inner,
+  .hero-exact .hero__copy,
+  .hero-copy,
+  .hero-editorial-container,
+  .hero-art-clean,
+  .stage-wrap-mobile {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    width: 100% !important;
-    overflow: hidden !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
   }
 
-  .hero__inner, .hero-editorial-container, .hero-copy {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
+  .hero-exact .hero__inner,
+  .hero-editorial-container,
+  .hero-copy {
     max-width: 860px !important;
     width: 100% !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    gap: 0 !important;
+    flex: 1 1 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 
-  .hero-exact h1, .hero-editorial-title, .hero-copy h1 {
+  .hero-exact h1, 
+  .hero__copy h1, 
+  .hero-copy h1, 
+  .hero-editorial-title {
     text-align: center !important;
-    margin: 0 auto 20px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+    width: 100% !important;
     max-width: 780px !important;
     font-family: 'DM Sans', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif !important;
-    font-size: clamp(30px, 4.2vw, 54px) !important;
-    font-weight: 700 !important;
-    line-height: 1.2 !important;
-    letter-spacing: -0.02em !important;
-    color: #1C251D !important;
-    text-wrap: balance !important;
   }
 
-  .hero-editorial-kicker, .hero-top-badge {
+  .hero-exact h1 *, 
+  .hero__copy h1 *, 
+  .hero-copy h1 * {
     text-align: center !important;
-    margin: 0 auto 22px !important;
-    font-family: 'DM Mono', monospace !important;
-    font-size: 11.5px !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.16em !important;
-    color: #556356 !important;
-    text-transform: uppercase !important;
   }
 
-  .hero-editorial-input-card, .hero-input-form {
-    width: 100% !important;
-    max-width: 660px !important;
-    margin: 0 auto 24px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    background: #FFFFFF !important;
-    border: 1.5px solid #E2E5E0 !important;
-    border-radius: 28px !important;
-    padding: 14px 18px 14px 26px !important;
-    box-shadow: 0 12px 36px rgba(28, 37, 29, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02) !important;
-    transition: all 0.25s ease !important;
+  .hero__sub, 
+  .hero-lede, 
+  .hero-editorial-kicker, 
+  .hero-top-badge,
+  .hero-subnote {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+    max-width: 680px !important;
   }
 
-  .hero-editorial-input-card:focus-within {
-    border-color: #1C251D !important;
-    box-shadow: 0 16px 44px rgba(28, 37, 29, 0.1) !important;
-  }
-
-  .hero-editorial-input-card input {
-    flex: 1 !important;
-    border: none !important;
-    outline: none !important;
-    background: transparent !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 16.5px !important;
-    color: #1C251D !important;
-  }
-
-  .hero-editorial-input-card input::placeholder {
-    color: #949E95 !important;
-    font-weight: 400 !important;
-  }
-
-  .hero-input-arrow-btn {
-    width: 42px !important;
-    height: 42px !important;
-    border-radius: 50% !important;
-    background: transparent !important;
-    border: 1.5px solid #E2E5E0 !important;
-    color: #1C251D !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    transition: all 0.2s ease !important;
-    flex-shrink: 0 !important;
-  }
-
-  .hero-input-arrow-btn:hover {
-    background: #1C251D !important;
-    color: #FFFFFF !important;
-    border-color: #1C251D !important;
-  }
-
-  /* START ANYWHERE Row Centered */
-  .hero-start-anywhere-row, .hero-pills-wrapper {
+  .hero-actions, 
+  .hero-cta-group, 
+  .hero-editorial-input-card, 
+  .hero-start-anywhere-row, 
+  .hero-coming-soon-row,
+  .hero-store-pills-row,
+  .hero-pills {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 8px !important;
-    margin: 0 auto 24px !important;
     text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     width: 100% !important;
-    max-width: 780px !important;
+    max-width: 760px !important;
   }
 
-  .start-anywhere-kicker {
-    font-family: 'DM Mono', monospace !important;
-    font-size: 11px !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.16em !important;
-    color: #8A928B !important;
-    text-transform: uppercase !important;
-    margin-bottom: 2px !important;
-  }
-
-  .start-anywhere-pills {
+  .start-anywhere-pills,
+  .coming-soon-pills,
+  .hero-pills-row {
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
-    gap: 10px !important;
+    justify-content: center !important;
     flex-wrap: wrap !important;
-    justify-content: center !important;
+    gap: 10px !important;
     width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
-  .start-pill {
-    background: rgba(255, 255, 255, 0.95) !important;
-    border: 1.5px solid rgba(222, 216, 202, 0.95) !important;
-    border-radius: 99px !important;
-    padding: 8px 18px !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-    color: #2C352D !important;
-    cursor: pointer !important;
-    transition: all 0.2s ease !important;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.02) !important;
-  }
-
-  .start-pill:hover {
-    background: #FFFFFF !important;
-    border-color: #1C251D !important;
-    box-shadow: 0 4px 14px rgba(28, 37, 29, 0.08) !important;
-    transform: translateY(-1px) !important;
-  }
-
-  /* COMING SOON ON Row Centered */
-  .hero-coming-soon-row, .hero-store-pills-row {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 8px !important;
-    margin: 0 auto 32px !important;
-    text-align: center !important;
-    width: 100% !important;
-    max-width: 780px !important;
-  }
-
+  .start-anywhere-kicker,
   .coming-soon-kicker {
     font-family: 'DM Mono', monospace !important;
     font-size: 11px !important;
@@ -200,25 +124,24 @@
     letter-spacing: 0.16em !important;
     color: #8A928B !important;
     text-transform: uppercase !important;
-    margin-bottom: 2px !important;
+    text-align: center !important;
+    margin: 0 auto 4px !important;
+    display: block !important;
   }
 
-  .coming-soon-pills {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
+  .hero-editorial-input-card {
     width: 100% !important;
-  }
-
-  @media (max-width: 760px) {
-    .hero-exact, .hero-editorial-section, section.hero {
-      padding: 44px 16px 36px !important;
-    }
-    .hero-editorial-input-card {
-      padding: 12px 14px 12px 20px !important;
-    }
+    max-width: 660px !important;
+    margin: 0 auto 24px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #FFFFFF !important;
+    border: 1.5px solid #E2E5E0 !important;
+    border-radius: 28px !important;
+    padding: 14px 18px 14px 26px !important;
+    box-shadow: 0 12px 36px rgba(28, 37, 29, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02) !important;
   }
 </style>
 </head>
