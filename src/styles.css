@@ -7645,3 +7645,137 @@ footer {
     border-radius: 18px !important;
   }
 }
+
+
+/* ══════════ COMPACT ELEGANT MOBILE TYPOGRAPHY & SCALING OVERRIDES ══════════ */
+@media (max-width: 760px) {
+  /* 1. Capsule Pills on Mobile */
+  .eyebrow.green-eyebrow,
+  .how-mock-header .green-eyebrow,
+  .reading-header .green-eyebrow,
+  .comparison-intro .green-eyebrow,
+  .centered-heading .green-eyebrow,
+  .weighing-mind-header .green-eyebrow {
+    font-size: 11.5px !important;
+    padding: 6px 14px !important;
+    letter-spacing: 0.08em !important;
+    gap: 6px !important;
+    border-radius: 100px !important;
+  }
+
+  .eyebrow.green-eyebrow i {
+    width: 7px !important;
+    height: 7px !important;
+  }
+
+  /* 2. Hero Section on Mobile */
+  .hero-exact .hero__inner {
+    padding: 36px 14px 20px !important;
+    max-width: 100% !important;
+  }
+
+  .hero-exact h1 {
+    font-size: clamp(23px, 6.2vw, 32px) !important;
+    line-height: 1.18 !important;
+    margin-bottom: 16px !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .hero-search-wrapper {
+    padding: 6px 8px 6px 14px !important;
+    border-radius: 20px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero-search-input {
+    font-size: 13.5px !important;
+  }
+
+  .hero-ask-btn {
+    padding: 8px 14px !important;
+    font-size: 12.5px !important;
+    height: 38px !important;
+    border-radius: 14px !important;
+  }
+
+  .hero-pill-item {
+    padding: 5px 11px !important;
+    font-size: 11px !important;
+  }
+
+  .trust__cell {
+    padding: 10px 14px !important;
+    font-size: 12px !important;
+  }
+
+  /* 3. Word Cloud Section on Mobile */
+  .pebble-blob-card {
+    height: 480px !important;
+    min-height: 480px !important;
+    border-radius: 28px !important;
+    padding: 16px 10px !important;
+  }
+
+  .pebble-absolute-tag {
+    font-size: clamp(10px, 2.8vw, 18px) !important;
+    padding: 1px 4px !important;
+  }
+
+  /* 4. How It Works Section on Mobile */
+  .how-new-steps-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .how-new-card {
+    padding: 14px 12px !important;
+    border-radius: 18px !important;
+  }
+
+  .how-step-title {
+    font-size: 13.5px !important;
+    line-height: 1.25 !important;
+  }
+
+  .how-step-desc {
+    font-size: 11.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  .how-preview-card {
+    padding: 16px 18px !important;
+    border-radius: 18px !important;
+    margin-top: 16px !important;
+  }
+
+  /* 5. Mind Map & Dashboard Cards on Mobile */
+  .mindmap-canvas-stage {
+    height: 380px !important;
+    border-radius: 18px !important;
+  }
+
+  .mindmap-node-tag {
+    padding: 4px 9px !important;
+    font-size: 9.5px !important;
+  }
+
+  /* 6. Comparison Table on Mobile */
+  .comparison-mobile-cards {
+    gap: 12px !important;
+  }
+
+  /* 7. Plans Cards on Mobile */
+  .simple-plan-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .simple-plan-card {
+    padding: 18px 20px !important;
+    border-radius: 20px !important;
+  }
+
+  .plan-card-header h3 {
+    font-size: 20px !important;
+  }
+}
