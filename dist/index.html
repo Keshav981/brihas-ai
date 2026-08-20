@@ -22,35 +22,49 @@
 
 
 
+
+
 <style id="force-hero-center-global">
-  /* ══════════ ABSOLUTE GLOBAL HERO CENTER ALIGNMENT OVERRIDES ══════════ */
-  .hero-exact, 
-  section.hero, 
-  .hero-editorial-section,
-  .hero-exact .hero__inner,
-  .hero-exact .hero__copy,
-  .hero-copy,
-  .hero-editorial-container,
-  .hero-art-clean,
-  .stage-wrap-mobile {
+  /* ══════════ PERFECT 100% ABSOLUTE CENTER HERO OVERRIDES ══════════ */
+  .hero-exact {
+    background: #FAF8F3 !important;
+    width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    float: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
   }
 
-  .hero-exact .hero__inner,
-  .hero-editorial-container,
-  .hero-copy {
-    max-width: 860px !important;
+  .hero-exact .hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    max-width: 880px !important;
     width: 100% !important;
+    margin: 0 auto !important;
+    padding: 64px 20px 48px !important;
+    gap: 32px !important;
+  }
+
+  .hero-exact .hero__copy,
+  .hero-copy,
+  .hero-editorial-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 840px !important;
     flex: 1 1 100% !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    gap: 0 !important;
   }
 
   .hero-exact h1, 
@@ -64,12 +78,12 @@
     width: 100% !important;
     max-width: 780px !important;
     font-family: 'DM Sans', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  }
-
-  .hero-exact h1 *, 
-  .hero__copy h1 *, 
-  .hero-copy h1 * {
-    text-align: center !important;
+    font-size: clamp(32px, 4.4vw, 56px) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+    color: #1C251D !important;
+    text-wrap: balance !important;
   }
 
   .hero__sub, 
@@ -116,32 +130,22 @@
     margin-right: auto !important;
   }
 
-  .start-anywhere-kicker,
-  .coming-soon-kicker {
-    font-family: 'DM Mono', monospace !important;
-    font-size: 11px !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.16em !important;
-    color: #8A928B !important;
-    text-transform: uppercase !important;
-    text-align: center !important;
-    margin: 0 auto 4px !important;
-    display: block !important;
+  .hero-exact .stage-wrap-mobile,
+  .hero-exact .hero-art-clean,
+  .hero-exact .hero-art,
+  .hero-exact .stage {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 600px !important;
   }
 
-  .hero-editorial-input-card {
-    width: 100% !important;
-    max-width: 660px !important;
-    margin: 0 auto 24px !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    background: #FFFFFF !important;
-    border: 1.5px solid #E2E5E0 !important;
-    border-radius: 28px !important;
-    padding: 14px 18px 14px 26px !important;
-    box-shadow: 0 12px 36px rgba(28, 37, 29, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02) !important;
+  @media (max-width: 760px) {
+    .hero-exact .hero__inner {
+      padding: 44px 16px 36px !important;
+    }
   }
 </style>
 </head>
