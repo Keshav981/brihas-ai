@@ -1966,77 +1966,7 @@ const InteractiveWhoThisIsForSection = ({ sectionMotion, stagger, item }) => {
 
         
 
-        {/* 11 Topics to Chat On Section Header */}
-        <div style={{ textTransform: 'uppercase', textAlign: 'center', marginBottom: '24px' }}>
-          <p className="eyebrow" style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.1em', color: '#6E786F', marginBottom: '6px' }}>
-            11 TOPICS TO CHAT ON
-          </p>
-          <h3 style={{ fontSize: '24px', fontWeight: 700, color: '#1C251D', margin: 0 }}>
-            What's weighing on your mind today?
-          </h3>
-        </div>
 
-        {/* 12 Topic Cards Grid */}
-        <motion.div className="who-mock-grid" {...stagger}>
-          {topics.map(t => {
-            const isHovered = hoveredCard === t.id;
-            const isSelected = selectedTopics.includes(t.id);
-            return (
-              <motion.article
-                key={t.id}
-                className="who-mock-card"
-                onClick={() => toggleTopic(t.id)}
-                onMouseEnter={() => setHoveredCard(t.id)}
-                onMouseLeave={() => setHoveredCard(null)}
-                whileHover={{ y: -6, scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: 'spring', stiffness: 350, damping: 22 }}
-                style={{
-                  borderColor: isSelected ? t.accentColor : (isHovered ? t.accentColor : '#ECEEEA'),
-                  backgroundColor: isSelected ? t.bgColor : '#FFFFFF',
-                  boxShadow: (isHovered || isSelected)
-                    ? `0 16px 35px -8px ${t.shadowColor}, 0 0 0 1px ${t.accentColor}`
-                    : '0 8px 24px rgba(28, 37, 29, 0.03)'
-                }}
-                {...item}
-              >
-                {/* Visual Emoji Badge */}
-                <div className="who-card-icon-wrapper" style={{ backgroundColor: isSelected ? '#FFFFFF' : t.bgColor }}>
-                  {t.icon}
-                </div>
-
-                {/* Content */}
-                <div className="who-card-content">
-                  <h3 className="who-card-title">{t.title}</h3>
-                  <p className="who-card-sub">{t.sub}</p>
-                </div>
-
-                {/* Active Checkmark Badge */}
-                {isSelected && (
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    style={{
-                      width: '22px',
-                      height: '22px',
-                      borderRadius: '50%',
-                      backgroundColor: t.accentColor,
-                      color: '#FFFFFF',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '12px',
-                      fontWeight: 'bold',
-                      flexShrink: 0
-                    }}
-                  >
-                    ✓
-                  </motion.div>
-                )}
-              </motion.article>
-            );
-          })}
-        </motion.div>
 
         {/* Bottom Callout Banner */}
         <motion.div 
