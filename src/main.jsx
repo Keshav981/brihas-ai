@@ -1638,103 +1638,90 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
   );
 };
 
-const brainCloudWords = [
-  // Center Core
-  { text: 'Clarity', fontSize: '32px', weight: 800, color: '#2D6043', bg: '#E4EFE4' },
-  { text: 'Purpose', fontSize: '30px', weight: 800, color: '#7C3AED', bg: '#F3E8FF' },
-  { text: 'Balance', fontSize: '28px', weight: 700, color: '#14B8A6', bg: '#CCFBF1' },
-  { text: 'Identity', fontSize: '26px', weight: 700, color: '#2563EB', bg: '#EFF6FF' },
-  { text: 'Big Decisions', fontSize: '28px', weight: 700, color: '#D97706', bg: '#FEF3C7' },
-  { text: 'Reflection', fontSize: '24px', weight: 600, color: '#3B82F6', bg: '#EFF6FF' },
+const pebbleWords = [
+  // Giant Focal Keywords
+  { text: 'Burnout', fontSize: '44px', weight: 800, color: '#2D4233' },
+  { text: 'Clarity', fontSize: '42px', weight: 800, color: '#2B4C3E' },
+  { text: 'Overthinking', fontSize: '38px', weight: 700, color: '#6B4B70' },
+  { text: 'Relationships', fontSize: '36px', weight: 700, color: '#83536B' },
+  { text: 'Career', fontSize: '34px', weight: 700, color: '#4B6E52' },
+  { text: 'Purpose', fontSize: '30px', weight: 600, color: '#5A6856' },
+  { text: 'Money', fontSize: '30px', weight: 600, color: '#856950' },
+  { text: 'Big decisions', fontSize: '28px', weight: 600, color: '#546051' },
+  { text: 'Identity', fontSize: '26px', weight: 600, color: '#625275' },
 
-  // Inner Mind / Emotions
-  { text: 'Burnout', fontSize: '30px', weight: 800, color: '#E07A5F', bg: '#FFF5F2' },
-  { text: 'Overthinking', fontSize: '28px', weight: 700, color: '#EC4899', bg: '#FDF2F8' },
-  { text: 'Self Doubt', fontSize: '26px', weight: 700, color: '#8B5CF6', bg: '#F5F3FF' },
-  { text: 'Stress', fontSize: '24px', weight: 600, color: '#8B5CF6', bg: '#F5F3FF' },
-  { text: 'Anxiety', fontSize: '24px', weight: 600, color: '#8B5CF6', bg: '#F5F3FF' },
-  { text: 'Fear', fontSize: '18px', weight: 500, color: '#EC4899', bg: '#FDF2F8' },
-  { text: 'Feeling Lost', fontSize: '24px', weight: 600, color: '#7C3AED', bg: '#EDE9FE' },
-  { text: 'Work Pressure', fontSize: '22px', weight: 600, color: '#E07A5F', bg: '#FFF5F2' },
-  { text: 'Breakup', fontSize: '20px', weight: 500, color: '#E07A5F', bg: '#FFF5F2' },
-  { text: 'Family', fontSize: '22px', weight: 600, color: '#3B82F6', bg: '#EFF6FF' },
-  { text: 'Love', fontSize: '24px', weight: 600, color: '#EC4899', bg: '#FDF2F8' },
-  { text: 'Trust', fontSize: '20px', weight: 500, color: '#3B82F6', bg: '#EFF6FF' },
-  { text: 'Relationships', fontSize: '28px', weight: 700, color: '#EC4899', bg: '#FDF2F8' },
+  // Medium Keywords
+  { text: 'Self doubt', fontSize: '22px', weight: 600, color: '#5A685D' },
+  { text: 'Confidence', fontSize: '22px', weight: 600, color: '#687062' },
+  { text: 'Growth', fontSize: '22px', weight: 600, color: '#5B6E5F' },
+  { text: 'Future', fontSize: '22px', weight: 600, color: '#6E5879' },
+  { text: 'Bullying', fontSize: '22px', weight: 600, color: '#7B4E59' },
+  { text: 'Health', fontSize: '20px', weight: 500, color: '#586E5D' },
+  { text: 'Stress', fontSize: '20px', weight: 500, color: '#5A5868' },
+  { text: 'Anxiety', fontSize: '20px', weight: 500, color: '#555866' },
+  { text: 'Feeling stuck', fontSize: '20px', weight: 500, color: '#626B5F' },
+  { text: 'Work pressure', fontSize: '18px', weight: 500, color: '#6E5E58' },
+  { text: 'Boundaries', fontSize: '18px', weight: 500, color: '#686B60' },
+  { text: 'Pressure', fontSize: '17px', weight: 500, color: '#685E6E' },
 
-  // Growth & Future
-  { text: 'Growth', fontSize: '28px', weight: 700, color: '#14B8A6', bg: '#CCFBF1' },
-  { text: 'Confidence', fontSize: '26px', weight: 700, color: '#14B8A6', bg: '#CCFBF1' },
-  { text: 'Career', fontSize: '28px', weight: 700, color: '#2D6043', bg: '#E4EFE4' },
-  { text: 'Money', fontSize: '22px', weight: 600, color: '#D97706', bg: '#FEF3C7' },
-  { text: 'Goals', fontSize: '22px', weight: 600, color: '#D97706', bg: '#FEF3C7' },
-  { text: 'Motivation', fontSize: '22px', weight: 600, color: '#D97706', bg: '#FEF3C7' },
-  { text: 'Future', fontSize: '24px', weight: 600, color: '#3B82F6', bg: '#EFF6FF' },
-  { text: 'Change', fontSize: '20px', weight: 500, color: '#65A30D', bg: '#F7FEE7' },
-  { text: 'Habits', fontSize: '20px', weight: 500, color: '#65A30D', bg: '#F7FEE7' },
-  { text: 'Discipline', fontSize: '20px', weight: 500, color: '#2D6043', bg: '#E4EFE4' },
-  { text: 'Communication', fontSize: '22px', weight: 600, color: '#14B8A6', bg: '#CCFBF1' },
-  { text: 'Finance', fontSize: '20px', weight: 500, color: '#D97706', bg: '#FEF3C7' },
-  { text: 'Success', fontSize: '22px', weight: 600, color: '#2D6043', bg: '#E4EFE4' },
-  { text: 'Dreams', fontSize: '22px', weight: 600, color: '#8B5CF6', bg: '#F5F3FF' }
+  // Small Supporting Keywords
+  { text: 'Motivation', fontSize: '15px', weight: 400, color: '#7D7569' },
+  { text: 'Communication', fontSize: '16px', weight: 400, color: '#7A6458' },
+  { text: 'Conflict', fontSize: '15px', weight: 400, color: '#826569' },
+  { text: 'Family', fontSize: '16px', weight: 400, color: '#70645A' },
+  { text: 'Breakup', fontSize: '15px', weight: 400, color: '#856165' },
+  { text: 'Connection', fontSize: '15px', weight: 400, color: '#806864' },
+  { text: 'Loneliness', fontSize: '15px', weight: 400, color: '#6A6578' },
+  { text: 'Emotions', fontSize: '15px', weight: 400, color: '#75685B' },
+  { text: 'Work life balance', fontSize: '15px', weight: 400, color: '#5D6C5E' },
+  { text: 'Productivity', fontSize: '15px', weight: 400, color: '#6A7368' },
+  { text: 'New beginning', fontSize: '15px', weight: 400, color: '#6D7364' },
+  { text: 'Starting over', fontSize: '15px', weight: 400, color: '#687063' },
+  { text: 'Balance', fontSize: '15px', weight: 400, color: '#5C6C60' },
+  { text: 'What next?', fontSize: '15px', weight: 400, color: '#70675C' }
 ];
 
-const SimpleBrainCloudVisualizer = ({ onSelectWord }) => {
-  const [selectedWord, setSelectedWord] = useState(null);
-
+const OrganicPebbleWordCloud = ({ onSelectWord }) => {
   return (
-    <div className="simple-brain-cloud-section">
-      <div className="brain-cloud-header">
-        <span className="brain-badge-kicker">BRAIN &amp; THOUGHT SILHOUETTE</span>
-        <h2 className="brain-cloud-title">
-          Whatever you're processing,<br />
-          <span className="purple-gradient-text">Brihas brings clarity.</span>
-        </h2>
-      </div>
-
-      <div className="brain-silhouette-card">
-        {/* Soft SVG Brain / Thought Cloud Contour Lines */}
-        <svg className="brain-contour-svg" viewBox="0 0 800 480" fill="none" preserveAspectRatio="none">
-          <path d="M 280 80 C 140 70, 70 170, 90 300 C 110 420, 250 450, 380 430" stroke="rgba(139, 92, 246, 0.22)" strokeWidth="2" strokeDasharray="6 6" fill="none" />
-          <path d="M 520 80 C 660 70, 730 170, 710 300 C 690 420, 550 450, 420 430" stroke="rgba(16, 185, 129, 0.22)" strokeWidth="2" strokeDasharray="6 6" fill="none" />
-          <path d="M 380 430 Q 400 410 420 430" stroke="rgba(217, 119, 6, 0.28)" strokeWidth="2" fill="none" />
-          <path d="M 280 80 Q 400 110 520 80" stroke="rgba(147, 51, 234, 0.28)" strokeWidth="2" fill="none" />
+    <div className="organic-pebble-container">
+      <div className="pebble-blob-card">
+        {/* Botanical Leaf SVG Accent on Bottom Left */}
+        <svg className="botanical-leaf-svg" viewBox="0 0 120 120" fill="none">
+          <path d="M 20 100 C 40 80, 50 40, 90 20 C 70 50, 60 80, 20 100 Z" fill="#8FA68E" opacity="0.45" />
+          <path d="M 20 100 C 30 70, 60 50, 100 40 C 70 60, 40 80, 20 100 Z" fill="#6A8569" opacity="0.35" />
+          <path d="M 20 100 Q 55 60 90 20" stroke="#4A6548" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.6" />
         </svg>
 
-        {/* Central Brain Icon Tag */}
-        <div className="brain-center-icon">
-          <span>🧠</span>
+        {/* Header inside Watercolor Blob */}
+        <div className="pebble-header">
+          <div className="cloud-icon-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#576359" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+            </svg>
+          </div>
+          <p className="pebble-kicker">WHAT'S WEIGHING ON YOUR MIND TODAY?</p>
         </div>
 
-        {/* Words Grid Contour */}
-        <div className="brain-words-grid">
-          {brainCloudWords.map((item, idx) => {
-            const isSelected = selectedWord === item.text;
-            return (
-              <motion.button
-                key={idx}
-                type="button"
-                className={`brain-word-pill ${isSelected ? 'active' : ''}`}
-                style={{
-                  fontSize: item.fontSize,
-                  fontWeight: item.weight,
-                  color: isSelected ? '#FFFFFF' : item.color,
-                  backgroundColor: isSelected ? item.color : item.bg,
-                  borderColor: isSelected ? item.color : 'rgba(0, 0, 0, 0.05)'
-                }}
-                onClick={() => {
-                  setSelectedWord(item.text);
-                  if (onSelectWord) onSelectWord(item.text);
-                }}
-                whileHover={{ scale: 1.12, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                animate={{ y: [0, idx % 2 === 0 ? -3 : 3, 0] }}
-                transition={{ duration: 3.5 + (idx % 3), repeat: Infinity, ease: 'easeInOut' }}
-              >
-                {item.text}
-              </motion.button>
-            );
-          })}
+        {/* Word Cloud Typography Cluster */}
+        <div className="pebble-words-cloud">
+          {pebbleWords.map((item, idx) => (
+            <motion.span
+              key={idx}
+              className="pebble-word-tag"
+              style={{
+                fontSize: item.fontSize,
+                fontWeight: item.weight,
+                color: item.color
+              }}
+              onClick={() => onSelectWord && onSelectWord(item.text)}
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              animate={{ y: [0, idx % 2 === 0 ? -3 : 3, 0] }}
+              transition={{ duration: 3.5 + (idx % 3), repeat: Infinity, ease: 'easeInOut' }}
+            >
+              {item.text}
+            </motion.span>
+          ))}
         </div>
       </div>
     </div>
@@ -1961,8 +1948,8 @@ const InteractiveWhoThisIsForSection = ({ sectionMotion, stagger, item }) => {
           })}
         </motion.div>
 
-        {/* Simple Brain & Thought Cloud Silhouette Word Cloud (Section 2) */}
-        <SimpleBrainCloudVisualizer 
+        {/* Organic Watercolor Pebble Word Cloud Section 2 (Matching Attached Mockup Image) */}
+        <OrganicPebbleWordCloud 
           onSelectWord={(word) => {
             const el = document.getElementById('map');
             if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -3293,8 +3280,8 @@ function App() {
             </p>
           </motion.div>
 
-          {/* Simple Brain & Thought Cloud Silhouette Word Cloud in Hero Section */}
-          <SimpleBrainCloudVisualizer 
+          {/* Organic Watercolor Pebble Word Cloud in Hero Section */}
+          <OrganicPebbleWordCloud 
             onSelectWord={(word) => setHeroInputText(`I want to reflect on ${word.toLowerCase()}...`)}
           />
         </div>
