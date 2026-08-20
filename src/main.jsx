@@ -1783,11 +1783,8 @@ const CleanInteractiveMindMapSection = () => {
     >
       <div className="wrap">
         {/* Intro Header Grid */}
-        <div style={{ marginBottom: '28px' }}>
-          <p className="eyebrow green-eyebrow" style={{ marginBottom: '12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> MIND MAP</p>
-          <h2 style={{ fontSize: 'clamp(32px, 3.8vw, 54px)', letterSpacing: '-2px', fontWeight: 700, margin: 0, color: '#1C251D' }}>
-            Interactive <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: '#2B7858' }}>mind map.</em>
-          </h2>
+        <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+          <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> INTERACTIVE MIND MAP</p>
         </div>
 
         {/* Filter Pills & Legend Row */}
@@ -3300,11 +3297,8 @@ function App() {
 
       {/* FAQ Section */}
       <section className="faq wrap" id="faq">
-        <div style={{ marginBottom: '28px' }}>
-          <p className="eyebrow green-eyebrow" style={{ marginBottom: '12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> FREQUENTLY ASKED QUESTIONS</p>
-          <h2 style={{ fontSize: 'clamp(32px, 3.8vw, 54px)', letterSpacing: '-2px', fontWeight: 700, margin: 0, color: '#1C251D' }}>
-            <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', color: '#2B7858' }}>FAQ.</em>
-          </h2>
+        <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+          <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> FAQ</p>
         </div>
         <div className="faq-list">
           {faqs.map(([q,a],i) => (
