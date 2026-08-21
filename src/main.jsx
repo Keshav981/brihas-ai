@@ -1704,15 +1704,7 @@ const OrganicPebbleWordCloud = ({ onSelectWord }) => {
           <path d="M 125 75 C 140 60 160 60 160 75 C 160 90 140 90 125 75 Z" fill="#6A8A68" opacity="0.85" />
         </svg>
 
-        {/* Header inside Watercolor Blob */}
-        <div className="pebble-header-absolute">
-          <div className="cloud-icon-badge">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2D6043" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
-            </svg>
-          </div>
-          <p className="pebble-kicker">WHAT'S WEIGHING ON YOUR MIND TODAY?</p>
-        </div>
+
 
         {/* 2D Absolute Word Canvas */}
         <div className="pebble-absolute-canvas">
