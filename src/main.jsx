@@ -1705,14 +1705,18 @@ const pebbleWordsAbsolute = [
 if (typeof window !== 'undefined') {
   (() => {
     const TOPICS = [
-      // [label, tier]  1 = closest & largest, 3 = deep inside the orb
+      // [label, tier] 1 = primary core, 2 = mid layer, 3 = inner atmosphere
       ['Burnout', 1], ['Overthinking', 1], ['Career', 1], ['Relationships', 1],
-      ['Clarity', 1], ['Money', 1], ['Identity', 1],
-      ['Purpose', 2], ['Anxiety', 2], ['Self doubt', 2], ['Peace of mind', 2],
-      ['Health', 2], ['Growth', 2], ['Big decisions', 2], ['Confidence', 2],
-      ['Future', 2], ['Inner Peace', 2],
-      ['Motivation', 3], ['Work pressure', 3], ['Family', 3], ['Friendship', 3],
-      ['Loneliness', 3], ['Balance', 3], ['Mindset', 3], ['Productivity', 3]
+      ['Clarity', 1], ['Money', 1], ['Identity', 1], ['Peace of mind', 1],
+      ['Future', 1], ['Confidence', 1], ['Self care', 1],
+      ['Purpose', 2], ['Anxiety', 2], ['Self doubt', 2], ['Health', 2],
+      ['Growth', 2], ['Big decisions', 2], ['Inner Peace', 2], ['Motivation', 2],
+      ['Resilience', 2], ['Fulfillment', 2], ['Work life balance', 2], ['Time management', 2],
+      ['Work pressure', 3], ['Family', 3], ['Friendship', 3], ['Loneliness', 3],
+      ['Balance', 3], ['Mindset', 3], ['Productivity', 3], ['Boundaries', 3],
+      ['Overwhelm', 3], ['Bullying', 3], ['Breakup', 3], ['Starting over', 3],
+      ['Comparison trap', 3], ['Connection', 3], ['Self esteem', 3], ['Feeling stuck', 3],
+      ['Pressure', 3], ['Stress', 3], ['What next?', 3], ['Communication', 3], ['Conflict', 3]
     ];
 
     const INK = '#1C251D', FOREST = '#2B7858', SAGE = '#6E8A72',
@@ -1737,7 +1741,7 @@ topic-orb { display:block; container-type:inline-size; }
 }
 .orb-stage {
   position:relative; width:100%; aspect-ratio:1/1;
-  max-width:min(100%,640px); margin:0 auto;
+  max-width:min(100%,680px); margin:0 auto;
   touch-action:none; cursor:grab;
   -webkit-user-select:none; user-select:none;
 }
@@ -1746,19 +1750,19 @@ topic-orb { display:block; container-type:inline-size; }
 .orb-glow {
   border-radius:50%;
   background:
-    radial-gradient(46% 44% at 30% 24%, rgba(142,127,176,.22), transparent 70%),
-    radial-gradient(48% 46% at 74% 72%, rgba(110,138,114,.22), transparent 72%),
-    radial-gradient(58% 56% at 52% 50%, rgba(255,255,255,.55), transparent 74%);
+    radial-gradient(46% 44% at 30% 24%, rgba(142,127,176,.25), transparent 70%),
+    radial-gradient(48% 46% at 74% 72%, rgba(110,138,114,.25), transparent 72%),
+    radial-gradient(58% 56% at 52% 50%, rgba(255,255,255,.6), transparent 74%);
   filter:blur(28px);
 }
 .orb-shell {
   border-radius:50%;
   border:1px solid rgba(28,37,29,.08);
   background:
-    radial-gradient(52% 48% at 32% 22%, rgba(255,255,255,.58), rgba(255,255,255,.05) 58%, transparent 74%),
-    radial-gradient(72% 72% at 50% 54%, rgba(253,251,246,.14), transparent 76%);
+    radial-gradient(52% 48% at 32% 22%, rgba(255,255,255,.62), rgba(255,255,255,.08) 58%, transparent 74%),
+    radial-gradient(72% 72% at 50% 54%, rgba(253,251,246,.18), transparent 76%);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.72),
+    inset 0 1px 0 rgba(255,255,255,.8),
     inset 0 -40px 80px -62px rgba(28,37,29,.16),
     0 56px 84px -64px rgba(28,37,29,.26);
   -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
@@ -1769,15 +1773,15 @@ topic-orb { display:block; container-type:inline-size; }
   position:absolute; left:0; top:0;
   font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;
   white-space:nowrap; pointer-events:auto; cursor:pointer;
-  background:none; border:0; padding:2px 4px; margin:0;
+  background:none; border:0; padding:2px 5px; margin:0;
   transition:color .3s ease;
   will-change:transform,opacity,filter;
 }
 .orb-w:focus-visible { outline:1.5px solid ${FOREST}; outline-offset:3px; border-radius:6px; }
-.orb-w.is-on { color:${FOREST} !important; }
+.orb-w.is-on { color:${FOREST} !important; font-weight:700 !important; }
 .orb-foot {
   display:flex; flex-direction:column; align-items:center; gap:3px;
-  margin:2px 0 0; text-align:center;
+  margin:4px 0 0; text-align:center;
 }
 .orb-foot b {
   font-family:'DM Mono',ui-monospace,monospace;
@@ -1803,12 +1807,12 @@ topic-orb { display:block; container-type:inline-size; }
   width:40px; height:40px; border-radius:50%; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   color:${SAGE}; border:1px solid rgba(28,37,29,.1);
-  background:rgba(255,255,255,.66);
+  background:rgba(255,255,255,.75);
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
   box-shadow:0 8px 18px -12px rgba(28,37,29,.3), inset 0 1px 0 rgba(255,255,255,.9);
   transition:color .2s ease, border-color .2s ease, background .2s ease;
 }
-.orb-snd:hover { color:${FOREST}; border-color:rgba(43,120,88,.3); background:rgba(255,255,255,.92); }
+.orb-snd:hover { color:${FOREST}; border-color:rgba(43,120,88,.3); background:rgba(255,255,255,.95); }
 .orb-snd[aria-pressed="true"] { color:${FOREST}; }
 @container (max-width: 620px) {
   .orb-stage { max-width:100%; }
@@ -1871,7 +1875,7 @@ topic-orb { display:block; container-type:inline-size; }
         this._bind();
 
         this._tick = this._tick.bind(this);
-        this._render();                        // paint once, independent of rAF
+        this._render();
         requestAnimationFrame(this._tick);
 
         this._io = new IntersectionObserver(es => { this.visible = es[0].isIntersecting; },
@@ -1888,7 +1892,7 @@ topic-orb { display:block; container-type:inline-size; }
         cancelAnimationFrame(this._raf);
       }
 
-      /* ---------- geometry ---------- */
+      /* ---------- geometry & Fibonacci 3D distribution ---------- */
 
       _buildRings() {
         const ell = (rx, ry, rot, op, dash) =>
@@ -1903,8 +1907,6 @@ topic-orb { display:block; container-type:inline-size; }
       }
 
       _buildWords() {
-        // Round-robin the tiers first: the Fibonacci spiral walks the sphere in
-        // order, so a tier-sorted list drops every headline topic in one band.
         const buckets = [[], [], []];
         TOPICS.forEach(t => buckets[t[1] - 1].push(t));
         const order = [];
@@ -1916,13 +1918,13 @@ topic-orb { display:block; container-type:inline-size; }
           const y = 1 - (2 * i + 1) / n;
           const r = Math.sqrt(Math.max(0, 1 - y * y));
           const th = Math.PI * (3 - Math.sqrt(5)) * i;
-          const shell = tier === 1 ? 1 : tier === 2 ? 0.8 : 0.58;
+          const shell = tier === 1 ? 1.0 : tier === 2 ? 0.82 : 0.64;
           const el = document.createElement('button');
           el.type = 'button';
           el.className = 'orb-w';
           el.textContent = label;
           el.style.color = HUES[i % HUES.length];
-          el.style.fontSize = (tier === 1 ? 1 : tier === 2 ? 0.72 : 0.56) + 'em';
+          el.style.fontSize = (tier === 1 ? 0.95 : tier === 2 ? 0.72 : 0.58) + 'em';
           el.style.fontWeight = tier === 1 ? 600 : tier === 2 ? 500 : 400;
           el.style.letterSpacing = tier === 1 ? '-.02em' : '-.01em';
           el.addEventListener('click', () => this._select(i));
@@ -1952,7 +1954,7 @@ topic-orb { display:block; container-type:inline-size; }
           const dx = e.clientX - this.drag.x, dy = e.clientY - this.drag.y, k = 0.006;
           this.yaw += dx * k;
           this.pitch = Math.max(-1.05, Math.min(1.05, this.pitch + dy * k * 0.7));
-          this.vYaw = dx * k * 0.5;              // carried into the release as inertia
+          this.vYaw = dx * k * 0.5;
           this.vPitch = dy * k * 0.35;
           this.drag.moved += Math.abs(dx) + Math.abs(dy);
           this.drag.x = e.clientX; this.drag.y = e.clientY;
@@ -1979,7 +1981,6 @@ topic-orb { display:block; container-type:inline-size; }
       _select(i) {
         const w = this.words[i];
         this.words.forEach(o => o.el.classList.toggle('is-on', o === w));
-        // rotate so the picked topic swings to the front of the sphere
         const R = Math.hypot(w.x, w.z);
         this.focus = { yaw: Math.atan2(w.x, w.z), pitch: Math.atan2(w.y, R) };
         this.vYaw = 0; this.vPitch = 0;
@@ -2003,12 +2004,12 @@ topic-orb { display:block; container-type:inline-size; }
           this.pitch += (this.focus.pitch - this.pitch) * 0.07;
           if (Math.abs(dy) < 0.004) { this.focus = null; this.vYaw = idle * 0.5; }
         } else {
-          this.vYaw += (idle - this.vYaw) * 0.012;     // inertia bleeds into the drift
+          this.vYaw += (idle - this.vYaw) * 0.012;
           this.vPitch *= 0.94;
-          const slow = this.hover ? 0.22 : 1;          // eases off under the cursor
+          const slow = this.hover ? 0.22 : 1;
           this.yaw += this.vYaw * slow * (this.reduced ? 0.2 : 1);
           this.pitch += this.vPitch * slow;
-          this.pitch += (-0.06 - this.pitch) * 0.004;  // settles back toward level
+          this.pitch += (-0.06 - this.pitch) * 0.004;
         }
         this._render();
       }
@@ -2018,35 +2019,57 @@ topic-orb { display:block; container-type:inline-size; }
         const box = this.stage.getBoundingClientRect();
         if (!box.width) return;
 
-        const R = box.width * 0.455, cx = box.width / 2, cy = box.height / 2;
+        const R = box.width * 0.44, cx = box.width / 2, cy = box.height / 2;
         const FOV = R * 3.1;
         const cyw = Math.cos(this.yaw), syw = Math.sin(this.yaw);
         const cp = Math.cos(this.pitch), sp = Math.sin(this.pitch);
-        this.stage.style.fontSize = Math.max(13, box.width * 0.037) + 'px';
+        this.stage.style.fontSize = Math.max(12, box.width * 0.035) + 'px';
 
-        const pts = [];
+        const renderedNodes = [];
+
         for (const w of this.words) {
           const x1 = w.x * cyw - w.z * syw, z1 = w.x * syw + w.z * cyw;
           const y2 = w.y * cp - z1 * sp,    z2 = w.y * sp + z1 * cp;
           const X = x1 * R, Y = y2 * R, Z = z2 * R;
           const s = FOV / (FOV - Z);
           const d = (z2 + 1) / 2;                        // 0 = far side, 1 = nearest
+
+          let posX = cx + X * s;
+          let posY = cy + Y * s;
+
+          // Non-overlapping collision adjustment for front nodes
+          if (d > 0.45) {
+            for (const prev of renderedNodes) {
+              const dx = posX - prev.x;
+              const dy = posY - prev.y;
+              const dist = Math.hypot(dx, dy);
+              const minDist = 38; // Minimum pixel gap to prevent text overlapping
+              if (dist < minDist && dist > 0) {
+                const overlap = (minDist - dist) / dist;
+                posX += dx * overlap * 0.5;
+                posY += dy * overlap * 0.5;
+              }
+            }
+          }
+          renderedNodes.push({ x: posX, y: posY, d });
+
           const op = (0.22 + 0.78 * d) * (w.tier === 3 ? 0.82 : 1);
           const st = w.el.style;
-          st.transform = `translate3d(${(cx + X * s).toFixed(1)}px, ${(cy + Y * s).toFixed(1)}px, 0) translate(-50%,-50%) scale(${s.toFixed(3)})`;
+          st.transform = `translate3d(${posX.toFixed(1)}px, ${posY.toFixed(1)}px, 0) translate(-50%,-50%) scale(${s.toFixed(3)})`;
           st.opacity = op.toFixed(3);
           st.filter = d < 0.55 ? `blur(${((0.55 - d) * 3.2).toFixed(2)}px)` : 'none';
           st.zIndex = Math.round(d * 100);
           st.pointerEvents = d > 0.42 ? 'auto' : 'none';
-          if (d > 0.5) pts.push({ x: cx + X * s, y: cy + Y * s });
         }
+
+        const pts = renderedNodes.filter(n => n.d > 0.5);
         this._drawLinks(pts, box);
         if (this.sound) this._sound(Math.abs(this.vYaw) + Math.abs(this.vPitch));
       }
 
       _drawLinks(pts, box) {
         let d = '';
-        const lim = box.width * 0.24;
+        const lim = box.width * 0.22;
         for (let i = 0; i < pts.length; i++)
           for (let j = i + 1; j < pts.length; j++) {
             const a = pts[i], b = pts[j];
@@ -2057,7 +2080,7 @@ topic-orb { display:block; container-type:inline-size; }
         this.link.innerHTML = `<path d="${d}" fill="none" stroke="rgba(43,120,88,.13)" stroke-width="0.7"/>`;
       }
 
-      /* ---------- ambient sound ---------- */
+      /* ---------- ambient sound & rotation bed ---------- */
 
       _toggleSound() {
         if (this.sound) { this._stopSound(); return; }
@@ -2067,17 +2090,19 @@ topic-orb { display:block; container-type:inline-size; }
         const gain = ctx.createGain(); gain.gain.value = 0;
         const filt = ctx.createBiquadFilter();
         filt.type = 'lowpass'; filt.frequency.value = 460; filt.Q.value = 0.7;
-        // two detuned voices plus a fifth: a still, breathing drone
-        const osc = [110, 110.4, 164.8].map((f, i) => {
+        
+        // Multi-frequency drone & rotation bed (deep sub-bass + fifth harmonic)
+        const osc = [82.4, 82.8, 123.47, 164.8].map((f, i) => {
           const o = ctx.createOscillator();
-          o.type = i === 2 ? 'triangle' : 'sine';
+          o.type = i >= 2 ? 'triangle' : 'sine';
           o.frequency.value = f;
-          const g = ctx.createGain(); g.gain.value = i === 2 ? 0.22 : 0.5;
+          const g = ctx.createGain(); g.gain.value = i >= 2 ? 0.18 : 0.45;
           o.connect(g).connect(filt); o.start();
           return o;
         });
+
         filt.connect(gain).connect(ctx.destination);
-        gain.gain.linearRampToValueAtTime(0.035, ctx.currentTime + 2.4);
+        gain.gain.linearRampToValueAtTime(0.04, ctx.currentTime + 2.0);
         this.sound = { ctx, gain, filt, osc };
         this.sndBtn.setAttribute('aria-pressed', 'true');
         this.sndBtn.innerHTML = SND_ON;
@@ -2095,8 +2120,12 @@ topic-orb { display:block; container-type:inline-size; }
       }
 
       _sound(speed) {
-        const { ctx, filt } = this.sound;         // brighter as it turns, never loud
-        filt.frequency.setTargetAtTime(360 + Math.min(speed * 26000, 900), ctx.currentTime, 0.6);
+        const { ctx, filt, gain } = this.sound;
+        // Dynamic pitch & resonance shift tracking rotation velocity
+        const freq = 360 + Math.min(speed * 32000, 1100);
+        filt.frequency.setTargetAtTime(freq, ctx.currentTime, 0.4);
+        const dynamicVol = Math.min(0.06, 0.035 + speed * 1.5);
+        gain.gain.setTargetAtTime(dynamicVol, ctx.currentTime, 0.4);
       }
     }
 
