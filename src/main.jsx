@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
