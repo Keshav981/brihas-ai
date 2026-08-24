@@ -9612,22 +9612,25 @@ footer, .footer {
 }
 
 
-/* ══════════ LEFT-ALIGNED WORD CLOUD & CAPSULE HEADER (MATCHING HOW IT WORKS) ══════════ */
+
+
+
+/* ══════════ RESTORED ORIGINAL CENTERED WORD CLOUD & HEADING ══════════ */
 .weighing-mind-section .wrap {
-  text-align: left !important;
+  text-align: center !important;
 }
 
 .starting-word-cloud-container {
   width: 100% !important;
   max-width: 860px !important;
-  margin: 0 !important;
+  margin: 0 auto !important;
 }
 
 .pebble-blob-card {
-  margin: 0 !important;
+  margin: 0 auto !important;
 }
 
 .orb-top-header {
-  text-align: left !important;
-  margin-left: 0 !important;
+  text-align: center !important;
+  margin: 0 auto 24px !important;
 }

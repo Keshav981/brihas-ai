@@ -1697,9 +1697,12 @@ const ExactImageWordCloudSection = ({ onSelectWord }) => {
   return (
     <div className="starting-word-cloud-container">
       {/* Header */}
-      <div className="orb-top-header" style={{ marginBottom: '24px', textAlign: 'left' }}>
-        <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-          <i></i> WHAT&rsquo;S ON YOUR MIND
+      <div className="orb-top-header" style={{ marginBottom: '24px', textAlign: 'center' }}>
+        <h2 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '36px', color: '#1C251D', margin: '0 0 8px', fontWeight: 700, letterSpacing: '-0.02em' }}>
+          What&rsquo;s on <em>your mind?</em>
+        </h2>
+        <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: '18px', color: '#6E8A72', margin: 0 }}>
+          Explore what matters to you.
         </p>
       </div>
 
@@ -2966,7 +2969,7 @@ function App() {
 
       {/* 2ND SECTION: WHAT IS WEIGHING ON YOUR MIND - 3D TOPIC UNIVERSE ORB */}
       <motion.section className="section weighing-mind-section" id="topics" {...sectionMotion}>
-        <div className="wrap" style={{ textAlign: 'left' }}>
+        <div className="wrap" style={{ textAlign: 'center' }}>
           <ExactImageWordCloudSection 
             onSelectWord={(word) => {
               setHeroInputText(`I want to reflect on ${word.toLowerCase()}...`);
