@@ -1695,9 +1695,8 @@ const pebbleWordsAbsolute = [
 ];
 
 
-/* <topic-orb> — Brihas.ai interactive 3D topic universe.
-   A DOM-projected sphere: topics and the entire globe container rotate together in 3D space.
-   Auto-revolves slowly · eases off on hover · drag with inertia · click to focus. */
+/* <topic-orb> — Brihas.ai interactive 3D Earth Globe on Desktop Stand.
+   A DOM-projected Earth globe sphere mounted on a physical metallic stand with top/bottom axis poles and 23.5° axial tilt. */
 if (typeof window !== 'undefined') {
   (() => {
     const TOPICS = [
@@ -1739,13 +1738,13 @@ topic-orb { display:block; container-type:inline-size; }
   max-width:min(100%,680px); margin:0 auto;
   touch-action:none; cursor:grab;
   -webkit-user-select:none; user-select:none;
-  perspective:1000px;
 }
 .orb-stage.is-drag { cursor:grabbing; }
-.orb-glow, .orb-shell, .orb-rings, .orb-field, .orb-link { 
-  position:absolute; inset:0; 
-  transition:transform 0.1s cubic-bezier(0.1, 0.9, 0.2, 1);
-  transform-style:preserve-3d;
+.orb-stand-svg { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1; }
+.orb-glow, .orb-sphere-wrapper, .orb-shell, .orb-rings, .orb-field, .orb-link { position:absolute; inset:0; }
+.orb-sphere-wrapper {
+  transform: rotate(23.5deg);
+  transform-origin: center center;
 }
 .orb-glow {
   border-radius:50%;
@@ -1757,10 +1756,10 @@ topic-orb { display:block; container-type:inline-size; }
 }
 .orb-shell {
   border-radius:50%;
-  border:1.5px solid rgba(255,255,255,.9);
+  border:1.8px solid rgba(255,255,255,.95);
   background:
-    radial-gradient(52% 48% at 32% 22%, rgba(255,255,255,.7), rgba(255,255,255,.1) 58%, transparent 74%),
-    radial-gradient(72% 72% at 50% 54%, rgba(253,251,246,.2), transparent 76%);
+    radial-gradient(52% 48% at 32% 22%, rgba(255,255,255,.75), rgba(240,248,243,.4) 58%, transparent 74%),
+    radial-gradient(72% 72% at 50% 54%, rgba(253,251,246,.25), transparent 76%);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.9),
     inset 0 -40px 80px -62px rgba(28,37,29,.2),
@@ -1779,7 +1778,7 @@ topic-orb { display:block; container-type:inline-size; }
   border-radius:100px;
 }
 .orb-w:hover {
-  background:rgba(255,255,255,0.92) !important;
+  background:rgba(255,255,255,0.95) !important;
   box-shadow:0 6px 18px rgba(28,37,29,0.12) !important;
   color:${FOREST} !important;
   z-index:999 !important;
@@ -1801,15 +1800,15 @@ topic-orb { display:block; container-type:inline-size; }
   box-shadow:0 6px 18px rgba(28,37,29,0.08);
   transition:all 0.2s ease;
 }
-.orb-nav-left { left:-12px; }
-.orb-nav-right { right:-12px; }
+.orb-nav-left { left:-14px; }
+.orb-nav-right { right:-14px; }
 .orb-nav-left:hover, .orb-nav-right:hover {
   background:#EAF4EE; color:${FOREST};
   transform:translateY(-50%) scale(1.08);
 }
 .orb-foot {
   display:flex; flex-direction:column; align-items:center; gap:3px;
-  margin:4px 0 0; text-align:center;
+  margin:12px 0 0; text-align:center;
 }
 .orb-foot b {
   font-family:'DM Mono',ui-monospace,monospace;
@@ -1860,19 +1859,45 @@ topic-orb { display:block; container-type:inline-size; }
           <div class="orb-stage">
             <button className="orb-nav-left" type="button" aria-label="Spin Globe Left">‹</button>
             <button className="orb-nav-right" type="button" aria-label="Spin Globe Right">›</button>
-            <div class="orb-glow"></div>
-            <div class="orb-shell"></div>
-            <svg class="orb-rings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
-            <svg class="orb-link" aria-hidden="true"></svg>
-            <div class="orb-field" role="group" aria-label="Topics"></div>
+            
+            {/* Metallic Globe Stand with Top & Bottom Axis Mounts & Pedestal Base */}
+            <svg class="orb-stand-svg" viewBox="0 0 500 500">
+              {/* Metallic Meridian Arc Support Arm */}
+              <path d="M 235 25 C 80 80 80 420 235 475" fill="none" stroke="#2B7858" stroke-width="6" stroke-linecap="round" opacity="0.85" />
+              <path d="M 235 25 C 80 80 80 420 235 475" fill="none" stroke="#6E8A72" stroke-width="2.5" stroke-linecap="round" opacity="0.9" />
+              
+              {/* Top Axis Pole Mount */}
+              <circle cx="240" cy="30" r="10" fill="#1C251D" />
+              <circle cx="240" cy="30" r="6" fill="#2B7858" />
+              <line x1="240" y1="20" x2="240" y2="45" stroke="#1C251D" stroke-width="4" stroke-linecap="round" />
+
+              {/* Bottom Axis Pole Mount */}
+              <circle cx="240" cy="470" r="10" fill="#1C251D" />
+              <circle cx="240" cy="470" r="6" fill="#2B7858" />
+              <line x1="240" y1="455" x2="240" y2="480" stroke="#1C251D" stroke-width="4" stroke-linecap="round" />
+
+              {/* Pedestal Stand Base */}
+              <path d="M 180 490 L 300 490 L 290 475 L 190 475 Z" fill="#1C251D" />
+              <ellipse cx="240" cy="492" rx="70" ry="7" fill="#2B7858" opacity="0.9" />
+            </svg>
+
+            {/* 23.5° Tilted Rotating Globe Sphere */}
+            <div class="orb-sphere-wrapper">
+              <div class="orb-glow"></div>
+              <div class="orb-shell"></div>
+              <svg class="orb-rings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+              <svg class="orb-link" aria-hidden="true"></svg>
+              <div class="orb-field" role="group" aria-label="Topics"></div>
+            </div>
           </div>
           <div class="orb-foot">
             <b>Drag to explore</b>
-            <span class="orb-hint">Spin the orb and discover more.</span>
+            <span class="orb-hint">Spin the globe and discover more.</span>
             <button class="orb-cta" type="button" hidden></button>
           </div>`;
 
         this.stage = this.querySelector('.orb-stage');
+        this.sphereWrapper = this.querySelector('.orb-sphere-wrapper');
         this.glow = this.querySelector('.orb-glow');
         this.shell = this.querySelector('.orb-shell');
         this.field = this.querySelector('.orb-field');
@@ -1884,8 +1909,8 @@ topic-orb { display:block; container-type:inline-size; }
         this.btnRight = this.querySelector('.orb-nav-right');
 
         this.reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-        this.yaw = 0.6; this.pitch = -0.1;
-        this.vYaw = 0.0025; this.vPitch = 0;
+        this.yaw = 0.6; this.pitch = 0;
+        this.vYaw = 0.003; this.vPitch = 0;
         this.hover = false; this.drag = null; this.focus = null;
         this.picked = null; this.visible = true;
 
@@ -1915,13 +1940,13 @@ topic-orb { display:block; container-type:inline-size; }
       _buildRings() {
         const ell = (rx, ry, rot, op, dash) =>
           `<ellipse cx="50" cy="50" rx="${rx}" ry="${ry}" transform="rotate(${rot} 50 50)"
-             fill="none" stroke="rgba(43,120,88,${op})" stroke-width="0.28"
+             fill="none" stroke="rgba(43,120,88,${op})" stroke-width="0.32"
              ${dash ? `stroke-dasharray="${dash}"` : ''} vector-effect="non-scaling-stroke"/>`;
         this.rings.innerHTML =
-          ell(49.5, 15, -16, .20) +
-          ell(49.5, 30, 12, .13, '1.6 2.4') +
-          ell(46, 46, 0, .10) +
-          ell(20, 49, -8, .10, '1.2 2.8');
+          ell(49.5, 15, -16, .22) +
+          ell(49.5, 30, 12, .15, '1.6 2.4') +
+          ell(46, 46, 0, .12) +
+          ell(20, 49, -8, .12, '1.2 2.8');
       }
 
       _buildWords() {
@@ -1971,9 +1996,9 @@ topic-orb { display:block; container-type:inline-size; }
           if (!this.drag) return;
           const dx = e.clientX - this.drag.x, dy = e.clientY - this.drag.y, k = 0.008;
           this.yaw += dx * k;
-          this.pitch = Math.max(-1.05, Math.min(1.05, this.pitch + dy * k * 0.7));
+          this.pitch = Math.max(-0.6, Math.min(0.6, this.pitch + dy * k * 0.4));
           this.vYaw = dx * k * 0.5;
-          this.vPitch = dy * k * 0.35;
+          this.vPitch = dy * k * 0.2;
           this.drag.moved += Math.abs(dx) + Math.abs(dy);
           this.drag.x = e.clientX; this.drag.y = e.clientY;
           this._render();
@@ -1981,7 +2006,7 @@ topic-orb { display:block; container-type:inline-size; }
 
         const end = () => {
           if (!this.drag) return;
-          if (this.drag.moved < 4) this.vYaw = this.vYaw || 0.0025;
+          if (this.drag.moved < 4) this.vYaw = this.vYaw || 0.003;
           this.drag = null;
           s.classList.remove('is-drag');
         };
@@ -1991,13 +2016,13 @@ topic-orb { display:block; container-type:inline-size; }
         if (this.btnLeft) {
           this.btnLeft.addEventListener('click', (e) => {
             e.stopPropagation();
-            this.vYaw = -0.012;
+            this.vYaw = -0.015;
           });
         }
         if (this.btnRight) {
           this.btnRight.addEventListener('click', (e) => {
             e.stopPropagation();
-            this.vYaw = 0.012;
+            this.vYaw = 0.015;
           });
         }
 
@@ -2021,13 +2046,13 @@ topic-orb { display:block; container-type:inline-size; }
           { detail: { topic: w.label }, bubbles: true }));
       }
 
-      /* ---------- motion & 3D container tilt ---------- */
+      /* ---------- motion & polar spin ---------- */
 
       _tick() {
         this._raf = requestAnimationFrame(this._tick);
         if (!this.visible || this.drag) return;
 
-        const idle = 0.0025;
+        const idle = 0.003;
         if (this.focus) {
           const dy = ((this.focus.yaw - this.yaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
           this.yaw += dy * 0.07;
@@ -2035,11 +2060,11 @@ topic-orb { display:block; container-type:inline-size; }
           if (Math.abs(dy) < 0.004) { this.focus = null; this.vYaw = idle * 0.5; }
         } else {
           this.vYaw += (idle - this.vYaw) * 0.012;
-          this.vPitch *= 0.94;
+          this.vPitch *= 0.92;
           const slow = this.hover ? 0.3 : 1;
           this.yaw += this.vYaw * slow * (this.reduced ? 0.2 : 1);
           this.pitch += this.vPitch * slow;
-          this.pitch += (-0.06 - this.pitch) * 0.004;
+          this.pitch += (-0.02 - this.pitch) * 0.004;
         }
         this._render();
       }
@@ -2048,13 +2073,6 @@ topic-orb { display:block; container-type:inline-size; }
         if (!this.words) return;
         const box = this.stage.getBoundingClientRect();
         if (!box.width) return;
-
-        // Apply 3D pitch/tilt transformation to the outer Globe Shell & Rings!
-        const pitchDeg = (this.pitch * 24).toFixed(1);
-        const yawDeg = (this.yaw * 12).toFixed(1);
-        if (this.shell) this.shell.style.transform = `rotateX(${pitchDeg}deg) rotateY(${yawDeg}deg)`;
-        if (this.rings) this.rings.style.transform = `rotateX(${pitchDeg}deg) rotateY(${yawDeg}deg)`;
-        if (this.glow) this.glow.style.transform = `rotateX(${pitchDeg * 0.5}deg)`;
 
         const R = box.width * 0.44, cx = box.width / 2, cy = box.height / 2;
         const FOV = R * 3.1;
@@ -2069,7 +2087,7 @@ topic-orb { display:block; container-type:inline-size; }
           const y2 = w.y * cp - z1 * sp,    z2 = w.y * sp + z1 * cp;
           const X = x1 * R, Y = y2 * R, Z = z2 * R;
           const s = FOV / (FOV - Z);
-          const d = (z2 + 1) / 2;                        // 0 = far side, 1 = nearest
+          const d = (z2 + 1) / 2;
 
           const posX = cx + X * s;
           const posY = cy + Y * s;
