@@ -1698,14 +1698,8 @@ const ExactImageWordCloudSection = ({ onSelectWord }) => {
     <div className="starting-word-cloud-container">
       {/* Header */}
       <div className="orb-top-header" style={{ marginBottom: '24px', textAlign: 'left' }}>
-        <p className="eyebrow green-eyebrow" style={{ marginBottom: '8px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+        <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
           <i></i> WHAT&rsquo;S ON YOUR MIND
-        </p>
-        <h2 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '36px', color: '#1C251D', margin: '0 0 6px', fontWeight: 700, letterSpacing: '-0.02em', textAlign: 'left' }}>
-          What&rsquo;s on <em>your mind?</em>
-        </h2>
-        <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: '18px', color: '#6E8A72', margin: 0, textAlign: 'left' }}>
-          Explore what matters to you.
         </p>
       </div>
 
