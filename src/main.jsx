@@ -1630,72 +1630,72 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
 };
 
 const pebbleWordsAbsolute = [
-  // ROW 1: TOP ARC
-  { text: 'Stress', left: '26%', top: '21%', fontSize: '15px', weight: 500, color: '#65606E' },
-  { text: 'Anxiety', left: '38%', top: '20%', fontSize: '16px', weight: 500, color: '#5F5D6B' },
-  { text: 'Self doubt', left: '50%', top: '19%', fontSize: '20px', weight: 700, color: '#4A5551' },
-  { text: 'Peace of mind', left: '64%', top: '20%', fontSize: '15px', weight: 600, color: '#456654' },
+  // ROW 1: TOP ARC (Y: 19% - 22%)
+  { text: 'Stress', left: '29%', top: '21%', fontSize: '15px', weight: 500, color: '#6A6472' },
+  { text: 'Anxiety', left: '40%', top: '20%', fontSize: '16px', weight: 500, color: '#5F5D6B' },
+  { text: 'Self doubt', left: '52%', top: '19%', fontSize: '22px', weight: 700, color: '#3A423F' },
+  { text: 'Peace of mind', left: '65%', top: '20%', fontSize: '15px', weight: 600, color: '#456654' },
   { text: 'Feeling stuck', left: '76%', top: '22%', fontSize: '15px', weight: 600, color: '#5E665D' },
 
-  // ROW 2: UPPER MID
-  { text: 'Pressure', left: '20%', top: '27%', fontSize: '15px', weight: 500, color: '#685E6E' },
-  { text: 'Overthinking', left: '35%', top: '27%', fontSize: '30px', weight: 800, color: '#5C4A68' },
-  { text: 'Overwhelm', left: '58%', top: '27%', fontSize: '22px', weight: 700, color: '#6B4A5C' },
-  { text: 'Career', left: '73%', top: '28%', fontSize: '28px', weight: 800, color: '#44634B' },
+  // ROW 2: UPPER MID (Y: 26% - 29%)
+  { text: 'Pressure', left: '23%', top: '27%', fontSize: '15px', weight: 500, color: '#685E6E' },
+  { text: 'Overthinking', left: '38%', top: '27%', fontSize: '32px', weight: 800, color: '#5C4F6B' },
+  { text: 'Overwhelm', left: '60%', top: '27%', fontSize: '24px', weight: 700, color: '#6B4A5C' },
+  { text: 'Career', left: '73%', top: '28%', fontSize: '30px', weight: 800, color: '#274C3A' },
 
-  // ROW 3: MID UPPER
-  { text: 'Boundaries', left: '19%', top: '35%', fontSize: '14px', weight: 500, color: '#686B60' },
-  { text: 'Motivation', left: '32%', top: '34%', fontSize: '14px', weight: 500, color: '#7D7569' },
-  { text: 'Inner Peace', left: '46%', top: '34%', fontSize: '18px', weight: 600, color: '#4F685B' },
+  // ROW 3: MID UPPER (Y: 33% - 36%)
+  { text: 'Boundaries', left: '21%', top: '35%', fontSize: '14px', weight: 500, color: '#686B60' },
+  { text: 'Motivation', left: '33%', top: '34%', fontSize: '14px', weight: 500, color: '#7D7569' },
+  { text: 'Inner Peace', left: '47%', top: '34%', fontSize: '18px', weight: 600, color: '#4F685B' },
   { text: 'Procrastination', left: '62%', top: '34%', fontSize: '13.5px', weight: 500, color: '#736152' },
-  { text: 'Future', left: '77%', top: '35%', fontSize: '18px', weight: 600, color: '#6A587A' },
+  { text: 'Future', left: '76%', top: '35%', fontSize: '19px', weight: 600, color: '#6A587A' },
 
-  // ROW 4: CENTER CORE
-  { text: 'Bullying', left: '18%', top: '42%', fontSize: '17px', weight: 600, color: '#7B4E59' },
-  { text: 'Purpose', left: '29%', top: '41%', fontSize: '22px', weight: 700, color: '#5B6858' },
-  { text: 'Burnout', left: '48%', top: '40%', fontSize: '34px', weight: 900, color: '#2E4034' },
+  // ROW 4: CENTER CORE (Y: 40% - 43%)
+  { text: 'Bullying', left: '20%', top: '42%', fontSize: '17px', weight: 600, color: '#7B4E59' },
+  { text: 'Purpose', left: '30%', top: '41%', fontSize: '23px', weight: 700, color: '#4A554A' },
+  { text: 'Burnout', left: '49%', top: '40%', fontSize: '38px', weight: 900, color: '#1C3B2B' },
   { text: 'Self care', left: '67%', top: '42%', fontSize: '14px', weight: 500, color: '#5A6E5C' },
-  { text: 'Health', left: '76%', top: '43%', fontSize: '19px', weight: 600, color: '#586259' },
+  { text: 'Health', left: '76%', top: '43%', fontSize: '19px', weight: 600, color: '#485249' },
 
-  // ROW 5: MID CENTER
-  { text: 'Money', left: '24%', top: '49%', fontSize: '24px', weight: 700, color: '#78604B' },
-  { text: 'What next?', left: '37%', top: '48%', fontSize: '14px', weight: 500, color: '#70675C' },
-  { text: 'Big decisions', left: '52%', top: '49%', fontSize: '21px', weight: 700, color: '#596053' },
-  { text: 'Confidence', left: '72%', top: '50%', fontSize: '18px', weight: 600, color: '#5A6158' },
+  // ROW 5: MID CENTER (Y: 47% - 51%)
+  { text: 'Money', left: '26%', top: '49%', fontSize: '26px', weight: 700, color: '#78604B' },
+  { text: 'What next?', left: '38%', top: '47%', fontSize: '14px', weight: 500, color: '#70675C' },
+  { text: 'Big decisions', left: '53%', top: '49%', fontSize: '22px', weight: 700, color: '#4E544A' },
+  { text: 'Confidence', left: '72%', top: '50%', fontSize: '19px', weight: 600, color: '#4A524A' },
 
-  // ROW 6: LOWER CENTER
-  { text: 'Communication', left: '18%', top: '56%', fontSize: '13.5px', weight: 400, color: '#7A6458' },
-  { text: 'Identity', left: '32%', top: '56%', fontSize: '22px', weight: 700, color: '#5C4F6B' },
-  { text: 'Fulfillment', left: '46%', top: '56%', fontSize: '17px', weight: 600, color: '#65546D' },
+  // ROW 6: LOWER CENTER (Y: 55% - 58%)
+  { text: 'Communication', left: '21%', top: '56%', fontSize: '13.5px', weight: 400, color: '#7A6458' },
+  { text: 'Identity', left: '33%', top: '56%', fontSize: '23px', weight: 700, color: '#4A3E59' },
+  { text: 'Fulfillment', left: '47%', top: '56%', fontSize: '17px', weight: 600, color: '#5C4863' },
   { text: 'Resilience', left: '61%', top: '56%', fontSize: '14.5px', weight: 600, color: '#4E6A58' },
-  { text: 'Growth', left: '73%', top: '57%', fontSize: '19px', weight: 600, color: '#5B6E5F' },
+  { text: 'Growth', left: '73%', top: '57%', fontSize: '20px', weight: 600, color: '#455E4C' },
 
-  // ROW 7: LOWER MID
-  { text: 'Conflict', left: '20%', top: '63%', fontSize: '14px', weight: 400, color: '#826569' },
-  { text: 'Relationships', left: '37%', top: '64%', fontSize: '28px', weight: 800, color: '#7D4D59' },
+  // ROW 7: LOWER MID (Y: 62% - 66%)
+  { text: 'Conflict', left: '22%', top: '63%', fontSize: '14px', weight: 400, color: '#826569' },
+  { text: 'Relationships', left: '39%', top: '64%', fontSize: '30px', weight: 800, color: '#7A4550' },
   { text: 'Time management', left: '58%', top: '63%', fontSize: '13px', weight: 400, color: '#61675D' },
-  { text: 'Clarity', left: '73%', top: '64%', fontSize: '32px', weight: 900, color: '#274C3A' },
+  { text: 'Clarity', left: '73%', top: '64%', fontSize: '34px', weight: 900, color: '#1F4D3A' },
 
-  // ROW 8: BOTTOM LOWER
-  { text: 'Family', left: '23%', top: '70%', fontSize: '14px', weight: 400, color: '#70645A' },
-  { text: 'Breakup', left: '31%', top: '72%', fontSize: '13.5px', weight: 400, color: '#856165' },
-  { text: 'Work pressure', left: '42%', top: '72%', fontSize: '13.5px', weight: 500, color: '#665F5C' },
+  // ROW 8: BOTTOM LOWER (Y: 70% - 74%)
+  { text: 'Family', left: '25%', top: '70%', fontSize: '14px', weight: 400, color: '#70645A' },
+  { text: 'Breakup', left: '32%', top: '72%', fontSize: '13.5px', weight: 400, color: '#856165' },
+  { text: 'Work pressure', left: '43%', top: '72%', fontSize: '13.5px', weight: 500, color: '#665F5C' },
   { text: 'Work life balance', left: '57%', top: '71%', fontSize: '13.5px', weight: 500, color: '#5B665C' },
   { text: 'Starting over', left: '72%', top: '71%', fontSize: '13.5px', weight: 400, color: '#5D635B' },
 
-  // ROW 9: BOTTOM ARC
-  { text: 'Friendship', left: '29%', top: '78%', fontSize: '13px', weight: 400, color: '#6B665E' },
-  { text: 'Productivity', left: '41%', top: '78%', fontSize: '13px', weight: 400, color: '#6A7368' },
+  // ROW 9: BOTTOM ARC (Y: 77% - 84%)
+  { text: 'Friendship', left: '30%', top: '78%', fontSize: '13px', weight: 400, color: '#6B665E' },
+  { text: 'Productivity', left: '42%', top: '78%', fontSize: '13px', weight: 400, color: '#6A7368' },
   { text: 'Comparison trap', left: '56%', top: '77%', fontSize: '13px', weight: 400, color: '#6E5C6B' },
   { text: 'Balance', left: '70%', top: '77%', fontSize: '13px', weight: 400, color: '#5C6C60' },
 
-  { text: 'Connection', left: '30%', top: '83%', fontSize: '12.5px', weight: 400, color: '#736560' },
-  { text: 'Loneliness', left: '41%', top: '83%', fontSize: '12.5px', weight: 400, color: '#666170' },
+  { text: 'Connection', left: '31%', top: '83%', fontSize: '12.5px', weight: 400, color: '#736560' },
+  { text: 'Loneliness', left: '42%', top: '83%', fontSize: '12.5px', weight: 400, color: '#666170' },
   { text: 'Mindset', left: '52%', top: '83%', fontSize: '13px', weight: 500, color: '#54665A' },
   { text: 'Self esteem', left: '63%', top: '82%', fontSize: '12.5px', weight: 500, color: '#6D5B54' }
 ];
 
-const OriginalOvalLeafPatchSection = ({ onSelectWord }) => {
+const ExactImageWordCloudSection = ({ onSelectWord }) => {
   return (
     <div className="starting-word-cloud-container">
       {/* Header */}
@@ -1708,22 +1708,21 @@ const OriginalOvalLeafPatchSection = ({ onSelectWord }) => {
         </p>
       </div>
 
-      {/* Organic Oval Pebble Cloud Container */}
+      {/* Oval Pebble Mesh Gradient Card */}
       <div className="pebble-blob-card">
-        {/* Botanical Leaf SVG Branch Patch */}
-        <svg className="botanical-branch-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 30 170 C 60 140, 110 90, 160 30" stroke="#2D6043" strokeWidth="2.5" strokeLinecap="round" opacity="0.65" />
-          <path d="M 70 135 C 50 120, 45 100, 60 90 C 75 100, 75 120, 70 135 Z" fill="#2D6043" opacity="0.3" />
-          <path d="M 100 105 C 115 85, 135 85, 140 100 C 125 115, 105 115, 100 105 Z" fill="#2D6043" opacity="0.35" />
-          <path d="M 130 65 C 120 45, 135 35, 150 45 C 145 65, 135 70, 130 65 Z" fill="#2D6043" opacity="0.4" />
-          <circle cx="160" cy="30" r="4" fill="#2D6043" opacity="0.6" />
-        </svg>
-
-        {/* Decorative Inner Botanical Ring Lines */}
-        <svg className="pebble-inner-botanical-svg" viewBox="0 0 800 500" preserveAspectRatio="none" aria-hidden="true">
-          <ellipse cx="400" cy="250" rx="380" ry="220" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" />
-          <ellipse cx="400" cy="250" rx="330" ry="180" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4 6" />
-        </svg>
+        {/* Minimalist 3-Leaf Botanical Stem Icon in Bottom-Left Corner (Exact Match to Screenshot) */}
+        <div className="exact-botanical-stem-icon">
+          <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Curved Stem */}
+            <path d="M12 34 C 16 28, 22 20, 26 14" stroke="#274C3A" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
+            {/* Top Leaf */}
+            <path d="M 26 14 C 22 8, 30 4, 32 10 C 34 16, 28 18, 26 14 Z" fill="#274C3A" opacity="0.75" />
+            {/* Left Leaf */}
+            <path d="M 20 22 C 14 18, 12 26, 16 28 C 22 30, 22 24, 20 22 Z" fill="#274C3A" opacity="0.7" />
+            {/* Right Leaf */}
+            <path d="M 23 20 C 29 16, 33 22, 30 26 C 26 28, 24 22, 23 20 Z" fill="#274C3A" opacity="0.7" />
+          </svg>
+        </div>
 
         {/* Absolute Non-Overlapping Topic Words */}
         {pebbleWordsAbsolute.map((item, idx) => (
@@ -1742,7 +1741,7 @@ const OriginalOvalLeafPatchSection = ({ onSelectWord }) => {
               fontFamily: "'DM Sans', sans-serif",
               background: 'none',
               border: 'none',
-              padding: '4px 8px',
+              padding: '2px 6px',
               cursor: 'pointer',
               whiteSpace: 'nowrap',
               zIndex: item.weight >= 700 ? 10 : 5

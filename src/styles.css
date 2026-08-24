@@ -9477,3 +9477,46 @@ footer, .footer {
 .pebble-blob-card:hover .botanical-branch-svg {
   transform: scale(1.06) rotate(-2deg) !important;
 }
+
+
+/* ══════════ EXACT SCREENSHOT MATCH: MULTI-COLOR MESH GRADIENT & BOTANICAL ICON ══════════ */
+.pebble-blob-card {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 820 / 460 !important;
+  max-width: 820px !important;
+  margin: 0 auto !important;
+  border-radius: 50% / 50% !important;
+  background: 
+    radial-gradient(ellipse 55% 45% at 20% 40%, rgba(243, 225, 228, 0.75) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 80% 60%, rgba(225, 238, 230, 0.8) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 50% 30%, rgba(253, 251, 246, 0.9) 0%, transparent 80%),
+    linear-gradient(135deg, #F9F6F0 0%, #EFF4F0 50%, #E8EFEA 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 24px 60px -15px rgba(28, 37, 29, 0.06), inset 0 0 40px rgba(255, 255, 255, 0.9) !important;
+  overflow: hidden !important;
+}
+
+.exact-botanical-stem-icon {
+  position: absolute !important;
+  bottom: 12% !important;
+  left: 10% !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  opacity: 0.85 !important;
+  transition: transform 0.3s ease !important;
+}
+
+.pebble-blob-card:hover .exact-botanical-stem-icon {
+  transform: scale(1.08) rotate(-4deg) !important;
+}
+
+.pebble-absolute-tag {
+  letter-spacing: -0.01em !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
+}
+
+.pebble-absolute-tag:hover {
+  color: #1F4D3A !important;
+  text-shadow: 0 2px 8px rgba(31, 77, 58, 0.15) !important;
+}
