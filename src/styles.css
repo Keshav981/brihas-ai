@@ -9687,3 +9687,20 @@ footer, .footer {
   border: 1.5px solid rgba(31, 77, 58, 0.18) !important;
   box-shadow: 0 10px 24px -6px rgba(28, 37, 29, 0.08) !important;
 }
+
+
+/* ══════════ REMOVE EXTRA BACKGROUND BORDER AROUND HEADING BUBBLE ══════════ */
+.heading-bubble-container {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.heading-bubble-badge {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0 !important;
+}
