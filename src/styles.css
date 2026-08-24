@@ -8771,3 +8771,10 @@ footer, .footer {
   background: #237446 !important;
   color: #FFFFFF !important;
 }
+
+
+/* ══════════ LEFT-ALIGNED PLANS & PRICING HEADER ══════════ */
+.plans-main-header {
+  text-align: left !important;
+  margin-bottom: 32px !important;
+}
