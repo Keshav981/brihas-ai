@@ -8707,3 +8707,38 @@ footer, .footer {
   color: #6E786F !important;
   padding: 40px 0 24px !important;
 }
+
+
+/* ══════════ UNIFIED REFLECT SAGE GREEN THEME FOR ALL PRICING CARDS ══════════ */
+.pricing-tier-card {
+  border: 1px solid #E6EAE5 !important;
+  box-shadow: 0 6px 24px rgba(28, 37, 29, 0.03) !important;
+}
+
+.tier-icon-circle {
+  background: #EAF4EE !important;
+}
+
+.tier-icon-circle svg {
+  stroke: #237446 !important;
+}
+
+.tier-stats-bar {
+  background: #EBF4EE !important;
+}
+
+.tier-features-list .chk {
+  color: #237446 !important;
+}
+
+.tier-btn {
+  border: 1.5px solid #237446 !important;
+  color: #237446 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tier-btn:hover {
+  background: #237446 !important;
+  color: #FFFFFF !important;
+}

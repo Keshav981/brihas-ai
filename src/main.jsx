@@ -3295,13 +3295,11 @@ function App() {
               </div>
             </div>
 
-            {/* CARD 2: CONVERSE (MOST POPULAR) */}
-            <div className="pricing-tier-card card-converse featured-converse">
-              <div className="most-popular-tag">⭐ MOST POPULAR</div>
-              
+            {/* CARD 2: CONVERSE */}
+            <div className="pricing-tier-card card-converse">
               <div className="tier-card-header">
-                <div className="tier-icon-circle icon-orange">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85A28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div className="tier-icon-circle icon-green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                   </svg>
                 </div>
@@ -3311,7 +3309,7 @@ function App() {
                 </div>
               </div>
 
-              <div className="tier-stats-bar bar-orange">
+              <div className="tier-stats-bar bar-green">
                 <div className="stat-box">
                   <strong>600</strong>
                   <span>minutes / cycle</span>
@@ -3326,7 +3324,7 @@ function App() {
                 </div>
               </div>
 
-              <ul className="tier-features-list check-orange">
+              <ul className="tier-features-list check-green">
                 <li><span className="chk">✓</span> <span>Everything in Reflect</span></li>
                 <li><span className="chk">✓</span> <span>All 6 dimensions, in full detail</span></li>
                 <li><span className="chk">✓</span> <span>The Journey view — trends &amp; cohort comparison</span></li>
@@ -3334,7 +3332,7 @@ function App() {
               </ul>
 
               <div className="tier-action-bottom">
-                <a href="#plans" className="tier-btn btn-solid-orange">
+                <a href="#plans" className="tier-btn btn-outline-green">
                   Sign in to see pricing ➔
                 </a>
               </div>
@@ -3343,8 +3341,8 @@ function App() {
             {/* CARD 3: DEPTH */}
             <div className="pricing-tier-card card-depth">
               <div className="tier-card-header">
-                <div className="tier-icon-circle icon-purple">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C5CFC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div className="tier-icon-circle icon-green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
                   </svg>
                 </div>
@@ -3354,7 +3352,7 @@ function App() {
                 </div>
               </div>
 
-              <div className="tier-stats-bar bar-purple">
+              <div className="tier-stats-bar bar-green">
                 <div className="stat-box">
                   <strong>1,200</strong>
                   <span>minutes / cycle</span>
@@ -3369,7 +3367,7 @@ function App() {
                 </div>
               </div>
 
-              <ul className="tier-features-list check-purple">
+              <ul className="tier-features-list check-green">
                 <li><span className="chk">✓</span> <span>Everything in Converse</span></li>
                 <li><span className="chk">✓</span> <span>Personalised 3-day &amp; 7-day action plans</span></li>
                 <li><span className="chk">✓</span> <span>A weekly plan &amp; review</span></li>
@@ -3377,7 +3375,7 @@ function App() {
               </ul>
 
               <div className="tier-action-bottom">
-                <a href="#plans" className="tier-btn btn-outline-purple">
+                <a href="#plans" className="tier-btn btn-outline-green">
                   Sign in to see pricing ➔
                 </a>
               </div>
