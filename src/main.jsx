@@ -1695,8 +1695,8 @@ const pebbleWordsAbsolute = [
 ];
 
 
-// ══════════ 3D TOPIC UNIVERSE ORB COMPONENT ══════════
-const topicList3D = [
+// ══════════ 3D EARTH GLOBE COMPONENT ══════════
+const topicListGlobe = [
   { text: 'Burnout', major: true, color: '#2E4034' },
   { text: 'Overthinking', major: true, color: '#5C4A68' },
   { text: 'Career', major: true, color: '#274C3A' },
@@ -1744,16 +1744,15 @@ const topicList3D = [
   { text: 'Self esteem', major: false, color: '#6D5B54' }
 ];
 
-const Interactive3DTopicUniverseOrb = ({ onSelectWord }) => {
+const Interactive3DEarthGlobe = ({ onSelectWord }) => {
   const [soundOn, setSoundOn] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [rotation, setRotation] = useState({ x: 0.15, y: 0.4 });
+  const [rotation, setRotation] = useState({ x: 0.2, y: 0.5 });
   const isDragging = useRef(false);
   const previousMousePos = useRef({ x: 0, y: 0 });
-  const velocity = useRef({ x: 0.003, y: 0.006 });
+  const velocity = useRef({ x: 0.002, y: 0.005 });
   const audioCtxRef = useRef(null);
 
-  // Play soft meditative chime sound on drag/select
   const playAmbientSound = useCallback((freq = 440) => {
     if (!soundOn) return;
     try {
@@ -1767,50 +1766,43 @@ const Interactive3DTopicUniverseOrb = ({ onSelectWord }) => {
       const gain = ctx.createGain();
       osc.type = 'sine';
       osc.frequency.setValueAtTime(freq, ctx.currentTime);
-      gain.gain.setValueAtTime(0.015, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.6);
+      gain.gain.setValueAtTime(0.012, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.5);
       
       osc.connect(gain);
       gain.connect(ctx.destination);
       osc.start();
-      osc.stop(ctx.currentTime + 0.6);
-    } catch (e) {
-      // Audio context fallbacks
-    }
+      osc.stop(ctx.currentTime + 0.5);
+    } catch (e) {}
   }, [soundOn]);
 
-  // Generate 3D Spherical Coordinates using Fibonacci Lattice
-  const nodes3D = useMemo(() => {
-    const total = topicList3D.length;
-    const radiusX = 260;
-    const radiusY = 160;
-    const radiusZ = 220;
+  const globeNodes = useMemo(() => {
+    const total = topicListGlobe.length;
+    const radius = 220;
 
-    return topicList3D.map((item, i) => {
+    return topicListGlobe.map((item, i) => {
       const phi = Math.acos(-1 + (2 * i + 1) / total);
       const theta = Math.sqrt(total * Math.PI) * phi;
 
-      const x = radiusX * Math.cos(theta) * Math.sin(phi);
-      const y = radiusY * Math.sin(theta) * Math.sin(phi);
-      const z = radiusZ * Math.cos(phi);
+      const x = radius * Math.cos(theta) * Math.sin(phi);
+      const y = radius * Math.sin(theta) * Math.sin(phi);
+      const z = radius * Math.cos(phi);
 
       return { ...item, origX: x, origY: y, origZ: z };
     });
   }, []);
 
-  // Continuous 3D animation loop
   useEffect(() => {
     let animId;
     const animate = () => {
       if (!isDragging.current) {
-        // Slow auto-revolution, decays velocity
-        const speedMultiplier = isHovered ? 0.3 : 1;
+        const speed = isHovered ? 0.25 : 1;
         setRotation(prev => ({
-          x: prev.x + velocity.current.x * speedMultiplier,
-          y: prev.y + velocity.current.y * speedMultiplier
+          x: prev.x + velocity.current.x * speed,
+          y: prev.y + velocity.current.y * speed
         }));
         velocity.current.x *= 0.98;
-        velocity.current.y = velocity.current.y * 0.98 + (isHovered ? 0.0008 : 0.002) * 0.02;
+        velocity.current.y = velocity.current.y * 0.98 + 0.002 * 0.02;
       }
       animId = requestAnimationFrame(animate);
     };
@@ -1818,7 +1810,6 @@ const Interactive3DTopicUniverseOrb = ({ onSelectWord }) => {
     return () => cancelAnimationFrame(animId);
   }, [isHovered]);
 
-  // Drag handlers
   const handleMouseDown = (e) => {
     isDragging.current = true;
     previousMousePos.current = { x: e.clientX, y: e.clientY };
@@ -1838,7 +1829,7 @@ const Interactive3DTopicUniverseOrb = ({ onSelectWord }) => {
 
     previousMousePos.current = { x: e.clientX, y: e.clientY };
     if (Math.abs(deltaX) > 4 || Math.abs(deltaY) > 4) {
-      playAmbientSound(320 + Math.abs(deltaX) * 2);
+      playAmbientSound(350 + Math.abs(deltaX) * 2);
     }
   };
 
@@ -1846,28 +1837,25 @@ const Interactive3DTopicUniverseOrb = ({ onSelectWord }) => {
     isDragging.current = false;
   };
 
-  // Compute 3D projected positions & depth sorting
-  const projectedNodes = useMemo(() => {
+  const projectedGlobeNodes = useMemo(() => {
     const cosX = Math.cos(rotation.x);
     const sinX = Math.sin(rotation.x);
     const cosY = Math.cos(rotation.y);
     const sinY = Math.sin(rotation.y);
 
-    return nodes3D.map(node => {
-      // Y rotation
+    return globeNodes.map(node => {
       const x1 = node.origX * cosY + node.origZ * sinY;
       const z1 = -node.origX * sinY + node.origZ * cosY;
 
-      // X rotation
       const y2 = node.origY * cosX - z1 * sinX;
       const z2 = node.origY * sinX + z1 * cosX;
 
-      const perspective = 500;
+      const perspective = 480;
       const scale = perspective / (perspective - z2);
       const projX = x1 * scale;
       const projY = y2 * scale;
-      const opacity = Math.min(1, Math.max(0.2, (z2 + 250) / 500));
-      const blur = z2 < -40 ? Math.min(3, Math.abs(z2 + 40) / 60) : 0;
+      const opacity = Math.min(1, Math.max(0.15, (z2 + 220) / 440));
+      const blur = z2 < -30 ? Math.min(3, Math.abs(z2 + 30) / 50) : 0;
 
       return {
         ...node,
@@ -1878,24 +1866,22 @@ const Interactive3DTopicUniverseOrb = ({ onSelectWord }) => {
         opacity,
         blur
       };
-    }).sort((a, b) => a.z2 - b.z2); // Sort back to front for proper 3D layering
-  }, [nodes3D, rotation]);
+    }).sort((a, b) => a.z2 - b.z2);
+  }, [globeNodes, rotation]);
 
   return (
-    <div className="topic-orb-section-wrap">
-      {/* Top Section Header matching prompt & design */}
+    <div className="earth-globe-section-wrap">
       <div className="orb-top-header">
         <div className="orb-top-title-group">
           <h2 className="orb-main-title">What’s on your mind?</h2>
           <p className="orb-sub-title">Explore what matters to you</p>
         </div>
 
-        {/* Audio Toggle Button */}
         <button 
           className={`orb-sound-toggle ${soundOn ? 'active' : ''}`}
           onClick={() => { setSoundOn(!soundOn); if (!soundOn) playAmbientSound(520); }}
-          title="Toggle ambient Sound"
-          aria-label="Toggle ambient Sound"
+          title="Toggle Ambient Sound"
+          aria-label="Toggle Ambient Sound"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             {soundOn ? (
@@ -1914,9 +1900,8 @@ const Interactive3DTopicUniverseOrb = ({ onSelectWord }) => {
         </button>
       </div>
 
-      {/* 3D Orb Stage */}
       <div 
-        className="orb-3d-stage"
+        className="earth-globe-stage"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -1934,44 +1919,43 @@ const Interactive3DTopicUniverseOrb = ({ onSelectWord }) => {
         }}
         onTouchEnd={() => { isDragging.current = false; }}
         onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Navigation Arrows */}
         <button 
           className="orb-nav-btn btn-left" 
           onClick={() => setRotation(prev => ({ ...prev, y: prev.y - 0.5 }))}
-          aria-label="Rotate Left"
+          aria-label="Spin Globe Left"
         >
           ‹
         </button>
         <button 
           className="orb-nav-btn btn-right" 
           onClick={() => setRotation(prev => ({ ...prev, y: prev.y + 0.5 }))}
-          aria-label="Rotate Right"
+          aria-label="Spin Globe Right"
         >
           ›
         </button>
 
-        {/* Outer Glowing Orbit Ring SVG Graphic */}
-        <svg className="orb-orbit-rings-svg" viewBox="0 0 800 480">
-          <ellipse cx="400" cy="240" rx="360" ry="170" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" transform="rotate(-10 400 240)" />
-          <ellipse cx="400" cy="240" rx="340" ry="155" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1" transform="rotate(12 400 240)" />
-          <circle cx="160" cy="180" r="4" fill="#FFFFFF" opacity="0.9" />
-          <circle cx="640" cy="300" r="5" fill="#FFFFFF" opacity="0.9" />
-        </svg>
+        <div className="earth-sphere-body">
+          <svg className="earth-graticule-svg" viewBox="0 0 500 500">
+            <ellipse cx="250" cy="250" rx="230" ry="230" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
+            <ellipse cx="250" cy="250" rx="228" ry="70" fill="none" stroke="rgba(58, 151, 117, 0.25)" strokeWidth="1.2" strokeDasharray="6 4" transform={`rotate(${rotation.x * 20} 250 250)`} />
+            <ellipse cx="250" cy="250" rx="228" ry="140" fill="none" stroke="rgba(58, 151, 117, 0.2)" strokeWidth="1.2" strokeDasharray="6 4" transform={`rotate(${rotation.x * 20} 250 250)`} />
+            
+            <ellipse cx="250" cy="250" rx="70" ry="228" fill="none" stroke="rgba(58, 151, 117, 0.25)" strokeWidth="1.2" strokeDasharray="6 4" transform={`rotate(${rotation.y * 20} 250 250)`} />
+            <ellipse cx="250" cy="250" rx="140" ry="228" fill="none" stroke="rgba(58, 151, 117, 0.2)" strokeWidth="1.2" strokeDasharray="6 4" transform={`rotate(${rotation.y * 20} 250 250)`} />
+          </svg>
+        </div>
 
-        {/* Translucent Glass Sphere Shell */}
-        <div className="orb-glass-sphere"></div>
-
-        {/* Floating 3D Topic Nodes */}
-        <div className="orb-topic-nodes-container">
-          {projectedNodes.map((node, idx) => {
-            const fontSize = node.major ? Math.max(13, 22 * node.scale) : Math.max(10, 14 * node.scale);
+        <div className="globe-nodes-container">
+          {projectedGlobeNodes.map((node, idx) => {
+            const fontSize = node.major ? Math.max(12, 20 * node.scale) : Math.max(10, 13 * node.scale);
             const isFront = node.z2 > 0;
 
             return (
               <div
                 key={idx}
-                className={`orb-topic-pill ${node.major ? 'major-topic' : ''} ${isFront ? 'in-front' : 'in-back'}`}
+                className={`globe-topic-tag ${node.major ? 'major-node' : ''} ${isFront ? 'front-side' : 'back-side'}`}
                 style={{
                   left: `calc(50% + ${node.projX}px)`,
                   top: `calc(50% + ${node.projY}px)`,
@@ -1983,7 +1967,7 @@ const Interactive3DTopicUniverseOrb = ({ onSelectWord }) => {
                   zIndex: Math.floor(node.z2 + 300)
                 }}
                 onClick={() => {
-                  playAmbientSound(600);
+                  playAmbientSound(580);
                   if (onSelectWord) onSelectWord(node.text);
                 }}
               >
@@ -1994,27 +1978,22 @@ const Interactive3DTopicUniverseOrb = ({ onSelectWord }) => {
         </div>
       </div>
 
-      {/* Bottom Drag Interaction Hint matching prompt & design */}
       <div className="orb-bottom-hint">
         <div className="orb-hint-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
-            <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v6"></path>
-            <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"></path>
-            <path d="M18 8a2 2 0 0 1 2 2v4a8 8 0 0 1-8 8h-2c-2.5 0-4.8-.9-6.6-2.6L2.5 16"></path>
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
           </svg>
         </div>
         <div>
-          <strong className="hint-title">Drag to explore</strong>
-          <span className="hint-sub">Spin the orb and discover more</span>
+          <strong className="hint-title">Rotate the Globe</strong>
+          <span className="hint-sub">Spin the 3D globe to explore topics worldwide</span>
         </div>
       </div>
     </div>
   );
 };
-
-
-
 
 const CleanInteractiveMindMapSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -3225,7 +3204,7 @@ function App() {
       {/* 2ND SECTION: WHAT IS WEIGHING ON YOUR MIND - 3D TOPIC UNIVERSE ORB */}
       <motion.section className="section weighing-mind-section" id="topics" {...sectionMotion}>
         <div className="wrap" style={{ textAlign: 'center' }}>
-          <Interactive3DTopicUniverseOrb 
+          <Interactive3DEarthGlobe 
             onSelectWord={(word) => {
               setHeroInputText(`I want to reflect on ${word.toLowerCase()}...`);
               window.scrollTo({ top: 0, behavior: 'smooth' });

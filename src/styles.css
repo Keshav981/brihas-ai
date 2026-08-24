@@ -9024,3 +9024,110 @@ footer, .footer {
     height: 340px !important;
   }
 }
+
+
+/* ══════════ 3D EARTH GLOBE STYLING ══════════ */
+.earth-globe-section-wrap {
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  position: relative !important;
+}
+
+.earth-globe-stage {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 600px !important;
+  height: 540px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: grab !important;
+  user-select: none !important;
+  touch-action: none !important;
+}
+
+.earth-globe-stage:active {
+  cursor: grabbing !important;
+}
+
+/* Perfect 3D Spherical Earth Globe Body */
+.earth-sphere-body {
+  position: absolute !important;
+  width: 460px !important;
+  height: 460px !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.95) 0%, rgba(235, 245, 238, 0.6) 45%, rgba(210, 232, 220, 0.35) 75%, rgba(255, 255, 255, 0.7) 100%) !important;
+  border: 2px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 0 80px rgba(58, 151, 117, 0.15), inset 0 0 60px rgba(255, 255, 255, 0.8), 0 35px 70px -15px rgba(28, 43, 33, 0.1) !important;
+  pointer-events: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Latitude & Longitude Graticule Wireframe SVG */
+.earth-graticule-svg {
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+}
+
+/* Floating Globe Topic Nodes */
+.globe-nodes-container {
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+}
+
+.globe-topic-tag {
+  position: absolute !important;
+  padding: 5px 14px !important;
+  border-radius: 100px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.globe-topic-tag.front-side {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(35, 116, 70, 0.22) !important;
+  box-shadow: 0 6px 18px rgba(28, 37, 29, 0.07) !important;
+}
+
+.globe-topic-tag.major-node.front-side {
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(35, 116, 70, 0.35) !important;
+  font-weight: 700 !important;
+  padding: 7px 18px !important;
+  box-shadow: 0 8px 22px rgba(28, 37, 29, 0.1) !important;
+}
+
+.globe-topic-tag.back-side {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.globe-topic-tag:hover {
+  transform: translate(-50%, -50%) scale(1.18) !important;
+  background: #FFFFFF !important;
+  border-color: #237446 !important;
+  z-index: 500 !important;
+  box-shadow: 0 10px 28px rgba(35, 116, 70, 0.22) !important;
+}
+
+@media (max-width: 760px) {
+  .earth-globe-stage {
+    height: 420px !important;
+  }
+  .earth-sphere-body {
+    width: 320px !important;
+    height: 320px !important;
+  }
+}
