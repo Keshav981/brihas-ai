@@ -1700,8 +1700,7 @@ const pebbleWordsAbsolute = [
    a rotating 3D model, so type stays crisp, selectable, translatable and
    printable. Light DOM on purpose — shadow roots don't survive the site's
    screenshot/print/standalone-export paths.
-   Auto-revolves slowly · eases off on hover · drag with inertia · click to focus.
-   Optional meditative ambient bed whose brightness tracks rotation speed. */
+   Auto-revolves slowly · eases off on hover · drag with inertia · click to focus. */
 if (typeof window !== 'undefined') {
   (() => {
     const TOPICS = [
@@ -1802,21 +1801,8 @@ topic-orb { display:block; container-type:inline-size; }
   transition:background .2s ease, transform .2s ease;
 }
 .orb-cta:hover { background:${FOREST}; transform:translateY(-1px); }
-.orb-snd {
-  position:absolute; right:1%; bottom:5%;
-  width:40px; height:40px; border-radius:50%; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  color:${SAGE}; border:1px solid rgba(28,37,29,.1);
-  background:rgba(255,255,255,.75);
-  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
-  box-shadow:0 8px 18px -12px rgba(28,37,29,.3), inset 0 1px 0 rgba(255,255,255,.9);
-  transition:color .2s ease, border-color .2s ease, background .2s ease;
-}
-.orb-snd:hover { color:${FOREST}; border-color:rgba(43,120,88,.3); background:rgba(255,255,255,.95); }
-.orb-snd[aria-pressed="true"] { color:${FOREST}; }
 @container (max-width: 620px) {
   .orb-stage { max-width:100%; }
-  .orb-snd { width:36px; height:36px; right:0; bottom:2%; }
 }
 @media (prefers-reduced-motion: reduce) { .orb-w { transition:none; } }
 `;
@@ -1828,9 +1814,6 @@ topic-orb { display:block; container-type:inline-size; }
       s.textContent = CSS;
       document.head.appendChild(s);
     }
-
-    const SND_ON = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6.5 9H3v6h3.5L11 19V5Z"/><path d="M15.5 9.5a3.5 3.5 0 0 1 0 5"/><path d="M18.5 7a7 7 0 0 1 0 10"/></svg>`;
-    const SND_OFF = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6.5 9H3v6h3.5L11 19V5Z"/><path d="m16 10 4 4M20 10l-4 4"/></svg>`;
 
     class TopicOrb extends HTMLElement {
       connectedCallback() {
@@ -1849,7 +1832,6 @@ topic-orb { display:block; container-type:inline-size; }
             <svg class="orb-rings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
             <svg class="orb-link" aria-hidden="true"></svg>
             <div class="orb-field" role="group" aria-label="Topics"></div>
-            <button class="orb-snd" type="button" aria-pressed="false" aria-label="Toggle ambient sound">${SND_OFF}</button>
           </div>
           <div class="orb-foot">
             <b>Drag to explore</b>
@@ -1861,14 +1843,13 @@ topic-orb { display:block; container-type:inline-size; }
         this.field = this.querySelector('.orb-field');
         this.rings = this.querySelector('.orb-rings');
         this.link  = this.querySelector('.orb-link');
-        this.sndBtn = this.querySelector('.orb-snd');
         this.cta = this.querySelector('.orb-cta');
 
         this.reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
         this.yaw = 0.6; this.pitch = -0.1;
         this.vYaw = 0.0016; this.vPitch = 0;
         this.hover = false; this.drag = null; this.focus = null;
-        this.sound = null; this.picked = null; this.visible = true;
+        this.picked = null; this.visible = true;
 
         this._buildRings();
         this._buildWords();
@@ -1888,11 +1869,10 @@ topic-orb { display:block; container-type:inline-size; }
       disconnectedCallback() {
         this._io && this._io.disconnect();
         this._ro && this._ro.disconnect();
-        this._stopSound();
         cancelAnimationFrame(this._raf);
       }
 
-      /* ---------- geometry & Fibonacci 3D distribution ---------- */
+      /* ---------- geometry & Stable Fibonacci 3D distribution ---------- */
 
       _buildRings() {
         const ell = (rx, ry, rot, op, dash) =>
@@ -1924,7 +1904,7 @@ topic-orb { display:block; container-type:inline-size; }
           el.className = 'orb-w';
           el.textContent = label;
           el.style.color = HUES[i % HUES.length];
-          el.style.fontSize = (tier === 1 ? 0.95 : tier === 2 ? 0.72 : 0.58) + 'em';
+          el.style.fontSize = (tier === 1 ? 0.92 : tier === 2 ? 0.72 : 0.58) + 'em';
           el.style.fontWeight = tier === 1 ? 600 : tier === 2 ? 500 : 400;
           el.style.letterSpacing = tier === 1 ? '-.02em' : '-.01em';
           el.addEventListener('click', () => this._select(i));
@@ -1942,7 +1922,6 @@ topic-orb { display:block; container-type:inline-size; }
         s.addEventListener('pointerleave', () => { this.hover = false; });
 
         s.addEventListener('pointerdown', e => {
-          if (e.target.closest('.orb-snd')) return;
           s.setPointerCapture(e.pointerId);
           s.classList.add('is-drag');
           this.drag = { x: e.clientX, y: e.clientY, moved: 0 };
@@ -1951,11 +1930,11 @@ topic-orb { display:block; container-type:inline-size; }
 
         s.addEventListener('pointermove', e => {
           if (!this.drag) return;
-          const dx = e.clientX - this.drag.x, dy = e.clientY - this.drag.y, k = 0.006;
+          const dx = e.clientX - this.drag.x, dy = e.clientY - this.drag.y, k = 0.005;
           this.yaw += dx * k;
-          this.pitch = Math.max(-1.05, Math.min(1.05, this.pitch + dy * k * 0.7));
-          this.vYaw = dx * k * 0.5;
-          this.vPitch = dy * k * 0.35;
+          this.pitch = Math.max(-1.05, Math.min(1.05, this.pitch + dy * k * 0.6));
+          this.vYaw = dx * k * 0.4;
+          this.vPitch = dy * k * 0.3;
           this.drag.moved += Math.abs(dx) + Math.abs(dy);
           this.drag.x = e.clientX; this.drag.y = e.clientY;
           this._render();
@@ -1970,7 +1949,6 @@ topic-orb { display:block; container-type:inline-size; }
         s.addEventListener('pointerup', end);
         s.addEventListener('pointercancel', end);
 
-        this.sndBtn.addEventListener('click', () => this._toggleSound());
         this.cta.addEventListener('click', () => {
           if (!this.picked) return;
           this.dispatchEvent(new CustomEvent('topicstart',
@@ -2000,13 +1978,13 @@ topic-orb { display:block; container-type:inline-size; }
         const idle = 0.0016;
         if (this.focus) {
           const dy = ((this.focus.yaw - this.yaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
-          this.yaw += dy * 0.07;
-          this.pitch += (this.focus.pitch - this.pitch) * 0.07;
+          this.yaw += dy * 0.06;
+          this.pitch += (this.focus.pitch - this.pitch) * 0.06;
           if (Math.abs(dy) < 0.004) { this.focus = null; this.vYaw = idle * 0.5; }
         } else {
-          this.vYaw += (idle - this.vYaw) * 0.012;
+          this.vYaw += (idle - this.vYaw) * 0.01;
           this.vPitch *= 0.94;
-          const slow = this.hover ? 0.22 : 1;
+          const slow = this.hover ? 0.25 : 1;
           this.yaw += this.vYaw * slow * (this.reduced ? 0.2 : 1);
           this.pitch += this.vPitch * slow;
           this.pitch += (-0.06 - this.pitch) * 0.004;
@@ -2025,7 +2003,7 @@ topic-orb { display:block; container-type:inline-size; }
         const cp = Math.cos(this.pitch), sp = Math.sin(this.pitch);
         this.stage.style.fontSize = Math.max(12, box.width * 0.035) + 'px';
 
-        const renderedNodes = [];
+        const pts = [];
 
         for (const w of this.words) {
           const x1 = w.x * cyw - w.z * syw, z1 = w.x * syw + w.z * cyw;
@@ -2034,37 +2012,21 @@ topic-orb { display:block; container-type:inline-size; }
           const s = FOV / (FOV - Z);
           const d = (z2 + 1) / 2;                        // 0 = far side, 1 = nearest
 
-          let posX = cx + X * s;
-          let posY = cy + Y * s;
-
-          // Non-overlapping collision adjustment for front nodes
-          if (d > 0.45) {
-            for (const prev of renderedNodes) {
-              const dx = posX - prev.x;
-              const dy = posY - prev.y;
-              const dist = Math.hypot(dx, dy);
-              const minDist = 38; // Minimum pixel gap to prevent text overlapping
-              if (dist < minDist && dist > 0) {
-                const overlap = (minDist - dist) / dist;
-                posX += dx * overlap * 0.5;
-                posY += dy * overlap * 0.5;
-              }
-            }
-          }
-          renderedNodes.push({ x: posX, y: posY, d });
+          const posX = cx + X * s;
+          const posY = cy + Y * s;
 
           const op = (0.22 + 0.78 * d) * (w.tier === 3 ? 0.82 : 1);
           const st = w.el.style;
           st.transform = `translate3d(${posX.toFixed(1)}px, ${posY.toFixed(1)}px, 0) translate(-50%,-50%) scale(${s.toFixed(3)})`;
           st.opacity = op.toFixed(3);
-          st.filter = d < 0.55 ? `blur(${((0.55 - d) * 3.2).toFixed(2)}px)` : 'none';
+          st.filter = d < 0.55 ? `blur(${((0.55 - d) * 3.0).toFixed(2)}px)` : 'none';
           st.zIndex = Math.round(d * 100);
           st.pointerEvents = d > 0.42 ? 'auto' : 'none';
+
+          if (d > 0.5) pts.push({ x: posX, y: posY });
         }
 
-        const pts = renderedNodes.filter(n => n.d > 0.5);
         this._drawLinks(pts, box);
-        if (this.sound) this._sound(Math.abs(this.vYaw) + Math.abs(this.vPitch));
       }
 
       _drawLinks(pts, box) {
@@ -2078,54 +2040,6 @@ topic-orb { display:block; container-type:inline-size; }
           }
         this.link.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
         this.link.innerHTML = `<path d="${d}" fill="none" stroke="rgba(43,120,88,.13)" stroke-width="0.7"/>`;
-      }
-
-      /* ---------- ambient sound & rotation bed ---------- */
-
-      _toggleSound() {
-        if (this.sound) { this._stopSound(); return; }
-        const AC = window.AudioContext || window.webkitAudioContext;
-        if (!AC) return;
-        const ctx = new AC();
-        const gain = ctx.createGain(); gain.gain.value = 0;
-        const filt = ctx.createBiquadFilter();
-        filt.type = 'lowpass'; filt.frequency.value = 460; filt.Q.value = 0.7;
-        
-        // Multi-frequency drone & rotation bed (deep sub-bass + fifth harmonic)
-        const osc = [82.4, 82.8, 123.47, 164.8].map((f, i) => {
-          const o = ctx.createOscillator();
-          o.type = i >= 2 ? 'triangle' : 'sine';
-          o.frequency.value = f;
-          const g = ctx.createGain(); g.gain.value = i >= 2 ? 0.18 : 0.45;
-          o.connect(g).connect(filt); o.start();
-          return o;
-        });
-
-        filt.connect(gain).connect(ctx.destination);
-        gain.gain.linearRampToValueAtTime(0.04, ctx.currentTime + 2.0);
-        this.sound = { ctx, gain, filt, osc };
-        this.sndBtn.setAttribute('aria-pressed', 'true');
-        this.sndBtn.innerHTML = SND_ON;
-      }
-
-      _stopSound() {
-        if (!this.sound) return;
-        const { ctx, gain, osc } = this.sound;
-        gain.gain.cancelScheduledValues(ctx.currentTime);
-        gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.7);
-        setTimeout(() => { osc.forEach(o => o.stop()); ctx.close(); }, 900);
-        this.sound = null;
-        this.sndBtn.setAttribute('aria-pressed', 'false');
-        this.sndBtn.innerHTML = SND_OFF;
-      }
-
-      _sound(speed) {
-        const { ctx, filt, gain } = this.sound;
-        // Dynamic pitch & resonance shift tracking rotation velocity
-        const freq = 360 + Math.min(speed * 32000, 1100);
-        filt.frequency.setTargetAtTime(freq, ctx.currentTime, 0.4);
-        const dynamicVol = Math.min(0.06, 0.035 + speed * 1.5);
-        gain.gain.setTargetAtTime(dynamicVol, ctx.currentTime, 0.4);
       }
     }
 
