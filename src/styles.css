@@ -8236,3 +8236,16 @@ footer {
     border-bottom: none !important;
   }
 }
+
+
+/* ══════════ REFINED SMALLER HERO TITLE ══════════ */
+.hero-title-main {
+  font-size: clamp(26px, 3.4vw, 42px) !important;
+  line-height: 1.18 !important;
+  margin: 0 0 12px !important;
+}
+
+.hero-sub-text {
+  font-size: clamp(14px, 1.4vw, 16px) !important;
+  margin: 0 auto 28px !important;
+}
