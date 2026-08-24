@@ -8790,3 +8790,9 @@ footer, .footer {
 .pebble-absolute-tag {
   text-shadow: none !important;
 }
+
+
+/* ══════════ MAKE HERO SUBLINE BLACK ══════════ */
+.hero-line-bronze {
+  color: #1A221B !important;
+}
