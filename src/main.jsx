@@ -3222,14 +3222,9 @@ function App() {
         </div>
       </div>
 
-      {/* 2ND SECTION: WHAT IS WEIGHING ON YOUR MIND */}
+      {/* 2ND SECTION: WHAT IS WEIGHING ON YOUR MIND - 3D TOPIC UNIVERSE ORB */}
       <motion.section className="section weighing-mind-section" id="topics" {...sectionMotion}>
         <div className="wrap" style={{ textAlign: 'center' }}>
-          <div className="weighing-mind-header" style={{ textAlign: 'center', marginBottom: '24px' }}>
-            <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> WHAT IS WEIGHING ON YOUR MIND?</p>
-          </div>
-
-          {/* Organic Watercolor Pebble Word Cloud */}
           <Interactive3DTopicUniverseOrb 
             onSelectWord={(word) => {
               setHeroInputText(`I want to reflect on ${word.toLowerCase()}...`);
