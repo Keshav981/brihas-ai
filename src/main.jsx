@@ -1,3 +1,4 @@
+import Spline from '@splinetool/react-spline';
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { createRoot } from 'react-dom/client';
@@ -3363,7 +3364,7 @@ function App() {
       {/* 2ND SECTION: WHAT IS WEIGHING ON YOUR MIND - 3D TOPIC UNIVERSE ORB */}
       <motion.section className="section weighing-mind-section" id="topics" {...sectionMotion}>
         <div className="wrap" style={{ textAlign: 'center' }}>
-          <TopicOrbWrapper 
+          <Spline3DEarthGlobe 
             onSelectWord={(word) => {
               setHeroInputText(`I want to reflect on ${word.toLowerCase()}...`);
               window.scrollTo({ top: 0, behavior: 'smooth' });

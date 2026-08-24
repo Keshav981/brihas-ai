@@ -9208,3 +9208,105 @@ footer, .footer {
     height: 330px !important;
   }
 }
+
+
+/* ══════════ SPLINE 3D EARTH GLOBE STYLING ══════════ */
+.spline-globe-wrap {
+  width: 100% !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.spline-3d-stage {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 680px !important;
+  height: 540px !important;
+  margin: 0 auto !important;
+  border-radius: 30px !important;
+  overflow: hidden !important;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.7) 0%, rgba(240, 248, 243, 0.3) 70%, transparent 100%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.spline-loading-spinner {
+  position: absolute !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 12px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  color: #2B7858 !important;
+  z-index: 10 !important;
+}
+
+.spinner-ring {
+  width: 36px !important;
+  height: 36px !important;
+  border: 3px solid rgba(43, 120, 88, 0.2) !important;
+  border-top-color: #2B7858 !important;
+  border-radius: 50% !important;
+  animation: splineSpin 0.8s linear infinite !important;
+}
+
+@keyframes splineSpin {
+  to { transform: rotate(360deg); }
+}
+
+.spline-canvas-element {
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none !important;
+}
+
+.spline-topic-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+.spline-topic-chip {
+  position: absolute !important;
+  transform: translate(-50%, -50%) !important;
+  padding: 6px 16px !important;
+  border-radius: 100px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(43, 120, 88, 0.22) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  box-shadow: 0 6px 18px rgba(28, 37, 29, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+
+.spline-topic-chip.major-chip {
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(43, 120, 88, 0.35) !important;
+  font-weight: 700 !important;
+  font-size: 14.5px !important;
+  padding: 8px 18px !important;
+  box-shadow: 0 8px 24px rgba(28, 37, 29, 0.12) !important;
+}
+
+.spline-topic-chip:hover {
+  background: #FFFFFF !important;
+  border-color: #2B7858 !important;
+  box-shadow: 0 10px 28px rgba(43, 120, 88, 0.22) !important;
+  color: #2B7858 !important;
+}
+
+@media (max-width: 760px) {
+  .spline-3d-stage {
+    height: 400px !important;
+  }
+}
