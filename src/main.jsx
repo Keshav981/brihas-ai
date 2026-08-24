@@ -1629,69 +1629,69 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
 };
 
 const pebbleWordsAbsolute = [
-  // ROW 1: TOP ARC (Y: 20% - 24%) - Narrower width to respect oval top curve
-  { text: 'Stress', left: '26%', top: '21%', fontSize: '15px', weight: 500, color: '#4A5B4C' },
-  { text: 'Anxiety', left: '37%', top: '20%', fontSize: '16px', weight: 500, color: '#435445' },
-  { text: 'Self doubt', left: '49%', top: '19%', fontSize: '21px', weight: 700, color: '#2C3A2E' },
-  { text: 'Peace of mind', left: '62%', top: '20%', fontSize: '15px', weight: 600, color: '#3A4D3D' },
-  { text: 'Feeling stuck', left: '72%', top: '22%', fontSize: '16px', weight: 600, color: '#445646' },
+  // ROW 1: TOP ARC (Y: 19% - 23%)
+  { text: 'Stress', left: '26%', top: '21%', fontSize: '15px', weight: 500, color: '#65606E' },
+  { text: 'Anxiety', left: '37%', top: '20%', fontSize: '16px', weight: 500, color: '#5F5D6B' },
+  { text: 'Self doubt', left: '49%', top: '19%', fontSize: '21px', weight: 700, color: '#4A5551' },
+  { text: 'Peace of mind', left: '62%', top: '20%', fontSize: '15px', weight: 600, color: '#456654' },
+  { text: 'Feeling stuck', left: '72%', top: '22%', fontSize: '16px', weight: 600, color: '#5E665D' },
 
   // ROW 2: UPPER MID (Y: 27% - 31%)
-  { text: 'Pressure', left: '21%', top: '27%', fontSize: '15px', weight: 500, color: '#524559' },
-  { text: 'Overthinking', left: '33%', top: '27%', fontSize: '36px', weight: 800, color: '#3D2F47' },
-  { text: 'Overwhelm', left: '59%', top: '27%', fontSize: '23px', weight: 700, color: '#54384B' },
-  { text: 'Career', left: '72%', top: '28%', fontSize: '32px', weight: 800, color: '#27402D' },
+  { text: 'Pressure', left: '21%', top: '27%', fontSize: '15px', weight: 500, color: '#685E6E' },
+  { text: 'Overthinking', left: '33%', top: '27%', fontSize: '36px', weight: 800, color: '#5C4A68' },
+  { text: 'Overwhelm', left: '59%', top: '27%', fontSize: '23px', weight: 700, color: '#6B4A5C' },
+  { text: 'Career', left: '72%', top: '28%', fontSize: '32px', weight: 800, color: '#44634B' },
 
   // ROW 3: MID UPPER (Y: 34% - 37%)
-  { text: 'Boundaries', left: '19%', top: '34%', fontSize: '15px', weight: 500, color: '#4A5046' },
-  { text: 'Motivation', left: '33%', top: '34%', fontSize: '14px', weight: 500, color: '#5C5449' },
-  { text: 'Inner Peace', left: '47%', top: '33%', fontSize: '19px', weight: 600, color: '#2E483A' },
-  { text: 'Procrastination', left: '62%', top: '34%', fontSize: '14px', weight: 500, color: '#56473A' },
-  { text: 'Future', left: '76%', top: '35%', fontSize: '19px', weight: 600, color: '#4D3B5C' },
+  { text: 'Boundaries', left: '19%', top: '34%', fontSize: '15px', weight: 500, color: '#686B60' },
+  { text: 'Motivation', left: '33%', top: '34%', fontSize: '14px', weight: 500, color: '#7D7569' },
+  { text: 'Inner Peace', left: '47%', top: '33%', fontSize: '19px', weight: 600, color: '#4F685B' },
+  { text: 'Procrastination', left: '62%', top: '34%', fontSize: '14px', weight: 500, color: '#736152' },
+  { text: 'Future', left: '76%', top: '35%', fontSize: '19px', weight: 600, color: '#6A587A' },
 
   // ROW 4: CENTER CORE (Y: 41% - 44%)
-  { text: 'Bullying', left: '18%', top: '41%', fontSize: '18px', weight: 600, color: '#5E343E' },
-  { text: 'Purpose', left: '29%', top: '41%', fontSize: '26px', weight: 700, color: '#3A4837' },
-  { text: 'Burnout', left: '48%', top: '39%', fontSize: '42px', weight: 900, color: '#1B2C20' },
-  { text: 'Self care', left: '65%', top: '41%', fontSize: '14px', weight: 500, color: '#384C3A' },
-  { text: 'Health', left: '75%', top: '42%', fontSize: '20px', weight: 600, color: '#3A443B' },
+  { text: 'Bullying', left: '18%', top: '41%', fontSize: '18px', weight: 600, color: '#7B4E59' },
+  { text: 'Purpose', left: '29%', top: '41%', fontSize: '26px', weight: 700, color: '#5B6858' },
+  { text: 'Burnout', left: '48%', top: '39%', fontSize: '42px', weight: 900, color: '#2E4034' },
+  { text: 'Self care', left: '65%', top: '41%', fontSize: '14px', weight: 500, color: '#5A6E5C' },
+  { text: 'Health', left: '75%', top: '42%', fontSize: '20px', weight: 600, color: '#586259' },
 
   // ROW 5: MID CENTER (Y: 47% - 51%)
-  { text: 'Money', left: '26%', top: '48%', fontSize: '28px', weight: 700, color: '#57422E' },
-  { text: 'What next?', left: '39%', top: '47%', fontSize: '14px', weight: 500, color: '#524B40' },
-  { text: 'Big decisions', left: '52%', top: '48%', fontSize: '24px', weight: 700, color: '#3B4235' },
-  { text: 'Confidence', left: '73%', top: '49%', fontSize: '20px', weight: 600, color: '#3B4239' },
+  { text: 'Money', left: '26%', top: '48%', fontSize: '28px', weight: 700, color: '#78604B' },
+  { text: 'What next?', left: '39%', top: '47%', fontSize: '14px', weight: 500, color: '#70675C' },
+  { text: 'Big decisions', left: '52%', top: '48%', fontSize: '24px', weight: 700, color: '#596053' },
+  { text: 'Confidence', left: '73%', top: '49%', fontSize: '20px', weight: 600, color: '#5A6158' },
 
   // ROW 6: LOWER CENTER (Y: 54% - 58%)
-  { text: 'Communication', left: '19%', top: '55%', fontSize: '14px', weight: 400, color: '#5A463B' },
-  { text: 'Identity', left: '33%', top: '55%', fontSize: '24px', weight: 700, color: '#3F334C' },
-  { text: 'Fulfillment', left: '47%', top: '55%', fontSize: '18px', weight: 600, color: '#493951' },
-  { text: 'Resilience', left: '62%', top: '55%', fontSize: '15px', weight: 600, color: '#334F3D' },
-  { text: 'Growth', left: '73%', top: '56%', fontSize: '20px', weight: 600, color: '#384A3B' },
+  { text: 'Communication', left: '19%', top: '55%', fontSize: '14px', weight: 400, color: '#7A6458' },
+  { text: 'Identity', left: '33%', top: '55%', fontSize: '24px', weight: 700, color: '#5C4F6B' },
+  { text: 'Fulfillment', left: '47%', top: '55%', fontSize: '18px', weight: 600, color: '#65546D' },
+  { text: 'Resilience', left: '62%', top: '55%', fontSize: '15px', weight: 600, color: '#4E6A58' },
+  { text: 'Growth', left: '73%', top: '56%', fontSize: '20px', weight: 600, color: '#5B6E5F' },
 
   // ROW 7: LOWER MID (Y: 61% - 66%)
-  { text: 'Conflict', left: '21%', top: '61%', fontSize: '14px', weight: 400, color: '#61474B' },
-  { text: 'Relationships', left: '38%', top: '62%', fontSize: '32px', weight: 800, color: '#5C2D39' },
-  { text: 'Time management', left: '57%', top: '61%', fontSize: '13.5px', weight: 400, color: '#454B41' },
-  { text: 'Clarity', left: '72%', top: '62%', fontSize: '38px', weight: 900, color: '#163526' },
+  { text: 'Conflict', left: '21%', top: '61%', fontSize: '14px', weight: 400, color: '#826569' },
+  { text: 'Relationships', left: '38%', top: '62%', fontSize: '32px', weight: 800, color: '#7D4D59' },
+  { text: 'Time management', left: '57%', top: '61%', fontSize: '13.5px', weight: 400, color: '#61675D' },
+  { text: 'Clarity', left: '72%', top: '62%', fontSize: '38px', weight: 900, color: '#274C3A' },
 
-  // ROW 8: BOTTOM LOWER (Y: 68% - 73%) - Tighter bounds
-  { text: 'Family', left: '24%', top: '68%', fontSize: '14px', weight: 400, color: '#52473D' },
-  { text: 'Breakup', left: '30%', top: '71%', fontSize: '13.5px', weight: 400, color: '#634246' },
-  { text: 'Work pressure', left: '42%', top: '71%', fontSize: '14px', weight: 500, color: '#47413E' },
-  { text: 'Work life balance', left: '56%', top: '70%', fontSize: '14px', weight: 500, color: '#3D483E' },
-  { text: 'Starting over', left: '71%', top: '69%', fontSize: '13.5px', weight: 400, color: '#40463E' },
+  // ROW 8: BOTTOM LOWER (Y: 68% - 73%)
+  { text: 'Family', left: '24%', top: '68%', fontSize: '14px', weight: 400, color: '#70645A' },
+  { text: 'Breakup', left: '30%', top: '71%', fontSize: '13.5px', weight: 400, color: '#856165' },
+  { text: 'Work pressure', left: '42%', top: '71%', fontSize: '14px', weight: 500, color: '#665F5C' },
+  { text: 'Work life balance', left: '56%', top: '70%', fontSize: '14px', weight: 500, color: '#5B665C' },
+  { text: 'Starting over', left: '71%', top: '69%', fontSize: '13.5px', weight: 400, color: '#5D635B' },
 
-  // ROW 9: BOTTOM ARC (Y: 75% - 83%) - Tightly contained inside oval bottom curve
-  { text: 'Friendship', left: '31%', top: '76%', fontSize: '13.5px', weight: 400, color: '#4E4942' },
-  { text: 'Productivity', left: '43%', top: '76%', fontSize: '13.5px', weight: 400, color: '#4C544B' },
-  { text: 'Comparison trap', left: '57%', top: '75%', fontSize: '13.5px', weight: 400, color: '#50404D' },
-  { text: 'Balance', left: '71%', top: '75%', fontSize: '13.5px', weight: 400, color: '#404F44' },
+  // ROW 9: BOTTOM ARC (Y: 75% - 83%)
+  { text: 'Friendship', left: '31%', top: '76%', fontSize: '13.5px', weight: 400, color: '#6B665E' },
+  { text: 'Productivity', left: '43%', top: '76%', fontSize: '13.5px', weight: 400, color: '#6A7368' },
+  { text: 'Comparison trap', left: '57%', top: '75%', fontSize: '13.5px', weight: 400, color: '#6E5C6B' },
+  { text: 'Balance', left: '71%', top: '75%', fontSize: '13.5px', weight: 400, color: '#5C6C60' },
 
-  { text: 'Connection', left: '31%', top: '81%', fontSize: '13px', weight: 400, color: '#544843' },
-  { text: 'Loneliness', left: '42%', top: '81%', fontSize: '13px', weight: 400, color: '#484351' },
-  { text: 'Mindset', left: '52%', top: '81%', fontSize: '13.5px', weight: 500, color: '#38483D' },
-  { text: 'Self esteem', left: '62%', top: '80%', fontSize: '13px', weight: 500, color: '#4F4039' }
+  { text: 'Connection', left: '31%', top: '81%', fontSize: '13px', weight: 400, color: '#736560' },
+  { text: 'Loneliness', left: '42%', top: '81%', fontSize: '13px', weight: 400, color: '#666170' },
+  { text: 'Mindset', left: '52%', top: '81%', fontSize: '13.5px', weight: 500, color: '#54665A' },
+  { text: 'Self esteem', left: '62%', top: '80%', fontSize: '13px', weight: 500, color: '#6D5B54' }
 ];
 
 const OrganicPebbleWordCloud = ({ onSelectWord }) => {
