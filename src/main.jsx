@@ -1695,405 +1695,444 @@ const pebbleWordsAbsolute = [
 ];
 
 
-// ══════════ REAL 3D CANVAS & SVG EARTH GLOBE COMPONENT ══════════
-const countryTopics = [
-  { text: 'BURNOUT', lat: 20, lng: 0, major: true, color: '#1C3B2B' },
-  { text: 'OVERTHINKING', lat: 45, lng: 55, major: true, color: '#4A3B5C' },
-  { text: 'CAREER', lat: 35, lng: -65, major: true, color: '#1E4A32' },
-  { text: 'RELATIONSHIPS', lat: -15, lng: 45, major: true, color: '#6B3843' },
-  { text: 'CLARITY', lat: 12, lng: 115, major: true, color: '#15422D' },
-  { text: 'MONEY', lat: -25, lng: -45, major: true, color: '#594432' },
-  { text: 'IDENTITY', lat: 52, lng: 135, major: true, color: '#443754' },
-  { text: 'PURPOSE', lat: -32, lng: 125, major: true, color: '#2C4736' },
-  { text: 'ANXIETY', lat: 62, lng: -15, major: true, color: '#484654' },
-  { text: 'SELF DOUBT', lat: 48, lng: -105, major: true, color: '#3A423F' },
-  { text: 'PEACE OF MIND', lat: -8, lng: -115, major: true, color: '#273B2E' },
-  { text: 'HEALTH', lat: 2, lng: 65, major: true, color: '#2B3B2E' },
-  { text: 'GROWTH', lat: -42, lng: 5, major: true, color: '#27382B' },
-  { text: 'BIG DECISIONS', lat: 28, lng: -155, major: true, color: '#42473D' },
-  { text: 'CONFIDENCE', lat: 18, lng: -75, major: true, color: '#3B423A' },
-  { text: 'FUTURE', lat: 58, lng: 75, major: true, color: '#4F3F5C' },
-  { text: 'INNER PEACE', lat: -42, lng: -75, major: true, color: '#334A3C' },
-  { text: 'MOTIVATION', lat: 32, lng: 165, major: true, color: '#574F44' },
-  { text: 'Stress', lat: 68, lng: 25, major: false, color: '#524D59' },
-  { text: 'Feeling stuck', lat: -48, lng: 65, major: false, color: '#454C44' },
-  { text: 'Pressure', lat: 40, lng: 20, major: false, color: '#4D4552' },
-  { text: 'Overwhelm', lat: 55, lng: -65, major: false, color: '#523847' },
-  { text: 'Boundaries', lat: -18, lng: -15, major: false, color: '#4D4F46' },
-  { text: 'Procrastination', lat: 15, lng: -30, major: false, color: '#54463A' },
-  { text: 'Bullying', lat: -32, lng: -135, major: false, color: '#593840' },
-  { text: 'Self care', lat: -2, lng: -150, major: false, color: '#405242' },
-  { text: 'What next?', lat: 50, lng: -145, major: false, color: '#524B43' },
-  { text: 'Communication', lat: -10, lng: 90, major: false, color: '#57473E' },
-  { text: 'Fulfillment', lat: 65, lng: 105, major: false, color: '#4A3D52' },
-  { text: 'Resilience', lat: -55, lng: 145, major: false, color: '#3A4F41' },
-  { text: 'Conflict', lat: -20, lng: 165, major: false, color: '#5E484B' },
-  { text: 'Time management', lat: 30, lng: 85, major: false, color: '#454A42' },
-  { text: 'Family', lat: 8, lng: 30, major: false, color: '#524942' },
-  { text: 'Breakup', lat: -35, lng: 95, major: false, color: '#5E4447' },
-  { text: 'Work pressure', lat: 35, lng: -125, major: false, color: '#4C4644' },
-  { text: 'Work life balance', lat: -15, lng: -65, major: false, color: '#434C44' },
-  { text: 'Starting over', lat: -60, lng: -35, major: false, color: '#444A43' },
-  { text: 'Friendship', lat: 22, lng: -5, major: false, color: '#4F4B45' },
-  { text: 'Productivity', lat: 45, lng: -35, major: false, color: '#4B524A' },
-  { text: 'Comparison trap', lat: 60, lng: -165, major: false, color: '#4F424D' },
-  { text: 'Balance', lat: -45, lng: -155, major: false, color: '#434F46' },
-  { text: 'Connection', lat: -2, lng: 150, major: false, color: '#544A46' },
-  { text: 'Loneliness', lat: -25, lng: -95, major: false, color: '#4A4652' },
-  { text: 'Mindset', lat: 25, lng: 50, major: false, color: '#3E4B42' },
-  { text: 'Self esteem', lat: -40, lng: 35, major: false, color: '#4F423D' }
-];
+/* <topic-orb> — Brihas.ai interactive 3D topic universe.
+   A DOM-projected sphere (no WebGL): topics are real text nodes positioned from
+   a rotating 3D model, so type stays crisp, selectable, translatable and
+   printable. Light DOM on purpose — shadow roots don't survive the site's
+   screenshot/print/standalone-export paths.
+   Auto-revolves slowly · eases off on hover · drag with inertia · click to focus.
+   Optional meditative ambient bed whose brightness tracks rotation speed. */
+if (typeof window !== 'undefined') {
+  (() => {
+    const TOPICS = [
+      // [label, tier]  1 = closest & largest, 3 = deep inside the orb
+      ['Burnout', 1], ['Overthinking', 1], ['Career', 1], ['Relationships', 1],
+      ['Clarity', 1], ['Money', 1], ['Identity', 1],
+      ['Purpose', 2], ['Anxiety', 2], ['Self doubt', 2], ['Peace of mind', 2],
+      ['Health', 2], ['Growth', 2], ['Big decisions', 2], ['Confidence', 2],
+      ['Future', 2], ['Inner Peace', 2],
+      ['Motivation', 3], ['Work pressure', 3], ['Family', 3], ['Friendship', 3],
+      ['Loneliness', 3], ['Balance', 3], ['Mindset', 3], ['Productivity', 3]
+    ];
 
-const Interactive3DEarthGlobe = ({ onSelectWord }) => {
-  const [soundOn, setSoundOn] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+    const INK = '#1C251D', FOREST = '#2B7858', SAGE = '#6E8A72',
+          LAV = '#8E7FB0', BROWN = '#8A6A4F', COPPER = '#B0703A';
+    const HUES = [FOREST, INK, SAGE, LAV, BROWN, COPPER];
 
-  // Rotation angles in radians (rotY: longitude spin, rotX: latitude tilt)
-  const [rotY, setRotY] = useState(0.8);
-  const [rotX, setRotX] = useState(0.2);
+    const CSS = `
+topic-orb { display:block; container-type:inline-size; }
+.orb-head { text-align:center; margin:0 auto 6px; max-width:40ch; }
+.orb-head h3 {
+  font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;
+  font-size:clamp(28px,3.4cqw,48px); font-weight:700;
+  letter-spacing:-.03em; line-height:1.12; color:${INK}; margin:0;
+}
+.orb-head h3 em {
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic; font-weight:500; color:${FOREST};
+}
+.orb-sub {
+  font-family:'Playfair Display',Georgia,serif; font-style:italic;
+  font-size:clamp(15px,1.5cqw,20px); color:${SAGE}; margin:10px 0 0;
+}
+.orb-stage {
+  position:relative; width:100%; aspect-ratio:1/1;
+  max-width:min(100%,640px); margin:0 auto;
+  touch-action:none; cursor:grab;
+  -webkit-user-select:none; user-select:none;
+}
+.orb-stage.is-drag { cursor:grabbing; }
+.orb-glow, .orb-shell, .orb-rings, .orb-field, .orb-link { position:absolute; inset:0; }
+.orb-glow {
+  border-radius:50%;
+  background:
+    radial-gradient(46% 44% at 30% 24%, rgba(142,127,176,.22), transparent 70%),
+    radial-gradient(48% 46% at 74% 72%, rgba(110,138,114,.22), transparent 72%),
+    radial-gradient(58% 56% at 52% 50%, rgba(255,255,255,.55), transparent 74%);
+  filter:blur(28px);
+}
+.orb-shell {
+  border-radius:50%;
+  border:1px solid rgba(28,37,29,.08);
+  background:
+    radial-gradient(52% 48% at 32% 22%, rgba(255,255,255,.58), rgba(255,255,255,.05) 58%, transparent 74%),
+    radial-gradient(72% 72% at 50% 54%, rgba(253,251,246,.14), transparent 76%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.72),
+    inset 0 -40px 80px -62px rgba(28,37,29,.16),
+    0 56px 84px -64px rgba(28,37,29,.26);
+  -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+}
+.orb-rings, .orb-link { overflow:visible; pointer-events:none; }
+.orb-field { pointer-events:none; }
+.orb-w {
+  position:absolute; left:0; top:0;
+  font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;
+  white-space:nowrap; pointer-events:auto; cursor:pointer;
+  background:none; border:0; padding:2px 4px; margin:0;
+  transition:color .3s ease;
+  will-change:transform,opacity,filter;
+}
+.orb-w:focus-visible { outline:1.5px solid ${FOREST}; outline-offset:3px; border-radius:6px; }
+.orb-w.is-on { color:${FOREST} !important; }
+.orb-foot {
+  display:flex; flex-direction:column; align-items:center; gap:3px;
+  margin:2px 0 0; text-align:center;
+}
+.orb-foot b {
+  font-family:'DM Mono',ui-monospace,monospace;
+  font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+  font-weight:500; color:${INK};
+}
+.orb-hint {
+  font-family:'Playfair Display',Georgia,serif; font-style:italic;
+  font-size:14.5px; color:${SAGE};
+}
+.orb-cta {
+  margin-top:18px; cursor:pointer;
+  font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;
+  font-size:14.5px; color:#FDFBF6; letter-spacing:-.01em;
+  padding:12px 22px; border-radius:999px; border:0;
+  background:${INK};
+  box-shadow:0 14px 26px -16px rgba(28,37,29,.5);
+  transition:background .2s ease, transform .2s ease;
+}
+.orb-cta:hover { background:${FOREST}; transform:translateY(-1px); }
+.orb-snd {
+  position:absolute; right:1%; bottom:5%;
+  width:40px; height:40px; border-radius:50%; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  color:${SAGE}; border:1px solid rgba(28,37,29,.1);
+  background:rgba(255,255,255,.66);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+  box-shadow:0 8px 18px -12px rgba(28,37,29,.3), inset 0 1px 0 rgba(255,255,255,.9);
+  transition:color .2s ease, border-color .2s ease, background .2s ease;
+}
+.orb-snd:hover { color:${FOREST}; border-color:rgba(43,120,88,.3); background:rgba(255,255,255,.92); }
+.orb-snd[aria-pressed="true"] { color:${FOREST}; }
+@container (max-width: 620px) {
+  .orb-stage { max-width:100%; }
+  .orb-snd { width:36px; height:36px; right:0; bottom:2%; }
+}
+@media (prefers-reduced-motion: reduce) { .orb-w { transition:none; } }
+`;
 
-  const canvasRef = useRef(null);
-  const isDragging = useRef(false);
-  const previousMousePos = useRef({ x: 0, y: 0 });
-  const vel = useRef({ x: 0, y: 0.003 });
-  const audioCtxRef = useRef(null);
-
-  const playAmbientSound = useCallback((freq = 440) => {
-    if (!soundOn) return;
-    try {
-      if (!audioCtxRef.current) {
-        audioCtxRef.current = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      const ctx = audioCtxRef.current;
-      if (ctx.state === 'suspended') ctx.resume();
-      
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, ctx.currentTime);
-      gain.gain.setValueAtTime(0.012, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.4);
-      
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      osc.stop(ctx.currentTime + 0.4);
-    } catch (e) {}
-  }, [soundOn]);
-
-  // Spherical Coordinates (R = 210px)
-  const globePoints = useMemo(() => {
-    const R = 210;
-    return countryTopics.map(item => {
-      const latRad = (item.lat * Math.PI) / 180;
-      const lngRad = (item.lng * Math.PI) / 180;
-
-      const x = R * Math.cos(latRad) * Math.cos(lngRad);
-      const y = R * Math.sin(latRad);
-      const z = R * Math.cos(latRad) * Math.sin(lngRad);
-
-      return { ...item, origX: x, origY: y, origZ: z };
-    });
-  }, []);
-
-  // Render 3D Earth Globe Surface Graticules & Continents on HTML5 Canvas
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const width = canvas.width;
-    const height = canvas.height;
-    const cx = width / 2;
-    const cy = height / 2;
-    const R = 210;
-
-    ctx.clearRect(0, 0, width, height);
-
-    // 1. Globe Base Shading (Spherical Radial Gradient)
-    const globeGrad = ctx.createRadialGradient(cx - 60, cy - 70, 20, cx, cy, R);
-    globeGrad.addColorStop(0, '#FFFFFF');
-    globeGrad.addColorStop(0.35, '#F5F9F6');
-    globeGrad.addColorStop(0.75, '#E2EDE6');
-    globeGrad.addColorStop(1, '#C2D9CB');
-
-    ctx.beginPath();
-    ctx.arc(cx, cy, R, 0, Math.PI * 2);
-    ctx.fillStyle = globeGrad;
-    ctx.fill();
-
-    // Globe Atmosphere Rim & Specular Ring
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
-    ctx.lineWidth = 3;
-    ctx.stroke();
-
-    // 2. Render Dynamic 3D Latitude Circles (Parallels)
-    const cosX = Math.cos(rotX);
-    const sinX = Math.sin(rotX);
-    const cosY = Math.cos(rotY);
-    const sinY = Math.sin(rotY);
-
-    ctx.strokeStyle = 'rgba(45, 110, 75, 0.18)';
-    ctx.lineWidth = 1.2;
-
-    [-60, -30, 0, 30, 60].forEach(lat => {
-      ctx.beginPath();
-      const latRad = (lat * Math.PI) / 180;
-      const rLat = R * Math.cos(latRad);
-      const yLat = R * Math.sin(latRad);
-
-      let first = true;
-      for (let a = 0; a <= 360; a += 10) {
-        const lngRad = (a * Math.PI) / 180;
-        const px = rLat * Math.cos(lngRad);
-        const pz = rLat * Math.sin(lngRad);
-
-        // Rotate Y & X
-        const x1 = px * cosY + pz * sinY;
-        const z1 = -px * sinY + pz * cosY;
-        const y2 = yLat * cosX - z1 * sinX;
-        const z2 = yLat * sinX + z1 * cosX;
-
-        if (z2 > -30) {
-          const sx = cx + x1;
-          const sy = cy - y2;
-          if (first) { ctx.moveTo(sx, sy); first = false; }
-          else { ctx.lineTo(sx, sy); }
-        } else {
-          first = true;
-        }
-      }
-      ctx.stroke();
-    });
-
-    // 3. Render Dynamic 3D Longitude Circles (Meridians)
-    for (let lng = 0; lng < 360; lng += 30) {
-      ctx.beginPath();
-      const lngRad = (lng * Math.PI) / 180;
-      let first = true;
-
-      for (let lat = -90; lat <= 90; lat += 10) {
-        const latRad = (lat * Math.PI) / 180;
-        const px = R * Math.cos(latRad) * Math.cos(lngRad);
-        const yLat = R * Math.sin(latRad);
-        const pz = R * Math.cos(latRad) * Math.sin(lngRad);
-
-        const x1 = px * cosY + pz * sinY;
-        const z1 = -px * sinY + pz * cosY;
-        const y2 = yLat * cosX - z1 * sinX;
-        const z2 = yLat * sinX + z1 * cosX;
-
-        if (z2 > -30) {
-          const sx = cx + x1;
-          const sy = cy - y2;
-          if (first) { ctx.moveTo(sx, sy); first = false; }
-          else { ctx.lineTo(sx, sy); }
-        } else {
-          first = true;
-        }
-      }
-      ctx.stroke();
+    function injectCSS() {
+      if (document.getElementById('topic-orb-css')) return;
+      const s = document.createElement('style');
+      s.id = 'topic-orb-css';
+      s.textContent = CSS;
+      document.head.appendChild(s);
     }
-  }, [rotX, rotY]);
 
-  // 60FPS Planetary Spin Loop
-  useEffect(() => {
-    let animId;
-    const animate = () => {
-      if (!isDragging.current) {
-        const speed = isHovered ? 0.35 : 1.0;
-        setRotY(prev => prev + vel.current.y * speed);
-        setRotX(prev => prev + vel.current.x * speed);
+    const SND_ON = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6.5 9H3v6h3.5L11 19V5Z"/><path d="M15.5 9.5a3.5 3.5 0 0 1 0 5"/><path d="M18.5 7a7 7 0 0 1 0 10"/></svg>`;
+    const SND_OFF = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6.5 9H3v6h3.5L11 19V5Z"/><path d="m16 10 4 4M20 10l-4 4"/></svg>`;
 
-        vel.current.x *= 0.95;
-        vel.current.y = vel.current.y * 0.96 + 0.0025 * 0.04;
+    class TopicOrb extends HTMLElement {
+      connectedCallback() {
+        if (this._built) return;
+        this._built = true;
+        injectCSS();
+
+        this.innerHTML = `
+          <div class="orb-head">
+            <h3>What&rsquo;s on <em>your mind?</em></h3>
+            <p class="orb-sub">Explore what matters to you.</p>
+          </div>
+          <div class="orb-stage">
+            <div class="orb-glow"></div>
+            <div class="orb-shell"></div>
+            <svg class="orb-rings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <svg class="orb-link" aria-hidden="true"></svg>
+            <div class="orb-field" role="group" aria-label="Topics"></div>
+            <button class="orb-snd" type="button" aria-pressed="false" aria-label="Toggle ambient sound">${SND_OFF}</button>
+          </div>
+          <div class="orb-foot">
+            <b>Drag to explore</b>
+            <span class="orb-hint">Spin the orb and discover more.</span>
+            <button class="orb-cta" type="button" hidden></button>
+          </div>`;
+
+        this.stage = this.querySelector('.orb-stage');
+        this.field = this.querySelector('.orb-field');
+        this.rings = this.querySelector('.orb-rings');
+        this.link  = this.querySelector('.orb-link');
+        this.sndBtn = this.querySelector('.orb-snd');
+        this.cta = this.querySelector('.orb-cta');
+
+        this.reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        this.yaw = 0.6; this.pitch = -0.1;
+        this.vYaw = 0.0016; this.vPitch = 0;
+        this.hover = false; this.drag = null; this.focus = null;
+        this.sound = null; this.picked = null; this.visible = true;
+
+        this._buildRings();
+        this._buildWords();
+        this._bind();
+
+        this._tick = this._tick.bind(this);
+        this._render();                        // paint once, independent of rAF
+        requestAnimationFrame(this._tick);
+
+        this._io = new IntersectionObserver(es => { this.visible = es[0].isIntersecting; },
+          { threshold: 0.02 });
+        this._io.observe(this);
+        this._ro = new ResizeObserver(() => this._render());
+        this._ro.observe(this.stage);
       }
-      animId = requestAnimationFrame(animate);
+
+      disconnectedCallback() {
+        this._io && this._io.disconnect();
+        this._ro && this._ro.disconnect();
+        this._stopSound();
+        cancelAnimationFrame(this._raf);
+      }
+
+      /* ---------- geometry ---------- */
+
+      _buildRings() {
+        const ell = (rx, ry, rot, op, dash) =>
+          `<ellipse cx="50" cy="50" rx="${rx}" ry="${ry}" transform="rotate(${rot} 50 50)"
+             fill="none" stroke="rgba(43,120,88,${op})" stroke-width="0.28"
+             ${dash ? `stroke-dasharray="${dash}"` : ''} vector-effect="non-scaling-stroke"/>`;
+        this.rings.innerHTML =
+          ell(49.5, 15, -16, .20) +
+          ell(49.5, 30, 12, .13, '1.6 2.4') +
+          ell(46, 46, 0, .10) +
+          ell(20, 49, -8, .10, '1.2 2.8');
+      }
+
+      _buildWords() {
+        // Round-robin the tiers first: the Fibonacci spiral walks the sphere in
+        // order, so a tier-sorted list drops every headline topic in one band.
+        const buckets = [[], [], []];
+        TOPICS.forEach(t => buckets[t[1] - 1].push(t));
+        const order = [];
+        for (let k = 0; order.length < TOPICS.length; k++)
+          for (const b of buckets) if (b[k]) order.push(b[k]);
+
+        const n = order.length;
+        this.words = order.map(([label, tier], i) => {
+          const y = 1 - (2 * i + 1) / n;
+          const r = Math.sqrt(Math.max(0, 1 - y * y));
+          const th = Math.PI * (3 - Math.sqrt(5)) * i;
+          const shell = tier === 1 ? 1 : tier === 2 ? 0.8 : 0.58;
+          const el = document.createElement('button');
+          el.type = 'button';
+          el.className = 'orb-w';
+          el.textContent = label;
+          el.style.color = HUES[i % HUES.length];
+          el.style.fontSize = (tier === 1 ? 1 : tier === 2 ? 0.72 : 0.56) + 'em';
+          el.style.fontWeight = tier === 1 ? 600 : tier === 2 ? 500 : 400;
+          el.style.letterSpacing = tier === 1 ? '-.02em' : '-.01em';
+          el.addEventListener('click', () => this._select(i));
+          this.field.appendChild(el);
+          return { label, tier, el, x: Math.cos(th) * r * shell, y: y * shell,
+                   z: Math.sin(th) * r * shell };
+        });
+      }
+
+      /* ---------- interaction ---------- */
+
+      _bind() {
+        const s = this.stage;
+        s.addEventListener('pointerenter', () => { this.hover = true; });
+        s.addEventListener('pointerleave', () => { this.hover = false; });
+
+        s.addEventListener('pointerdown', e => {
+          if (e.target.closest('.orb-snd')) return;
+          s.setPointerCapture(e.pointerId);
+          s.classList.add('is-drag');
+          this.drag = { x: e.clientX, y: e.clientY, moved: 0 };
+          this.focus = null;
+        });
+
+        s.addEventListener('pointermove', e => {
+          if (!this.drag) return;
+          const dx = e.clientX - this.drag.x, dy = e.clientY - this.drag.y, k = 0.006;
+          this.yaw += dx * k;
+          this.pitch = Math.max(-1.05, Math.min(1.05, this.pitch + dy * k * 0.7));
+          this.vYaw = dx * k * 0.5;              // carried into the release as inertia
+          this.vPitch = dy * k * 0.35;
+          this.drag.moved += Math.abs(dx) + Math.abs(dy);
+          this.drag.x = e.clientX; this.drag.y = e.clientY;
+          this._render();
+        });
+
+        const end = () => {
+          if (!this.drag) return;
+          if (this.drag.moved < 4) this.vYaw = this.vYaw || 0.0016;
+          this.drag = null;
+          s.classList.remove('is-drag');
+        };
+        s.addEventListener('pointerup', end);
+        s.addEventListener('pointercancel', end);
+
+        this.sndBtn.addEventListener('click', () => this._toggleSound());
+        this.cta.addEventListener('click', () => {
+          if (!this.picked) return;
+          this.dispatchEvent(new CustomEvent('topicstart',
+            { detail: { topic: this.picked }, bubbles: true }));
+        });
+      }
+
+      _select(i) {
+        const w = this.words[i];
+        this.words.forEach(o => o.el.classList.toggle('is-on', o === w));
+        // rotate so the picked topic swings to the front of the sphere
+        const R = Math.hypot(w.x, w.z);
+        this.focus = { yaw: Math.atan2(w.x, w.z), pitch: Math.atan2(w.y, R) };
+        this.vYaw = 0; this.vPitch = 0;
+        this.picked = w.label;
+        this.cta.textContent = `Talk about ${w.label} →`;
+        this.cta.hidden = false;
+        this.dispatchEvent(new CustomEvent('topicselect',
+          { detail: { topic: w.label }, bubbles: true }));
+      }
+
+      /* ---------- motion ---------- */
+
+      _tick() {
+        this._raf = requestAnimationFrame(this._tick);
+        if (!this.visible || this.drag) return;
+
+        const idle = 0.0016;
+        if (this.focus) {
+          const dy = ((this.focus.yaw - this.yaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
+          this.yaw += dy * 0.07;
+          this.pitch += (this.focus.pitch - this.pitch) * 0.07;
+          if (Math.abs(dy) < 0.004) { this.focus = null; this.vYaw = idle * 0.5; }
+        } else {
+          this.vYaw += (idle - this.vYaw) * 0.012;     // inertia bleeds into the drift
+          this.vPitch *= 0.94;
+          const slow = this.hover ? 0.22 : 1;          // eases off under the cursor
+          this.yaw += this.vYaw * slow * (this.reduced ? 0.2 : 1);
+          this.pitch += this.vPitch * slow;
+          this.pitch += (-0.06 - this.pitch) * 0.004;  // settles back toward level
+        }
+        this._render();
+      }
+
+      _render() {
+        if (!this.words) return;
+        const box = this.stage.getBoundingClientRect();
+        if (!box.width) return;
+
+        const R = box.width * 0.455, cx = box.width / 2, cy = box.height / 2;
+        const FOV = R * 3.1;
+        const cyw = Math.cos(this.yaw), syw = Math.sin(this.yaw);
+        const cp = Math.cos(this.pitch), sp = Math.sin(this.pitch);
+        this.stage.style.fontSize = Math.max(13, box.width * 0.037) + 'px';
+
+        const pts = [];
+        for (const w of this.words) {
+          const x1 = w.x * cyw - w.z * syw, z1 = w.x * syw + w.z * cyw;
+          const y2 = w.y * cp - z1 * sp,    z2 = w.y * sp + z1 * cp;
+          const X = x1 * R, Y = y2 * R, Z = z2 * R;
+          const s = FOV / (FOV - Z);
+          const d = (z2 + 1) / 2;                        // 0 = far side, 1 = nearest
+          const op = (0.22 + 0.78 * d) * (w.tier === 3 ? 0.82 : 1);
+          const st = w.el.style;
+          st.transform = `translate3d(${(cx + X * s).toFixed(1)}px, ${(cy + Y * s).toFixed(1)}px, 0) translate(-50%,-50%) scale(${s.toFixed(3)})`;
+          st.opacity = op.toFixed(3);
+          st.filter = d < 0.55 ? `blur(${((0.55 - d) * 3.2).toFixed(2)}px)` : 'none';
+          st.zIndex = Math.round(d * 100);
+          st.pointerEvents = d > 0.42 ? 'auto' : 'none';
+          if (d > 0.5) pts.push({ x: cx + X * s, y: cy + Y * s });
+        }
+        this._drawLinks(pts, box);
+        if (this.sound) this._sound(Math.abs(this.vYaw) + Math.abs(this.vPitch));
+      }
+
+      _drawLinks(pts, box) {
+        let d = '';
+        const lim = box.width * 0.24;
+        for (let i = 0; i < pts.length; i++)
+          for (let j = i + 1; j < pts.length; j++) {
+            const a = pts[i], b = pts[j];
+            if (Math.hypot(a.x - b.x, a.y - b.y) < lim)
+              d += `M${a.x.toFixed(1)} ${a.y.toFixed(1)}L${b.x.toFixed(1)} ${b.y.toFixed(1)}`;
+          }
+        this.link.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
+        this.link.innerHTML = `<path d="${d}" fill="none" stroke="rgba(43,120,88,.13)" stroke-width="0.7"/>`;
+      }
+
+      /* ---------- ambient sound ---------- */
+
+      _toggleSound() {
+        if (this.sound) { this._stopSound(); return; }
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        const ctx = new AC();
+        const gain = ctx.createGain(); gain.gain.value = 0;
+        const filt = ctx.createBiquadFilter();
+        filt.type = 'lowpass'; filt.frequency.value = 460; filt.Q.value = 0.7;
+        // two detuned voices plus a fifth: a still, breathing drone
+        const osc = [110, 110.4, 164.8].map((f, i) => {
+          const o = ctx.createOscillator();
+          o.type = i === 2 ? 'triangle' : 'sine';
+          o.frequency.value = f;
+          const g = ctx.createGain(); g.gain.value = i === 2 ? 0.22 : 0.5;
+          o.connect(g).connect(filt); o.start();
+          return o;
+        });
+        filt.connect(gain).connect(ctx.destination);
+        gain.gain.linearRampToValueAtTime(0.035, ctx.currentTime + 2.4);
+        this.sound = { ctx, gain, filt, osc };
+        this.sndBtn.setAttribute('aria-pressed', 'true');
+        this.sndBtn.innerHTML = SND_ON;
+      }
+
+      _stopSound() {
+        if (!this.sound) return;
+        const { ctx, gain, osc } = this.sound;
+        gain.gain.cancelScheduledValues(ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.7);
+        setTimeout(() => { osc.forEach(o => o.stop()); ctx.close(); }, 900);
+        this.sound = null;
+        this.sndBtn.setAttribute('aria-pressed', 'false');
+        this.sndBtn.innerHTML = SND_OFF;
+      }
+
+      _sound(speed) {
+        const { ctx, filt } = this.sound;         // brighter as it turns, never loud
+        filt.frequency.setTargetAtTime(360 + Math.min(speed * 26000, 900), ctx.currentTime, 0.6);
+      }
+    }
+
+    if (!customElements.get('topic-orb')) customElements.define('topic-orb', TopicOrb);
+  })();
+}
+
+const TopicOrbWrapper = ({ onSelectWord }) => {
+  const orbRef = useRef(null);
+
+  useEffect(() => {
+    const el = orbRef.current;
+    if (!el) return;
+
+    const handleSelect = (e) => {
+      if (onSelectWord && e.detail && e.detail.topic) {
+        onSelectWord(e.detail.topic);
+      }
     };
-    animId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animId);
-  }, [isHovered]);
 
-  const handleMouseDown = (e) => {
-    isDragging.current = true;
-    previousMousePos.current = { x: e.clientX, y: e.clientY };
-  };
+    const handleStart = (e) => {
+      if (onSelectWord && e.detail && e.detail.topic) {
+        onSelectWord(e.detail.topic);
+      }
+    };
 
-  const handleMouseMove = (e) => {
-    if (!isDragging.current) return;
-    const dx = e.clientX - previousMousePos.current.x;
-    const dy = e.clientY - previousMousePos.current.y;
+    el.addEventListener('topicselect', handleSelect);
+    el.addEventListener('topicstart', handleStart);
 
-    vel.current = { x: dy * 0.002, y: dx * 0.0025 };
+    return () => {
+      el.removeEventListener('topicselect', handleSelect);
+      el.removeEventListener('topicstart', handleStart);
+    };
+  }, [onSelectWord]);
 
-    setRotY(prev => prev + dx * 0.0035);
-    setRotX(prev => Math.max(-1.1, Math.min(1.1, prev + dy * 0.0035)));
-
-    previousMousePos.current = { x: e.clientX, y: e.clientY };
-    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
-      playAmbientSound(340 + Math.abs(dx) * 3);
-    }
-  };
-
-  const handleMouseUp = () => {
-    isDragging.current = false;
-  };
-
-  // Compute 3D Projected Pinned Country Tags
-  const projectedCountryTags = useMemo(() => {
-    const cosY = Math.cos(rotY);
-    const sinY = Math.sin(rotY);
-    const cosX = Math.cos(rotX);
-    const sinX = Math.sin(rotX);
-
-    return globePoints.map(node => {
-      const x1 = node.origX * cosY + node.origZ * sinY;
-      const z1 = -node.origX * sinY + node.origZ * cosY;
-
-      const y2 = node.origY * cosX - z1 * sinX;
-      const z2 = node.origY * sinX + z1 * cosX;
-
-      const perspective = 500;
-      const scale = perspective / (perspective - z2);
-      const projX = x1 * scale;
-      const projY = -y2 * scale; // Flip Y for canvas coords
-
-      // Only display tags on the front visible hemisphere!
-      const isFront = z2 > 10;
-      const opacity = isFront ? Math.min(1.0, Math.max(0.4, (z2 + 50) / 260)) : 0;
-
-      return {
-        ...node,
-        projX,
-        projY,
-        z2,
-        scale,
-        opacity,
-        isFront
-      };
-    }).filter(item => item.isFront).sort((a, b) => a.z2 - b.z2);
-  }, [globePoints, rotY, rotX]);
-
-  return (
-    <div className="earth-globe-section-wrap">
-      {/* Header */}
-      <div className="orb-top-header">
-        <div className="orb-top-title-group">
-          <h2 className="orb-main-title">What’s on your mind?</h2>
-          <p className="orb-sub-title">Explore what matters to you</p>
-        </div>
-
-        <button 
-          className={`orb-sound-toggle ${soundOn ? 'active' : ''}`}
-          onClick={() => { setSoundOn(!soundOn); if (!soundOn) playAmbientSound(520); }}
-          title="Toggle Ambient Sound"
-          aria-label="Toggle Ambient Sound"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            {soundOn ? (
-              <>
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              </>
-            ) : (
-              <>
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <line x1="23" y1="9" x2="17" y2="15"></line>
-                <line x1="17" y1="9" x2="23" y2="15"></line>
-              </>
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {/* 3D Earth Globe Stage */}
-      <div 
-        className="earth-globe-stage"
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
-        onTouchStart={(e) => {
-          isDragging.current = true;
-          previousMousePos.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        }}
-        onTouchMove={(e) => {
-          if (!isDragging.current) return;
-          const dx = e.touches[0].clientX - previousMousePos.current.x;
-          const dy = e.touches[0].clientY - previousMousePos.current.y;
-          setRotY(prev => prev + dx * 0.0035);
-          setRotX(prev => Math.max(-1.1, Math.min(1.1, prev + dy * 0.0035)));
-          previousMousePos.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        }}
-        onTouchEnd={() => { isDragging.current = false; }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        {/* Spin Nav Buttons */}
-        <button 
-          className="orb-nav-btn btn-left" 
-          onClick={() => setRotY(prev => prev - 0.5)}
-          aria-label="Spin Left"
-        >
-          ‹
-        </button>
-        <button 
-          className="orb-nav-btn btn-right" 
-          onClick={() => setRotY(prev => prev + 0.5)}
-          aria-label="Spin Right"
-        >
-          ›
-        </button>
-
-        {/* 3D Canvas Earth Globe Sphere */}
-        <canvas ref={canvasRef} width={500} height={500} className="earth-canvas-sphere" />
-
-        {/* Pinned Country Topic Labels (Front Hemisphere Only) */}
-        <div className="globe-nodes-container">
-          {projectedCountryTags.map((node, idx) => {
-            const fontSize = node.major ? Math.max(12, 19 * node.scale) : Math.max(9, 12.5 * node.scale);
-
-            return (
-              <div
-                key={idx}
-                className={`country-topic-pin ${node.major ? 'major-country' : ''}`}
-                style={{
-                  left: `calc(50% + ${node.projX}px)`,
-                  top: `calc(50% + ${node.projY}px)`,
-                  transform: `translate(-50%, -50%) scale(${node.scale})`,
-                  opacity: node.opacity,
-                  fontSize: `${fontSize}px`,
-                  color: node.color,
-                  zIndex: Math.floor(node.z2 + 300)
-                }}
-                onClick={() => {
-                  playAmbientSound(600);
-                  if (onSelectWord) onSelectWord(node.text);
-                }}
-              >
-                <span className="country-dot"></span>
-                <span className="country-label-text">{node.text}</span>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Footer Drag Hint */}
-      <div className="orb-bottom-hint">
-        <div className="orb-hint-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-          </svg>
-        </div>
-        <div>
-          <strong className="hint-title">Rotate the Globe</strong>
-          <span className="hint-sub">Spin the 3D globe to explore topics worldwide</span>
-        </div>
-      </div>
-    </div>
-  );
+  return <topic-orb ref={orbRef} />;
 };
 const CleanInteractiveMindMapSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -3304,7 +3343,7 @@ function App() {
       {/* 2ND SECTION: WHAT IS WEIGHING ON YOUR MIND - 3D TOPIC UNIVERSE ORB */}
       <motion.section className="section weighing-mind-section" id="topics" {...sectionMotion}>
         <div className="wrap" style={{ textAlign: 'center' }}>
-          <Interactive3DEarthGlobe 
+          <TopicOrbWrapper 
             onSelectWord={(word) => {
               setHeroInputText(`I want to reflect on ${word.toLowerCase()}...`);
               window.scrollTo({ top: 0, behavior: 'smooth' });
