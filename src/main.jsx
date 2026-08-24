@@ -1709,49 +1709,66 @@ const ExactImageWordCloudSection = ({ onSelectWord }) => {
 
       {/* Oval Pebble Mesh Gradient Card */}
       <div className="pebble-blob-card">
-        {/* Minimalist 3-Leaf Botanical Stem Icon in Bottom-Left Corner (Exact Match to Screenshot) */}
-        <div className="exact-botanical-stem-icon">
-          <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Minimalist 3-Leaf Botanical Stem Icon in Bottom-Left Corner with Floating Animation */}
+        <motion.div 
+          className="exact-botanical-stem-icon"
+          animate={{ y: [0, -5, 0], rotate: [-2, 3, -2] }}
+          transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Curved Stem */}
-            <path d="M12 34 C 16 28, 22 20, 26 14" stroke="#274C3A" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
+            <path d="M12 34 C 16 28, 22 20, 26 14" stroke="#274C3A" strokeWidth="2.2" strokeLinecap="round" opacity="0.85" />
             {/* Top Leaf */}
-            <path d="M 26 14 C 22 8, 30 4, 32 10 C 34 16, 28 18, 26 14 Z" fill="#274C3A" opacity="0.75" />
+            <path d="M 26 14 C 22 8, 30 4, 32 10 C 34 16, 28 18, 26 14 Z" fill="#274C3A" opacity="0.8" />
             {/* Left Leaf */}
-            <path d="M 20 22 C 14 18, 12 26, 16 28 C 22 30, 22 24, 20 22 Z" fill="#274C3A" opacity="0.7" />
+            <path d="M 20 22 C 14 18, 12 26, 16 28 C 22 30, 22 24, 20 22 Z" fill="#274C3A" opacity="0.75" />
             {/* Right Leaf */}
-            <path d="M 23 20 C 29 16, 33 22, 30 26 C 26 28, 24 22, 23 20 Z" fill="#274C3A" opacity="0.7" />
+            <path d="M 23 20 C 29 16, 33 22, 30 26 C 26 28, 24 22, 23 20 Z" fill="#274C3A" opacity="0.75" />
           </svg>
-        </div>
+        </motion.div>
 
-        {/* Absolute Non-Overlapping Topic Words */}
-        {pebbleWordsAbsolute.map((item, idx) => (
-          <motion.button
-            key={idx}
-            type="button"
-            className="pebble-absolute-tag"
-            style={{
-              position: 'absolute',
-              left: item.left,
-              top: item.top,
-              transform: 'translate(-50%, -50%)',
-              fontSize: item.fontSize,
-              fontWeight: item.weight,
-              color: item.color,
-              fontFamily: "'DM Sans', sans-serif",
-              background: 'none',
-              border: 'none',
-              padding: '2px 6px',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap',
-              zIndex: item.weight >= 700 ? 10 : 5
-            }}
-            onClick={() => onSelectWord && onSelectWord(item.text)}
-            whileHover={{ scale: 1.15, zIndex: 100 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {item.text}
-          </motion.button>
-        ))}
+        {/* Absolute Non-Overlapping Topic Words with Organic Floating Animation */}
+        {pebbleWordsAbsolute.map((item, idx) => {
+          const floatDuration = 3.2 + (idx % 5) * 0.6;
+          const floatDelay = (idx % 7) * 0.25;
+          const floatDistance = idx % 2 === 0 ? [0, -6, 0] : [0, 6, 0];
+
+          return (
+            <motion.button
+              key={idx}
+              type="button"
+              className="pebble-absolute-tag"
+              style={{
+                position: 'absolute',
+                left: item.left,
+                top: item.top,
+                fontSize: item.fontSize,
+                fontWeight: item.weight,
+                color: item.color,
+                fontFamily: "'DM Sans', sans-serif",
+                background: 'none',
+                border: 'none',
+                padding: '2px 6px',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                zIndex: item.weight >= 700 ? 10 : 5
+              }}
+              animate={{ y: floatDistance }}
+              transition={{
+                duration: floatDuration,
+                repeat: Infinity,
+                repeatType: 'mirror',
+                ease: 'easeInOut',
+                delay: floatDelay
+              }}
+              onClick={() => onSelectWord && onSelectWord(item.text)}
+              whileHover={{ scale: 1.18, zIndex: 100, transition: { duration: 0.18 } }}
+              whileTap={{ scale: 0.94 }}
+            >
+              {item.text}
+            </motion.button>
+          );
+        })}
       </div>
 
       {/* Bottom Hint */}

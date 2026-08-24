@@ -9520,3 +9520,20 @@ footer, .footer {
   color: #1F4D3A !important;
   text-shadow: 0 2px 8px rgba(31, 77, 58, 0.15) !important;
 }
+
+
+/* ══════════ FLOATING TAG & BOTANICAL LEAF ANIMATIONS ══════════ */
+.pebble-absolute-tag {
+  transform: translate(-50%, -50%) !important;
+  will-change: transform, color !important;
+}
+
+.exact-botanical-stem-icon {
+  position: absolute !important;
+  bottom: 11% !important;
+  left: 9% !important;
+  pointer-events: none !important;
+  z-index: 3 !important;
+  opacity: 0.88 !important;
+  filter: drop-shadow(0 2px 6px rgba(39, 76, 58, 0.15)) !important;
+}
