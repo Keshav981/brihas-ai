@@ -1694,50 +1694,325 @@ const pebbleWordsAbsolute = [
   { text: 'Self esteem', left: '63%', top: '82%', fontSize: '12.5px', weight: 500, color: '#6D5B54' }
 ];
 
-const OrganicPebbleWordCloud = ({ onSelectWord }) => {
+
+// ══════════ 3D TOPIC UNIVERSE ORB COMPONENT ══════════
+const topicList3D = [
+  { text: 'Burnout', major: true, color: '#2E4034' },
+  { text: 'Overthinking', major: true, color: '#5C4A68' },
+  { text: 'Career', major: true, color: '#274C3A' },
+  { text: 'Relationships', major: true, color: '#7D4D59' },
+  { text: 'Clarity', major: true, color: '#163526' },
+  { text: 'Money', major: true, color: '#78604B' },
+  { text: 'Identity', major: true, color: '#5C4F6B' },
+  { text: 'Purpose', major: true, color: '#44634B' },
+  { text: 'Anxiety', major: true, color: '#5F5D6B' },
+  { text: 'Self doubt', major: true, color: '#4A5551' },
+  { text: 'Peace of mind', major: true, color: '#3A4D3D' },
+  { text: 'Health', major: true, color: '#3A443B' },
+  { text: 'Growth', major: true, color: '#384A3B' },
+  { text: 'Big decisions', major: true, color: '#596053' },
+  { text: 'Confidence', major: true, color: '#5A6158' },
+  { text: 'Future', major: true, color: '#6A587A' },
+  { text: 'Inner Peace', major: true, color: '#4F685B' },
+  { text: 'Motivation', major: true, color: '#7D7569' },
+  { text: 'Stress', major: false, color: '#65606E' },
+  { text: 'Feeling stuck', major: false, color: '#5E665D' },
+  { text: 'Pressure', major: false, color: '#685E6E' },
+  { text: 'Overwhelm', major: false, color: '#6B4A5C' },
+  { text: 'Boundaries', major: false, color: '#686B60' },
+  { text: 'Procrastination', major: false, color: '#736152' },
+  { text: 'Bullying', major: false, color: '#7B4E59' },
+  { text: 'Self care', major: false, color: '#5A6E5C' },
+  { text: 'What next?', major: false, color: '#70675C' },
+  { text: 'Communication', major: false, color: '#7A6458' },
+  { text: 'Fulfillment', major: false, color: '#65546D' },
+  { text: 'Resilience', major: false, color: '#4E6A58' },
+  { text: 'Conflict', major: false, color: '#826569' },
+  { text: 'Time management', major: false, color: '#61675D' },
+  { text: 'Family', major: false, color: '#70645A' },
+  { text: 'Breakup', major: false, color: '#856165' },
+  { text: 'Work pressure', major: false, color: '#665F5C' },
+  { text: 'Work life balance', major: false, color: '#5B665C' },
+  { text: 'Starting over', major: false, color: '#5D635B' },
+  { text: 'Friendship', major: false, color: '#6B665E' },
+  { text: 'Productivity', major: false, color: '#6A7368' },
+  { text: 'Comparison trap', major: false, color: '#6E5C6B' },
+  { text: 'Balance', major: false, color: '#5C6C60' },
+  { text: 'Connection', major: false, color: '#736560' },
+  { text: 'Loneliness', major: false, color: '#666170' },
+  { text: 'Mindset', major: false, color: '#54665A' },
+  { text: 'Self esteem', major: false, color: '#6D5B54' }
+];
+
+const Interactive3DTopicUniverseOrb = ({ onSelectWord }) => {
+  const [soundOn, setSoundOn] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [rotation, setRotation] = useState({ x: 0.15, y: 0.4 });
+  const isDragging = useRef(false);
+  const previousMousePos = useRef({ x: 0, y: 0 });
+  const velocity = useRef({ x: 0.003, y: 0.006 });
+  const audioCtxRef = useRef(null);
+
+  // Play soft meditative chime sound on drag/select
+  const playAmbientSound = useCallback((freq = 440) => {
+    if (!soundOn) return;
+    try {
+      if (!audioCtxRef.current) {
+        audioCtxRef.current = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      const ctx = audioCtxRef.current;
+      if (ctx.state === 'suspended') ctx.resume();
+      
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, ctx.currentTime);
+      gain.gain.setValueAtTime(0.015, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.6);
+      
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.6);
+    } catch (e) {
+      // Audio context fallbacks
+    }
+  }, [soundOn]);
+
+  // Generate 3D Spherical Coordinates using Fibonacci Lattice
+  const nodes3D = useMemo(() => {
+    const total = topicList3D.length;
+    const radiusX = 260;
+    const radiusY = 160;
+    const radiusZ = 220;
+
+    return topicList3D.map((item, i) => {
+      const phi = Math.acos(-1 + (2 * i + 1) / total);
+      const theta = Math.sqrt(total * Math.PI) * phi;
+
+      const x = radiusX * Math.cos(theta) * Math.sin(phi);
+      const y = radiusY * Math.sin(theta) * Math.sin(phi);
+      const z = radiusZ * Math.cos(phi);
+
+      return { ...item, origX: x, origY: y, origZ: z };
+    });
+  }, []);
+
+  // Continuous 3D animation loop
+  useEffect(() => {
+    let animId;
+    const animate = () => {
+      if (!isDragging.current) {
+        // Slow auto-revolution, decays velocity
+        const speedMultiplier = isHovered ? 0.3 : 1;
+        setRotation(prev => ({
+          x: prev.x + velocity.current.x * speedMultiplier,
+          y: prev.y + velocity.current.y * speedMultiplier
+        }));
+        velocity.current.x *= 0.98;
+        velocity.current.y = velocity.current.y * 0.98 + (isHovered ? 0.0008 : 0.002) * 0.02;
+      }
+      animId = requestAnimationFrame(animate);
+    };
+    animId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animId);
+  }, [isHovered]);
+
+  // Drag handlers
+  const handleMouseDown = (e) => {
+    isDragging.current = true;
+    previousMousePos.current = { x: e.clientX, y: e.clientY };
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current) return;
+    const deltaX = e.clientX - previousMousePos.current.x;
+    const deltaY = e.clientY - previousMousePos.current.y;
+
+    velocity.current = { x: deltaY * 0.002, y: deltaX * 0.003 };
+
+    setRotation(prev => ({
+      x: prev.x + deltaY * 0.003,
+      y: prev.y + deltaX * 0.003
+    }));
+
+    previousMousePos.current = { x: e.clientX, y: e.clientY };
+    if (Math.abs(deltaX) > 4 || Math.abs(deltaY) > 4) {
+      playAmbientSound(320 + Math.abs(deltaX) * 2);
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+  };
+
+  // Compute 3D projected positions & depth sorting
+  const projectedNodes = useMemo(() => {
+    const cosX = Math.cos(rotation.x);
+    const sinX = Math.sin(rotation.x);
+    const cosY = Math.cos(rotation.y);
+    const sinY = Math.sin(rotation.y);
+
+    return nodes3D.map(node => {
+      // Y rotation
+      const x1 = node.origX * cosY + node.origZ * sinY;
+      const z1 = -node.origX * sinY + node.origZ * cosY;
+
+      // X rotation
+      const y2 = node.origY * cosX - z1 * sinX;
+      const z2 = node.origY * sinX + z1 * cosX;
+
+      const perspective = 500;
+      const scale = perspective / (perspective - z2);
+      const projX = x1 * scale;
+      const projY = y2 * scale;
+      const opacity = Math.min(1, Math.max(0.2, (z2 + 250) / 500));
+      const blur = z2 < -40 ? Math.min(3, Math.abs(z2 + 40) / 60) : 0;
+
+      return {
+        ...node,
+        projX,
+        projY,
+        z2,
+        scale,
+        opacity,
+        blur
+      };
+    }).sort((a, b) => a.z2 - b.z2); // Sort back to front for proper 3D layering
+  }, [nodes3D, rotation]);
+
   return (
-    <div className="organic-pebble-container">
-      <div className="pebble-blob-card">
-        {/* Elegant Botanical Leaf Stem Accent */}
-        <svg className="botanical-branch-svg" viewBox="0 0 200 200" fill="none">
-          <path d="M 20 180 C 60 140 100 100 160 30" stroke="#4B6849" strokeWidth="2.2" strokeLinecap="round" opacity="0.8" fill="none" />
-          <path d="M 45 155 C 30 140 25 120 40 115 C 55 110 60 130 45 155 Z" fill="#6A8A68" opacity="0.85" />
-          <path d="M 50 150 C 65 135 85 135 85 150 C 85 165 65 165 50 150 Z" fill="#8DAA8B" opacity="0.75" />
-          <path d="M 80 120 C 60 105 55 85 70 80 C 85 75 90 95 80 120 Z" fill="#4B6849" opacity="0.9" />
-          <path d="M 85 115 C 100 100 120 100 120 115 C 120 130 100 130 85 115 Z" fill="#7A9878" opacity="0.8" />
-          <path d="M 120 80 C 105 65 100 50 115 45 C 130 40 135 60 120 80 Z" fill="#3D563C" opacity="0.95" />
-          <path d="M 125 75 C 140 60 160 60 160 75 C 160 90 140 90 125 75 Z" fill="#6A8A68" opacity="0.85" />
+    <div className="topic-orb-section-wrap">
+      {/* Top Section Header matching prompt & design */}
+      <div className="orb-top-header">
+        <div className="orb-top-title-group">
+          <h2 className="orb-main-title">What’s on your mind?</h2>
+          <p className="orb-sub-title">Explore what matters to you</p>
+        </div>
+
+        {/* Audio Toggle Button */}
+        <button 
+          className={`orb-sound-toggle ${soundOn ? 'active' : ''}`}
+          onClick={() => { setSoundOn(!soundOn); if (!soundOn) playAmbientSound(520); }}
+          title="Toggle ambient Sound"
+          aria-label="Toggle ambient Sound"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            {soundOn ? (
+              <>
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </>
+            ) : (
+              <>
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </>
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {/* 3D Orb Stage */}
+      <div 
+        className="orb-3d-stage"
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        onTouchStart={(e) => {
+          isDragging.current = true;
+          previousMousePos.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        }}
+        onTouchMove={(e) => {
+          if (!isDragging.current) return;
+          const deltaX = e.touches[0].clientX - previousMousePos.current.x;
+          const deltaY = e.touches[0].clientY - previousMousePos.current.y;
+          setRotation(prev => ({ x: prev.x + deltaY * 0.003, y: prev.y + deltaX * 0.003 }));
+          previousMousePos.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        }}
+        onTouchEnd={() => { isDragging.current = false; }}
+        onMouseEnter={() => setIsHovered(true)}
+      >
+        {/* Navigation Arrows */}
+        <button 
+          className="orb-nav-btn btn-left" 
+          onClick={() => setRotation(prev => ({ ...prev, y: prev.y - 0.5 }))}
+          aria-label="Rotate Left"
+        >
+          ‹
+        </button>
+        <button 
+          className="orb-nav-btn btn-right" 
+          onClick={() => setRotation(prev => ({ ...prev, y: prev.y + 0.5 }))}
+          aria-label="Rotate Right"
+        >
+          ›
+        </button>
+
+        {/* Outer Glowing Orbit Ring SVG Graphic */}
+        <svg className="orb-orbit-rings-svg" viewBox="0 0 800 480">
+          <ellipse cx="400" cy="240" rx="360" ry="170" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" transform="rotate(-10 400 240)" />
+          <ellipse cx="400" cy="240" rx="340" ry="155" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1" transform="rotate(12 400 240)" />
+          <circle cx="160" cy="180" r="4" fill="#FFFFFF" opacity="0.9" />
+          <circle cx="640" cy="300" r="5" fill="#FFFFFF" opacity="0.9" />
         </svg>
 
+        {/* Translucent Glass Sphere Shell */}
+        <div className="orb-glass-sphere"></div>
 
+        {/* Floating 3D Topic Nodes */}
+        <div className="orb-topic-nodes-container">
+          {projectedNodes.map((node, idx) => {
+            const fontSize = node.major ? Math.max(13, 22 * node.scale) : Math.max(10, 14 * node.scale);
+            const isFront = node.z2 > 0;
 
-        {/* 2D Absolute Word Canvas */}
-        <div className="pebble-absolute-canvas">
-          {pebbleWordsAbsolute.map((item, idx) => (
-            <motion.span
-              key={idx}
-              className="pebble-absolute-tag"
-              style={{
-                left: item.left,
-                top: item.top,
-                fontSize: item.fontSize,
-                fontWeight: item.weight,
-                color: item.color
-              }}
-              onClick={() => onSelectWord && onSelectWord(item.text)}
-              whileHover={{ scale: 1.16, zIndex: 30 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{ y: [0, idx % 2 === 0 ? -2.5 : 2.5, 0] }}
-              transition={{ duration: 3.5 + (idx % 3), repeat: Infinity, ease: 'easeInOut' }}
-            >
-              {item.text}
-            </motion.span>
-          ))}
+            return (
+              <div
+                key={idx}
+                className={`orb-topic-pill ${node.major ? 'major-topic' : ''} ${isFront ? 'in-front' : 'in-back'}`}
+                style={{
+                  left: `calc(50% + ${node.projX}px)`,
+                  top: `calc(50% + ${node.projY}px)`,
+                  transform: `translate(-50%, -50%) scale(${node.scale})`,
+                  opacity: node.opacity,
+                  filter: node.blur > 0 ? `blur(${node.blur}px)` : 'none',
+                  fontSize: `${fontSize}px`,
+                  color: node.color,
+                  zIndex: Math.floor(node.z2 + 300)
+                }}
+                onClick={() => {
+                  playAmbientSound(600);
+                  if (onSelectWord) onSelectWord(node.text);
+                }}
+              >
+                {node.text}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Bottom Drag Interaction Hint matching prompt & design */}
+      <div className="orb-bottom-hint">
+        <div className="orb-hint-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
+            <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v6"></path>
+            <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"></path>
+            <path d="M18 8a2 2 0 0 1 2 2v4a8 8 0 0 1-8 8h-2c-2.5 0-4.8-.9-6.6-2.6L2.5 16"></path>
+          </svg>
+        </div>
+        <div>
+          <strong className="hint-title">Drag to explore</strong>
+          <span className="hint-sub">Spin the orb and discover more</span>
         </div>
       </div>
     </div>
   );
 };
+
 
 
 
@@ -2955,7 +3230,7 @@ function App() {
           </div>
 
           {/* Organic Watercolor Pebble Word Cloud */}
-          <OrganicPebbleWordCloud 
+          <Interactive3DTopicUniverseOrb 
             onSelectWord={(word) => {
               setHeroInputText(`I want to reflect on ${word.toLowerCase()}...`);
               window.scrollTo({ top: 0, behavior: 'smooth' });

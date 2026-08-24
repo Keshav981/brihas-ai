@@ -8796,3 +8796,231 @@ footer, .footer {
 .hero-line-bronze {
   color: #1A221B !important;
 }
+
+
+/* ══════════ 3D TOPIC UNIVERSE ORB STYLING MATCHING TARGET SCREENSHOT ══════════ */
+.topic-orb-section-wrap {
+  width: 100% !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  position: relative !important;
+}
+
+/* Header */
+.orb-top-header {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  margin-bottom: 24px !important;
+  text-align: center !important;
+}
+
+.orb-top-title-group {
+  text-align: center !important;
+}
+
+.orb-main-title {
+  font-family: 'DM Sans', serif, system-ui !important;
+  font-size: clamp(24px, 3.2vw, 34px) !important;
+  font-weight: 700 !important;
+  color: #1C3B2B !important;
+  margin: 0 0 4px !important;
+}
+
+.orb-sub-title {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15px !important;
+  color: #6E786F !important;
+  margin: 0 !important;
+}
+
+.orb-sound-toggle {
+  position: absolute !important;
+  right: 12px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: #FFFFFF !important;
+  border: 1px solid #E4E8E3 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 12px rgba(28, 37, 29, 0.04) !important;
+  transition: all 0.2s ease !important;
+}
+
+.orb-sound-toggle:hover {
+  background: #EAF4EE !important;
+  transform: translateY(-50%) scale(1.05) !important;
+}
+
+/* 3D Orb Stage */
+.orb-3d-stage {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 840px !important;
+  height: 520px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: grab !important;
+  user-select: none !important;
+  touch-action: none !important;
+}
+
+.orb-3d-stage:active {
+  cursor: grabbing !important;
+}
+
+/* Glass Orb Sphere Graphic */
+.orb-glass-sphere {
+  position: absolute !important;
+  width: 680px !important;
+  height: 420px !important;
+  border-radius: 50% / 50% !important;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.85) 0%, rgba(244, 248, 245, 0.5) 45%, rgba(225, 238, 230, 0.3) 75%, rgba(255, 255, 255, 0.6) 100%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 35px 80px -15px rgba(28, 43, 33, 0.08), inset 0 0 60px rgba(255, 255, 255, 0.7), 0 0 50px rgba(58, 151, 117, 0.12) !important;
+  pointer-events: none !important;
+}
+
+/* Navigation Arrow Pills */
+.orb-nav-btn {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 50% !important;
+  background: #FFFFFF !important;
+  border: 1px solid #E4E8E3 !important;
+  font-size: 20px !important;
+  color: #1C251D !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 100 !important;
+  box-shadow: 0 6px 18px rgba(28, 37, 29, 0.06) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-left { left: 16px !important; }
+.btn-right { right: 16px !important; }
+
+.orb-nav-btn:hover {
+  background: #EAF4EE !important;
+  transform: translateY(-50%) scale(1.08) !important;
+}
+
+/* Orbit Rings */
+.orb-orbit-rings-svg {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+/* Floating 3D Topic Pills */
+.orb-topic-nodes-container {
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+}
+
+.orb-topic-pill {
+  position: absolute !important;
+  padding: 6px 16px !important;
+  border-radius: 100px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  transition: box-shadow 0.2s ease, transform 0.1s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.orb-topic-pill.in-front {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(45, 96, 67, 0.18) !important;
+  box-shadow: 0 6px 18px rgba(28, 37, 29, 0.06) !important;
+}
+
+.orb-topic-pill.major-topic.in-front {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1.5px solid rgba(45, 96, 67, 0.28) !important;
+  font-weight: 700 !important;
+  padding: 8px 20px !important;
+  box-shadow: 0 10px 25px rgba(28, 37, 29, 0.09) !important;
+}
+
+.orb-topic-pill.in-back {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.orb-topic-pill:hover {
+  transform: translate(-50%, -50%) scale(1.15) !important;
+  background: #FFFFFF !important;
+  border-color: #237446 !important;
+  z-index: 500 !important;
+  box-shadow: 0 12px 30px rgba(35, 116, 70, 0.2) !important;
+}
+
+/* Bottom Drag Hint */
+.orb-bottom-hint {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-top: 16px !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid #E8E4DC !important;
+  border-radius: 100px !important;
+  padding: 8px 20px !important;
+  box-shadow: 0 4px 16px rgba(28, 37, 29, 0.03) !important;
+}
+
+.orb-hint-icon {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: #EAF4EE !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.hint-title {
+  display: block !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #1C251D !important;
+}
+
+.hint-sub {
+  display: block !important;
+  font-size: 12px !important;
+  color: #6E786F !important;
+}
+
+@media (max-width: 760px) {
+  .orb-3d-stage {
+    height: 420px !important;
+  }
+  .orb-glass-sphere {
+    width: 90% !important;
+    height: 340px !important;
+  }
+}
