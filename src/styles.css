@@ -8606,3 +8606,104 @@ footer {
     justify-content: space-between !important;
   }
 }
+
+
+/* ══════════ UNIFIED WEBSITE THEME (WARM CREAM & OBSIDIAN PALETTE) ══════════ */
+:root {
+  --bg-main: #FAF8F5;
+  --bg-card: #FFFFFF;
+  --bg-muted: #F4F1EB;
+  --border-light: #E8E4DC;
+  --text-dark: #1C251D;
+  --text-muted: #6E786F;
+  --accent-bronze: #A87E50;
+  --accent-terracotta: #D4622B;
+  --accent-sage: #237446;
+  --accent-purple: #7C5CFC;
+}
+
+body, html {
+  background-color: #FAF8F5 !important;
+  color: #1C251D !important;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+/* Global Section Background Consistency */
+.section, section {
+  background-color: transparent !important;
+}
+
+/* Uniform Section Padding */
+.section {
+  padding: 48px 0 !important;
+}
+
+/* Standardize Card Styles Across Entire Website */
+.simple-plan-card,
+.reading-card,
+.dimension-detail-card,
+.how-new-card,
+.how-preview-card,
+.comparison-card,
+.faq-item,
+.pebble-blob-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E8E4DC !important;
+  box-shadow: 0 6px 24px rgba(28, 37, 29, 0.03) !important;
+}
+
+/* Standardize Headings & Subtitles */
+h1, h2, h3, h4 {
+  color: #1C251D !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+p, span, li {
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* Standardize Header Navigation Bar */
+.header-nav {
+  background: rgba(250, 248, 245, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(232, 228, 220, 0.6) !important;
+}
+
+.header-nav a {
+  color: #4A544C !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+.header-nav a:hover {
+  color: #1C251D !important;
+}
+
+/* Standardize FAQ Accordion Items */
+.faq-item {
+  background: #FFFFFF !important;
+  border: 1px solid #E8E4DC !important;
+  border-radius: 16px !important;
+  margin-bottom: 12px !important;
+  padding: 18px 22px !important;
+}
+
+.faq-question {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #1C251D !important;
+}
+
+.faq-answer {
+  color: #5E685F !important;
+  font-size: 14.5px !important;
+  line-height: 1.5 !important;
+}
+
+/* Standardize Footer */
+footer, .footer {
+  background: #FAF8F5 !important;
+  border-top: 1px solid #E8E4DC !important;
+  color: #6E786F !important;
+  padding: 40px 0 24px !important;
+}
