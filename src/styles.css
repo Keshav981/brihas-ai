@@ -9584,3 +9584,29 @@ footer, .footer {
   50% { transform: translate(-50%, -50%) translateY(6px) rotate(0.7deg); }
   100% { transform: translate(-50%, -50%) translateY(-7px) rotate(-0.5deg); }
 }
+
+
+/* ══════════ TIGHT CONTROLLED FLOATING KEYFRAMES (ZERO OVERLAP GUARANTEE) ══════════ */
+@keyframes floatSlow0 {
+  0% { transform: translate(-50%, -50%) translateY(0px); }
+  50% { transform: translate(-50%, -50%) translateY(-3.5px); }
+  100% { transform: translate(-50%, -50%) translateY(2.5px); }
+}
+
+@keyframes floatSlow1 {
+  0% { transform: translate(-50%, -50%) translateY(0px); }
+  50% { transform: translate(-50%, -50%) translateY(3.5px); }
+  100% { transform: translate(-50%, -50%) translateY(-2.5px); }
+}
+
+@keyframes floatSlow2 {
+  0% { transform: translate(-50%, -50%) translateY(0px); }
+  50% { transform: translate(-50%, -50%) translateY(-4px); }
+  100% { transform: translate(-50%, -50%) translateY(2px); }
+}
+
+@keyframes floatSlow3 {
+  0% { transform: translate(-50%, -50%) translateY(0px); }
+  50% { transform: translate(-50%, -50%) translateY(3px); }
+  100% { transform: translate(-50%, -50%) translateY(-3px); }
+}
