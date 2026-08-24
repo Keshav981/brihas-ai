@@ -1,3 +1,4 @@
+import Spline from '@splinetool/react-spline';
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { createRoot } from 'react-dom/client';
