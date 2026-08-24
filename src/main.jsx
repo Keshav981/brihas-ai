@@ -3199,10 +3199,8 @@ function App() {
       {/* Plans Section - Prices Hidden */}
       <motion.section className="section plans" id="plans" {...sectionMotion}>
         <div className="wrap">
-          {/* Header matching target image */}
-          <div className="plans-main-header">
-            <h2 className="plans-title-text">Plans &amp; Pricing</h2>
-            <p className="plans-sub-text">Choose the plan that fits your journey.</p>
+          <div className="plans-main-header" style={{ marginBottom: '24px' }}>
+            <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> PLANS &amp; PRICING</p>
           </div>
 
           {/* Top 7-Day Free Trial Banner Card matching target image */}
