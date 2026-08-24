@@ -1728,58 +1728,37 @@ const ExactImageWordCloudSection = ({ onSelectWord }) => {
         </motion.div>
 
         {/* Absolute Non-Overlapping Topic Words with Organic Floating Animation */}
-        {pebbleWordsAbsolute.map((item, idx) => {
-          const floatDuration = 3.2 + (idx % 5) * 0.6;
-          const floatDelay = (idx % 7) * 0.25;
-          const floatDistance = idx % 2 === 0 ? [0, -6, 0] : [0, 6, 0];
-
-          return (
-            <motion.button
-              key={idx}
-              type="button"
-              className="pebble-absolute-tag"
-              style={{
-                position: 'absolute',
-                left: item.left,
-                top: item.top,
-                fontSize: item.fontSize,
-                fontWeight: item.weight,
-                color: item.color,
-                fontFamily: "'DM Sans', sans-serif",
-                background: 'none',
-                border: 'none',
-                padding: '2px 6px',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-                zIndex: item.weight >= 700 ? 10 : 5
-              }}
-              animate={{ y: floatDistance }}
-              transition={{
-                duration: floatDuration,
-                repeat: Infinity,
-                repeatType: 'mirror',
-                ease: 'easeInOut',
-                delay: floatDelay
-              }}
-              onClick={() => onSelectWord && onSelectWord(item.text)}
-              whileHover={{ scale: 1.18, zIndex: 100, transition: { duration: 0.18 } }}
-              whileTap={{ scale: 0.94 }}
-            >
-              {item.text}
-            </motion.button>
-          );
-        })}
+        {pebbleWordsAbsolute.map((item, idx) => (
+          <motion.button
+            key={idx}
+            type="button"
+            className={`pebble-absolute-tag float-anim-${idx % 4}`}
+            style={{
+              position: 'absolute',
+              left: item.left,
+              top: item.top,
+              fontSize: item.fontSize,
+              fontWeight: item.weight,
+              color: item.color,
+              fontFamily: "'DM Sans', sans-serif",
+              background: 'none',
+              border: 'none',
+              padding: '2px 6px',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              zIndex: item.weight >= 700 ? 10 : 5
+            }}
+            onClick={() => onSelectWord && onSelectWord(item.text)}
+            whileHover={{ scale: 1.2, zIndex: 100 }}
+            whileTap={{ scale: 0.94 }}
+          >
+            {item.text}
+          </motion.button>
+        ))}
       </div>
 
       {/* Bottom Hint */}
-      <div className="orb-bottom-hint" style={{ marginTop: '18px', textAlign: 'center' }}>
-        <strong style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#1C251D', display: 'block', marginBottom: '2px' }}>
-          CLICK TO REFLECT
-        </strong>
-        <span style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: '15px', color: '#6E8A72' }}>
-          Tap any topic to explore it with Brihas.ai
-        </span>
-      </div>
+      
     </div>
   );
 };

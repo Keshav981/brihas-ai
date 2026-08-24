@@ -9537,3 +9537,50 @@ footer, .footer {
   opacity: 0.88 !important;
   filter: drop-shadow(0 2px 6px rgba(39, 76, 58, 0.15)) !important;
 }
+
+
+/* ══════════ PURE CSS GUARANTEED FLOATING WORD ANIMATIONS ══════════ */
+.pebble-absolute-tag {
+  transform: translate(-50%, -50%) !important;
+  transition: color 0.2s ease, font-size 0.2s ease !important;
+}
+
+.float-anim-0 {
+  animation: floatSlow0 3.8s ease-in-out infinite alternate !important;
+}
+
+.float-anim-1 {
+  animation: floatSlow1 4.4s ease-in-out infinite alternate 0.5s !important;
+}
+
+.float-anim-2 {
+  animation: floatSlow2 3.5s ease-in-out infinite alternate 1s !important;
+}
+
+.float-anim-3 {
+  animation: floatSlow3 4.8s ease-in-out infinite alternate 1.5s !important;
+}
+
+@keyframes floatSlow0 {
+  0% { transform: translate(-50%, -50%) translateY(0px) rotate(0deg); }
+  50% { transform: translate(-50%, -50%) translateY(-8px) rotate(0.5deg); }
+  100% { transform: translate(-50%, -50%) translateY(3px) rotate(-0.5deg); }
+}
+
+@keyframes floatSlow1 {
+  0% { transform: translate(-50%, -50%) translateY(0px) rotate(0deg); }
+  50% { transform: translate(-50%, -50%) translateY(7px) rotate(-0.8deg); }
+  100% { transform: translate(-50%, -50%) translateY(-6px) rotate(0.4deg); }
+}
+
+@keyframes floatSlow2 {
+  0% { transform: translate(-50%, -50%) translateY(0px) rotate(0deg); }
+  50% { transform: translate(-50%, -50%) translateY(-10px) rotate(-0.6deg); }
+  100% { transform: translate(-50%, -50%) translateY(4px) rotate(0.6deg); }
+}
+
+@keyframes floatSlow3 {
+  0% { transform: translate(-50%, -50%) translateY(0px) rotate(0deg); }
+  50% { transform: translate(-50%, -50%) translateY(6px) rotate(0.7deg); }
+  100% { transform: translate(-50%, -50%) translateY(-7px) rotate(-0.5deg); }
+}
