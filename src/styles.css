@@ -8249,3 +8249,360 @@ footer {
   font-size: clamp(14px, 1.4vw, 16px) !important;
   margin: 0 auto 28px !important;
 }
+
+
+/* ══════════ EXACT PRICING PAGE STYLING MATCHING TARGET DESIGN ══════════ */
+.plans-main-header {
+  text-align: center !important;
+  margin-bottom: 32px !important;
+}
+
+.plans-title-text {
+  font-family: 'DM Sans', system-ui, sans-serif !important;
+  font-size: clamp(32px, 4vw, 48px) !important;
+  font-weight: 800 !important;
+  color: #1A221B !important;
+  margin: 0 0 8px !important;
+  letter-spacing: -0.02em !important;
+}
+
+.plans-sub-text {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 16px !important;
+  color: #6E786F !important;
+  margin: 0 !important;
+}
+
+/* 1. Trial Banner Container */
+.trial-banner-exact {
+  position: relative !important;
+  background: #FCF9F5 !important;
+  border: 1px solid #EFE6DC !important;
+  border-radius: 24px !important;
+  padding: 24px 32px !important;
+  margin-bottom: 28px !important;
+  box-shadow: 0 4px 20px rgba(28, 37, 29, 0.02) !important;
+}
+
+.trial-pill-tag {
+  position: absolute !important;
+  top: 14px !important;
+  left: 32px !important;
+  background: #F4EBE2 !important;
+  border-radius: 100px !important;
+  padding: 3px 10px !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  color: #7A5738 !important;
+  letter-spacing: 0.06em !important;
+}
+
+.trial-banner-body {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 24px !important;
+  margin-top: 12px !important;
+  flex-wrap: wrap !important;
+}
+
+.trial-info-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  flex: 1 1 280px !important;
+}
+
+.trial-cal-icon {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background: #F8EFE7 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.trial-card-title {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #1C251D !important;
+  margin: 0 0 3px !important;
+}
+
+.trial-card-desc {
+  font-size: 13.5px !important;
+  color: #6E786F !important;
+  margin: 0 !important;
+}
+
+.trial-metrics-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+  flex: 0 1 auto !important;
+}
+
+.trial-metric-item {
+  text-align: center !important;
+}
+
+.metric-icon-text {
+  font-size: 13.5px !important;
+  color: #1C251D !important;
+}
+
+.metric-icon-text strong {
+  font-weight: 700 !important;
+}
+
+.metric-label-sub {
+  display: block !important;
+  font-size: 11.5px !important;
+  color: #8C968D !important;
+  margin-top: 2px !important;
+}
+
+.trial-v-divider {
+  width: 1px !important;
+  height: 32px !important;
+  background: #E8DEC0 !important;
+  opacity: 0.6 !important;
+}
+
+.trial-start-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: #D4622B !important;
+  color: #FFFFFF !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  padding: 12px 24px !important;
+  border-radius: 100px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(212, 98, 43, 0.25) !important;
+  transition: all 0.2s ease !important;
+}
+
+.trial-start-button:hover {
+  background: #B8501C !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 2. 3 Tier Pricing Cards Grid */
+.pricing-cards-exact-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 22px !important;
+  margin-bottom: 24px !important;
+  align-items: stretch !important;
+}
+
+.pricing-tier-card {
+  position: relative !important;
+  background: #FFFFFF !important;
+  border: 1px solid #E6EAE5 !important;
+  border-radius: 24px !important;
+  padding: 32px 26px 26px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  box-shadow: 0 6px 24px rgba(28, 37, 29, 0.03) !important;
+  transition: all 0.25s ease !important;
+}
+
+.pricing-tier-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 36px rgba(28, 37, 29, 0.07) !important;
+}
+
+.featured-converse {
+  border: 1.5px solid #D4622B !important;
+  box-shadow: 0 10px 32px rgba(212, 98, 43, 0.08) !important;
+}
+
+.most-popular-tag {
+  position: absolute !important;
+  top: -13px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: #D4622B !important;
+  color: #FFFFFF !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 4px 14px !important;
+  border-radius: 100px !important;
+  letter-spacing: 0.06em !important;
+  box-shadow: 0 4px 10px rgba(212, 98, 43, 0.2) !important;
+}
+
+.tier-card-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  margin-bottom: 20px !important;
+}
+
+.tier-icon-circle {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.icon-green { background: #EAF4EE !important; }
+.icon-orange { background: #FDECE4 !important; }
+.icon-purple { background: #F2ECFE !important; }
+
+.tier-name {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #1C251D !important;
+  margin: 0 0 2px !important;
+}
+
+.tier-tagline {
+  font-size: 12.5px !important;
+  color: #6E786F !important;
+  margin: 0 !important;
+}
+
+/* Middle Metrics Box */
+.tier-stats-bar {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 6px !important;
+  border-radius: 14px !important;
+  padding: 12px 10px !important;
+  margin-bottom: 24px !important;
+  text-align: center !important;
+}
+
+.bar-green { background: #EBF4EE !important; }
+.bar-orange { background: #FDF2EC !important; }
+.bar-purple { background: #F4F0FE !important; }
+
+.stat-box strong {
+  display: block !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #1C251D !important;
+  line-height: 1.15 !important;
+}
+
+.stat-box span {
+  display: block !important;
+  font-size: 11px !important;
+  color: #6E786F !important;
+  margin-top: 2px !important;
+}
+
+/* Feature List */
+.tier-features-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.tier-features-list li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  font-size: 13.5px !important;
+  color: #2C382E !important;
+  line-height: 1.35 !important;
+}
+
+.chk {
+  font-weight: 800 !important;
+  font-size: 13px !important;
+  flex-shrink: 0 !important;
+  margin-top: 1px !important;
+}
+
+.check-green .chk { color: #237446 !important; }
+.check-orange .chk { color: #D4622B !important; }
+.check-purple .chk { color: #7C5CFC !important; }
+
+/* Buttons */
+.tier-action-bottom {
+  margin-top: auto !important;
+}
+
+.tier-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  padding: 12px 18px !important;
+  border-radius: 100px !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  text-align: center !important;
+}
+
+.btn-outline-green {
+  border: 1.5px solid #237446 !important;
+  color: #237446 !important;
+  background: transparent !important;
+}
+.btn-outline-green:hover {
+  background: #237446 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-solid-orange {
+  background: #D4622B !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #D4622B !important;
+  box-shadow: 0 4px 14px rgba(212, 98, 43, 0.2) !important;
+}
+.btn-solid-orange:hover {
+  background: #B8501C !important;
+  border-color: #B8501C !important;
+}
+
+.btn-outline-purple {
+  border: 1.5px solid #7C5CFC !important;
+  color: #7C5CFC !important;
+  background: transparent !important;
+}
+.btn-outline-purple:hover {
+  background: #7C5CFC !important;
+  color: #FFFFFF !important;
+}
+
+/* Footer note */
+.plans-bottom-privacy {
+  text-align: center !important;
+  font-size: 13px !important;
+  color: #6E786F !important;
+  margin-top: 16px !important;
+}
+
+@media (max-width: 900px) {
+  .pricing-cards-exact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .trial-banner-body {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .trial-metrics-row {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+}

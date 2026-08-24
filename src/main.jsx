@@ -3199,104 +3199,194 @@ function App() {
       {/* Plans Section - Prices Hidden */}
       <motion.section className="section plans" id="plans" {...sectionMotion}>
         <div className="wrap">
-          <div className="centered-heading" style={{ textAlign: 'center', marginBottom: '24px' }}>
-            <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> PLANS &amp; ACCESS</p>
+          {/* Header matching target image */}
+          <div className="plans-main-header">
+            <h2 className="plans-title-text">Plans &amp; Pricing</h2>
+            <p className="plans-sub-text">Choose the plan that fits your journey.</p>
           </div>
 
-          {/* Introductory Trial Banner */}
-          <motion.article className="simple-trial-card" {...item}>
-            <div className="trial-left">
-              <span className="trial-badge">⚡ 7 day TRIAL</span>
-              <h3>Start with a 7 day Trial</h3>
-              <p>Experience daily Brihas conversations and get your first Quotient reading before committing.</p>
+          {/* Top 7-Day Free Trial Banner Card matching target image */}
+          <div className="trial-banner-exact">
+            <span className="trial-pill-tag">⚡ 7 DAY TRIAL</span>
+            <div className="trial-banner-body">
+              <div className="trial-info-group">
+                <div className="trial-cal-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C85A28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                    <rect x="7" y="14" width="3" height="3" fill="#C85A28"></rect>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="trial-card-title">Try Brihas free for 7 days</h3>
+                  <p className="trial-card-desc">Explore Brihas and see if it's right for you.</p>
+                </div>
+              </div>
+
+              <div className="trial-metrics-row">
+                <div className="trial-metric-item">
+                  <div className="metric-icon-text">💬 <strong>3 sessions</strong></div>
+                  <span className="metric-label-sub">Total</span>
+                </div>
+                <div className="trial-v-divider"></div>
+                <div className="trial-metric-item">
+                  <div className="metric-icon-text">🕒 <strong>30 mins</strong></div>
+                  <span className="metric-label-sub">Total</span>
+                </div>
+                <div className="trial-v-divider"></div>
+                <div className="trial-metric-item">
+                  <div className="metric-icon-text">🔄 <strong>Renews weekly</strong></div>
+                  <span className="metric-label-sub">Cancel anytime</span>
+                </div>
+              </div>
+
+              <div className="trial-action-col">
+                <a href="#plans" className="trial-start-button">
+                  Start your trial ➔
+                </a>
+              </div>
             </div>
-            <div className="trial-middle">
-              <span className="trial-chip">3 Sessions · 30 Mins Total</span>
+          </div>
+
+          {/* 3 Tier Pricing Cards Grid matching target image */}
+          <div className="pricing-cards-exact-grid">
+            {/* CARD 1: REFLECT */}
+            <div className="pricing-tier-card card-reflect">
+              <div className="tier-card-header">
+                <div className="tier-icon-circle icon-green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="tier-name">Reflect</h3>
+                  <p className="tier-tagline">Steady, low-key check-ins</p>
+                </div>
+              </div>
+
+              <div className="tier-stats-bar bar-green">
+                <div className="stat-box">
+                  <strong>300</strong>
+                  <span>minutes / cycle</span>
+                </div>
+                <div className="stat-box">
+                  <strong>30</strong>
+                  <span>sessions</span>
+                </div>
+                <div className="stat-box">
+                  <strong>Up to 2</strong>
+                  <span>a day</span>
+                </div>
+              </div>
+
+              <ul className="tier-features-list check-green">
+                <li><span className="chk">✓</span> <span>A daily conversation, at your pace</span></li>
+                <li><span className="chk">✓</span> <span>Your full Brihas Quotient reading</span></li>
+                <li><span className="chk">✓</span> <span>A glimpse into 2 of your 6 dimensions</span></li>
+                <li><span className="chk">✓</span> <span>Session summaries, always saved</span></li>
+              </ul>
+
+              <div className="tier-action-bottom">
+                <a href="#plans" className="tier-btn btn-outline-green">
+                  Sign in to see pricing ➔
+                </a>
+              </div>
             </div>
-            <div className="trial-right">
-              <a className="button button-dark" href="#plans">Start 7 day Trial <Icon name="arrow"/></a>
+
+            {/* CARD 2: CONVERSE (MOST POPULAR) */}
+            <div className="pricing-tier-card card-converse featured-converse">
+              <div className="most-popular-tag">⭐ MOST POPULAR</div>
+              
+              <div className="tier-card-header">
+                <div className="tier-icon-circle icon-orange">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85A28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="tier-name">Converse</h3>
+                  <p className="tier-tagline">For ongoing self-understanding</p>
+                </div>
+              </div>
+
+              <div className="tier-stats-bar bar-orange">
+                <div className="stat-box">
+                  <strong>600</strong>
+                  <span>minutes / cycle</span>
+                </div>
+                <div className="stat-box">
+                  <strong>60</strong>
+                  <span>sessions</span>
+                </div>
+                <div className="stat-box">
+                  <strong>Up to 4</strong>
+                  <span>a day</span>
+                </div>
+              </div>
+
+              <ul className="tier-features-list check-orange">
+                <li><span className="chk">✓</span> <span>Everything in Reflect</span></li>
+                <li><span className="chk">✓</span> <span>All 6 dimensions, in full detail</span></li>
+                <li><span className="chk">✓</span> <span>The Journey view — trends &amp; cohort comparison</span></li>
+                <li><span className="chk">✓</span> <span>See what's changing, week to week</span></li>
+              </ul>
+
+              <div className="tier-action-bottom">
+                <a href="#plans" className="tier-btn btn-solid-orange">
+                  Sign in to see pricing ➔
+                </a>
+              </div>
             </div>
-          </motion.article>
 
-          {/* 3 Simple Main Plan Cards Side-by-Side (Prices Hidden) */}
-          <motion.div className="simple-plan-grid" {...stagger}>
-            {[
-              {
-                name: 'Reflect',
-                subtitle: 'Light, steady check-ins to stay mindful.',
-                allocation: '🌿 30 Sessions · 10 mins/day',
-                features: [
-                  'Daily one on one conversation at your pace',
-                  'Full Brihas Quotient reading',
-                  'Key insights saved in session notes',
-                  '24/7 private access anytime'
-                ],
-                featured: false
-              },
-              {
-                name: 'Converse',
-                subtitle: 'For ongoing self-understanding & clarity.',
-                allocation: '✨ 60 Sessions · 20 mins/day',
-                features: [
-                  'Everything in Reflect',
-                  'All 6 Quotient dimensions in full detail',
-                  'Weekly trends & progress comparison',
-                  'Full Living Timeline & pattern tracking'
-                ],
-                featured: true
-              },
-              {
-                name: 'Depth',
-                subtitle: 'For working through major life transitions.',
-                allocation: '🌌 120 Sessions · 40 mins/day',
-                features: [
-                  'Everything in Converse',
-                  'Personalised 3 & 7 day action plans',
-                  'Full interactive Mind Map access',
-                  'Weekly review & direction compass'
-                ],
-                featured: false
-              }
-            ].map((plan) => (
-              <motion.div 
-                className={`simple-plan-card ${plan.featured ? 'featured-plan' : ''}`}
-                key={plan.name}
-                {...item}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.25 }}
-              >
-                {plan.featured && <div className="popular-ribbon">⭐ MOST POPULAR</div>}
-                
-                <div className="plan-card-header">
-                  <h3>{plan.name}</h3>
-                  <p className="plan-subtitle">{plan.subtitle}</p>
+            {/* CARD 3: DEPTH */}
+            <div className="pricing-tier-card card-depth">
+              <div className="tier-card-header">
+                <div className="tier-icon-circle icon-purple">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C5CFC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+                  </svg>
                 </div>
+                <div>
+                  <h3 className="tier-name">Depth</h3>
+                  <p className="tier-tagline">For working through something specific</p>
+                </div>
+              </div>
 
-                <div className="plan-card-pricing" style={{ marginBottom: '20px' }}>
-                  <div className="time-allocation-pill">
-                    <span>{plan.allocation}</span>
-                  </div>
+              <div className="tier-stats-bar bar-purple">
+                <div className="stat-box">
+                  <strong>1,200</strong>
+                  <span>minutes / cycle</span>
                 </div>
+                <div className="stat-box">
+                  <strong>120</strong>
+                  <span>sessions</span>
+                </div>
+                <div className="stat-box">
+                  <strong>Up to 6</strong>
+                  <span>a day</span>
+                </div>
+              </div>
 
-                <div className="plan-card-features">
-                  <ul>
-                    {plan.features.map(f => (
-                      <li key={f}>
-                        <Icon name="check" size={15}/> 
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <ul className="tier-features-list check-purple">
+                <li><span className="chk">✓</span> <span>Everything in Converse</span></li>
+                <li><span className="chk">✓</span> <span>Personalised 3-day &amp; 7-day action plans</span></li>
+                <li><span className="chk">✓</span> <span>A weekly plan &amp; review</span></li>
+                <li><span className="chk">✓</span> <span>Full Mind Map access</span></li>
+              </ul>
 
-                <div className="plan-card-action">
-                  <a className={`button ${plan.featured ? 'button-dark' : 'button-outline'}`} style={{ width: '100%' }} href="#plans">
-                    Get Started with {plan.name} <Icon name="arrow"/>
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              <div className="tier-action-bottom">
+                <a href="#plans" className="tier-btn btn-outline-purple">
+                  Sign in to see pricing ➔
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="plans-bottom-privacy">
+            <span>🔒 Your conversations are private and encrypted.</span>
+          </div>
         </div>
       </motion.section>
 
