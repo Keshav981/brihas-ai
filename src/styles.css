@@ -9677,3 +9677,13 @@ footer, .footer {
     font-size: 26px !important;
   }
 }
+
+
+/* ══════════ CAPSULE-ONLY HEADING BUBBLE BADGE STYLING ══════════ */
+.heading-bubble-badge {
+  padding: 10px 24px !important;
+  border-radius: 100px !important;
+  background: rgba(253, 251, 246, 0.94) !important;
+  border: 1.5px solid rgba(31, 77, 58, 0.18) !important;
+  box-shadow: 0 10px 24px -6px rgba(28, 37, 29, 0.08) !important;
+}
