@@ -9459,3 +9459,21 @@ footer, .footer {
     border-radius: 36px !important;
   }
 }
+
+
+/* ══════════ ORIGINAL OVAL SHAPE PATCH WITH BOTANICAL LEAF ══════════ */
+.botanical-branch-svg {
+  position: absolute !important;
+  bottom: 24px !important;
+  left: 36px !important;
+  width: 145px !important;
+  height: 145px !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  filter: drop-shadow(0 4px 12px rgba(45, 96, 67, 0.12)) !important;
+  transition: transform 0.4s ease !important;
+}
+
+.pebble-blob-card:hover .botanical-branch-svg {
+  transform: scale(1.06) rotate(-2deg) !important;
+}

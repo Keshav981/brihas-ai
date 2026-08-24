@@ -1630,60 +1630,60 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
 };
 
 const pebbleWordsAbsolute = [
-  // ROW 1: TOP ARC (Y: 19% - 21%)
+  // ROW 1: TOP ARC
   { text: 'Stress', left: '26%', top: '21%', fontSize: '15px', weight: 500, color: '#65606E' },
   { text: 'Anxiety', left: '38%', top: '20%', fontSize: '16px', weight: 500, color: '#5F5D6B' },
   { text: 'Self doubt', left: '50%', top: '19%', fontSize: '20px', weight: 700, color: '#4A5551' },
   { text: 'Peace of mind', left: '64%', top: '20%', fontSize: '15px', weight: 600, color: '#456654' },
   { text: 'Feeling stuck', left: '76%', top: '22%', fontSize: '15px', weight: 600, color: '#5E665D' },
 
-  // ROW 2: UPPER MID (Y: 26% - 29%)
+  // ROW 2: UPPER MID
   { text: 'Pressure', left: '20%', top: '27%', fontSize: '15px', weight: 500, color: '#685E6E' },
   { text: 'Overthinking', left: '35%', top: '27%', fontSize: '30px', weight: 800, color: '#5C4A68' },
   { text: 'Overwhelm', left: '58%', top: '27%', fontSize: '22px', weight: 700, color: '#6B4A5C' },
   { text: 'Career', left: '73%', top: '28%', fontSize: '28px', weight: 800, color: '#44634B' },
 
-  // ROW 3: MID UPPER (Y: 33% - 36%)
+  // ROW 3: MID UPPER
   { text: 'Boundaries', left: '19%', top: '35%', fontSize: '14px', weight: 500, color: '#686B60' },
   { text: 'Motivation', left: '32%', top: '34%', fontSize: '14px', weight: 500, color: '#7D7569' },
   { text: 'Inner Peace', left: '46%', top: '34%', fontSize: '18px', weight: 600, color: '#4F685B' },
   { text: 'Procrastination', left: '62%', top: '34%', fontSize: '13.5px', weight: 500, color: '#736152' },
   { text: 'Future', left: '77%', top: '35%', fontSize: '18px', weight: 600, color: '#6A587A' },
 
-  // ROW 4: CENTER CORE (Y: 40% - 43%)
+  // ROW 4: CENTER CORE
   { text: 'Bullying', left: '18%', top: '42%', fontSize: '17px', weight: 600, color: '#7B4E59' },
   { text: 'Purpose', left: '29%', top: '41%', fontSize: '22px', weight: 700, color: '#5B6858' },
   { text: 'Burnout', left: '48%', top: '40%', fontSize: '34px', weight: 900, color: '#2E4034' },
   { text: 'Self care', left: '67%', top: '42%', fontSize: '14px', weight: 500, color: '#5A6E5C' },
   { text: 'Health', left: '76%', top: '43%', fontSize: '19px', weight: 600, color: '#586259' },
 
-  // ROW 5: MID CENTER (Y: 47% - 51%)
+  // ROW 5: MID CENTER
   { text: 'Money', left: '24%', top: '49%', fontSize: '24px', weight: 700, color: '#78604B' },
   { text: 'What next?', left: '37%', top: '48%', fontSize: '14px', weight: 500, color: '#70675C' },
   { text: 'Big decisions', left: '52%', top: '49%', fontSize: '21px', weight: 700, color: '#596053' },
   { text: 'Confidence', left: '72%', top: '50%', fontSize: '18px', weight: 600, color: '#5A6158' },
 
-  // ROW 6: LOWER CENTER (Y: 55% - 58%)
+  // ROW 6: LOWER CENTER
   { text: 'Communication', left: '18%', top: '56%', fontSize: '13.5px', weight: 400, color: '#7A6458' },
   { text: 'Identity', left: '32%', top: '56%', fontSize: '22px', weight: 700, color: '#5C4F6B' },
   { text: 'Fulfillment', left: '46%', top: '56%', fontSize: '17px', weight: 600, color: '#65546D' },
   { text: 'Resilience', left: '61%', top: '56%', fontSize: '14.5px', weight: 600, color: '#4E6A58' },
   { text: 'Growth', left: '73%', top: '57%', fontSize: '19px', weight: 600, color: '#5B6E5F' },
 
-  // ROW 7: LOWER MID (Y: 62% - 66%)
+  // ROW 7: LOWER MID
   { text: 'Conflict', left: '20%', top: '63%', fontSize: '14px', weight: 400, color: '#826569' },
   { text: 'Relationships', left: '37%', top: '64%', fontSize: '28px', weight: 800, color: '#7D4D59' },
   { text: 'Time management', left: '58%', top: '63%', fontSize: '13px', weight: 400, color: '#61675D' },
   { text: 'Clarity', left: '73%', top: '64%', fontSize: '32px', weight: 900, color: '#274C3A' },
 
-  // ROW 8: BOTTOM LOWER (Y: 70% - 74%)
+  // ROW 8: BOTTOM LOWER
   { text: 'Family', left: '23%', top: '70%', fontSize: '14px', weight: 400, color: '#70645A' },
   { text: 'Breakup', left: '31%', top: '72%', fontSize: '13.5px', weight: 400, color: '#856165' },
   { text: 'Work pressure', left: '42%', top: '72%', fontSize: '13.5px', weight: 500, color: '#665F5C' },
   { text: 'Work life balance', left: '57%', top: '71%', fontSize: '13.5px', weight: 500, color: '#5B665C' },
   { text: 'Starting over', left: '72%', top: '71%', fontSize: '13.5px', weight: 400, color: '#5D635B' },
 
-  // ROW 9: BOTTOM ARC (Y: 77% - 84%)
+  // ROW 9: BOTTOM ARC
   { text: 'Friendship', left: '29%', top: '78%', fontSize: '13px', weight: 400, color: '#6B665E' },
   { text: 'Productivity', left: '41%', top: '78%', fontSize: '13px', weight: 400, color: '#6A7368' },
   { text: 'Comparison trap', left: '56%', top: '77%', fontSize: '13px', weight: 400, color: '#6E5C6B' },
@@ -1695,465 +1695,78 @@ const pebbleWordsAbsolute = [
   { text: 'Self esteem', left: '63%', top: '82%', fontSize: '12.5px', weight: 500, color: '#6D5B54' }
 ];
 
+const OriginalOvalLeafPatchSection = ({ onSelectWord }) => {
+  return (
+    <div className="starting-word-cloud-container">
+      {/* Header */}
+      <div className="orb-top-header" style={{ marginBottom: '24px', textAlign: 'center' }}>
+        <h2 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '36px', color: '#1C251D', margin: '0 0 8px', fontWeight: 700, letterSpacing: '-0.02em' }}>
+          What&rsquo;s on <em>your mind?</em>
+        </h2>
+        <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: '18px', color: '#6E8A72', margin: 0 }}>
+          Explore what matters to you.
+        </p>
+      </div>
 
-/* <topic-orb> — Brihas.ai interactive 3D Earth Globe on Desktop Stand.
-   A DOM-projected Earth globe sphere mounted on a physical metallic stand with top/bottom axis poles and 23.5° axial tilt. */
-if (typeof window !== 'undefined') {
-  (() => {
-    const TOPICS = [
-      ['Burnout', 1], ['Overthinking', 1], ['Career', 1], ['Relationships', 1],
-      ['Clarity', 1], ['Money', 1], ['Identity', 1], ['Peace of mind', 1],
-      ['Future', 1], ['Confidence', 1], ['Self care', 1],
-      ['Purpose', 2], ['Anxiety', 2], ['Self doubt', 2], ['Health', 2],
-      ['Growth', 2], ['Big decisions', 2], ['Inner Peace', 2], ['Motivation', 2],
-      ['Resilience', 2], ['Fulfillment', 2], ['Work life balance', 2], ['Time management', 2],
-      ['Work pressure', 3], ['Family', 3], ['Friendship', 3], ['Loneliness', 3],
-      ['Balance', 3], ['Mindset', 3], ['Productivity', 3], ['Boundaries', 3],
-      ['Overwhelm', 3], ['Bullying', 3], ['Breakup', 3], ['Starting over', 3],
-      ['Comparison trap', 3], ['Connection', 3], ['Self esteem', 3], ['Feeling stuck', 3],
-      ['Pressure', 3], ['Stress', 3], ['What next?', 3], ['Communication', 3], ['Conflict', 3]
-    ];
+      {/* Organic Oval Pebble Cloud Container */}
+      <div className="pebble-blob-card">
+        {/* Botanical Leaf SVG Branch Patch */}
+        <svg className="botanical-branch-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 30 170 C 60 140, 110 90, 160 30" stroke="#2D6043" strokeWidth="2.5" strokeLinecap="round" opacity="0.65" />
+          <path d="M 70 135 C 50 120, 45 100, 60 90 C 75 100, 75 120, 70 135 Z" fill="#2D6043" opacity="0.3" />
+          <path d="M 100 105 C 115 85, 135 85, 140 100 C 125 115, 105 115, 100 105 Z" fill="#2D6043" opacity="0.35" />
+          <path d="M 130 65 C 120 45, 135 35, 150 45 C 145 65, 135 70, 130 65 Z" fill="#2D6043" opacity="0.4" />
+          <circle cx="160" cy="30" r="4" fill="#2D6043" opacity="0.6" />
+        </svg>
 
-    const INK = '#1C251D', FOREST = '#2B7858', SAGE = '#6E8A72',
-          LAV = '#8E7FB0', BROWN = '#8A6A4F', COPPER = '#B0703A';
-    const HUES = [FOREST, INK, SAGE, LAV, BROWN, COPPER];
+        {/* Decorative Inner Botanical Ring Lines */}
+        <svg className="pebble-inner-botanical-svg" viewBox="0 0 800 500" preserveAspectRatio="none" aria-hidden="true">
+          <ellipse cx="400" cy="250" rx="380" ry="220" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" />
+          <ellipse cx="400" cy="250" rx="330" ry="180" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4 6" />
+        </svg>
 
-    const CSS = `
-topic-orb { display:block; container-type:inline-size; }
-.orb-head { text-align:center; margin:0 auto 6px; max-width:40ch; }
-.orb-head h3 {
-  font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;
-  font-size:clamp(28px,3.4cqw,48px); font-weight:700;
-  letter-spacing:-.03em; line-height:1.12; color:${INK}; margin:0;
-}
-.orb-head h3 em {
-  font-family:'Playfair Display',Georgia,serif;
-  font-style:italic; font-weight:500; color:${FOREST};
-}
-.orb-sub {
-  font-family:'Playfair Display',Georgia,serif; font-style:italic;
-  font-size:clamp(15px,1.5cqw,20px); color:${SAGE}; margin:10px 0 0;
-}
-.orb-stage {
-  position:relative; width:100%; aspect-ratio:1/1;
-  max-width:min(100%,680px); margin:0 auto;
-  touch-action:none; cursor:grab;
-  -webkit-user-select:none; user-select:none;
-}
-.orb-stage.is-drag { cursor:grabbing; }
-.orb-stand-svg { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1; }
-.orb-glow, .orb-sphere-wrapper, .orb-shell, .orb-rings, .orb-field, .orb-link { position:absolute; inset:0; }
-.orb-sphere-wrapper {
-  transform: rotate(23.5deg);
-  transform-origin: center center;
-}
-.orb-glow {
-  border-radius:50%;
-  background:
-    radial-gradient(46% 44% at 30% 24%, rgba(142,127,176,.28), transparent 70%),
-    radial-gradient(48% 46% at 74% 72%, rgba(110,138,114,.28), transparent 72%),
-    radial-gradient(58% 56% at 52% 50%, rgba(255,255,255,.65), transparent 74%);
-  filter:blur(28px);
-}
-.orb-shell {
-  border-radius:50%;
-  border:1.8px solid rgba(255,255,255,.95);
-  background:
-    radial-gradient(52% 48% at 32% 22%, rgba(255,255,255,.75), rgba(240,248,243,.4) 58%, transparent 74%),
-    radial-gradient(72% 72% at 50% 54%, rgba(253,251,246,.25), transparent 76%);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.9),
-    inset 0 -40px 80px -62px rgba(28,37,29,.2),
-    0 56px 84px -64px rgba(28,37,29,.3);
-  -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px);
-}
-.orb-rings, .orb-link { overflow:visible; pointer-events:none; }
-.orb-field { pointer-events:none; }
-.orb-w {
-  position:absolute; left:0; top:0;
-  font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;
-  white-space:nowrap; pointer-events:auto; cursor:pointer;
-  background:none; border:0; padding:3px 6px; margin:0;
-  transition:color .3s ease, background .2s ease;
-  will-change:transform,opacity,filter;
-  border-radius:100px;
-}
-.orb-w:hover {
-  background:rgba(255,255,255,0.95) !important;
-  box-shadow:0 6px 18px rgba(28,37,29,0.12) !important;
-  color:${FOREST} !important;
-  z-index:999 !important;
-}
-.orb-w.is-on { 
-  color:${FOREST} !important; 
-  font-weight:700 !important; 
-  background:#FFFFFF !important;
-  border:1px solid ${FOREST} !important;
-  box-shadow:0 8px 24px rgba(43,120,88,0.2) !important;
-}
-.orb-nav-left, .orb-nav-right {
-  position:absolute; top:50%; transform:translateY(-50%);
-  width:42px; height:42px; border-radius:50%;
-  background:#FFFFFF; border:1px solid rgba(28,37,29,0.12);
-  color:${INK}; font-size:20px; font-weight:700;
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer; z-index:100; pointer-events:auto;
-  box-shadow:0 6px 18px rgba(28,37,29,0.08);
-  transition:all 0.2s ease;
-}
-.orb-nav-left { left:-14px; }
-.orb-nav-right { right:-14px; }
-.orb-nav-left:hover, .orb-nav-right:hover {
-  background:#EAF4EE; color:${FOREST};
-  transform:translateY(-50%) scale(1.08);
-}
-.orb-foot {
-  display:flex; flex-direction:column; align-items:center; gap:3px;
-  margin:12px 0 0; text-align:center;
-}
-.orb-foot b {
-  font-family:'DM Mono',ui-monospace,monospace;
-  font-size:11px; letter-spacing:.2em; text-transform:uppercase;
-  font-weight:500; color:${INK};
-}
-.orb-hint {
-  font-family:'Playfair Display',Georgia,serif; font-style:italic;
-  font-size:14.5px; color:${SAGE};
-}
-.orb-cta {
-  margin-top:18px; cursor:pointer;
-  font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;
-  font-size:14.5px; color:#FDFBF6; letter-spacing:-.01em;
-  padding:12px 22px; border-radius:999px; border:0;
-  background:${INK};
-  box-shadow:0 14px 26px -16px rgba(28,37,29,.5);
-  transition:background .2s ease, transform .2s ease;
-}
-.orb-cta:hover { background:${FOREST}; transform:translateY(-1px); }
-@container (max-width: 620px) {
-  .orb-stage { max-width:100%; }
-  .orb-nav-left { left:4px; }
-  .orb-nav-right { right:4px; }
-}
-@media (prefers-reduced-motion: reduce) { .orb-w { transition:none; } }
-`;
+        {/* Absolute Non-Overlapping Topic Words */}
+        {pebbleWordsAbsolute.map((item, idx) => (
+          <motion.button
+            key={idx}
+            type="button"
+            className="pebble-absolute-tag"
+            style={{
+              position: 'absolute',
+              left: item.left,
+              top: item.top,
+              transform: 'translate(-50%, -50%)',
+              fontSize: item.fontSize,
+              fontWeight: item.weight,
+              color: item.color,
+              fontFamily: "'DM Sans', sans-serif",
+              background: 'none',
+              border: 'none',
+              padding: '4px 8px',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              zIndex: item.weight >= 700 ? 10 : 5
+            }}
+            onClick={() => onSelectWord && onSelectWord(item.text)}
+            whileHover={{ scale: 1.15, zIndex: 100 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {item.text}
+          </motion.button>
+        ))}
+      </div>
 
-    function injectCSS() {
-      if (document.getElementById('topic-orb-css')) return;
-      const s = document.createElement('style');
-      s.id = 'topic-orb-css';
-      s.textContent = CSS;
-      document.head.appendChild(s);
-    }
-
-    class TopicOrb extends HTMLElement {
-      connectedCallback() {
-        if (this._built) return;
-        this._built = true;
-        injectCSS();
-
-        this.innerHTML = `
-          <div class="orb-head">
-            <h3>What&rsquo;s on <em>your mind?</em></h3>
-            <p class="orb-sub">Explore what matters to you.</p>
-          </div>
-          <div class="orb-stage">
-            <button className="orb-nav-left" type="button" aria-label="Spin Globe Left">‹</button>
-            <button className="orb-nav-right" type="button" aria-label="Spin Globe Right">›</button>
-            
-            {/* Metallic Globe Stand with Top & Bottom Axis Mounts & Pedestal Base */}
-            <svg class="orb-stand-svg" viewBox="0 0 500 500">
-              {/* Metallic Meridian Arc Support Arm */}
-              <path d="M 235 25 C 80 80 80 420 235 475" fill="none" stroke="#2B7858" stroke-width="6" stroke-linecap="round" opacity="0.85" />
-              <path d="M 235 25 C 80 80 80 420 235 475" fill="none" stroke="#6E8A72" stroke-width="2.5" stroke-linecap="round" opacity="0.9" />
-              
-              {/* Top Axis Pole Mount */}
-              <circle cx="240" cy="30" r="10" fill="#1C251D" />
-              <circle cx="240" cy="30" r="6" fill="#2B7858" />
-              <line x1="240" y1="20" x2="240" y2="45" stroke="#1C251D" stroke-width="4" stroke-linecap="round" />
-
-              {/* Bottom Axis Pole Mount */}
-              <circle cx="240" cy="470" r="10" fill="#1C251D" />
-              <circle cx="240" cy="470" r="6" fill="#2B7858" />
-              <line x1="240" y1="455" x2="240" y2="480" stroke="#1C251D" stroke-width="4" stroke-linecap="round" />
-
-              {/* Pedestal Stand Base */}
-              <path d="M 180 490 L 300 490 L 290 475 L 190 475 Z" fill="#1C251D" />
-              <ellipse cx="240" cy="492" rx="70" ry="7" fill="#2B7858" opacity="0.9" />
-            </svg>
-
-            {/* 23.5° Tilted Rotating Globe Sphere */}
-            <div class="orb-sphere-wrapper">
-              <div class="orb-glow"></div>
-              <div class="orb-shell"></div>
-              <svg class="orb-rings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
-              <svg class="orb-link" aria-hidden="true"></svg>
-              <div class="orb-field" role="group" aria-label="Topics"></div>
-            </div>
-          </div>
-          <div class="orb-foot">
-            <b>Drag to explore</b>
-            <span class="orb-hint">Spin the globe and discover more.</span>
-            <button class="orb-cta" type="button" hidden></button>
-          </div>`;
-
-        this.stage = this.querySelector('.orb-stage');
-        this.sphereWrapper = this.querySelector('.orb-sphere-wrapper');
-        this.glow = this.querySelector('.orb-glow');
-        this.shell = this.querySelector('.orb-shell');
-        this.field = this.querySelector('.orb-field');
-        this.rings = this.querySelector('.orb-rings');
-        this.link  = this.querySelector('.orb-link');
-        this.cta = this.querySelector('.orb-cta');
-
-        this.btnLeft = this.querySelector('.orb-nav-left');
-        this.btnRight = this.querySelector('.orb-nav-right');
-
-        this.reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-        this.yaw = 0.6; this.pitch = 0;
-        this.vYaw = 0.003; this.vPitch = 0;
-        this.hover = false; this.drag = null; this.focus = null;
-        this.picked = null; this.visible = true;
-
-        this._buildRings();
-        this._buildWords();
-        this._bind();
-
-        this._tick = this._tick.bind(this);
-        this._render();
-        requestAnimationFrame(this._tick);
-
-        this._io = new IntersectionObserver(es => { this.visible = es[0].isIntersecting; },
-          { threshold: 0.02 });
-        this._io.observe(this);
-        this._ro = new ResizeObserver(() => this._render());
-        this._ro.observe(this.stage);
-      }
-
-      disconnectedCallback() {
-        this._io && this._io.disconnect();
-        this._ro && this._ro.disconnect();
-        cancelAnimationFrame(this._raf);
-      }
-
-      /* ---------- geometry ---------- */
-
-      _buildRings() {
-        const ell = (rx, ry, rot, op, dash) =>
-          `<ellipse cx="50" cy="50" rx="${rx}" ry="${ry}" transform="rotate(${rot} 50 50)"
-             fill="none" stroke="rgba(43,120,88,${op})" stroke-width="0.32"
-             ${dash ? `stroke-dasharray="${dash}"` : ''} vector-effect="non-scaling-stroke"/>`;
-        this.rings.innerHTML =
-          ell(49.5, 15, -16, .22) +
-          ell(49.5, 30, 12, .15, '1.6 2.4') +
-          ell(46, 46, 0, .12) +
-          ell(20, 49, -8, .12, '1.2 2.8');
-      }
-
-      _buildWords() {
-        const buckets = [[], [], []];
-        TOPICS.forEach(t => buckets[t[1] - 1].push(t));
-        const order = [];
-        for (let k = 0; order.length < TOPICS.length; k++)
-          for (const b of buckets) if (b[k]) order.push(b[k]);
-
-        const n = order.length;
-        this.words = order.map(([label, tier], i) => {
-          const y = 1 - (2 * i + 1) / n;
-          const r = Math.sqrt(Math.max(0, 1 - y * y));
-          const th = Math.PI * (3 - Math.sqrt(5)) * i;
-          const shell = tier === 1 ? 1.0 : tier === 2 ? 0.82 : 0.64;
-          const el = document.createElement('button');
-          el.type = 'button';
-          el.className = 'orb-w';
-          el.textContent = label;
-          el.style.color = HUES[i % HUES.length];
-          el.style.fontSize = (tier === 1 ? 0.92 : tier === 2 ? 0.72 : 0.58) + 'em';
-          el.style.fontWeight = tier === 1 ? 600 : tier === 2 ? 500 : 400;
-          el.style.letterSpacing = tier === 1 ? '-.02em' : '-.01em';
-          el.addEventListener('click', () => this._select(i));
-          this.field.appendChild(el);
-          return { label, tier, el, x: Math.cos(th) * r * shell, y: y * shell,
-                   z: Math.sin(th) * r * shell };
-        });
-      }
-
-      /* ---------- interaction ---------- */
-
-      _bind() {
-        const s = this.stage;
-        s.addEventListener('pointerenter', () => { this.hover = true; });
-        s.addEventListener('pointerleave', () => { this.hover = false; });
-
-        s.addEventListener('pointerdown', e => {
-          if (e.target.closest('.orb-nav-left') || e.target.closest('.orb-nav-right')) return;
-          s.setPointerCapture(e.pointerId);
-          s.classList.add('is-drag');
-          this.drag = { x: e.clientX, y: e.clientY, moved: 0 };
-          this.focus = null;
-        });
-
-        s.addEventListener('pointermove', e => {
-          if (!this.drag) return;
-          const dx = e.clientX - this.drag.x, dy = e.clientY - this.drag.y, k = 0.008;
-          this.yaw += dx * k;
-          this.pitch = Math.max(-0.6, Math.min(0.6, this.pitch + dy * k * 0.4));
-          this.vYaw = dx * k * 0.5;
-          this.vPitch = dy * k * 0.2;
-          this.drag.moved += Math.abs(dx) + Math.abs(dy);
-          this.drag.x = e.clientX; this.drag.y = e.clientY;
-          this._render();
-        });
-
-        const end = () => {
-          if (!this.drag) return;
-          if (this.drag.moved < 4) this.vYaw = this.vYaw || 0.003;
-          this.drag = null;
-          s.classList.remove('is-drag');
-        };
-        s.addEventListener('pointerup', end);
-        s.addEventListener('pointercancel', end);
-
-        if (this.btnLeft) {
-          this.btnLeft.addEventListener('click', (e) => {
-            e.stopPropagation();
-            this.vYaw = -0.015;
-          });
-        }
-        if (this.btnRight) {
-          this.btnRight.addEventListener('click', (e) => {
-            e.stopPropagation();
-            this.vYaw = 0.015;
-          });
-        }
-
-        this.cta.addEventListener('click', () => {
-          if (!this.picked) return;
-          this.dispatchEvent(new CustomEvent('topicstart',
-            { detail: { topic: this.picked }, bubbles: true }));
-        });
-      }
-
-      _select(i) {
-        const w = this.words[i];
-        this.words.forEach(o => o.el.classList.toggle('is-on', o === w));
-        const R = Math.hypot(w.x, w.z);
-        this.focus = { yaw: Math.atan2(w.x, w.z), pitch: Math.atan2(w.y, R) };
-        this.vYaw = 0; this.vPitch = 0;
-        this.picked = w.label;
-        this.cta.textContent = `Talk about ${w.label} →`;
-        this.cta.hidden = false;
-        this.dispatchEvent(new CustomEvent('topicselect',
-          { detail: { topic: w.label }, bubbles: true }));
-      }
-
-      /* ---------- motion & polar spin ---------- */
-
-      _tick() {
-        this._raf = requestAnimationFrame(this._tick);
-        if (!this.visible || this.drag) return;
-
-        const idle = 0.003;
-        if (this.focus) {
-          const dy = ((this.focus.yaw - this.yaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
-          this.yaw += dy * 0.07;
-          this.pitch += (this.focus.pitch - this.pitch) * 0.07;
-          if (Math.abs(dy) < 0.004) { this.focus = null; this.vYaw = idle * 0.5; }
-        } else {
-          this.vYaw += (idle - this.vYaw) * 0.012;
-          this.vPitch *= 0.92;
-          const slow = this.hover ? 0.3 : 1;
-          this.yaw += this.vYaw * slow * (this.reduced ? 0.2 : 1);
-          this.pitch += this.vPitch * slow;
-          this.pitch += (-0.02 - this.pitch) * 0.004;
-        }
-        this._render();
-      }
-
-      _render() {
-        if (!this.words) return;
-        const box = this.stage.getBoundingClientRect();
-        if (!box.width) return;
-
-        const R = box.width * 0.44, cx = box.width / 2, cy = box.height / 2;
-        const FOV = R * 3.1;
-        const cyw = Math.cos(this.yaw), syw = Math.sin(this.yaw);
-        const cp = Math.cos(this.pitch), sp = Math.sin(this.pitch);
-        this.stage.style.fontSize = Math.max(12, box.width * 0.035) + 'px';
-
-        const pts = [];
-
-        for (const w of this.words) {
-          const x1 = w.x * cyw - w.z * syw, z1 = w.x * syw + w.z * cyw;
-          const y2 = w.y * cp - z1 * sp,    z2 = w.y * sp + z1 * cp;
-          const X = x1 * R, Y = y2 * R, Z = z2 * R;
-          const s = FOV / (FOV - Z);
-          const d = (z2 + 1) / 2;
-
-          const posX = cx + X * s;
-          const posY = cy + Y * s;
-
-          const op = (0.22 + 0.78 * d) * (w.tier === 3 ? 0.82 : 1);
-          const st = w.el.style;
-          st.transform = `translate3d(${posX.toFixed(1)}px, ${posY.toFixed(1)}px, 0) translate(-50%,-50%) scale(${s.toFixed(3)})`;
-          st.opacity = op.toFixed(3);
-          st.filter = d < 0.55 ? `blur(${((0.55 - d) * 3.0).toFixed(2)}px)` : 'none';
-          st.zIndex = Math.round(d * 100);
-          st.pointerEvents = d > 0.42 ? 'auto' : 'none';
-
-          if (d > 0.5) pts.push({ x: posX, y: posY });
-        }
-
-        this._drawLinks(pts, box);
-      }
-
-      _drawLinks(pts, box) {
-        let d = '';
-        const lim = box.width * 0.22;
-        for (let i = 0; i < pts.length; i++)
-          for (let j = i + 1; j < pts.length; j++) {
-            const a = pts[i], b = pts[j];
-            if (Math.hypot(a.x - b.x, a.y - b.y) < lim)
-              d += `M${a.x.toFixed(1)} ${a.y.toFixed(1)}L${b.x.toFixed(1)} ${b.y.toFixed(1)}`;
-          }
-        this.link.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
-        this.link.innerHTML = `<path d="${d}" fill="none" stroke="rgba(43,120,88,.13)" stroke-width="0.7"/>`;
-      }
-    }
-
-    if (!customElements.get('topic-orb')) customElements.define('topic-orb', TopicOrb);
-  })();
-}
-
-const TopicOrbWrapper = ({ onSelectWord }) => {
-  const orbRef = useRef(null);
-
-  useEffect(() => {
-    const el = orbRef.current;
-    if (!el) return;
-
-    const handleSelect = (e) => {
-      if (onSelectWord && e.detail && e.detail.topic) {
-        onSelectWord(e.detail.topic);
-      }
-    };
-
-    const handleStart = (e) => {
-      if (onSelectWord && e.detail && e.detail.topic) {
-        onSelectWord(e.detail.topic);
-      }
-    };
-
-    el.addEventListener('topicselect', handleSelect);
-    el.addEventListener('topicstart', handleStart);
-
-    return () => {
-      el.removeEventListener('topicselect', handleSelect);
-      el.removeEventListener('topicstart', handleStart);
-    };
-  }, [onSelectWord]);
-
-  return <topic-orb ref={orbRef} />;
+      {/* Bottom Hint */}
+      <div className="orb-bottom-hint" style={{ marginTop: '18px', textAlign: 'center' }}>
+        <strong style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#1C251D', display: 'block', marginBottom: '2px' }}>
+          CLICK TO REFLECT
+        </strong>
+        <span style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: '15px', color: '#6E8A72' }}>
+          Tap any topic to explore it with Brihas.ai
+        </span>
+      </div>
+    </div>
+  );
 };
 const CleanInteractiveMindMapSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
