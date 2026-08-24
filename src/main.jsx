@@ -1696,15 +1696,11 @@ const pebbleWordsAbsolute = [
 
 
 /* <topic-orb> — Brihas.ai interactive 3D topic universe.
-   A DOM-projected sphere (no WebGL): topics are real text nodes positioned from
-   a rotating 3D model, so type stays crisp, selectable, translatable and
-   printable. Light DOM on purpose — shadow roots don't survive the site's
-   screenshot/print/standalone-export paths.
+   A DOM-projected sphere: topics and the entire globe container rotate together in 3D space.
    Auto-revolves slowly · eases off on hover · drag with inertia · click to focus. */
 if (typeof window !== 'undefined') {
   (() => {
     const TOPICS = [
-      // [label, tier] 1 = primary core, 2 = mid layer, 3 = inner atmosphere
       ['Burnout', 1], ['Overthinking', 1], ['Career', 1], ['Relationships', 1],
       ['Clarity', 1], ['Money', 1], ['Identity', 1], ['Peace of mind', 1],
       ['Future', 1], ['Confidence', 1], ['Self care', 1],
@@ -1743,28 +1739,33 @@ topic-orb { display:block; container-type:inline-size; }
   max-width:min(100%,680px); margin:0 auto;
   touch-action:none; cursor:grab;
   -webkit-user-select:none; user-select:none;
+  perspective:1000px;
 }
 .orb-stage.is-drag { cursor:grabbing; }
-.orb-glow, .orb-shell, .orb-rings, .orb-field, .orb-link { position:absolute; inset:0; }
+.orb-glow, .orb-shell, .orb-rings, .orb-field, .orb-link { 
+  position:absolute; inset:0; 
+  transition:transform 0.1s cubic-bezier(0.1, 0.9, 0.2, 1);
+  transform-style:preserve-3d;
+}
 .orb-glow {
   border-radius:50%;
   background:
-    radial-gradient(46% 44% at 30% 24%, rgba(142,127,176,.25), transparent 70%),
-    radial-gradient(48% 46% at 74% 72%, rgba(110,138,114,.25), transparent 72%),
-    radial-gradient(58% 56% at 52% 50%, rgba(255,255,255,.6), transparent 74%);
+    radial-gradient(46% 44% at 30% 24%, rgba(142,127,176,.28), transparent 70%),
+    radial-gradient(48% 46% at 74% 72%, rgba(110,138,114,.28), transparent 72%),
+    radial-gradient(58% 56% at 52% 50%, rgba(255,255,255,.65), transparent 74%);
   filter:blur(28px);
 }
 .orb-shell {
   border-radius:50%;
-  border:1px solid rgba(28,37,29,.08);
+  border:1.5px solid rgba(255,255,255,.9);
   background:
-    radial-gradient(52% 48% at 32% 22%, rgba(255,255,255,.62), rgba(255,255,255,.08) 58%, transparent 74%),
-    radial-gradient(72% 72% at 50% 54%, rgba(253,251,246,.18), transparent 76%);
+    radial-gradient(52% 48% at 32% 22%, rgba(255,255,255,.7), rgba(255,255,255,.1) 58%, transparent 74%),
+    radial-gradient(72% 72% at 50% 54%, rgba(253,251,246,.2), transparent 76%);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.8),
-    inset 0 -40px 80px -62px rgba(28,37,29,.16),
-    0 56px 84px -64px rgba(28,37,29,.26);
-  -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+    inset 0 1px 0 rgba(255,255,255,.9),
+    inset 0 -40px 80px -62px rgba(28,37,29,.2),
+    0 56px 84px -64px rgba(28,37,29,.3);
+  -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px);
 }
 .orb-rings, .orb-link { overflow:visible; pointer-events:none; }
 .orb-field { pointer-events:none; }
@@ -1772,12 +1773,40 @@ topic-orb { display:block; container-type:inline-size; }
   position:absolute; left:0; top:0;
   font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;
   white-space:nowrap; pointer-events:auto; cursor:pointer;
-  background:none; border:0; padding:2px 5px; margin:0;
-  transition:color .3s ease;
+  background:none; border:0; padding:3px 6px; margin:0;
+  transition:color .3s ease, background .2s ease;
   will-change:transform,opacity,filter;
+  border-radius:100px;
 }
-.orb-w:focus-visible { outline:1.5px solid ${FOREST}; outline-offset:3px; border-radius:6px; }
-.orb-w.is-on { color:${FOREST} !important; font-weight:700 !important; }
+.orb-w:hover {
+  background:rgba(255,255,255,0.92) !important;
+  box-shadow:0 6px 18px rgba(28,37,29,0.12) !important;
+  color:${FOREST} !important;
+  z-index:999 !important;
+}
+.orb-w.is-on { 
+  color:${FOREST} !important; 
+  font-weight:700 !important; 
+  background:#FFFFFF !important;
+  border:1px solid ${FOREST} !important;
+  box-shadow:0 8px 24px rgba(43,120,88,0.2) !important;
+}
+.orb-nav-left, .orb-nav-right {
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:42px; height:42px; border-radius:50%;
+  background:#FFFFFF; border:1px solid rgba(28,37,29,0.12);
+  color:${INK}; font-size:20px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; z-index:100; pointer-events:auto;
+  box-shadow:0 6px 18px rgba(28,37,29,0.08);
+  transition:all 0.2s ease;
+}
+.orb-nav-left { left:-12px; }
+.orb-nav-right { right:-12px; }
+.orb-nav-left:hover, .orb-nav-right:hover {
+  background:#EAF4EE; color:${FOREST};
+  transform:translateY(-50%) scale(1.08);
+}
 .orb-foot {
   display:flex; flex-direction:column; align-items:center; gap:3px;
   margin:4px 0 0; text-align:center;
@@ -1803,6 +1832,8 @@ topic-orb { display:block; container-type:inline-size; }
 .orb-cta:hover { background:${FOREST}; transform:translateY(-1px); }
 @container (max-width: 620px) {
   .orb-stage { max-width:100%; }
+  .orb-nav-left { left:4px; }
+  .orb-nav-right { right:4px; }
 }
 @media (prefers-reduced-motion: reduce) { .orb-w { transition:none; } }
 `;
@@ -1827,6 +1858,8 @@ topic-orb { display:block; container-type:inline-size; }
             <p class="orb-sub">Explore what matters to you.</p>
           </div>
           <div class="orb-stage">
+            <button className="orb-nav-left" type="button" aria-label="Spin Globe Left">‹</button>
+            <button className="orb-nav-right" type="button" aria-label="Spin Globe Right">›</button>
             <div class="orb-glow"></div>
             <div class="orb-shell"></div>
             <svg class="orb-rings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
@@ -1840,14 +1873,19 @@ topic-orb { display:block; container-type:inline-size; }
           </div>`;
 
         this.stage = this.querySelector('.orb-stage');
+        this.glow = this.querySelector('.orb-glow');
+        this.shell = this.querySelector('.orb-shell');
         this.field = this.querySelector('.orb-field');
         this.rings = this.querySelector('.orb-rings');
         this.link  = this.querySelector('.orb-link');
         this.cta = this.querySelector('.orb-cta');
 
+        this.btnLeft = this.querySelector('.orb-nav-left');
+        this.btnRight = this.querySelector('.orb-nav-right');
+
         this.reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
         this.yaw = 0.6; this.pitch = -0.1;
-        this.vYaw = 0.0016; this.vPitch = 0;
+        this.vYaw = 0.0025; this.vPitch = 0;
         this.hover = false; this.drag = null; this.focus = null;
         this.picked = null; this.visible = true;
 
@@ -1872,7 +1910,7 @@ topic-orb { display:block; container-type:inline-size; }
         cancelAnimationFrame(this._raf);
       }
 
-      /* ---------- geometry & Stable Fibonacci 3D distribution ---------- */
+      /* ---------- geometry ---------- */
 
       _buildRings() {
         const ell = (rx, ry, rot, op, dash) =>
@@ -1922,6 +1960,7 @@ topic-orb { display:block; container-type:inline-size; }
         s.addEventListener('pointerleave', () => { this.hover = false; });
 
         s.addEventListener('pointerdown', e => {
+          if (e.target.closest('.orb-nav-left') || e.target.closest('.orb-nav-right')) return;
           s.setPointerCapture(e.pointerId);
           s.classList.add('is-drag');
           this.drag = { x: e.clientX, y: e.clientY, moved: 0 };
@@ -1930,11 +1969,11 @@ topic-orb { display:block; container-type:inline-size; }
 
         s.addEventListener('pointermove', e => {
           if (!this.drag) return;
-          const dx = e.clientX - this.drag.x, dy = e.clientY - this.drag.y, k = 0.005;
+          const dx = e.clientX - this.drag.x, dy = e.clientY - this.drag.y, k = 0.008;
           this.yaw += dx * k;
-          this.pitch = Math.max(-1.05, Math.min(1.05, this.pitch + dy * k * 0.6));
-          this.vYaw = dx * k * 0.4;
-          this.vPitch = dy * k * 0.3;
+          this.pitch = Math.max(-1.05, Math.min(1.05, this.pitch + dy * k * 0.7));
+          this.vYaw = dx * k * 0.5;
+          this.vPitch = dy * k * 0.35;
           this.drag.moved += Math.abs(dx) + Math.abs(dy);
           this.drag.x = e.clientX; this.drag.y = e.clientY;
           this._render();
@@ -1942,12 +1981,25 @@ topic-orb { display:block; container-type:inline-size; }
 
         const end = () => {
           if (!this.drag) return;
-          if (this.drag.moved < 4) this.vYaw = this.vYaw || 0.0016;
+          if (this.drag.moved < 4) this.vYaw = this.vYaw || 0.0025;
           this.drag = null;
           s.classList.remove('is-drag');
         };
         s.addEventListener('pointerup', end);
         s.addEventListener('pointercancel', end);
+
+        if (this.btnLeft) {
+          this.btnLeft.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.vYaw = -0.012;
+          });
+        }
+        if (this.btnRight) {
+          this.btnRight.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.vYaw = 0.012;
+          });
+        }
 
         this.cta.addEventListener('click', () => {
           if (!this.picked) return;
@@ -1969,22 +2021,22 @@ topic-orb { display:block; container-type:inline-size; }
           { detail: { topic: w.label }, bubbles: true }));
       }
 
-      /* ---------- motion ---------- */
+      /* ---------- motion & 3D container tilt ---------- */
 
       _tick() {
         this._raf = requestAnimationFrame(this._tick);
         if (!this.visible || this.drag) return;
 
-        const idle = 0.0016;
+        const idle = 0.0025;
         if (this.focus) {
           const dy = ((this.focus.yaw - this.yaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
-          this.yaw += dy * 0.06;
-          this.pitch += (this.focus.pitch - this.pitch) * 0.06;
+          this.yaw += dy * 0.07;
+          this.pitch += (this.focus.pitch - this.pitch) * 0.07;
           if (Math.abs(dy) < 0.004) { this.focus = null; this.vYaw = idle * 0.5; }
         } else {
-          this.vYaw += (idle - this.vYaw) * 0.01;
+          this.vYaw += (idle - this.vYaw) * 0.012;
           this.vPitch *= 0.94;
-          const slow = this.hover ? 0.25 : 1;
+          const slow = this.hover ? 0.3 : 1;
           this.yaw += this.vYaw * slow * (this.reduced ? 0.2 : 1);
           this.pitch += this.vPitch * slow;
           this.pitch += (-0.06 - this.pitch) * 0.004;
@@ -1996,6 +2048,13 @@ topic-orb { display:block; container-type:inline-size; }
         if (!this.words) return;
         const box = this.stage.getBoundingClientRect();
         if (!box.width) return;
+
+        // Apply 3D pitch/tilt transformation to the outer Globe Shell & Rings!
+        const pitchDeg = (this.pitch * 24).toFixed(1);
+        const yawDeg = (this.yaw * 12).toFixed(1);
+        if (this.shell) this.shell.style.transform = `rotateX(${pitchDeg}deg) rotateY(${yawDeg}deg)`;
+        if (this.rings) this.rings.style.transform = `rotateX(${pitchDeg}deg) rotateY(${yawDeg}deg)`;
+        if (this.glow) this.glow.style.transform = `rotateX(${pitchDeg * 0.5}deg)`;
 
         const R = box.width * 0.44, cx = box.width / 2, cy = box.height / 2;
         const FOV = R * 3.1;
