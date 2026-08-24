@@ -1695,67 +1695,67 @@ const pebbleWordsAbsolute = [
 ];
 
 
-// ══════════ 3D EARTH GLOBE COMPONENT (COUNTRY-PINNED & 23.5° AXIAL TILT) ══════════
+// ══════════ REAL 3D CANVAS & SVG EARTH GLOBE COMPONENT ══════════
 const countryTopics = [
-  { text: 'BURNOUT', lat: 20, lng: 0, major: true, color: '#1B3B2B', region: 'Core' },
-  { text: 'OVERTHINKING', lat: 40, lng: 50, major: true, color: '#4A3B5C', region: 'Mind' },
-  { text: 'CAREER', lat: 35, lng: -60, major: true, color: '#1E4A32', region: 'Growth' },
-  { text: 'RELATIONSHIPS', lat: -15, lng: 40, major: true, color: '#6B3843', region: 'Life' },
-  { text: 'CLARITY', lat: 10, lng: 110, major: true, color: '#15422D', region: 'Focus' },
-  { text: 'MONEY', lat: -25, lng: -50, major: true, color: '#594432', region: 'Wealth' },
-  { text: 'IDENTITY', lat: 50, lng: 130, major: true, color: '#443754', region: 'Self' },
-  { text: 'PURPOSE', lat: -30, lng: 120, major: true, color: '#2C4736', region: 'Soul' },
-  { text: 'ANXIETY', lat: 60, lng: -20, major: true, color: '#484654', region: 'Mind' },
-  { text: 'SELF DOUBT', lat: 45, lng: -110, major: true, color: '#3A423F', region: 'Self' },
-  { text: 'PEACE OF MIND', lat: -10, lng: -120, major: true, color: '#273B2E', region: 'Peace' },
-  { text: 'HEALTH', lat: 0, lng: 60, major: true, color: '#2B3B2E', region: 'Body' },
-  { text: 'GROWTH', lat: -40, lng: 0, major: true, color: '#27382B', region: 'Growth' },
-  { text: 'BIG DECISIONS', lat: 25, lng: -160, major: true, color: '#42473D', region: 'Focus' },
-  { text: 'CONFIDENCE', lat: 15, lng: -80, major: true, color: '#3B423A', region: 'Self' },
-  { text: 'FUTURE', lat: 55, lng: 70, major: true, color: '#4F3F5C', region: 'Time' },
-  { text: 'INNER PEACE', lat: -45, lng: -80, major: true, color: '#334A3C', region: 'Peace' },
-  { text: 'MOTIVATION', lat: 30, lng: 160, major: true, color: '#574F44', region: 'Drive' },
-  { text: 'Stress', lat: 65, lng: 20, major: false, color: '#524D59', region: 'Mind' },
-  { text: 'Feeling stuck', lat: -50, lng: 60, major: false, color: '#454C44', region: 'Focus' },
-  { text: 'Pressure', lat: 38, lng: 15, major: false, color: '#4D4552', region: 'Mind' },
-  { text: 'Overwhelm', lat: 52, lng: -70, major: false, color: '#523847', region: 'Mind' },
-  { text: 'Boundaries', lat: -20, lng: -20, major: false, color: '#4D4F46', region: 'Life' },
-  { text: 'Procrastination', lat: 12, lng: -35, major: false, color: '#54463A', region: 'Drive' },
-  { text: 'Bullying', lat: -35, lng: -140, major: false, color: '#593840', region: 'Life' },
-  { text: 'Self care', lat: -5, lng: -155, major: false, color: '#405242', region: 'Peace' },
-  { text: 'What next?', lat: 48, lng: -150, major: false, color: '#524B43', region: 'Time' },
-  { text: 'Communication', lat: -12, lng: 85, major: false, color: '#57473E', region: 'Life' },
-  { text: 'Fulfillment', lat: 62, lng: 100, major: false, color: '#4A3D52', region: 'Soul' },
-  { text: 'Resilience', lat: -58, lng: 140, major: false, color: '#3A4F41', region: 'Self' },
-  { text: 'Conflict', lat: -22, lng: 160, major: false, color: '#5E484B', region: 'Life' },
-  { text: 'Time management', lat: 28, lng: 80, major: false, color: '#454A42', region: 'Focus' },
-  { text: 'Family', lat: 5, lng: 25, major: false, color: '#524942', region: 'Life' },
-  { text: 'Breakup', lat: -38, lng: 90, major: false, color: '#5E4447', region: 'Life' },
-  { text: 'Work pressure', lat: 32, lng: -130, major: false, color: '#4C4644', region: 'Growth' },
-  { text: 'Work life balance', lat: -18, lng: -70, major: false, color: '#434C44', region: 'Peace' },
-  { text: 'Starting over', lat: -62, lng: -40, major: false, color: '#444A43', region: 'Time' },
-  { text: 'Friendship', lat: 18, lng: -10, major: false, color: '#4F4B45', region: 'Life' },
-  { text: 'Productivity', lat: 42, lng: -40, major: false, color: '#4B524A', region: 'Drive' },
-  { text: 'Comparison trap', lat: 58, lng: -170, major: false, color: '#4F424D', region: 'Self' },
-  { text: 'Balance', lat: -48, lng: -160, major: false, color: '#434F46', region: 'Peace' },
-  { text: 'Connection', lat: -5, lng: 145, major: false, color: '#544A46', region: 'Life' },
-  { text: 'Loneliness', lat: -28, lng: -100, major: false, color: '#4A4652', region: 'Life' },
-  { text: 'Mindset', lat: 22, lng: 45, major: false, color: '#3E4B42', region: 'Self' },
-  { text: 'Self esteem', lat: -42, lng: 30, major: false, color: '#4F423D', region: 'Self' }
+  { text: 'BURNOUT', lat: 20, lng: 0, major: true, color: '#1C3B2B' },
+  { text: 'OVERTHINKING', lat: 45, lng: 55, major: true, color: '#4A3B5C' },
+  { text: 'CAREER', lat: 35, lng: -65, major: true, color: '#1E4A32' },
+  { text: 'RELATIONSHIPS', lat: -15, lng: 45, major: true, color: '#6B3843' },
+  { text: 'CLARITY', lat: 12, lng: 115, major: true, color: '#15422D' },
+  { text: 'MONEY', lat: -25, lng: -45, major: true, color: '#594432' },
+  { text: 'IDENTITY', lat: 52, lng: 135, major: true, color: '#443754' },
+  { text: 'PURPOSE', lat: -32, lng: 125, major: true, color: '#2C4736' },
+  { text: 'ANXIETY', lat: 62, lng: -15, major: true, color: '#484654' },
+  { text: 'SELF DOUBT', lat: 48, lng: -105, major: true, color: '#3A423F' },
+  { text: 'PEACE OF MIND', lat: -8, lng: -115, major: true, color: '#273B2E' },
+  { text: 'HEALTH', lat: 2, lng: 65, major: true, color: '#2B3B2E' },
+  { text: 'GROWTH', lat: -42, lng: 5, major: true, color: '#27382B' },
+  { text: 'BIG DECISIONS', lat: 28, lng: -155, major: true, color: '#42473D' },
+  { text: 'CONFIDENCE', lat: 18, lng: -75, major: true, color: '#3B423A' },
+  { text: 'FUTURE', lat: 58, lng: 75, major: true, color: '#4F3F5C' },
+  { text: 'INNER PEACE', lat: -42, lng: -75, major: true, color: '#334A3C' },
+  { text: 'MOTIVATION', lat: 32, lng: 165, major: true, color: '#574F44' },
+  { text: 'Stress', lat: 68, lng: 25, major: false, color: '#524D59' },
+  { text: 'Feeling stuck', lat: -48, lng: 65, major: false, color: '#454C44' },
+  { text: 'Pressure', lat: 40, lng: 20, major: false, color: '#4D4552' },
+  { text: 'Overwhelm', lat: 55, lng: -65, major: false, color: '#523847' },
+  { text: 'Boundaries', lat: -18, lng: -15, major: false, color: '#4D4F46' },
+  { text: 'Procrastination', lat: 15, lng: -30, major: false, color: '#54463A' },
+  { text: 'Bullying', lat: -32, lng: -135, major: false, color: '#593840' },
+  { text: 'Self care', lat: -2, lng: -150, major: false, color: '#405242' },
+  { text: 'What next?', lat: 50, lng: -145, major: false, color: '#524B43' },
+  { text: 'Communication', lat: -10, lng: 90, major: false, color: '#57473E' },
+  { text: 'Fulfillment', lat: 65, lng: 105, major: false, color: '#4A3D52' },
+  { text: 'Resilience', lat: -55, lng: 145, major: false, color: '#3A4F41' },
+  { text: 'Conflict', lat: -20, lng: 165, major: false, color: '#5E484B' },
+  { text: 'Time management', lat: 30, lng: 85, major: false, color: '#454A42' },
+  { text: 'Family', lat: 8, lng: 30, major: false, color: '#524942' },
+  { text: 'Breakup', lat: -35, lng: 95, major: false, color: '#5E4447' },
+  { text: 'Work pressure', lat: 35, lng: -125, major: false, color: '#4C4644' },
+  { text: 'Work life balance', lat: -15, lng: -65, major: false, color: '#434C44' },
+  { text: 'Starting over', lat: -60, lng: -35, major: false, color: '#444A43' },
+  { text: 'Friendship', lat: 22, lng: -5, major: false, color: '#4F4B45' },
+  { text: 'Productivity', lat: 45, lng: -35, major: false, color: '#4B524A' },
+  { text: 'Comparison trap', lat: 60, lng: -165, major: false, color: '#4F424D' },
+  { text: 'Balance', lat: -45, lng: -155, major: false, color: '#434F46' },
+  { text: 'Connection', lat: -2, lng: 150, major: false, color: '#544A46' },
+  { text: 'Loneliness', lat: -25, lng: -95, major: false, color: '#4A4652' },
+  { text: 'Mindset', lat: 25, lng: 50, major: false, color: '#3E4B42' },
+  { text: 'Self esteem', lat: -40, lng: 35, major: false, color: '#4F423D' }
 ];
 
 const Interactive3DEarthGlobe = ({ onSelectWord }) => {
   const [soundOn, setSoundOn] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Globe rotation angle state (in radians)
-  // Default 23.5 degrees axial tilt (0.41 rads)
+  // Rotation angles in radians (rotY: longitude spin, rotX: latitude tilt)
   const [rotY, setRotY] = useState(0.8);
   const [rotX, setRotX] = useState(0.2);
 
+  const canvasRef = useRef(null);
   const isDragging = useRef(false);
   const previousMousePos = useRef({ x: 0, y: 0 });
-  const vel = useRef({ x: 0, y: 0.003 }); // Smooth steady planetary spin speed
+  const vel = useRef({ x: 0, y: 0.003 });
   const audioCtxRef = useRef(null);
 
   const playAmbientSound = useCallback((freq = 440) => {
@@ -1781,9 +1781,9 @@ const Interactive3DEarthGlobe = ({ onSelectWord }) => {
     } catch (e) {}
   }, [soundOn]);
 
-  // Convert Latitude / Longitude to 3D Cartesian Coordinates on Globe Surface (R = 210px)
+  // Spherical Coordinates (R = 210px)
   const globePoints = useMemo(() => {
-    const R = 210; // Globe sphere radius
+    const R = 210;
     return countryTopics.map(item => {
       const latRad = (item.lat * Math.PI) / 180;
       const lngRad = (item.lng * Math.PI) / 180;
@@ -1796,17 +1796,114 @@ const Interactive3DEarthGlobe = ({ onSelectWord }) => {
     });
   }, []);
 
-  // Ultra-Smooth 60FPS Planetary Spin Animation Loop
+  // Render 3D Earth Globe Surface Graticules & Continents on HTML5 Canvas
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const width = canvas.width;
+    const height = canvas.height;
+    const cx = width / 2;
+    const cy = height / 2;
+    const R = 210;
+
+    ctx.clearRect(0, 0, width, height);
+
+    // 1. Globe Base Shading (Spherical Radial Gradient)
+    const globeGrad = ctx.createRadialGradient(cx - 60, cy - 70, 20, cx, cy, R);
+    globeGrad.addColorStop(0, '#FFFFFF');
+    globeGrad.addColorStop(0.35, '#F5F9F6');
+    globeGrad.addColorStop(0.75, '#E2EDE6');
+    globeGrad.addColorStop(1, '#C2D9CB');
+
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+    ctx.fillStyle = globeGrad;
+    ctx.fill();
+
+    // Globe Atmosphere Rim & Specular Ring
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // 2. Render Dynamic 3D Latitude Circles (Parallels)
+    const cosX = Math.cos(rotX);
+    const sinX = Math.sin(rotX);
+    const cosY = Math.cos(rotY);
+    const sinY = Math.sin(rotY);
+
+    ctx.strokeStyle = 'rgba(45, 110, 75, 0.18)';
+    ctx.lineWidth = 1.2;
+
+    [-60, -30, 0, 30, 60].forEach(lat => {
+      ctx.beginPath();
+      const latRad = (lat * Math.PI) / 180;
+      const rLat = R * Math.cos(latRad);
+      const yLat = R * Math.sin(latRad);
+
+      let first = true;
+      for (let a = 0; a <= 360; a += 10) {
+        const lngRad = (a * Math.PI) / 180;
+        const px = rLat * Math.cos(lngRad);
+        const pz = rLat * Math.sin(lngRad);
+
+        // Rotate Y & X
+        const x1 = px * cosY + pz * sinY;
+        const z1 = -px * sinY + pz * cosY;
+        const y2 = yLat * cosX - z1 * sinX;
+        const z2 = yLat * sinX + z1 * cosX;
+
+        if (z2 > -30) {
+          const sx = cx + x1;
+          const sy = cy - y2;
+          if (first) { ctx.moveTo(sx, sy); first = false; }
+          else { ctx.lineTo(sx, sy); }
+        } else {
+          first = true;
+        }
+      }
+      ctx.stroke();
+    });
+
+    // 3. Render Dynamic 3D Longitude Circles (Meridians)
+    for (let lng = 0; lng < 360; lng += 30) {
+      ctx.beginPath();
+      const lngRad = (lng * Math.PI) / 180;
+      let first = true;
+
+      for (let lat = -90; lat <= 90; lat += 10) {
+        const latRad = (lat * Math.PI) / 180;
+        const px = R * Math.cos(latRad) * Math.cos(lngRad);
+        const yLat = R * Math.sin(latRad);
+        const pz = R * Math.cos(latRad) * Math.sin(lngRad);
+
+        const x1 = px * cosY + pz * sinY;
+        const z1 = -px * sinY + pz * cosY;
+        const y2 = yLat * cosX - z1 * sinX;
+        const z2 = yLat * sinX + z1 * cosX;
+
+        if (z2 > -30) {
+          const sx = cx + x1;
+          const sy = cy - y2;
+          if (first) { ctx.moveTo(sx, sy); first = false; }
+          else { ctx.lineTo(sx, sy); }
+        } else {
+          first = true;
+        }
+      }
+      ctx.stroke();
+    }
+  }, [rotX, rotY]);
+
+  // 60FPS Planetary Spin Loop
   useEffect(() => {
     let animId;
     const animate = () => {
       if (!isDragging.current) {
-        // Slow continuous planetary spin along Earth Y-axis
         const speed = isHovered ? 0.35 : 1.0;
         setRotY(prev => prev + vel.current.y * speed);
         setRotX(prev => prev + vel.current.x * speed);
 
-        // Soft inertia momentum decay back to steady spin
         vel.current.x *= 0.95;
         vel.current.y = vel.current.y * 0.96 + 0.0025 * 0.04;
       }
@@ -1829,7 +1926,7 @@ const Interactive3DEarthGlobe = ({ onSelectWord }) => {
     vel.current = { x: dy * 0.002, y: dx * 0.0025 };
 
     setRotY(prev => prev + dx * 0.0035);
-    setRotX(prev => Math.max(-1.2, Math.min(1.2, prev + dy * 0.0035)));
+    setRotX(prev => Math.max(-1.1, Math.min(1.1, prev + dy * 0.0035)));
 
     previousMousePos.current = { x: e.clientX, y: e.clientY };
     if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
@@ -1841,58 +1938,39 @@ const Interactive3DEarthGlobe = ({ onSelectWord }) => {
     isDragging.current = false;
   };
 
-  // 3D Sphere Transformation with 23.5° Earth Axial Tilt
+  // Compute 3D Projected Pinned Country Tags
   const projectedCountryTags = useMemo(() => {
-    const axialTilt = 0.41; // 23.5 degrees in radians
-    const cosTilt = Math.cos(axialTilt);
-    const sinTilt = Math.sin(axialTilt);
-
     const cosY = Math.cos(rotY);
     const sinY = Math.sin(rotY);
     const cosX = Math.cos(rotX);
     const sinX = Math.sin(rotX);
 
     return globePoints.map(node => {
-      // 1. Rotate Y (Longitude spin)
-      let x1 = node.origX * cosY + node.origZ * sinY;
-      let z1 = -node.origX * sinY + node.origZ * cosY;
-      let y1 = node.origY;
+      const x1 = node.origX * cosY + node.origZ * sinY;
+      const z1 = -node.origX * sinY + node.origZ * cosY;
 
-      // 2. Rotate X (User drag tilt)
-      let y2 = y1 * cosX - z1 * sinX;
-      let z2 = y1 * sinX + z1 * cosX;
-      let x2 = x1;
-
-      // 3. Apply Earth's 23.5° Axial Tilt around Z axis
-      let x3 = x2 * cosTilt - y2 * sinTilt;
-      let y3 = x2 * sinTilt + y2 * cosTilt;
-      let z3 = z2;
+      const y2 = node.origY * cosX - z1 * sinX;
+      const z2 = node.origY * sinX + z1 * cosX;
 
       const perspective = 500;
-      const scale = perspective / (perspective - z3);
-      const projX = x3 * scale;
-      const projY = y3 * scale;
+      const scale = perspective / (perspective - z2);
+      const projX = x1 * scale;
+      const projY = -y2 * scale; // Flip Y for canvas coords
 
-      // Front vs Back Hemisphere Occlusion
-      const isFront = z3 > -20;
-      const opacity = isFront 
-        ? Math.min(1.0, Math.max(0.35, (z3 + 120) / 330)) 
-        : Math.max(0.08, (z3 + 220) / 400);
-
-      // Tangential angle for country text curvature along sphere
-      const angleDeg = Math.atan2(projY, projX) * (180 / Math.PI) * 0.15;
+      // Only display tags on the front visible hemisphere!
+      const isFront = z2 > 10;
+      const opacity = isFront ? Math.min(1.0, Math.max(0.4, (z2 + 50) / 260)) : 0;
 
       return {
         ...node,
         projX,
         projY,
-        z3,
+        z2,
         scale,
         opacity,
-        isFront,
-        angleDeg
+        isFront
       };
-    }).sort((a, b) => a.z3 - b.z3);
+    }).filter(item => item.isFront).sort((a, b) => a.z2 - b.z2);
   }, [globePoints, rotY, rotX]);
 
   return (
@@ -1943,7 +2021,7 @@ const Interactive3DEarthGlobe = ({ onSelectWord }) => {
           const dx = e.touches[0].clientX - previousMousePos.current.x;
           const dy = e.touches[0].clientY - previousMousePos.current.y;
           setRotY(prev => prev + dx * 0.0035);
-          setRotX(prev => Math.max(-1.2, Math.min(1.2, prev + dy * 0.0035)));
+          setRotX(prev => Math.max(-1.1, Math.min(1.1, prev + dy * 0.0035)));
           previousMousePos.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
         }}
         onTouchEnd={() => { isDragging.current = false; }}
@@ -1966,25 +2044,10 @@ const Interactive3DEarthGlobe = ({ onSelectWord }) => {
           ›
         </button>
 
-        {/* Real 3D Tilted Earth Globe Sphere */}
-        <div className="earth-sphere-body real-globe-tilted">
-          {/* Earth Grid & Continent Outline SVG */}
-          <svg className="earth-graticule-svg" viewBox="0 0 500 500">
-            {/* Earth Atmosphere Outer Glow */}
-            <circle cx="250" cy="250" r="235" fill="none" stroke="rgba(58, 151, 117, 0.35)" strokeWidth="3" />
-            
-            {/* Latitude Grid Circles */}
-            <ellipse cx="250" cy="250" rx="230" ry="230" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="2" />
-            <ellipse cx="250" cy="250" rx="228" ry="75" fill="none" stroke="rgba(58, 151, 117, 0.28)" strokeWidth="1.2" strokeDasharray="5 4" transform={`rotate(${rotX * 15} 250 250)`} />
-            <ellipse cx="250" cy="250" rx="228" ry="150" fill="none" stroke="rgba(58, 151, 117, 0.22)" strokeWidth="1.2" strokeDasharray="5 4" transform={`rotate(${rotX * 15} 250 250)`} />
-            
-            {/* Longitude Meridians */}
-            <ellipse cx="250" cy="250" rx="75" ry="228" fill="none" stroke="rgba(58, 151, 117, 0.28)" strokeWidth="1.2" strokeDasharray="5 4" transform={`rotate(${rotY * 25} 250 250)`} />
-            <ellipse cx="250" cy="250" rx="150" ry="228" fill="none" stroke="rgba(58, 151, 117, 0.22)" strokeWidth="1.2" strokeDasharray="5 4" transform={`rotate(${rotY * 25} 250 250)`} />
-          </svg>
-        </div>
+        {/* 3D Canvas Earth Globe Sphere */}
+        <canvas ref={canvasRef} width={500} height={500} className="earth-canvas-sphere" />
 
-        {/* Pinned Country Topic Labels */}
+        {/* Pinned Country Topic Labels (Front Hemisphere Only) */}
         <div className="globe-nodes-container">
           {projectedCountryTags.map((node, idx) => {
             const fontSize = node.major ? Math.max(12, 19 * node.scale) : Math.max(9, 12.5 * node.scale);
@@ -1992,15 +2055,15 @@ const Interactive3DEarthGlobe = ({ onSelectWord }) => {
             return (
               <div
                 key={idx}
-                className={`country-topic-pin ${node.major ? 'major-country' : ''} ${node.isFront ? 'front-hemisphere' : 'back-hemisphere'}`}
+                className={`country-topic-pin ${node.major ? 'major-country' : ''}`}
                 style={{
                   left: `calc(50% + ${node.projX}px)`,
                   top: `calc(50% + ${node.projY}px)`,
-                  transform: `translate(-50%, -50%) scale(${node.scale}) rotate(${node.angleDeg}deg)`,
+                  transform: `translate(-50%, -50%) scale(${node.scale})`,
                   opacity: node.opacity,
                   fontSize: `${fontSize}px`,
                   color: node.color,
-                  zIndex: Math.floor(node.z3 + 300)
+                  zIndex: Math.floor(node.z2 + 300)
                 }}
                 onClick={() => {
                   playAmbientSound(600);

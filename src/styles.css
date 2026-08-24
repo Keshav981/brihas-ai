@@ -9191,3 +9191,20 @@ footer, .footer {
   z-index: 600 !important;
   box-shadow: 0 12px 30px rgba(35, 116, 70, 0.25) !important;
 }
+
+
+/* ══════════ REAL 3D CANVAS EARTH GLOBE STYLING ══════════ */
+.earth-canvas-sphere {
+  width: 480px !important;
+  height: 480px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 90px rgba(58, 151, 117, 0.22), inset 0 0 60px rgba(255, 255, 255, 0.9), 0 35px 70px -15px rgba(28, 43, 33, 0.12) !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 760px) {
+  .earth-canvas-sphere {
+    width: 330px !important;
+    height: 330px !important;
+  }
+}
