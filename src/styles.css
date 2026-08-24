@@ -9610,3 +9610,24 @@ footer, .footer {
   50% { transform: translate(-50%, -50%) translateY(3px); }
   100% { transform: translate(-50%, -50%) translateY(-3px); }
 }
+
+
+/* ══════════ LEFT-ALIGNED WORD CLOUD & CAPSULE HEADER (MATCHING HOW IT WORKS) ══════════ */
+.weighing-mind-section .wrap {
+  text-align: left !important;
+}
+
+.starting-word-cloud-container {
+  width: 100% !important;
+  max-width: 860px !important;
+  margin: 0 !important;
+}
+
+.pebble-blob-card {
+  margin: 0 !important;
+}
+
+.orb-top-header {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
