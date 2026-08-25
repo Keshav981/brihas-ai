@@ -10069,3 +10069,25 @@ footer, .footer {
     border-radius: 8px !important;
   }
 }
+
+
+/* ══════════ MATCH HERO HEADLINE LINE SIZES ══════════ */
+.hero-title-main {
+  font-size: clamp(34px, 5.2vw, 62px) !important;
+  line-height: 1.15 !important;
+  font-weight: 800 !important;
+}
+
+.hero-line-dark {
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  color: #1A221B !important;
+}
+
+.hero-line-bronze {
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  color: #A87E50 !important;
+}
