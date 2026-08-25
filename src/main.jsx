@@ -2835,7 +2835,49 @@ function App() {
           <BrihasLogo size={32} />
         </a>
       </div>
-      {/* Exact Hero Stage with Dynamic Cursor Mouse Tracking Background Mesh */}
+      {/* Restored Top Navigation Bar Header */}
+      <header className="nav-brihas-exact">
+        <div className="nav__inner">
+          <a href="#top" style={{ textDecoration: 'none' }}>
+            <BrihasLogo size={26} />
+          </a>
+          <nav className="nav__links">
+            <a href="#what">What it is</a>
+            <a href="#topics">What's on your mind</a>
+            <a href="#how">How it works</a>
+            <a href="#plans">Plans</a>
+          </nav>
+          <div className="nav__right">
+            <a href="#plans" className="nav-signin-link">Sign in</a>
+            <a href="#plans" className="btn-ghost">Begin Here</a>
+            <button className="mobile-menu-btn" onClick={() => setMobileMenu(!mobileMenu)} aria-label="Toggle menu">
+              <Icon name={mobileMenu ? "close" : "menu"} size={22}/>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Navigation Overlay */}
+      <AnimatePresence>
+        {mobileMenu && (
+          <motion.div 
+            className="mobile-drawer"
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.2 }}
+          >
+            <a href="#what" onClick={() => setMobileMenu(false)}>What it is</a>
+            <a href="#topics" onClick={() => setMobileMenu(false)}>What's on your mind</a>
+            <a href="#how" onClick={() => setMobileMenu(false)}>How it works</a>
+            <a href="#plans" onClick={() => setMobileMenu(false)}>Plans</a>
+            <a href="#plans" onClick={() => setMobileMenu(false)} className="nav-signin-link">Sign in</a>
+            <a href="#plans" onClick={() => setMobileMenu(false)} className="button button-dark">Begin Here</a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+{/* Exact Hero Stage with Dynamic Cursor Mouse Tracking Background Mesh */}
       {/* Editorial Centered Hero Section */}
       <section className="hero-exact">
         <div className="hero__inner">
