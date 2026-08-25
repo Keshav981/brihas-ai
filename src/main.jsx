@@ -2740,6 +2740,31 @@ const Hero3DOrbConstellationStage = () => {
   );
 };
 
+// ══════════ OFFICIAL BRIHAS.AI LOGO COMPONENT ══════════
+const BrihasLogo = ({ size = 28, showTag = true, className = "" }) => (
+  <div className={`brihas-official-logo-brand ${className}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+    {/* Abstract Human Apex Chevron Icon */}
+    <svg width={size} height={size} viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+      <circle cx="18" cy="6" r="3" fill="#1C251D" />
+      <path d="M 6 26 L 18 13 L 30 26" stroke="#1C251D" strokeWidth="3.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+    
+    {/* Serif Typography */}
+    <span style={{ 
+      fontFamily: "'Playfair Display', Georgia, serif", 
+      fontSize: size >= 32 ? '28px' : '22px', 
+      fontWeight: 500, 
+      color: '#1C251D', 
+      letterSpacing: '-0.01em',
+      lineHeight: 1,
+      display: 'inline-flex',
+      alignItems: 'baseline'
+    }}>
+      brihas.ai<sup style={{ fontSize: '11px', fontWeight: 400, marginLeft: '2px', color: '#6E8A72' }}>™</sup>
+    </span>
+  </div>
+);
+
 function App() {
   const [openFaq, setOpenFaq] = useState(0);
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -2804,6 +2829,12 @@ function App() {
   return (
     <>
     <main id="top">
+      {/* Top Brand Header displaying Official Brihas.ai Logo */}
+      <div className="wrap brand-top-bar" style={{ paddingTop: '28px', paddingBottom: '12px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+        <a href="#top" aria-label="Brihas.ai Home">
+          <BrihasLogo size={32} />
+        </a>
+      </div>
       {/* Exact Hero Stage with Dynamic Cursor Mouse Tracking Background Mesh */}
       {/* Editorial Centered Hero Section */}
       <section className="hero-exact">
@@ -3359,7 +3390,7 @@ function App() {
     {/* Footer */}
     <footer>
       <div className="wrap footer-top">
-        <a className="brand" href="#top">brihas<span>.ai</span><sup>™</sup></a>
+        <a href="#top" style={{ textDecoration: 'none' }}><BrihasLogo size={28} /></a>
         <p>Think clearly. Decide better.<br/>Move forward with confidence.</p>
         <a className="button button-dark" href="#plans">Begin here <Icon name="arrow"/></a>
       </div>

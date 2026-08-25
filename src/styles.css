@@ -9704,3 +9704,18 @@ footer, .footer {
   -webkit-backdrop-filter: none !important;
   padding: 0 !important;
 }
+
+
+/* ══════════ OFFICIAL BRIHAS.AI LOGO STYLING ══════════ */
+.brihas-official-logo-brand {
+  transition: opacity 0.2s ease !important;
+}
+
+.brihas-official-logo-brand:hover {
+  opacity: 0.85 !important;
+}
+
+.brand-top-bar {
+  position: relative !important;
+  z-index: 20 !important;
+}
