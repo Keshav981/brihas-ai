@@ -10343,3 +10343,11 @@ footer, .footer {
   color: #5E685F !important;
   margin-top: 2px !important;
 }
+
+
+/* ══════════ MORE PLANS: REFLECT BUTTON STYLING ══════════ */
+.reflect-plan-more-btn:hover {
+  background: #237446 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 20px rgba(35, 116, 70, 0.2) !important;
+}
