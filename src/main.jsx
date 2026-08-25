@@ -3413,8 +3413,8 @@ function App() {
 
               <ul className="tier-features-list check-green">
                 <li><span className="chk">✓</span> <span>Everything in Converse</span></li>
-                <li><span className="chk">✓</span> <span>Personalised 3-day &amp; 7-day action plans</span></li>
-                                <li><span className="chk">✓</span> <span>Mind map: identity, values, beliefs, goals and life events</span></li>
+                <li><span className="chk">✓</span> <span>Personalised 3-day &amp; 7-day plans</span></li>
+                                <li><span className="chk">✓</span> <span>Mind map: identity, goal, beliefs and more</span></li>
               </ul>
 
               <div className="tier-action-bottom">
