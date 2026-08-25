@@ -1544,11 +1544,8 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
     <motion.section className="section how-mock-style" id="how" {...sectionMotion}>
       <div className="wrap">
         {/* Section Header */}
-        <div className="how-mock-header" style={{ textAlign: 'left', marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
-          <p className="eyebrow green-eyebrow" style={{ marginBottom: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> HOW IT WORKS</p>
-          <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(22px, 3.5vw, 28px)', fontWeight: 600, color: '#1C251D', margin: 0, textAlign: 'left' }}>
-            Clarity begins with a conversation.
-          </h2>
+        <div className="how-mock-header" style={{ textAlign: 'left', marginBottom: '24px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
+          <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> HOW IT WORKS</p>
         </div>
 
         {/* 4 Pipeline Step Cards Row */}
@@ -1857,7 +1854,7 @@ topic-orb { display:block; container-type:inline-size; width:100%; }
               <span>INTERACTIVE MIND MAP</span>
             </div>
             <h3>What&rsquo;s on <em>your mind?</em></h3>
-            <p class="orb-sub">Explore what matters to you.</p>
+            
           </div>
           <div class="orb-right-col">
             <div class="orb-stage">
@@ -3794,11 +3791,8 @@ function App() {
       {/* Plans Section - Prices Hidden */}
       <motion.section className="section plans" id="plans" {...sectionMotion}>
         <div className="wrap">
-          <div className="plans-main-header" style={{ textAlign: 'left', marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
-            <p className="eyebrow green-eyebrow" style={{ marginBottom: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> PLANS &amp; PRICING</p>
-            <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(22px, 3.5vw, 28px)', fontWeight: 600, color: '#1C251D', margin: 0, textAlign: 'left' }}>
-              Choose the depth that fits your journey.
-            </h2>
+          <div className="plans-main-header" style={{ textAlign: 'left', marginBottom: '24px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
+            <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> PLANS &amp; PRICING</p>
           </div>
 
           {/* 3 Tier Pricing Cards Grid matching target image */}
@@ -3985,11 +3979,8 @@ function App() {
 
       {/* FAQ Section */}
       <section className="faq wrap" id="faq">
-        <div className="faq-main-header" style={{ textAlign: 'left', marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
-          <p className="eyebrow green-eyebrow" style={{ marginBottom: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> FAQ</p>
-          <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(22px, 3.5vw, 28px)', fontWeight: 600, color: '#1C251D', margin: 0, textAlign: 'left' }}>
-            Everything you need to know.
-          </h2>
+        <div className="faq-main-header" style={{ textAlign: 'left', marginBottom: '24px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
+          <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> FAQ</p>
         </div>
         <div className="faq-list">
           {faqs.map(([q,a],i) => (
