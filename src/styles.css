@@ -9894,3 +9894,125 @@ footer, .footer {
     display: none !important;
   }
 }
+
+
+/* ══════════ COMPREHENSIVE MOBILE RESPONSIVENESS OVERRIDES ══════════ */
+@media (max-width: 768px) {
+  /* Global Container & Padding */
+  .wrap {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Top Navbar */
+  .target-nav-inner {
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+  }
+
+  .target-nav-brand {
+    font-size: 20px !important;
+  }
+
+  /* Hero Section */
+  .hero-exact {
+    padding-top: 32px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .hero-title-main {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 24px !important;
+  }
+
+  .hero-line-dark, .hero-line-bronze {
+    display: block !important;
+  }
+
+  /* Search Input Bar */
+  .hq-bar {
+    max-width: 100% !important;
+    padding: 6px 6px 6px 16px !important;
+    border-radius: 100px !important;
+  }
+
+  .hq-input {
+    font-size: 15px !important;
+  }
+
+  .hq-go {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* Search Chips */
+  .hq-chips {
+    margin-top: 20px !important;
+  }
+
+  .hq-chips-lead {
+    font-size: 11px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .hq-chip-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+
+  .hq-chip {
+    padding: 7px 14px !important;
+    font-size: 13.5px !important;
+  }
+
+  /* Section 2: Word Cloud Container */
+  .starting-word-cloud-container {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .pebble-blob-card {
+    border-radius: 28px !important;
+    aspect-ratio: auto !important;
+    min-height: 380px !important;
+    padding: 20px 10px !important;
+  }
+
+  /* How It Works Pipeline Grid */
+  .how-new-steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Pricing Cards Grid */
+  .pricing-grid, .plans-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* Footer */
+  .footer-exact .footer-inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title-main {
+    font-size: 27px !important;
+  }
+
+  .hq-chip {
+    font-size: 12.5px !important;
+    padding: 6px 12px !important;
+  }
+
+  .pebble-absolute-tag {
+    font-size: 12px !important;
+  }
+}

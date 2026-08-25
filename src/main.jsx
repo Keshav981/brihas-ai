@@ -2873,9 +2873,7 @@ function App() {
             <span className="hero-line-bronze">For everything you carry alone.</span>
           </h1>
 
-          <p className="hero-sub-text">
-            Too important for a group chat. Too personal for a search bar.
-          </p>
+          
 
           {/* Search Box */}
           <form className="hq-bar" onSubmit={(e) => { e.preventDefault(); if (heroInputText.trim()) { const el = document.getElementById('topics'); if (el) el.scrollIntoView({ behavior: 'smooth' }); } }}>
