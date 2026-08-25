@@ -10116,3 +10116,69 @@ footer, .footer {
 .hero-line-dark, .hero-line-bronze {
   color: #1C251D !important;
 }
+
+
+/* ══════════ SINGLE ROW CHIPS, CENTERED SEARCH BAR & TAGLINE SPACING ══════════ */
+.hero-exact {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.hero-title-main {
+  margin-bottom: 28px !important;
+  text-align: center !important;
+}
+
+/* Centered Search Bar */
+.hero-exact .hq-bar {
+  margin: 0 auto 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  max-width: 640px !important;
+  width: 100% !important;
+}
+
+/* Single Row Chips */
+.hq-chips {
+  margin-top: 0 !important;
+  margin-bottom: 36px !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.hq-chip-container {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 12px !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  padding-bottom: 4px !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.hq-chip-container::-webkit-scrollbar {
+  display: none !important;
+}
+
+.hq-chip {
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 820px) {
+  .hq-chip-container {
+    justify-content: flex-start !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .hq-chip {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+  }
+}
