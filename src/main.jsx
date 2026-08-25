@@ -1693,15 +1693,13 @@ const ExactImageWordCloudSection = ({ onSelectWord }) => {
   return (
     <div className="starting-word-cloud-container">
       {/* Header */}
-      <div className="heading-bubble-container" style={{ marginBottom: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-        <div className="heading-bubble-badge" style={{ padding: '8px 20px' }}>
-          <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-            <i></i> WHAT&rsquo;S ON YOUR MIND?
-          </p>
-        </div>
-        <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(24px, 4vw, 34px)', fontWeight: 700, color: '#1C251D', margin: '4px 0 0', textAlign: 'center' }}>
-          Explore what matters to you.
+      <div className="heading-bubble-container" style={{ marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
+        <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 4.5vw, 42px)', fontWeight: 700, color: '#1C251D', margin: '0 0 6px', textAlign: 'left', lineHeight: 1.2 }}>
+          What&rsquo;s on <span style={{ fontStyle: 'italic', color: '#237446', fontWeight: 600 }}>your mind?</span>
         </h2>
+        <p className="section-subtitle" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(16px, 2.5vw, 20px)', color: '#6E786F', margin: 0, textAlign: 'left' }}>
+          Explore what matters to you.
+        </p>
       </div>
 
       {/* Oval Pebble Mesh Gradient Card */}
