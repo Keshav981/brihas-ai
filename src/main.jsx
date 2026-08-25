@@ -2829,7 +2829,7 @@ function App() {
   return (
     <>
     <main id="top">
-      {/* Top Header Navigation Bar Matching User Screenshot */}
+      {/* Top Header Navigation Bar with ONLY Logo Left and Hamburger Menu Right */}
       <header className="target-nav-header">
         <div className="target-nav-inner wrap">
           {/* Brand Logo Left */}
@@ -2837,27 +2837,14 @@ function App() {
             <span className="brand-bold">brihas</span><span className="brand-muted">.ai</span>
           </a>
 
-          {/* Center Navigation Links */}
-          <nav className="target-nav-center">
-            <a href="#topics">What&rsquo;s on your mind</a>
-            <a href="#how">How it works</a>
-            <a href="#plans">Plans</a>
-          </nav>
-
-          {/* Right Action Links & Hamburger Menu */}
-          <div className="target-nav-right">
-            <a href="#plans" className="target-signin">Sign in</a>
-            <a href="#plans" className="target-begin-btn">Begin Here</a>
-            
-            {/* Hamburger Button for Navigation */}
-            <button 
-              className="target-hamburger-btn" 
-              onClick={() => setMobileMenu(!mobileMenu)} 
-              aria-label="Toggle navigation menu"
-            >
-              <Icon name={mobileMenu ? "close" : "menu"} size={22} />
-            </button>
-          </div>
+          {/* Hamburger Button Right */}
+          <button 
+            className="target-hamburger-btn" 
+            onClick={() => setMobileMenu(!mobileMenu)} 
+            aria-label="Toggle navigation menu"
+          >
+            <Icon name={mobileMenu ? "close" : "menu"} size={24} />
+          </button>
         </div>
       </header>
 
