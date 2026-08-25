@@ -2760,6 +2760,7 @@ const BrihasLogo = ({ size = 28, showTag = true, className = "" }) => (
 
 function App() {
   const [openFaq, setOpenFaq] = useState(0);
+  const [showReflect, setShowReflect] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
@@ -3263,51 +3264,6 @@ function App() {
             <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> PLANS &amp; PRICING</p>
           </div>
 
-          {/* Top 7-Day Free Trial Banner Card matching target image */}
-          <div className="trial-banner-exact">
-            <span className="trial-pill-tag">⚡ 7 DAY TRIAL</span>
-            <div className="trial-banner-body">
-              <div className="trial-info-group">
-                <div className="trial-cal-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                    <rect x="7" y="14" width="3" height="3" fill="#237446"></rect>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="trial-card-title">Try Brihas free for 7 days</h3>
-                  <p className="trial-card-desc">Explore Brihas and see if it's right for you.</p>
-                </div>
-              </div>
-
-              <div className="trial-metrics-row">
-                <div className="trial-metric-item">
-                  <div className="metric-icon-text">💬 <strong>3 sessions</strong></div>
-                  <span className="metric-label-sub">Total</span>
-                </div>
-                <div className="trial-v-divider"></div>
-                <div className="trial-metric-item">
-                  <div className="metric-icon-text">🕒 <strong>30 mins</strong></div>
-                  <span className="metric-label-sub">Total</span>
-                </div>
-                <div className="trial-v-divider"></div>
-                <div className="trial-metric-item">
-                  <div className="metric-icon-text">🔄 <strong>Renews weekly</strong></div>
-                  <span className="metric-label-sub">Cancel anytime</span>
-                </div>
-              </div>
-
-              <div className="trial-action-col">
-                <a href="#plans" className="trial-start-button">
-                  Start your trial ➔
-                </a>
-              </div>
-            </div>
-          </div>
-
           {/* 3 Tier Pricing Cards Grid matching target image */}
           <div className="pricing-cards-exact-grid">
             {/* CARD 1: CONVERSE */}
@@ -3427,13 +3383,61 @@ function App() {
           </div>
 
           {/* MORE PLANS: REFLECT */}
-          <div className="more-plans-banner" style={{ marginTop: '36px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '15px', color: '#6E786F', margin: 0 }}>
-              Looking for steady, low-key check-ins?
-            </p>
-            <a href="#plans" className="reflect-plan-more-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 24px', borderRadius: '100px', border: '1.5px solid #237446', color: '#237446', fontWeight: 600, fontSize: '14.5px', textDecoration: 'none', background: '#FFFFFF', transition: 'all 0.2s ease' }}>
-              ⚡ Reflect — Steady, low-key check-ins ➔
-            </a>
+          <div className="more-plans-toggle-container" style={{ marginTop: '36px', textAlign: 'center' }}>
+            <button 
+              onClick={() => setShowReflect(!showReflect)} 
+              className="more-plans-pill-button"
+            >
+              <span>More plans</span> <span style={{ fontSize: '12px', transition: 'transform 0.2s ease' }}>{showReflect ? '▲' : '▼'}</span>
+            </button>
+
+            {showReflect && (
+              <motion.div 
+                initial={{ opacity: 0, height: 0, y: -10 }}
+                animate={{ opacity: 1, height: 'auto', y: 0 }}
+                exit={{ opacity: 0, height: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                style={{ marginTop: '28px', maxWidth: '380px', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left' }}
+              >
+                {/* CARD: REFLECT */}
+                <div className="pricing-tier-card card-reflect" style={{ border: '2px solid #237446', background: '#FAFDFB' }}>
+                  <div className="tier-card-header">
+                    <div className="tier-icon-circle icon-green">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="tier-name">Reflect</h3>
+                      <p className="tier-tagline">Steady, low-key check-ins</p>
+                    </div>
+                  </div>
+
+                  <div className="tier-stats-bar bar-green" style={{ gridTemplateColumns: '1fr 1fr' }}>
+                    <div className="stat-box">
+                      <strong>300</strong>
+                      <span>minutes / cycle</span>
+                    </div>
+                    <div className="stat-box">
+                      <strong>20 min</strong>
+                      <span>a day</span>
+                    </div>
+                  </div>
+
+                  <ul className="tier-features-list check-green">
+                    <li><span className="chk">✓</span> <span>Your full Brihas Quotient reading</span></li>
+                    <li><span className="chk">✓</span> <span>A glimpse into 2 of your 6 dimensions</span></li>
+                    <li><span className="chk">✓</span> <span>Summaries, always saved</span></li>
+                  </ul>
+
+                  <div className="tier-action-bottom">
+                    <a href="#plans" className="tier-btn btn-outline-green">
+                      Sign in to see pricing ➔
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            )}
           </div>
 
           <div className="plans-bottom-privacy">

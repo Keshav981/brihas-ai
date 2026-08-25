@@ -10353,3 +10353,29 @@ footer, .footer {
 }
 
 
+
+
+/* ══════════ MORE PLANS PILL TOGGLE BUTTON ══════════ */
+.more-plans-pill-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 12px 28px !important;
+  border-radius: 100px !important;
+  border: 1.5px solid #237446 !important;
+  background: #FFFFFF !important;
+  color: #237446 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 16px rgba(35, 116, 70, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+
+.more-plans-pill-button:hover {
+  background: #237446 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(35, 116, 70, 0.18) !important;
+}
