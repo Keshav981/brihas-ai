@@ -10351,3 +10351,233 @@ footer, .footer {
   color: #FFFFFF !important;
   box-shadow: 0 6px 20px rgba(35, 116, 70, 0.2) !important;
 }
+
+
+/* ══════════ EXACT SCREENSHOT PRICING GRID STYLING ══════════ */
+.pricing-screenshot-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px !important;
+  align-items: start !important;
+  margin-top: 32px !important;
+}
+
+.pricing-target-card {
+  position: relative !important;
+  background: #E5E5E5 !important;
+  border-radius: 20px !important;
+  padding: 32px 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 580px !important;
+  border: 2px solid transparent !important;
+}
+
+.card-converse-highlight {
+  border-color: #D4622B !important;
+}
+
+.most-chosen-badge {
+  display: inline-block !important;
+  padding: 4px 14px !important;
+  border-radius: 100px !important;
+  background: #FFE8DD !important;
+  color: #D4622B !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 16px !important;
+  width: fit-content !important;
+}
+
+.target-card-icon {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 16px !important;
+}
+
+.icon-chat { background: #FDE8DE !important; }
+.icon-depth { background: #EFE8FF !important; }
+.icon-trial { background: #DEF2E6 !important; }
+
+.target-tier-title {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: #1C251D !important;
+  margin: 0 0 8px !important;
+}
+
+.target-price-row {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 4px !important;
+}
+
+.price-num {
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  color: #1C251D !important;
+}
+
+.price-unit {
+  font-size: 14px !important;
+  color: #6E786F !important;
+}
+
+.target-sub-price {
+  font-size: 13px !important;
+  color: #7E887F !important;
+  margin: 2px 0 16px !important;
+}
+
+.target-tagline {
+  font-size: 15px !important;
+  color: #3C463D !important;
+  margin: 0 0 24px !important;
+}
+
+.target-stats-container {
+  border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  padding: 16px 0 !important;
+  margin-bottom: 8px !important;
+}
+
+.stat-line {
+  display: flex !important;
+  justify-content: space-between !important;
+  font-size: 13.5px !important;
+  margin-bottom: 6px !important;
+}
+
+.stat-label { color: #6E786F !important; }
+.stat-val { font-weight: 700 !important; color: #1C251D !important; }
+
+.gst-text {
+  font-size: 11.5px !important;
+  color: #8E988F !important;
+  margin: 0 0 20px !important;
+}
+
+.you-get-lead {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #8E988F !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 12px !important;
+}
+
+.target-bullet-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 32px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.target-bullet-list li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  font-size: 14px !important;
+  color: #2C352D !important;
+  line-height: 1.35 !important;
+}
+
+.check-orange .chk { color: #D4622B !important; font-weight: bold; }
+.check-purple .chk { color: #7C5CFC !important; font-weight: bold; }
+.check-green .chk { color: #237446 !important; font-weight: bold; }
+
+.target-card-bottom {
+  margin-top: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.renews-text {
+  font-size: 11.5px !important;
+  color: #7E887F !important;
+  margin: 0 !important;
+}
+
+.btn-choose-orange {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  padding: 14px 20px !important;
+  border-radius: 100px !important;
+  background: #D4622B !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  text-decoration: none !important;
+  transition: background 0.2s ease !important;
+}
+
+.btn-choose-orange:hover {
+  background: #B84E1C !important;
+}
+
+/* Trial Column Stack */
+.trial-column-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+/* What We're Seeing Box */
+.what-we-are-seeing-box {
+  background: #E8F3ED !important;
+  border: 1.5px solid #237446 !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+}
+
+.seeing-lead {
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  color: #237446 !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 6px !important;
+}
+
+.seeing-quote {
+  font-family: 'Playfair Display', serif !important;
+  font-style: italic !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #1C251D !important;
+  margin: 0 0 8px !important;
+}
+
+.seeing-sub {
+  font-size: 12px !important;
+  color: #5E685F !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+}
+
+/* Hide Other Plans Pill */
+.hide-other-plans-pill {
+  padding: 10px 24px !important;
+  border-radius: 100px !important;
+  border: 1px solid rgba(0,0,0,0.12) !important;
+  background: #FFFFFF !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: #3C463D !important;
+  cursor: pointer !important;
+}
+
+@media (max-width: 900px) {
+  .pricing-screenshot-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
