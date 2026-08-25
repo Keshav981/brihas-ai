@@ -1712,21 +1712,30 @@ if (typeof window !== 'undefined' && !customElements.get('topic-orb')) {
 
   const CSS = `
 topic-orb { display:block; container-type:inline-size; }
-.orb-head { text-align:left; margin:0 auto 16px; max-width:100%; }
+.orb-head { text-align:left; margin:0 auto 20px; width:100%; max-width:640px; }
+.orb-head-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:4px 14px; border-radius:100px;
+  border:1px solid rgba(35, 116, 70, 0.35);
+  background:rgba(35, 116, 70, 0.04);
+  margin-bottom:14px;
+}
+.orb-head-badge .dot {
+  width:7px; height:7px; border-radius:50%; background:#237446; display:inline-block;
+}
+.orb-head-badge span {
+  font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase; color:#237446;
+}
 .orb-head h3 {
   font-family:'Playfair Display',Georgia,serif;
-  font-size:clamp(28px,4.5vw,42px); font-weight:700;
-  letter-spacing:-.03em; line-height:1.2; color:#1C251D; margin:0 0 6px;
+  font-size:clamp(32px,5.2vw,48px); font-weight:700;
+  letter-spacing:-.02em; line-height:1.15; color:#1C251D; margin:0;
   text-align:left;
 }
 .orb-head h3 em {
   font-family:'Playfair Display',Georgia,serif;
   font-style:italic; font-weight:600; color:#237446;
-}
-.orb-sub {
-  font-family:'Playfair Display',Georgia,serif; font-style:italic;
-  font-size:clamp(16px,2.5vw,20px); color:#6E786F; margin:0;
-  text-align:left;
 }
 .orb-stage { position:relative; width:100%; aspect-ratio:1/1;
   max-width:min(100%,640px); margin:0 auto;
@@ -1829,8 +1838,11 @@ topic-orb { display:block; container-type:inline-size; }
 
       this.innerHTML = `
         <div class="orb-head">
+          <div class="orb-head-badge">
+            <span class="dot"></span>
+            <span>INTERACTIVE MIND MAP</span>
+          </div>
           <h3>What&rsquo;s on <em>your mind?</em></h3>
-          <p class="orb-sub">Explore what matters to you.</p>
         </div>
         <div class="orb-stage">
           <div class="orb-glow"></div>
