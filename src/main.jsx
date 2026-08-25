@@ -3324,17 +3324,13 @@ function App() {
                 </div>
               </div>
 
-              <div className="tier-stats-bar bar-green">
+              <div className="tier-stats-bar bar-green" style={{ gridTemplateColumns: '1fr 1fr' }}>
                 <div className="stat-box">
                   <strong>300</strong>
                   <span>minutes / cycle</span>
                 </div>
                 <div className="stat-box">
-                  <strong>30</strong>
-                  <span>sessions</span>
-                </div>
-                <div className="stat-box">
-                  <strong>Up to 2</strong>
+                  <strong>20 min</strong>
                   <span>a day</span>
                 </div>
               </div>
@@ -3342,7 +3338,7 @@ function App() {
               <ul className="tier-features-list check-green">
                                 <li><span className="chk">✓</span> <span>Your full Brihas Quotient reading</span></li>
                 <li><span className="chk">✓</span> <span>A glimpse into 2 of your 6 dimensions</span></li>
-                <li><span className="chk">✓</span> <span>Session summaries, always saved</span></li>
+                <li><span className="chk">✓</span> <span>Summaries, always saved</span></li>
               </ul>
 
               <div className="tier-action-bottom">
@@ -3366,17 +3362,13 @@ function App() {
                 </div>
               </div>
 
-              <div className="tier-stats-bar bar-green">
+              <div className="tier-stats-bar bar-green" style={{ gridTemplateColumns: '1fr 1fr' }}>
                 <div className="stat-box">
                   <strong>600</strong>
                   <span>minutes / cycle</span>
                 </div>
                 <div className="stat-box">
-                  <strong>60</strong>
-                  <span>sessions</span>
-                </div>
-                <div className="stat-box">
-                  <strong>Up to 4</strong>
+                  <strong>20 min</strong>
                   <span>a day</span>
                 </div>
               </div>
@@ -3408,17 +3400,13 @@ function App() {
                 </div>
               </div>
 
-              <div className="tier-stats-bar bar-green">
+              <div className="tier-stats-bar bar-green" style={{ gridTemplateColumns: '1fr 1fr' }}>
                 <div className="stat-box">
                   <strong>1,200</strong>
                   <span>minutes / cycle</span>
                 </div>
                 <div className="stat-box">
-                  <strong>120</strong>
-                  <span>sessions</span>
-                </div>
-                <div className="stat-box">
-                  <strong>Up to 6</strong>
+                  <strong>20 min</strong>
                   <span>a day</span>
                 </div>
               </div>
