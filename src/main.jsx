@@ -1693,11 +1693,11 @@ const ExactImageWordCloudSection = ({ onSelectWord }) => {
   return (
     <div className="starting-word-cloud-container">
       {/* Header */}
-      <div className="heading-bubble-container" style={{ marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
-        <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 4.5vw, 42px)', fontWeight: 700, color: '#1C251D', margin: '0 0 6px', textAlign: 'left', lineHeight: 1.2 }}>
+      <div className="heading-bubble-container" style={{ marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+        <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 4.5vw, 42px)', fontWeight: 700, color: '#1C251D', margin: '0 0 6px', textAlign: 'center', lineHeight: 1.2 }}>
           What&rsquo;s on <span style={{ fontStyle: 'italic', color: '#237446', fontWeight: 600 }}>your mind?</span>
         </h2>
-        <p className="section-subtitle" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(16px, 2.5vw, 20px)', color: '#6E786F', margin: 0, textAlign: 'left' }}>
+        <p className="section-subtitle" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(16px, 2.5vw, 20px)', color: '#6E786F', margin: 0, textAlign: 'center' }}>
           Explore what matters to you.
         </p>
       </div>
