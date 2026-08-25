@@ -2804,68 +2804,6 @@ function App() {
   return (
     <>
     <main id="top">
-      {/* Top Privacy Ribbon Ticker */}
-      <div className="ribbon">
-        <div className="ribbon__rail">
-          <div className="ribbon__track">
-            <span>100% Private &amp; Encrypted</span><b>✦</b>
-            <span>Zero Ads · Never Sold or Shared</span><b>✦</b>
-            <span>Delete History Anytime in One Click</span><b>✦</b>
-            <span>Full User Control</span><b>✦</b>
-            <span>Your Trust is Everything</span><b>✦</b>
-            <span>AI Advises. You Decide</span><b>✦</b>
-          </div>
-          <div className="ribbon__track" aria-hidden="true">
-            <span>100% Private &amp; Encrypted</span><b>✦</b>
-            <span>Zero Ads · Never Sold or Shared</span><b>✦</b>
-            <span>Delete History Anytime in One Click</span><b>✦</b>
-            <span>Full User Control</span><b>✦</b>
-            <span>Your Trust is Everything</span><b>✦</b>
-            <span>AI Advises. You Decide</span><b>✦</b>
-          </div>
-        </div>
-      </div>
-
-      {/* Navigation Header */}
-      <header className="nav-brihas-exact">
-        <div className="nav__inner">
-          <div className="wordmark">brihas<span>.ai</span></div>
-          <nav className="nav__links">
-            <a href="#what">What it is</a>
-            <a href="#topics">What's on your mind</a>
-            <a href="#how">How it works</a>
-            <a href="#plans">Plans</a>
-          </nav>
-          <div className="nav__right">
-            <a href="#plans" className="nav-signin-link">Sign in</a>
-            <a href="#plans" className="btn-ghost">Begin Here</a>
-            <button className="mobile-menu-btn" onClick={() => setMobileMenu(!mobileMenu)} aria-label="Toggle menu">
-              <Icon name={mobileMenu ? "close" : "menu"} size={22}/>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Navigation Overlay */}
-      <AnimatePresence>
-        {mobileMenu && (
-          <motion.div 
-            className="mobile-drawer"
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.2 }}
-          >
-            <a href="#what" onClick={() => setMobileMenu(false)}>What it is</a>
-            <a href="#who" onClick={() => setMobileMenu(false)}>Who it's for</a>
-            <a href="#how" onClick={() => setMobileMenu(false)}>How it works</a>
-            <a href="#plans" onClick={() => setMobileMenu(false)}>Plans</a>
-            <a href="#plans" onClick={() => setMobileMenu(false)} className="nav-signin-link">Sign in</a>
-            <a href="#plans" onClick={() => setMobileMenu(false)} className="button button-dark">Begin Here</a>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Exact Hero Stage with Dynamic Cursor Mouse Tracking Background Mesh */}
       {/* Editorial Centered Hero Section */}
       <section className="hero-exact">
