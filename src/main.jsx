@@ -1544,11 +1544,11 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
     <motion.section className="section how-mock-style" id="how" {...sectionMotion}>
       <div className="wrap">
         {/* Section Header */}
-        <div className="how-mock-header" style={{ textAlign: 'center', marginBottom: '24px' }}>
-          <p className="eyebrow green-eyebrow" style={{ marginBottom: '8px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> HOW IT WORKS</p>
-          <p className="section-subtitle" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '15px', color: '#6E786F', margin: 0 }}>
-            How Brihas helps you reflect and grow step by step
-          </p>
+        <div className="how-mock-header" style={{ textAlign: 'center', marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+          <p className="eyebrow green-eyebrow" style={{ marginBottom: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> HOW IT WORKS</p>
+          <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(20px, 3.2vw, 26px)', fontWeight: 600, color: '#1C251D', margin: 0 }}>
+            Clarity begins with a conversation.
+          </h2>
         </div>
 
         {/* 4 Pipeline Step Cards Row */}
@@ -3264,8 +3264,11 @@ function App() {
       {/* Plans Section - Prices Hidden */}
       <motion.section className="section plans" id="plans" {...sectionMotion}>
         <div className="wrap">
-          <div className="plans-main-header" style={{ marginBottom: '24px' }}>
-            <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> PLANS &amp; PRICING</p>
+          <div className="plans-main-header" style={{ textAlign: 'center', marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+            <p className="eyebrow green-eyebrow" style={{ marginBottom: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> PLANS &amp; PRICING</p>
+            <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(20px, 3.2vw, 26px)', fontWeight: 600, color: '#1C251D', margin: 0 }}>
+              Choose the depth that fits your journey.
+            </h2>
           </div>
 
           {/* 3 Tier Pricing Cards Grid matching target image */}
