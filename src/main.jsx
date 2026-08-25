@@ -2897,11 +2897,10 @@ function App() {
             <span className="hq-chips-lead">START ANYWHERE</span>
             <div className="hq-chip-container">
               {[
-                { label: 'A decision', icon: '⚖️' },
-                { label: 'Someone close', icon: '🤍' },
-                { label: 'Work', icon: '💼' },
-                { label: 'Money', icon: '📈' },
-                { label: 'Myself', icon: '👤' }
+                { label: 'Stress & Overthinking', icon: '⚡' },
+                { label: 'Partner & Marriage', icon: '🤍' },
+                { label: 'Career & Money', icon: '💼' },
+                { label: 'A Difficult Decision', icon: '⚖️' }
               ].map((item, idx) => (
                 <button 
                   key={idx} 
