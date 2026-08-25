@@ -9719,3 +9719,12 @@ footer, .footer {
   position: relative !important;
   z-index: 20 !important;
 }
+
+
+/* ══════════ SINGLE CLEAN LOGO TOP HEADER STYLING ══════════ */
+.single-brand-header {
+  position: relative !important;
+  width: 100% !important;
+  z-index: 20 !important;
+  background: transparent !important;
+}

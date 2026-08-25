@@ -2829,53 +2829,14 @@ function App() {
   return (
     <>
     <main id="top">
-      {/* Top Brand Header displaying Official Brihas.ai Logo */}
-      <div className="wrap brand-top-bar" style={{ paddingTop: '28px', paddingBottom: '12px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-        <a href="#top" aria-label="Brihas.ai Home">
-          <BrihasLogo size={32} />
-        </a>
-      </div>
-      {/* Restored Top Navigation Bar Header */}
-      <header className="nav-brihas-exact">
-        <div className="nav__inner">
-          <a href="#top" style={{ textDecoration: 'none' }}>
-            <BrihasLogo size={26} />
+      {/* Single Clean Top Brand Header with ONLY Official BrihasLogo */}
+      <header className="single-brand-header">
+        <div className="wrap" style={{ paddingTop: '32px', paddingBottom: '16px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+          <a href="#top" aria-label="Brihas.ai Home" style={{ textDecoration: 'none' }}>
+            <BrihasLogo size={32} />
           </a>
-          <nav className="nav__links">
-            <a href="#what">What it is</a>
-            <a href="#topics">What's on your mind</a>
-            <a href="#how">How it works</a>
-            <a href="#plans">Plans</a>
-          </nav>
-          <div className="nav__right">
-            <a href="#plans" className="nav-signin-link">Sign in</a>
-            <a href="#plans" className="btn-ghost">Begin Here</a>
-            <button className="mobile-menu-btn" onClick={() => setMobileMenu(!mobileMenu)} aria-label="Toggle menu">
-              <Icon name={mobileMenu ? "close" : "menu"} size={22}/>
-            </button>
-          </div>
         </div>
       </header>
-
-      {/* Mobile Navigation Overlay */}
-      <AnimatePresence>
-        {mobileMenu && (
-          <motion.div 
-            className="mobile-drawer"
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.2 }}
-          >
-            <a href="#what" onClick={() => setMobileMenu(false)}>What it is</a>
-            <a href="#topics" onClick={() => setMobileMenu(false)}>What's on your mind</a>
-            <a href="#how" onClick={() => setMobileMenu(false)}>How it works</a>
-            <a href="#plans" onClick={() => setMobileMenu(false)}>Plans</a>
-            <a href="#plans" onClick={() => setMobileMenu(false)} className="nav-signin-link">Sign in</a>
-            <a href="#plans" onClick={() => setMobileMenu(false)} className="button button-dark">Begin Here</a>
-          </motion.div>
-        )}
-      </AnimatePresence>
       
 {/* Exact Hero Stage with Dynamic Cursor Mouse Tracking Background Mesh */}
       {/* Editorial Centered Hero Section */}
