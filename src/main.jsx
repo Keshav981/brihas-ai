@@ -3441,9 +3441,7 @@ function App() {
             )}
           </div>
 
-          <div className="plans-bottom-privacy">
-            <span>🔒 Your conversations are private and encrypted.</span>
-          </div>
+          
         </div>
       </motion.section>
 

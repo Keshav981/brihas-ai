@@ -10381,11 +10381,11 @@ footer, .footer {
 }
 
 
-/* ══════════ MOST CHOSEN CARD HIGHLIGHT STYLING ══════════ */
+/* ══════════ MOST CHOSEN CARD HIGHLIGHT STYLING (SAGE GREEN THEME) ══════════ */
 .card-most-chosen-highlight {
   position: relative !important;
-  border: 2px solid #D4622B !important;
-  box-shadow: 0 12px 32px rgba(212, 98, 43, 0.14) !important;
+  border: 2px solid #237446 !important;
+  box-shadow: 0 12px 32px rgba(35, 116, 70, 0.14) !important;
   transform: translateY(-4px) !important;
 }
 
@@ -10393,7 +10393,7 @@ footer, .footer {
   position: absolute !important;
   top: -14px !important;
   left: 24px !important;
-  background: #D4622B !important;
+  background: #237446 !important;
   color: #FFFFFF !important;
   font-family: 'DM Sans', sans-serif !important;
   font-size: 11px !important;
@@ -10401,6 +10401,6 @@ footer, .footer {
   letter-spacing: 0.06em !important;
   padding: 4px 14px !important;
   border-radius: 100px !important;
-  box-shadow: 0 4px 12px rgba(212, 98, 43, 0.25) !important;
+  box-shadow: 0 4px 12px rgba(35, 116, 70, 0.25) !important;
   text-transform: uppercase !important;
 }
