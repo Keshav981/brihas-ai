@@ -1544,11 +1544,8 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
     <motion.section className="section how-mock-style" id="how" {...sectionMotion}>
       <div className="wrap">
         {/* Section Header */}
-        <div className="how-mock-header" style={{ textAlign: 'center', marginBottom: '32px' }}>
+        <div className="how-mock-header" style={{ textAlign: 'center', marginBottom: '24px' }}>
           <p className="eyebrow green-eyebrow" style={{ marginBottom: '8px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> HOW IT WORKS</p>
-          <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, color: '#1C251D', margin: '4px 0 8px' }}>
-            Simple, structured, and at your pace
-          </h2>
           <p className="section-subtitle" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '15px', color: '#6E786F', margin: 0 }}>
             How Brihas helps you reflect and grow step by step
           </p>
