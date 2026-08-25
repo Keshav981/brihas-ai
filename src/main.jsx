@@ -3340,8 +3340,7 @@ function App() {
               </div>
 
               <ul className="tier-features-list check-green">
-                <li><span className="chk">✓</span> <span>A daily conversation, at your pace</span></li>
-                <li><span className="chk">✓</span> <span>Your full Brihas Quotient reading</span></li>
+                                <li><span className="chk">✓</span> <span>Your full Brihas Quotient reading</span></li>
                 <li><span className="chk">✓</span> <span>A glimpse into 2 of your 6 dimensions</span></li>
                 <li><span className="chk">✓</span> <span>Session summaries, always saved</span></li>
               </ul>
@@ -3386,8 +3385,7 @@ function App() {
                 <li><span className="chk">✓</span> <span>Everything in Reflect</span></li>
                 <li><span className="chk">✓</span> <span>All 6 dimensions, in full detail</span></li>
                 <li><span className="chk">✓</span> <span>The Journey view — trends &amp; cohort comparison</span></li>
-                <li><span className="chk">✓</span> <span>See what's changing, week to week</span></li>
-              </ul>
+                              </ul>
 
               <div className="tier-action-bottom">
                 <a href="#plans" className="tier-btn btn-outline-green">
@@ -3428,8 +3426,7 @@ function App() {
               <ul className="tier-features-list check-green">
                 <li><span className="chk">✓</span> <span>Everything in Converse</span></li>
                 <li><span className="chk">✓</span> <span>Personalised 3-day &amp; 7-day action plans</span></li>
-                <li><span className="chk">✓</span> <span>A weekly plan &amp; review</span></li>
-                <li><span className="chk">✓</span> <span>Full Mind Map access</span></li>
+                                <li><span className="chk">✓</span> <span>Full Mind Map access</span></li>
               </ul>
 
               <div className="tier-action-bottom">
