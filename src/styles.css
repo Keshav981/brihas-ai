@@ -10779,3 +10779,90 @@ html, body {
     font-size: 13px !important;
   }
 }
+
+
+/* ══════════ FULL TOP NAVBAR STYLING ══════════ */
+.target-nav-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: rgba(250, 248, 245, 0.88) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(28, 37, 29, 0.06) !important;
+  padding: 12px 0 !important;
+}
+
+.target-nav-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.desktop-nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 28px !important;
+}
+
+.nav-link-item {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 500 !important;
+  color: #3C463D !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.nav-link-item:hover {
+  color: #237446 !important;
+}
+
+.desktop-nav-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+.nav-btn-signin {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #1C251D !important;
+  text-decoration: none !important;
+  padding: 8px 18px !important;
+  border-radius: 100px !important;
+  border: 1.5px solid rgba(28, 37, 29, 0.18) !important;
+  background: transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+.nav-btn-signin:hover {
+  border-color: #237446 !important;
+  color: #237446 !important;
+}
+
+.nav-btn-begin {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  padding: 9px 20px !important;
+  border-radius: 100px !important;
+  background: #237446 !important;
+  box-shadow: 0 4px 14px rgba(35, 116, 70, 0.2) !important;
+  transition: all 0.2s ease !important;
+}
+
+.nav-btn-begin:hover {
+  background: #1B5E38 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(35, 116, 70, 0.28) !important;
+}
+
+@media (max-width: 900px) {
+  .desktop-nav-links, .desktop-nav-actions {
+    display: none !important;
+  }
+}

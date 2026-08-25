@@ -3354,11 +3354,25 @@ function App() {
       <header className="target-nav-header">
         <div className="target-nav-inner wrap">
           {/* Brand Logo Left */}
-          <a href="#top" aria-label="Brihas.ai Home" style={{ textDecoration: 'none' }}>
+          <a href="#top" aria-label="Brihas.ai Home" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
             <BrihasLogo size={28} />
           </a>
 
-          {/* Hamburger Button Right */}
+          {/* Navigation Links Center (Desktop) */}
+          <nav className="desktop-nav-links">
+            <a href="#quotient" className="nav-link-item">What it is</a>
+            <a href="#topics" className="nav-link-item">What's on your mind</a>
+            <a href="#how" className="nav-link-item">How it works</a>
+            <a href="#plans" className="nav-link-item">Plans</a>
+          </nav>
+
+          {/* Action Buttons Right (Desktop) */}
+          <div className="desktop-nav-actions">
+            <a href="#plans" className="nav-btn-signin">Sign in</a>
+            <a href="#top" className="nav-btn-begin">Begin Here</a>
+          </div>
+
+          {/* Hamburger Button Right (Mobile) */}
           <button 
             className="target-hamburger-btn" 
             onClick={() => setMobileMenu(!mobileMenu)} 
