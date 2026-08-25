@@ -3268,8 +3268,7 @@ function App() {
           <div className="pricing-cards-exact-grid">
             {/* CARD 1: CONVERSE (MOST CHOSEN) */}
             <div className="pricing-tier-card card-converse card-most-chosen-highlight">
-              <div className="most-chosen-pill-badge">MOST CHOSEN</div>
-              <div className="tier-card-header">
+                            <div className="tier-card-header">
                 <div className="tier-icon-circle icon-green">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
