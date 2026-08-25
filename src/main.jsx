@@ -1711,14 +1711,18 @@ if (typeof window !== 'undefined' && !customElements.get('topic-orb')) {
   const HUES = [FOREST, INK, SAGE, LAV, BROWN, COPPER];
 
   const CSS = `
-topic-orb { display:block; container-type:inline-size; }
-.orb-head { text-align:left; margin:0 auto 20px; width:100%; max-width:640px; }
+topic-orb { display:block; container-type:inline-size; width:100%; }
+.orb-layout-grid {
+  display:grid; grid-template-columns: 1fr 1.15fr; align-items:center; gap:48px;
+  width:100%; max-width:1200px; margin:0 auto; padding: 20px 0;
+}
+.orb-head { text-align:left; margin:0; width:100%; }
 .orb-head-badge {
   display:inline-flex; align-items:center; gap:6px;
-  padding:4px 14px; border-radius:100px;
+  padding:5px 14px; border-radius:100px;
   border:1px solid rgba(35, 116, 70, 0.35);
   background:rgba(35, 116, 70, 0.04);
-  margin-bottom:14px;
+  margin-bottom:20px;
 }
 .orb-head-badge .dot {
   width:7px; height:7px; border-radius:50%; background:#237446; display:inline-block;
@@ -1729,18 +1733,27 @@ topic-orb { display:block; container-type:inline-size; }
 }
 .orb-head h3 {
   font-family:'Playfair Display',Georgia,serif;
-  font-size:clamp(32px,5.2vw,48px); font-weight:700;
-  letter-spacing:-.02em; line-height:1.15; color:#1C251D; margin:0;
+  font-size:clamp(36px, 4.8vw, 56px); font-weight:700;
+  letter-spacing:-.02em; line-height:1.12; color:#1C251D; margin:0 0 12px;
   text-align:left;
 }
 .orb-head h3 em {
   font-family:'Playfair Display',Georgia,serif;
   font-style:italic; font-weight:600; color:#237446;
 }
+.orb-sub {
+  font-family:'Playfair Display',Georgia,serif; font-style:italic;
+  font-size:clamp(17px, 2vw, 24px); color:#6E8A72; margin:0;
+  text-align:left;
+}
+.orb-right-col { display:flex; flex-direction:column; align-items:center; width:100%; }
 .orb-stage { position:relative; width:100%; aspect-ratio:1/1;
-  max-width:min(100%,640px); margin:0 auto;
+  max-width:min(100%,580px); margin:0 auto;
   touch-action:none; cursor:grab;
   -webkit-user-select:none; user-select:none;
+}
+@container (max-width: 820px) {
+  .orb-layout-grid { grid-template-columns: 1fr; gap:32px; }
 }
 .orb-stage:focus-visible { outline:1.5px solid #2B7858; outline-offset:8px; border-radius:50%; }
 .orb-stage.is-drag { cursor:grabbing; }
@@ -1837,26 +1850,31 @@ topic-orb { display:block; container-type:inline-size; }
       injectCSS();
 
       this.innerHTML = `
-        <div class="orb-head">
-          <div class="orb-head-badge">
-            <span class="dot"></span>
-            <span>INTERACTIVE MIND MAP</span>
+        <div class="orb-layout-grid">
+          <div class="orb-head">
+            <div class="orb-head-badge">
+              <span class="dot"></span>
+              <span>INTERACTIVE MIND MAP</span>
+            </div>
+            <h3>What&rsquo;s on <em>your mind?</em></h3>
+            <p class="orb-sub">Explore what matters to you.</p>
           </div>
-          <h3>What&rsquo;s on <em>your mind?</em></h3>
-        </div>
-        <div class="orb-stage">
-          <div class="orb-glow"></div>
-          <div class="orb-shell"></div>
-          <svg class="orb-rings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
-          <svg class="orb-grid" aria-hidden="true"></svg>
-          <svg class="orb-link" aria-hidden="true"></svg>
-          <div class="orb-field" role="group" aria-label="Topics"></div>
-          <button class="orb-snd" type="button" aria-pressed="false" aria-label="Toggle ambient sound">${SND_OFF}</button>
-        </div>
-        <div class="orb-foot">
-          <b>Drag to explore</b>
-          <span class="orb-hint">Spin the orb and discover more.</span>
-          <button class="orb-cta" type="button" hidden></button>
+          <div class="orb-right-col">
+            <div class="orb-stage">
+              <div class="orb-glow"></div>
+              <div class="orb-shell"></div>
+              <svg class="orb-rings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+              <svg class="orb-grid" aria-hidden="true"></svg>
+              <svg class="orb-link" aria-hidden="true"></svg>
+              <div class="orb-field" role="group" aria-label="Topics"></div>
+              <button class="orb-snd" type="button" aria-pressed="false" aria-label="Toggle ambient sound">${SND_OFF}</button>
+            </div>
+            <div class="orb-foot">
+              <b>Drag to explore</b>
+              <span class="orb-hint">Spin the orb and discover more.</span>
+              <button class="orb-cta" type="button" hidden></button>
+            </div>
+          </div>
         </div>`;
 
       this.stage = this.querySelector('.orb-stage');
@@ -2253,7 +2271,7 @@ const ExactImageWordCloudSection = ({ onSelectWord }) => {
   }, [onSelectWord]);
 
   return (
-    <div className="starting-word-cloud-container" style={{ width: '100%', maxWidth: '680px', margin: '0 auto', textAlign: 'left' }}>
+    <div className="starting-word-cloud-container" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', textAlign: 'left' }}>
       <topic-orb ref={orbRef}></topic-orb>
     </div>
   );
