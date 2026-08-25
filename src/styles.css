@@ -10404,3 +10404,213 @@ footer, .footer {
   box-shadow: 0 4px 12px rgba(35, 116, 70, 0.25) !important;
   text-transform: uppercase !important;
 }
+
+
+/* ══════════ COMPREHENSIVE MOBILE RESPONSIVENESS & TOUCH OPTIMIZATIONS ══════════ */
+
+/* Prevent horizontal scroll globally */
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Base Responsive Container Wrappers */
+.wrap {
+  width: 92% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 12px !important;
+  box-sizing: border-box !important;
+}
+
+/* Mobile Media Queries (< 768px) */
+@media (max-width: 768px) {
+  
+  /* 1. Header & Top Navbar */
+  .brihas-header-nav {
+    padding: 10px 16px !important;
+    width: 94% !important;
+    top: 12px !important;
+  }
+
+  .brihas-logo-svg {
+    height: 24px !important;
+    width: auto !important;
+  }
+
+  /* 2. Hero Section */
+  .section.hero, section.hero {
+    padding: 36px 0 28px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(22px, 5.8vw, 34px) !important;
+    line-height: 1.25 !important;
+    padding: 0 8px !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .hero-subtagline {
+    font-size: 13.5px !important;
+    line-height: 1.45 !important;
+    padding: 0 12px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .chat-search-container {
+    width: 100% !important;
+    padding: 6px 8px 6px 14px !important;
+    border-radius: 28px !important;
+  }
+
+  .chat-input {
+    font-size: 14px !important;
+    padding: 8px 4px !important;
+  }
+
+  .mic-button {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .chat-submit-btn {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+    border-radius: 20px !important;
+  }
+
+  /* 3. Hero Quick Topic Chips - Touch Scroll Row */
+  .hero-chips-container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 8px 4px 12px !important;
+    gap: 8px !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
+    scrollbar-width: none !important;
+  }
+
+  .hero-chips-container::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .quick-topic-chip {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    padding: 8px 14px !important;
+    font-size: 12.5px !important;
+    border-radius: 100px !important;
+  }
+
+  /* 4. Trust Banner Bar */
+  .trust-banner-grid, .trust-grid, .trust {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 16px 12px !important;
+    border-radius: 16px !important;
+  }
+
+  .trust__cell {
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+  }
+
+  /* 5. 3D Orb / Topic Cloud Section */
+  .weighing-mind-section {
+    padding: 32px 0 !important;
+  }
+
+  .word-cloud-container, #topics {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* 6. Pricing Cards Grid */
+  .pricing-cards-exact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin-top: 20px !important;
+  }
+
+  .pricing-tier-card {
+    padding: 24px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .tier-name {
+    font-size: 20px !important;
+  }
+
+  .tier-tagline {
+    font-size: 12px !important;
+  }
+
+  .tier-stats-bar {
+    padding: 10px 8px !important;
+    gap: 8px !important;
+  }
+
+  .stat-box strong {
+    font-size: 15px !important;
+  }
+
+  .stat-box span {
+    font-size: 11px !important;
+  }
+
+  .tier-features-list li {
+    font-size: 13px !important;
+    gap: 8px !important;
+  }
+
+  .tier-btn {
+    padding: 12px 16px !important;
+    font-size: 13.5px !important;
+  }
+
+  .most-chosen-pill-badge {
+    top: -12px !important;
+    left: 18px !important;
+    font-size: 10px !important;
+    padding: 3px 12px !important;
+  }
+
+  .more-plans-pill-button {
+    padding: 10px 22px !important;
+    font-size: 14px !important;
+  }
+
+  /* 7. FAQ Section */
+  .faq-list {
+    gap: 10px !important;
+  }
+
+  .faq-item button {
+    padding: 14px 16px !important;
+    font-size: 14.5px !important;
+  }
+
+  .faq-item p {
+    padding: 0 16px 14px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* Extra Small Screens (< 420px) */
+@media (max-width: 420px) {
+  .hero h1 {
+    font-size: 21px !important;
+  }
+  
+  .pricing-tier-card {
+    padding: 20px 14px !important;
+  }
+  
+  .stat-box strong {
+    font-size: 14px !important;
+  }
+}
