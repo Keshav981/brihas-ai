@@ -1544,9 +1544,9 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
     <motion.section className="section how-mock-style" id="how" {...sectionMotion}>
       <div className="wrap">
         {/* Section Header */}
-        <div className="how-mock-header" style={{ textAlign: 'center', marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+        <div className="how-mock-header" style={{ textAlign: 'left', marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
           <p className="eyebrow green-eyebrow" style={{ marginBottom: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> HOW IT WORKS</p>
-          <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(20px, 3.2vw, 26px)', fontWeight: 600, color: '#1C251D', margin: 0 }}>
+          <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(22px, 3.5vw, 28px)', fontWeight: 600, color: '#1C251D', margin: 0, textAlign: 'left' }}>
             Clarity begins with a conversation.
           </h2>
         </div>
@@ -1693,11 +1693,11 @@ const ExactImageWordCloudSection = ({ onSelectWord }) => {
   return (
     <div className="starting-word-cloud-container">
       {/* Header */}
-      <div className="heading-bubble-container" style={{ marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-        <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 4.5vw, 42px)', fontWeight: 700, color: '#1C251D', margin: '0 0 6px', textAlign: 'center', lineHeight: 1.2 }}>
+      <div className="heading-bubble-container" style={{ marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
+        <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 4.5vw, 42px)', fontWeight: 700, color: '#1C251D', margin: '0 0 6px', textAlign: 'left', lineHeight: 1.2 }}>
           What&rsquo;s on <span style={{ fontStyle: 'italic', color: '#237446', fontWeight: 600 }}>your mind?</span>
         </h2>
-        <p className="section-subtitle" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(16px, 2.5vw, 20px)', color: '#6E786F', margin: 0, textAlign: 'center' }}>
+        <p className="section-subtitle" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(16px, 2.5vw, 20px)', color: '#6E786F', margin: 0, textAlign: 'left' }}>
           Explore what matters to you.
         </p>
       </div>
@@ -3264,9 +3264,9 @@ function App() {
       {/* Plans Section - Prices Hidden */}
       <motion.section className="section plans" id="plans" {...sectionMotion}>
         <div className="wrap">
-          <div className="plans-main-header" style={{ textAlign: 'center', marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+          <div className="plans-main-header" style={{ textAlign: 'left', marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
             <p className="eyebrow green-eyebrow" style={{ marginBottom: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> PLANS &amp; PRICING</p>
-            <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(20px, 3.2vw, 26px)', fontWeight: 600, color: '#1C251D', margin: 0 }}>
+            <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(22px, 3.5vw, 28px)', fontWeight: 600, color: '#1C251D', margin: 0, textAlign: 'left' }}>
               Choose the depth that fits your journey.
             </h2>
           </div>
@@ -3455,8 +3455,11 @@ function App() {
 
       {/* FAQ Section */}
       <section className="faq wrap" id="faq">
-        <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-          <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> FAQ</p>
+        <div className="faq-main-header" style={{ textAlign: 'left', marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
+          <p className="eyebrow green-eyebrow" style={{ marginBottom: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> FAQ</p>
+          <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(22px, 3.5vw, 28px)', fontWeight: 600, color: '#1C251D', margin: 0, textAlign: 'left' }}>
+            Everything you need to know.
+          </h2>
         </div>
         <div className="faq-list">
           {faqs.map(([q,a],i) => (
