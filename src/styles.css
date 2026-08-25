@@ -10106,3 +10106,13 @@ footer, .footer {
   font-weight: inherit !important;
   line-height: inherit !important;
 }
+
+
+/* ══════════ COLOR BOTH HERO HEADLINE LINES BLACK ══════════ */
+.hero-title-main {
+  color: #1C251D !important;
+}
+
+.hero-line-dark, .hero-line-bronze {
+  color: #1C251D !important;
+}
