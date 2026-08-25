@@ -1693,12 +1693,15 @@ const ExactImageWordCloudSection = ({ onSelectWord }) => {
   return (
     <div className="starting-word-cloud-container">
       {/* Header */}
-      <div className="heading-bubble-container" style={{ marginBottom: '28px', display: 'flex', justifyContent: 'center' }}>
-        <div className="heading-bubble-badge" style={{ padding: '10px 24px' }}>
+      <div className="heading-bubble-container" style={{ marginBottom: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+        <div className="heading-bubble-badge" style={{ padding: '8px 20px' }}>
           <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-            <i></i> WHAT&rsquo;S ON YOUR MIND
+            <i></i> WHAT&rsquo;S ON YOUR MIND?
           </p>
         </div>
+        <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(24px, 4vw, 34px)', fontWeight: 700, color: '#1C251D', margin: '4px 0 0', textAlign: 'center' }}>
+          Explore what matters to you.
+        </h2>
       </div>
 
       {/* Oval Pebble Mesh Gradient Card */}
