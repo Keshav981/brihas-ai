@@ -3309,156 +3309,131 @@ function App() {
           </div>
 
           {/* 3 Tier Pricing Cards Grid matching target image */}
-          {/* Exact Target Screenshot Pricing Section */}
-          <div className="pricing-screenshot-grid">
-            
-            {/* CARD 1: CONVERSE (MOST CHOSEN) */}
-            <div className="pricing-target-card card-converse-highlight">
-              <div className="most-chosen-badge">MOST CHOSEN</div>
-              
-              <div className="target-card-header">
-                <div className="target-card-icon icon-chat">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4622B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <div className="pricing-cards-exact-grid">
+            {/* CARD 1: CONVERSE */}
+            <div className="pricing-tier-card card-converse">
+              <div className="tier-card-header">
+                <div className="tier-icon-circle icon-green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                   </svg>
                 </div>
-                <h3 className="target-tier-title">Converse</h3>
-                <div className="target-price-row">
-                  <span className="price-num">₹899</span>
-                  <span className="price-unit">/cycle</span>
-                </div>
-                <p className="target-sub-price">about ₹32 a day</p>
-                <p className="target-tagline">For everything life is asking of you.</p>
-              </div>
-
-              <div className="target-stats-container">
-                <div className="stat-line">
-                  <span className="stat-label">Total time</span>
-                  <span className="stat-val">600 min / 28 days</span>
-                </div>
-                <div className="stat-line">
-                  <span className="stat-label">Max per day</span>
-                  <span className="stat-val">40 min</span>
+                <div>
+                  <h3 className="tier-name">Converse</h3>
+                  <p className="tier-tagline">For ongoing self-understanding</p>
                 </div>
               </div>
 
-              <p className="gst-text">GST inclusive</p>
+              <div className="tier-stats-bar bar-green" style={{ gridTemplateColumns: '1fr 1fr' }}>
+                <div className="stat-box">
+                  <strong>600</strong>
+                  <span>minutes / cycle</span>
+                </div>
+                <div className="stat-box">
+                  <strong>20 min</strong>
+                  <span>a day</span>
+                </div>
+              </div>
 
-              <div className="you-get-lead">YOU GET</div>
-              <ul className="target-bullet-list check-orange">
-                <li><span className="chk">✓</span> <span>Understand every part of your life, not just today</span></li>
-                <li><span className="chk">✓</span> <span>Watch your life get clearer, session by session</span></li>
-                <li><span className="chk">✓</span> <span>See what's changing week to week</span></li>
-                <li><span className="chk">✓</span> <span>See how you compare to others at your stage</span></li>
+              <ul className="tier-features-list check-green">
+                <li><span className="chk">✓</span> <span>Everything in Reflect</span></li>
+                <li><span className="chk">✓</span> <span>All 6 dimensions, in full detail</span></li>
+                <li><span className="chk">✓</span> <span>Your journey, trend and cohort</span></li>
               </ul>
 
-              <div className="target-card-bottom">
-                <p className="renews-text">Renews every 28 days · cancel anytime</p>
-                <a href="#plans" className="btn-choose-orange">Choose Converse</a>
+              <div className="tier-action-bottom">
+                <a href="#plans" className="tier-btn btn-outline-green">
+                  Sign in to see pricing ➔
+                </a>
               </div>
             </div>
 
             {/* CARD 2: DEPTH */}
-            <div className="pricing-target-card">
-              <div className="target-card-header">
-                <div className="target-card-icon icon-depth">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C5CFC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <div className="pricing-tier-card card-depth">
+              <div className="tier-card-header">
+                <div className="tier-icon-circle icon-green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
                   </svg>
                 </div>
-                <h3 className="target-tier-title">Depth</h3>
-                <div className="target-price-row">
-                  <span className="price-num">₹1,599</span>
-                  <span className="price-unit">/cycle</span>
-                </div>
-                <p className="target-sub-price">about ₹57 a day</p>
-                <p className="target-tagline">For the things that take real work.</p>
-              </div>
-
-              <div className="target-stats-container">
-                <div className="stat-line">
-                  <span className="stat-label">Total time</span>
-                  <span className="stat-val">1,200 min / 28 days</span>
-                </div>
-                <div className="stat-line">
-                  <span className="stat-label">Max per day</span>
-                  <span className="stat-val">60 min</span>
+                <div>
+                  <h3 className="tier-name">Depth</h3>
+                  <p className="tier-tagline">For working through something specific</p>
                 </div>
               </div>
 
-              <p className="gst-text">GST inclusive</p>
+              <div className="tier-stats-bar bar-green" style={{ gridTemplateColumns: '1fr 1fr' }}>
+                <div className="stat-box">
+                  <strong>1,200</strong>
+                  <span>minutes / cycle</span>
+                </div>
+                <div className="stat-box">
+                  <strong>20 min</strong>
+                  <span>a day</span>
+                </div>
+              </div>
 
-              <div className="you-get-lead">YOU GET</div>
-              <ul className="target-bullet-list check-purple">
+              <ul className="tier-features-list check-green">
                 <li><span className="chk">✓</span> <span>Everything in Converse</span></li>
-                <li><span className="chk">✓</span> <span>Personal next steps, not generic advice</span></li>
-                <li><span className="chk">✓</span> <span>The deepest read we can give you</span></li>
-                <li><span className="chk">✓</span> <span>Every week, what changed — and what didn't</span></li>
-                <li><span className="chk">✓</span> <span>See what keeps repeating in your life</span></li>
+                <li><span className="chk">✓</span> <span>Personalised 3-day &amp; 7-day plans</span></li>
+                <li><span className="chk">✓</span> <span>Mind map: identity, goal, beliefs and more</span></li>
               </ul>
 
-              <div className="target-card-bottom">
-                <p className="renews-text">Renews every 28 days · cancel anytime</p>
-                <a href="#plans" className="btn-choose-orange">Choose Depth</a>
+              <div className="tier-action-bottom">
+                <a href="#plans" className="tier-btn btn-outline-green">
+                  Sign in to see pricing ➔
+                </a>
               </div>
             </div>
 
-            {/* CARD 3: TRIAL COLUMN (CARD + WHAT WE'RE SEEING BOX) */}
-            <div className="trial-column-stack">
-              <div className="pricing-target-card">
-                <div className="target-card-header">
-                  <div className="target-card-icon icon-trial">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>
-                    </svg>
-                  </div>
-                  <h3 className="target-tier-title">Trial</h3>
-                  <div className="target-price-row">
-                    <span className="price-num">₹99</span>
-                    <span className="price-unit">/cycle</span>
-                  </div>
-                  <p className="target-sub-price">about ₹14 a day</p>
-                  <p className="target-tagline">Try it for a week — a taste of navigating.</p>
+            {/* CARD 3: TRIAL */}
+            <div className="pricing-tier-card card-trial">
+              <div className="tier-card-header">
+                <div className="tier-icon-circle icon-green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polygon points="10 8 16 12 10 16 10 8"/>
+                  </svg>
                 </div>
-
-                <div className="target-stats-container">
-                  <div className="stat-line">
-                    <span className="stat-label">Total time</span>
-                    <span className="stat-val">30 min / 7 days</span>
-                  </div>
-                </div>
-
-                <p className="gst-text">GST inclusive</p>
-
-                <div className="you-get-lead">YOU GET</div>
-                <ul className="target-bullet-list check-green">
-                  <li><span className="chk">✓</span> <span>Your Brihas Quotient — where you stand today</span></li>
-                  <li><span className="chk">✓</span> <span>A first look at 2 of 6 life dimensions</span></li>
-                  <li><span className="chk">✓</span> <span>See what's shifting in you</span></li>
-                  <li><span className="chk">✓</span> <span>See how you compare to others at your stage</span></li>
-                </ul>
-
-                <div className="target-card-bottom">
-                  <p className="renews-text">Renews every 7 days · cancel anytime</p>
-                  <a href="#plans" className="btn-choose-orange">Choose Trial</a>
+                <div>
+                  <h3 className="tier-name">Trial</h3>
+                  <p className="tier-tagline">Test drive your thinking partner</p>
                 </div>
               </div>
 
-              {/* WHAT WE'RE SEEING BOX BELOW TRIAL */}
-              <div className="what-we-are-seeing-box">
-                <div className="seeing-lead">WHAT WE'RE SEEING</div>
-                <p className="seeing-quote">something pressing that hasn't found words yet.</p>
-                <p className="seeing-sub">Just write down the one thing that's sitting on your head right now — not to solve it, just to get it out of your head and somewhere you can see it. A week on Trial is enough to work through it.</p>
+              <div className="tier-stats-bar bar-green" style={{ gridTemplateColumns: '1fr 1fr' }}>
+                <div className="stat-box">
+                  <strong>60</strong>
+                  <span>minutes / cycle</span>
+                </div>
+                <div className="stat-box">
+                  <strong>20 min</strong>
+                  <span>a day</span>
+                </div>
+              </div>
+
+              <ul className="tier-features-list check-green">
+                <li><span className="chk">✓</span> <span>Full 6D Quotient reading</span></li>
+                <li><span className="chk">✓</span> <span>Live voice &amp; text reflection</span></li>
+                <li><span className="chk">✓</span> <span>Complete session privacy</span></li>
+              </ul>
+
+              <div className="tier-action-bottom">
+                <a href="#plans" className="tier-btn btn-outline-green">
+                  Sign in to see pricing ➔
+                </a>
               </div>
             </div>
-
           </div>
 
-          {/* Hide/Show Other Plans Pill Button */}
-          <div style={{ textAlign: 'center', marginTop: '32px' }}>
-            <button className="hide-other-plans-pill">
-              <span>Hide other plans</span> ▲
-            </button>
+          {/* MORE PLANS: REFLECT */}
+          <div className="more-plans-banner" style={{ marginTop: '36px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '15px', color: '#6E786F', margin: 0 }}>
+              Looking for steady, low-key check-ins?
+            </p>
+            <a href="#plans" className="reflect-plan-more-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 24px', borderRadius: '100px', border: '1.5px solid #237446', color: '#237446', fontWeight: 600, fontSize: '14.5px', textDecoration: 'none', background: '#FFFFFF', transition: 'all 0.2s ease' }}>
+              ⚡ Reflect — Steady, low-key check-ins ➔
+            </a>
           </div>
 
           <div className="plans-bottom-privacy">
