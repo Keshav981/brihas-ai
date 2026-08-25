@@ -3376,7 +3376,7 @@ function App() {
               <ul className="tier-features-list check-green">
                 <li><span className="chk">✓</span> <span>Everything in Reflect</span></li>
                 <li><span className="chk">✓</span> <span>All 6 dimensions, in full detail</span></li>
-                <li><span className="chk">✓</span> <span>The Journey view — trends &amp; cohort comparison</span></li>
+                <li><span className="chk">✓</span> <span>Your journey, trend and cohort</span></li>
                               </ul>
 
               <div className="tier-action-bottom">
