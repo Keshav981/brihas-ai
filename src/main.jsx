@@ -3266,8 +3266,9 @@ function App() {
 
           {/* 3 Tier Pricing Cards Grid matching target image */}
           <div className="pricing-cards-exact-grid">
-            {/* CARD 1: CONVERSE */}
-            <div className="pricing-tier-card card-converse">
+            {/* CARD 1: CONVERSE (MOST CHOSEN) */}
+            <div className="pricing-tier-card card-converse card-most-chosen-highlight">
+              <div className="most-chosen-pill-badge">MOST CHOSEN</div>
               <div className="tier-card-header">
                 <div className="tier-icon-circle icon-green">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
