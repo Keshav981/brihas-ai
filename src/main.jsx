@@ -1689,71 +1689,560 @@ const pebbleWordsAbsolute = [
   { text: 'Mindset', left: '53%', top: '85.5%', fontSize: '12.5px', weight: 500, color: '#54665A' },
   { text: 'Self esteem', left: '66%', top: '85%', fontSize: '12px', weight: 500, color: '#6D5B54' }
 ];
+
+/* ══════════ <topic-orb> — Brihas.ai interactive 3D topic universe ══════════ */
+if (typeof window !== 'undefined' && !customElements.get('topic-orb')) {
+  const TOPICS = [
+    ['Burnout', 1], ['Overthinking', 1], ['Career', 1], ['Relationships', 1],
+    ['Clarity', 1], ['Money', 1], ['Identity', 1], ['Big decisions', 1],
+    ['Purpose', 2], ['Anxiety', 2], ['Self doubt', 2], ['Peace of mind', 2],
+    ['Health', 2], ['Growth', 2], ['Confidence', 2], ['Direction', 2],
+    ['Future', 2], ['Inner Peace', 2], ['Work pressure', 2], ['Family', 2],
+    ['Marriage', 2], ['Boundaries', 2], ['Regret', 2], ['Stress', 2],
+    ['Motivation', 3], ['Friendship', 3], ['Loneliness', 3], ['Balance', 3],
+    ['Mindset', 3], ['Productivity', 3], ['Grief', 3], ['Guilt', 3],
+    ['Discipline', 3], ['Self worth', 3], ['Habits', 3], ['Belonging', 3],
+    ['Starting over', 3], ['Comparison', 3], ['Energy', 3], ['Trust', 3],
+    ['Forgiveness', 3], ['Sleep', 3], ['Ambition', 3], ['Conflict', 3]
+  ];
+
+  const INK = '#131A15', FOREST = '#1F5C41', SAGE = '#42604A',
+        LAV = '#5B4C7C', BROWN = '#5F4530', COPPER = '#8A4E23';
+  const HUES = [FOREST, INK, SAGE, LAV, BROWN, COPPER];
+
+  const CSS = `
+topic-orb { display:block; container-type:inline-size; }
+.orb-head { text-align:left; margin:0 auto 16px; max-width:100%; }
+.orb-head h3 {
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(28px,4.5vw,42px); font-weight:700;
+  letter-spacing:-.03em; line-height:1.2; color:#1C251D; margin:0 0 6px;
+  text-align:left;
+}
+.orb-head h3 em {
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic; font-weight:600; color:#237446;
+}
+.orb-sub {
+  font-family:'Playfair Display',Georgia,serif; font-style:italic;
+  font-size:clamp(16px,2.5vw,20px); color:#6E786F; margin:0;
+  text-align:left;
+}
+.orb-stage { position:relative; width:100%; aspect-ratio:1/1;
+  max-width:min(100%,640px); margin:0 auto;
+  touch-action:none; cursor:grab;
+  -webkit-user-select:none; user-select:none;
+}
+.orb-stage:focus-visible { outline:1.5px solid #2B7858; outline-offset:8px; border-radius:50%; }
+.orb-stage.is-drag { cursor:grabbing; }
+.orb-glow, .orb-shell, .orb-rings, .orb-grid, .orb-field, .orb-link { position:absolute; inset:0; }
+.orb-glow {
+  border-radius:50%;
+  background:
+    radial-gradient(46% 44% at 30% 24%, rgba(142,127,176,.22), transparent 70%),
+    radial-gradient(48% 46% at 74% 72%, rgba(110,138,114,.22), transparent 72%),
+    radial-gradient(58% 56% at 52% 50%, rgba(255,255,255,.55), transparent 74%);
+  filter:blur(28px);
+}
+.orb-shell {
+  border-radius:50%;
+  border:1px solid rgba(28,37,29,.08);
+  background:
+    radial-gradient(52% 48% at 32% 22%, rgba(255,255,255,.58), rgba(255,255,255,.05) 58%, transparent 74%),
+    radial-gradient(72% 72% at 50% 54%, rgba(253,251,246,.14), transparent 76%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.72),
+    inset 0 -40px 80px -62px rgba(28,37,29,.16),
+    0 56px 84px -64px rgba(28,37,29,.26);
+  -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+}
+.orb-rings, .orb-grid, .orb-link { overflow:visible; pointer-events:none; }
+.orb-field { pointer-events:none; }
+.orb-w {
+  position:absolute; left:0; top:0;
+  font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;
+  white-space:nowrap; pointer-events:auto; cursor:pointer;
+  background:none; border:0; padding:2px 4px; margin:0;
+  transition:color .3s ease, opacity .28s ease;
+  will-change:transform,opacity,filter;
+}
+.orb-w:focus-visible { outline:1.5px solid ${FOREST}; outline-offset:3px; border-radius:6px; }
+.orb-w.is-on { color:${FOREST} !important; }
+.orb-foot {
+  display:flex; flex-direction:column; align-items:center; gap:3px;
+  margin:12px 0 0; text-align:center;
+}
+.orb-foot b {
+  font-family:'DM Mono',ui-monospace,monospace;
+  font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+  font-weight:500; color:${INK};
+}
+.orb-hint {
+  font-family:'Playfair Display',Georgia,serif; font-style:italic;
+  font-size:14.5px; color:${SAGE};
+}
+.orb-cta {
+  margin-top:14px; cursor:pointer;
+  font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;
+  font-size:14.5px; color:#FDFBF6; letter-spacing:-.01em;
+  padding:12px 22px; border-radius:999px; border:0;
+  background:${INK};
+  box-shadow:0 14px 26px -16px rgba(28,37,29,.5);
+  transition:background .2s ease, transform .2s ease;
+}
+.orb-cta:hover { background:${FOREST}; transform:translateY(-1px); }
+.orb-snd {
+  position:absolute; right:1%; bottom:5%;
+  width:40px; height:40px; border-radius:50%; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  color:${SAGE}; border:1px solid rgba(28,37,29,.1);
+  background:rgba(255,255,255,.66);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+  box-shadow:0 8px 18px -12px rgba(28,37,29,.3), inset 0 1px 0 rgba(255,255,255,.9);
+  transition:color .2s ease, border-color .2s ease, background .2s ease;
+}
+.orb-snd:hover { color:${FOREST}; border-color:rgba(43,120,88,.3); background:rgba(255,255,255,.92); }
+.orb-snd[aria-pressed="true"] { color:${FOREST}; }
+@container (max-width: 620px) {
+  .orb-stage { max-width:100%; }
+  .orb-snd { width:36px; height:36px; right:0; bottom:2%; }
+}
+@media (prefers-reduced-motion: reduce) { .orb-w { transition:none; } }
+`;
+
+  function injectCSS() {
+    if (document.getElementById('topic-orb-css')) return;
+    const s = document.createElement('style');
+    s.id = 'topic-orb-css';
+    s.textContent = CSS;
+    document.head.appendChild(s);
+  }
+
+  const SND_ON = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6.5 9H3v6h3.5L11 19V5Z"/><path d="M15.5 9.5a3.5 3.5 0 0 1 0 5"/><path d="M18.5 7a7 7 0 0 1 0 10"/></svg>`;
+  const SND_OFF = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6.5 9H3v6h3.5L11 19V5Z"/><path d="m16 10 4 4M20 10l-4 4"/></svg>`;
+
+  class TopicOrb extends HTMLElement {
+    connectedCallback() {
+      if (this._built) return;
+      this._built = true;
+      injectCSS();
+
+      this.innerHTML = `
+        <div class="orb-head">
+          <h3>What&rsquo;s on <em>your mind?</em></h3>
+          <p class="orb-sub">Explore what matters to you.</p>
+        </div>
+        <div class="orb-stage">
+          <div class="orb-glow"></div>
+          <div class="orb-shell"></div>
+          <svg class="orb-rings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+          <svg class="orb-grid" aria-hidden="true"></svg>
+          <svg class="orb-link" aria-hidden="true"></svg>
+          <div class="orb-field" role="group" aria-label="Topics"></div>
+          <button class="orb-snd" type="button" aria-pressed="false" aria-label="Toggle ambient sound">${SND_OFF}</button>
+        </div>
+        <div class="orb-foot">
+          <b>Drag to explore</b>
+          <span class="orb-hint">Spin the orb and discover more.</span>
+          <button class="orb-cta" type="button" hidden></button>
+        </div>`;
+
+      this.stage = this.querySelector('.orb-stage');
+      this.field = this.querySelector('.orb-field');
+      this.rings = this.querySelector('.orb-rings');
+      this.grid  = this.querySelector('.orb-grid');
+      this.link  = this.querySelector('.orb-link');
+      this.sndBtn = this.querySelector('.orb-snd');
+      this.cta = this.querySelector('.orb-cta');
+
+      this.reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      this.compact = null;
+      this.yaw = 0.6; this.pitch = -0.1;
+      this.vYaw = 0.0016; this.vPitch = 0;
+      this.hover = false; this.drag = null; this.focus = null;
+      this.hot = null;
+      this.sound = null; this.picked = null; this.visible = true;
+
+      this._buildRings();
+      this._buildWords();
+      this._bind();
+
+      this._tick = this._tick.bind(this);
+      this._render();
+      requestAnimationFrame(this._tick);
+
+      this._io = new IntersectionObserver(es => { this.visible = es[0].isIntersecting; },
+        { threshold: 0.02 });
+      this._io.observe(this);
+      this._ro = new ResizeObserver(() => {
+        const before = this.compact;
+        this._layout();
+        if (this.compact !== before) this._bindWords();
+        this._stale = true; this._render();
+      });
+      this._ro.observe(this.stage);
+    }
+
+    disconnectedCallback() {
+      this._io && this._io.disconnect();
+      this._ro && this._ro.disconnect();
+      this._stopSound();
+      cancelAnimationFrame(this._raf);
+    }
+
+    _buildRings() {
+      const ell = (rx, ry, rot, op, dash) =>
+        `<ellipse cx="50" cy="50" rx="${rx}" ry="${ry}" transform="rotate(${rot} 50 50)"
+           fill="none" stroke="rgba(43,120,88,${op})" stroke-width="0.28"
+           ${dash ? `stroke-dasharray="${dash}"` : ''} vector-effect="non-scaling-stroke"/>`;
+      this.rings.innerHTML = ell(49.6, 14, -16, .22, '') + ell(49.6, 31, 13, .12, '1.6 2.4');
+    }
+
+    _drawGlobe(g, R, cx, cy, FOV, box) {
+      const step = 9, front = [], back = [];
+      const put = (arr, pts) => { if (pts.length > 1) arr.push('M' + pts.join('L')); };
+      const project = (lat, lon) => {
+        const cl = Math.cos(lat), x = cl * Math.sin(lon), y = Math.sin(lat), z = cl * Math.cos(lon);
+        const x1 = x * g.cyw - z * g.syw, z1 = x * g.syw + z * g.cyw;
+        const y2 = y * g.cp - z1 * g.sp, z2 = y * g.sp + z1 * g.cp;
+        const s = FOV / (FOV - z2 * R);
+        return { p: `${(cx + x1 * R * s).toFixed(1)} ${(cy + y2 * R * s).toFixed(1)}`, near: z2 > 0 };
+      };
+      const trace = fn => {
+        let run = [], side = null;
+        for (let t = 0; t <= 360; t += step) {
+          const q = project(...fn(t * Math.PI / 180));
+          if (side === null) side = q.near;
+          if (q.near !== side) { put(side ? front : back, run); run = [run[run.length - 1]].filter(Boolean); side = q.near; }
+          run.push(q.p);
+        }
+        put(side ? front : back, run);
+      };
+      for (let i = 0; i < 6; i++) {
+        const lon = i * Math.PI / 6;
+        trace(t => [t <= Math.PI ? t - Math.PI / 2 : Math.PI / 2 - (t - Math.PI), lon]);
+      }
+      for (let i = -2; i <= 2; i++) {
+        const lat = i * (Math.PI / 6);
+        trace(t => [lat, t]);
+      }
+      g.svg.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
+      g.svg.innerHTML =
+        `<path d="${back.join('')}" fill="none" stroke="rgba(28,37,29,.05)" stroke-width="0.7"/>` +
+        `<path d="${front.join('')}" fill="none" stroke="rgba(43,120,88,.13)" stroke-width="0.8"/>`;
+    }
+
+    _buildWords() {
+      const buckets = [[], [], []];
+      TOPICS.forEach(t => buckets[t[1] - 1].push(t));
+      const order = [];
+      for (let k = 0; order.length < TOPICS.length; k++)
+        for (const b of buckets) if (b[k]) order.push(b[k]);
+      this.order = order;
+      this.words = [];
+      this._layout();
+    }
+
+    _layout() {
+      const w = this.stage.getBoundingClientRect().width || 640;
+      const compact = w < 560;
+      if (compact === this.compact) return;
+      this.compact = compact;
+
+      this.field.textContent = '';
+      const order = compact ? this.order.filter(t => t[1] < 3).slice(0, 18) : this.order;
+      const n = order.length;
+      this.words = order.map(([label, tier], i) => {
+        const y = 1 - (2 * i + 1) / n;
+        const r = Math.sqrt(Math.max(0, 1 - y * y));
+        const th = Math.PI * (3 - Math.sqrt(5)) * i;
+        const j = ((Math.sin(i * 12.9898) * 43758.5453) % 1 + 1) % 1;
+        const base = tier === 1 ? 1 : tier === 2 ? 0.84 : 0.66;
+        const shell = base * (0.87 + j * 0.26);
+        const el = document.createElement('button');
+        el.type = 'button';
+        el.className = 'orb-w';
+        el.textContent = label;
+        el.style.color = HUES[i % HUES.length];
+        el.style.fontSize = (tier === 1 ? 1 : tier === 2 ? (compact ? 0.82 : 0.7) : 0.54) + 'em';
+        el.style.fontWeight = tier === 1 ? 600 : tier === 2 ? 500 : 500;
+        el.style.letterSpacing = tier === 1 ? '-.02em' : '-.01em';
+        el.addEventListener('click', () => this._select(i));
+        el.addEventListener('pointerenter', () => { this.hot = i; this._render(); });
+        el.addEventListener('pointerleave', () => { this.hot = null; this._render(); });
+        this.field.appendChild(el);
+        return { label, tier, el, x: Math.cos(th) * r * shell, y: y * shell,
+                 z: Math.sin(th) * r * shell };
+      });
+    }
+
+    _bind() {
+      const s = this.stage;
+      s.addEventListener('pointerenter', () => { this.hover = true; });
+      s.addEventListener('pointerleave', () => { this.hover = false; });
+
+      s.addEventListener('pointerdown', e => {
+        if (e.target.closest('.orb-snd')) return;
+        s.setPointerCapture(e.pointerId);
+        s.classList.add('is-drag');
+        this.drag = { x: e.clientX, y: e.clientY, moved: 0 };
+        this.focus = null;
+      });
+
+      s.addEventListener('pointermove', e => {
+        if (!this.drag) return;
+        const dx = e.clientX - this.drag.x, dy = e.clientY - this.drag.y, k = 0.006;
+        this.yaw += dx * k;
+        this.pitch = Math.max(-1.05, Math.min(1.05, this.pitch + dy * k * 0.7));
+        this.vYaw = dx * k * 0.5;
+        this.vPitch = dy * k * 0.35;
+        this.drag.moved += Math.abs(dx) + Math.abs(dy);
+        this.drag.x = e.clientX; this.drag.y = e.clientY;
+        this._render();
+      });
+
+      const end = () => {
+        if (!this.drag) return;
+        if (this.drag.moved < 4) this.vYaw = this.vYaw || 0.0016;
+        this.drag = null;
+        s.classList.remove('is-drag');
+      };
+      s.addEventListener('pointerup', end);
+      s.addEventListener('pointercancel', end);
+
+      this.sndBtn.addEventListener('click', () => this._toggleSound());
+
+      s.tabIndex = 0;
+      s.setAttribute('role', 'application');
+      s.setAttribute('aria-label', 'Topic globe — use arrow keys to rotate');
+      s.addEventListener('keydown', e => {
+        const step = 0.055;
+        if (e.key === 'ArrowLeft') this.vYaw = -step;
+        else if (e.key === 'ArrowRight') this.vYaw = step;
+        else if (e.key === 'ArrowUp') this.vPitch = -step * 0.7;
+        else if (e.key === 'ArrowDown') this.vPitch = step * 0.7;
+        else return;
+        this.focus = null;
+        e.preventDefault();
+      });
+      this.cta.addEventListener('click', () => {
+        if (!this.picked) return;
+        this.dispatchEvent(new CustomEvent('topicstart',
+          { detail: { topic: this.picked }, bubbles: true }));
+      });
+    }
+
+    _select(i) {
+      const w = this.words[i];
+      this.words.forEach(o => o.el.classList.toggle('is-on', o === w));
+      const R = Math.hypot(w.x, w.z);
+      this.focus = { yaw: Math.atan2(w.x, w.z), pitch: Math.atan2(w.y, R) };
+      this.vYaw = 0; this.vPitch = 0;
+      this.picked = w.label;
+      this.cta.textContent = `Talk about ${w.label} →`;
+      this.cta.hidden = false;
+      this.dispatchEvent(new CustomEvent('topicselect',
+        { detail: { topic: w.label }, bubbles: true }));
+    }
+
+    _tick() {
+      this._raf = requestAnimationFrame(this._tick);
+      if (!this.visible || this.drag) return;
+
+      const idle = 0.0016;
+      if (this.focus) {
+        const dy = ((this.focus.yaw - this.yaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
+        this.yaw += dy * 0.07;
+        this.pitch += (this.focus.pitch - this.pitch) * 0.07;
+        if (Math.abs(dy) < 0.004) { this.focus = null; this.vYaw = idle * 0.5; }
+      } else {
+        this.vYaw += (idle - this.vYaw) * 0.012;
+        this.vPitch *= 0.94;
+        const slow = this.hover ? 0.22 : 1;
+        this.yaw += this.vYaw * slow * (this.reduced ? 0.2 : 1);
+        this.pitch += this.vPitch * slow;
+        this.pitch += (-0.06 - this.pitch) * 0.004;
+      }
+      this._render();
+    }
+
+    _render() {
+      if (!this.words || !this.words.length) return;
+      const box = this.stage.getBoundingClientRect();
+      if (!box.width) return;
+
+      const R = box.width * 0.455, cx = box.width / 2, cy = box.height / 2;
+      const FOV = R * 3.1;
+      const cyw = Math.cos(this.yaw), syw = Math.sin(this.yaw);
+      const cp = Math.cos(this.pitch), sp = Math.sin(this.pitch);
+      const fs = Math.max(this.compact ? 15.5 : 15, box.width * 0.037) + 'px';
+      if (fs !== this._fs) {
+        this.stage.style.fontSize = this._fs = fs;
+        this._stale = true;
+      }
+      if (this._stale) { this._measure(); this._stale = false; }
+
+      const pts = [];
+      const boxes = [];
+      const rim = box.width / 2 - 3;
+      this._drawGlobe({ svg: this.grid, cyw, syw, cp, sp }, R, cx, cy, FOV, box);
+      let wi = -1;
+      for (const w of this.words) {
+        wi++;
+        const x1 = w.x * cyw - w.z * syw, z1 = w.x * syw + w.z * cyw;
+        const y2 = w.y * cp - z1 * sp,    z2 = w.y * sp + z1 * cp;
+        const X = x1 * R, Y = y2 * R, Z = z2 * R;
+        const s = FOV / (FOV - Z);
+        const d = (z2 + 1) / 2;
+        const op = (0.5 + 0.5 * d) * (w.tier === 3 ? 0.9 : 1);
+
+        let dx = X * s, dy = Y * s;
+        const hw = (w.w || 0) * s / 2, hh = (w.h || 0) * s / 2;
+        const a = dx * dx + dy * dy;
+        if (a > 0.01) {
+          const b = 2 * (Math.abs(dx) * hw + Math.abs(dy) * hh);
+          const c = hw * hw + hh * hh - rim * rim;
+          if (a + b + c > 0) {
+            const k = Math.max(0, (-b + Math.sqrt(Math.max(0, b * b - 4 * a * c))) / (2 * a));
+            dx *= k; dy *= k;
+          }
+        }
+        const px = cx + dx, py = cy + dy;
+        const lift = this.hot === wi ? 1.14 : 1;
+
+        const st = w.el.style;
+        st.transform = `translate3d(${px.toFixed(1)}px, ${py.toFixed(1)}px, 0) translate(-50%,-50%) scale(${(s * lift).toFixed(3)})`;
+        st.opacity = (lift > 1 ? 1 : op).toFixed(3);
+        st.filter = (lift === 1 && d < 0.45) ? `blur(${((0.45 - d) * 2.2).toFixed(2)}px)` : 'none';
+        st.zIndex = lift > 1 ? 200 : Math.round(d * 100);
+        st.pointerEvents = d > 0.42 ? 'auto' : 'none';
+        if (d > 0.5) pts.push({ x: px, y: py, hot: lift > 1 });
+        boxes.push({ el: w.el, d: lift > 1 ? 2 : d, op, x: px, y: py, hw, hh });
+      }
+      this._occlude(boxes);
+      this._drawLinks(pts, box);
+      if (this.sound) this._sound(Math.abs(this.vYaw) + Math.abs(this.vPitch));
+    }
+
+    _measure() {
+      if (!this.words.length) return;
+      for (const w of this.words) { w.w = w.el.offsetWidth; w.h = w.el.offsetHeight; }
+    }
+
+    _bindWords() {
+      this.picked = null;
+      this.cta.hidden = true;
+    }
+
+    _occlude(boxes) {
+      if (!this.words[0].w) this._measure();
+      boxes.sort((a, b) => b.d - a.d);
+      const kept = [];
+      for (const b of boxes) {
+        let hidden = false;
+        for (const k of kept) {
+          if (Math.abs(b.x - k.x) < (b.hw + k.hw) - 5 &&
+              Math.abs(b.y - k.y) < (b.hh + k.hh) - 3) { hidden = true; break; }
+        }
+        if (hidden) {
+          b.el.style.opacity = (b.op * 0.14).toFixed(3);
+          b.el.style.pointerEvents = 'none';
+        } else {
+          kept.push(b);
+        }
+      }
+    }
+
+    _drawLinks(pts, box) {
+      let d = '', hot = '';
+      const lim = box.width * 0.24;
+      for (let i = 0; i < pts.length; i++)
+        for (let j = i + 1; j < pts.length; j++) {
+          const a = pts[i], b = pts[j];
+          if (Math.hypot(a.x - b.x, a.y - b.y) < lim) {
+            const seg = `M${a.x.toFixed(1)} ${a.y.toFixed(1)}L${b.x.toFixed(1)} ${b.y.toFixed(1)}`;
+            if (a.hot || b.hot) hot += seg; else d += seg;
+          }
+        }
+      this.link.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
+      this.link.innerHTML =
+        `<path d="${d}" fill="none" stroke="rgba(43,120,88,.13)" stroke-width="0.7"/>` +
+        `<path d="${hot}" fill="none" stroke="rgba(31,92,65,.5)" stroke-width="1.1"/>`;
+    }
+
+    _toggleSound() {
+      if (this.sound) { this._stopSound(); return; }
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      const ctx = new AC();
+      const gain = ctx.createGain(); gain.gain.value = 0;
+      const filt = ctx.createBiquadFilter();
+      filt.type = 'lowpass'; filt.frequency.value = 460; filt.Q.value = 0.7;
+      const osc = [110, 110.4, 164.8].map((f, i) => {
+        const o = ctx.createOscillator();
+        o.type = i === 2 ? 'triangle' : 'sine';
+        o.frequency.value = f;
+        const g = ctx.createGain(); g.gain.value = i === 2 ? 0.22 : 0.5;
+        o.connect(g).connect(filt); o.start();
+        return o;
+      });
+      filt.connect(gain).connect(ctx.destination);
+      gain.gain.linearRampToValueAtTime(0.035, ctx.currentTime + 2.4);
+      this.sound = { ctx, gain, filt, osc };
+      const s = this.sound;
+      this.sndBtn.setAttribute('aria-pressed', 'true');
+      this.sndBtn.innerHTML = SND_ON;
+      try { ctx.resume && ctx.resume(); } catch (e) {}
+      const check = () => { if (this.sound === s && ctx.state !== 'running') this._stopSound(); };
+      ctx.addEventListener && ctx.addEventListener('statechange', check);
+      setTimeout(check, 500);
+    }
+
+    _stopSound() {
+      if (!this.sound) return;
+      const { ctx, gain, osc } = this.sound;
+      gain.gain.cancelScheduledValues(ctx.currentTime);
+      gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.7);
+      setTimeout(() => { osc.forEach(o => o.stop()); ctx.close(); }, 900);
+      this.sound = null;
+      this.sndBtn.setAttribute('aria-pressed', 'false');
+      this.sndBtn.innerHTML = SND_OFF;
+    }
+
+    _sound(speed) {
+      const { ctx, filt } = this.sound;
+      filt.frequency.setTargetAtTime(360 + Math.min(speed * 26000, 900), ctx.currentTime, 0.6);
+    }
+  }
+
+  customElements.define('topic-orb', TopicOrb);
+}
+
+
 const ExactImageWordCloudSection = ({ onSelectWord }) => {
+  const orbRef = useRef(null);
+
+  useEffect(() => {
+    const el = orbRef.current;
+    if (!el) return;
+
+    const handleSelect = (e) => {
+      if (e.detail && e.detail.topic && onSelectWord) {
+        onSelectWord(e.detail.topic);
+      }
+    };
+
+    el.addEventListener('topicselect', handleSelect);
+    el.addEventListener('topicstart', handleSelect);
+    return () => {
+      el.removeEventListener('topicselect', handleSelect);
+      el.removeEventListener('topicstart', handleSelect);
+    };
+  }, [onSelectWord]);
+
   return (
-    <div className="starting-word-cloud-container">
-      {/* Header */}
-      <div className="heading-bubble-container" style={{ marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
-        <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 4.5vw, 42px)', fontWeight: 700, color: '#1C251D', margin: '0 0 6px', textAlign: 'left', lineHeight: 1.2 }}>
-          What&rsquo;s on <span style={{ fontStyle: 'italic', color: '#237446', fontWeight: 600 }}>your mind?</span>
-        </h2>
-        <p className="section-subtitle" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(16px, 2.5vw, 20px)', color: '#6E786F', margin: 0, textAlign: 'left' }}>
-          Explore what matters to you.
-        </p>
-      </div>
-
-      {/* Oval Pebble Mesh Gradient Card */}
-      <div className="pebble-blob-card">
-        {/* Minimalist 3-Leaf Botanical Stem Icon in Bottom-Left Corner with Floating Animation */}
-        <motion.div 
-          className="exact-botanical-stem-icon"
-          animate={{ y: [0, -5, 0], rotate: [-2, 3, -2] }}
-          transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Curved Stem */}
-            <path d="M12 34 C 16 28, 22 20, 26 14" stroke="#274C3A" strokeWidth="2.2" strokeLinecap="round" opacity="0.85" />
-            {/* Top Leaf */}
-            <path d="M 26 14 C 22 8, 30 4, 32 10 C 34 16, 28 18, 26 14 Z" fill="#274C3A" opacity="0.8" />
-            {/* Left Leaf */}
-            <path d="M 20 22 C 14 18, 12 26, 16 28 C 22 30, 22 24, 20 22 Z" fill="#274C3A" opacity="0.75" />
-            {/* Right Leaf */}
-            <path d="M 23 20 C 29 16, 33 22, 30 26 C 26 28, 24 22, 23 20 Z" fill="#274C3A" opacity="0.75" />
-          </svg>
-        </motion.div>
-
-        {/* Absolute Non-Overlapping Topic Words with Organic Floating Animation */}
-        {pebbleWordsAbsolute.map((item, idx) => (
-          <motion.button
-            key={idx}
-            type="button"
-            className={`pebble-absolute-tag float-anim-${idx % 4}`}
-            style={{
-              position: 'absolute',
-              left: item.left,
-              top: item.top,
-              fontSize: item.fontSize,
-              fontWeight: item.weight,
-              color: item.color,
-              fontFamily: "'DM Sans', sans-serif",
-              background: 'none',
-              border: 'none',
-              padding: '2px 6px',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap',
-              zIndex: item.weight >= 700 ? 10 : 5
-            }}
-            onClick={() => onSelectWord && onSelectWord(item.text)}
-            whileHover={{ scale: 1.2, zIndex: 100 }}
-            whileTap={{ scale: 0.94 }}
-          >
-            {item.text}
-          </motion.button>
-        ))}
-      </div>
-
-      {/* Bottom Hint */}
-      
+    <div className="starting-word-cloud-container" style={{ width: '100%', maxWidth: '680px', margin: '0 auto', textAlign: 'left' }}>
+      <topic-orb ref={orbRef}></topic-orb>
     </div>
   );
 };
