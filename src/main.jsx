@@ -3001,7 +3001,7 @@ function App() {
           </div>
           <div className="trust__cell">
             <div className="trust-icon">🛡️</div>
-            <div><b>Zero ads. Never sold.</b><span>Your trust is everything.</span></div>
+            <div><b>Zero ads</b><span>Your trust is everything.</span></div>
           </div>
           <div className="trust__cell">
             <div className="trust-icon">🗑️</div>
