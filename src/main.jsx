@@ -2892,7 +2892,7 @@ function App() {
 
           {/* Start Anywhere Chips with Icons */}
           <div className="hq-chips">
-            <span className="hq-chips-lead">START ANYWHERE</span>
+            
             <div className="hq-chip-container">
               {[
                 { label: 'Stress & Overthinking', icon: '⚡' },
