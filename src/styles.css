@@ -10262,3 +10262,15 @@ footer, .footer {
     font-size: 12.5px !important;
   }
 }
+
+
+/* ══════════ RESTORED HERO SUB TAGLINE STYLING ══════════ */
+.hero-sub-text {
+  font-family: 'DM Sans', 'Inter', sans-serif !important;
+  font-size: clamp(15px, 1.8vw, 18px) !important;
+  color: #6E786F !important;
+  margin: 0 auto 32px !important;
+  max-width: 640px !important;
+  font-weight: 400 !important;
+  text-align: center !important;
+}
