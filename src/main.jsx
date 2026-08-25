@@ -2829,15 +2829,60 @@ function App() {
   return (
     <>
     <main id="top">
-      {/* Header Navbar Box holding ONLY Official BrihasLogo */}
-      <header className="nav-brihas-exact">
-        <div className="nav__inner" style={{ justifyContent: 'flex-start', width: 'fit-content', padding: '10px 24px' }}>
-          <a href="#top" aria-label="Brihas.ai Home" style={{ textDecoration: 'none' }}>
-            <BrihasLogo size={26} />
+      {/* Top Header Navigation Bar Matching User Screenshot */}
+      <header className="target-nav-header">
+        <div className="target-nav-inner wrap">
+          {/* Brand Logo Left */}
+          <a href="#top" className="target-nav-brand" aria-label="Brihas.ai Home">
+            <span className="brand-bold">brihas</span><span className="brand-muted">.ai</span>
           </a>
+
+          {/* Center Navigation Links */}
+          <nav className="target-nav-center">
+            <a href="#topics">What&rsquo;s on your mind</a>
+            <a href="#how">How it works</a>
+            <a href="#plans">Plans</a>
+          </nav>
+
+          {/* Right Action Links & Hamburger Menu */}
+          <div className="target-nav-right">
+            <a href="#plans" className="target-signin">Sign in</a>
+            <a href="#plans" className="target-begin-btn">Begin Here</a>
+            
+            {/* Hamburger Button for Navigation */}
+            <button 
+              className="target-hamburger-btn" 
+              onClick={() => setMobileMenu(!mobileMenu)} 
+              aria-label="Toggle navigation menu"
+            >
+              <Icon name={mobileMenu ? "close" : "menu"} size={22} />
+            </button>
+          </div>
         </div>
       </header>
-      
+
+      {/* Hamburger Sliding Drawer Overlay */}
+      <AnimatePresence>
+        {mobileMenu && (
+          <motion.div 
+            className="target-hamburger-drawer"
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="drawer-inner wrap">
+              <a href="#topics" onClick={() => setMobileMenu(false)}>What&rsquo;s on your mind</a>
+              <a href="#how" onClick={() => setMobileMenu(false)}>How it works</a>
+              <a href="#plans" onClick={() => setMobileMenu(false)}>Plans</a>
+              <hr style={{ border: 'none', borderTop: '1px solid rgba(28, 37, 29, 0.08)', margin: '12px 0' }} />
+              <a href="#plans" onClick={() => setMobileMenu(false)} className="drawer-signin">Sign in</a>
+              <a href="#plans" onClick={() => setMobileMenu(false)} className="drawer-begin-btn">Begin Here</a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
 {/* Exact Hero Stage with Dynamic Cursor Mouse Tracking Background Mesh */}
       {/* Editorial Centered Hero Section */}
       <section className="hero-exact">
