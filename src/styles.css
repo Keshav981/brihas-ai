@@ -10182,3 +10182,83 @@ footer, .footer {
     font-size: 13px !important;
   }
 }
+
+
+/* ══════════ PERFECT SINGLE ROW VISIBILITY, CENTERED SEARCH BAR & BALANCED SPACING ══════════ */
+.hero-exact {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+/* Tagline Headline - Kept as is with comfortable bottom spacing to search bar */
+.hero-title-main {
+  margin-top: 12px !important;
+  margin-bottom: 36px !important;
+  text-align: center !important;
+}
+
+/* Search Bar - 100% Centered */
+.hero-exact .hq-bar {
+  margin: 0 auto 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  max-width: 640px !important;
+  width: 100% !important;
+}
+
+/* Topic Buttons Container - Positioned a little below search bar */
+.hq-chips {
+  margin-top: 12px !important;
+  margin-bottom: 44px !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.hq-chip-container {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  max-width: 1000px !important;
+  overflow: visible !important;
+}
+
+/* 4 Buttons - Compact size so all 4 fit visibly in 1 single row on all desktop & tablet screens */
+.hq-chip {
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .hq-chip {
+    padding: 7px 12px !important;
+    font-size: 12px !important;
+    gap: 6px !important;
+  }
+  .hq-chip-container {
+    gap: 6px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hq-chip-container {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  .hq-chip {
+    padding: 7px 13px !important;
+    font-size: 12.5px !important;
+  }
+}
