@@ -3347,9 +3347,11 @@ function App() {
             <div className="pricing-tier-card card-trial">
               <div className="tier-card-header">
                 <div className="tier-icon-circle icon-green">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polygon points="10 8 16 12 10 16 10 8"/>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#237446" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 20V10"/>
+                    <path d="M12 14C14.5 14 17 12.5 17 9.5C14 9.5 12 11.5 12 14Z" fill="#DEF2E6" stroke="#237446"/>
+                    <path d="M12 11C9.5 11 7 9.5 7 6.5C10 6.5 12 8.5 12 11Z" fill="#DEF2E6" stroke="#237446"/>
+                    <path d="M6 20H18" stroke="#237446" strokeWidth="2"/>
                   </svg>
                 </div>
                 <div>
