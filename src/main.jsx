@@ -2829,11 +2829,11 @@ function App() {
   return (
     <>
     <main id="top">
-      {/* Single Clean Top Brand Header with ONLY Official BrihasLogo */}
-      <header className="single-brand-header">
-        <div className="wrap" style={{ paddingTop: '32px', paddingBottom: '16px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+      {/* Header Navbar Box holding ONLY Official BrihasLogo */}
+      <header className="nav-brihas-exact">
+        <div className="nav__inner" style={{ justifyContent: 'flex-start', width: 'fit-content', padding: '10px 24px' }}>
           <a href="#top" aria-label="Brihas.ai Home" style={{ textDecoration: 'none' }}>
-            <BrihasLogo size={32} />
+            <BrihasLogo size={26} />
           </a>
         </div>
       </header>

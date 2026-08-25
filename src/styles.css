@@ -9728,3 +9728,18 @@ footer, .footer {
   z-index: 20 !important;
   background: transparent !important;
 }
+
+
+/* ══════════ NAVBAR BOX HOUSING OFFICIAL LOGO ══════════ */
+.nav-brihas-exact {
+  position: sticky !important;
+  top: 16px !important;
+  z-index: 100 !important;
+  width: 100% !important;
+}
+
+.nav-brihas-exact .nav__inner {
+  margin: 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
