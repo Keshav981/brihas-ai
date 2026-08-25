@@ -10091,3 +10091,18 @@ footer, .footer {
   line-height: inherit !important;
   color: #A87E50 !important;
 }
+
+
+/* ══════════ SMALLER & IDENTICAL HERO HEADLINE FONT SIZE ══════════ */
+.hero-title-main {
+  font-size: clamp(26px, 3.6vw, 42px) !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+  margin-bottom: 24px !important;
+}
+
+.hero-line-dark, .hero-line-bronze {
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
