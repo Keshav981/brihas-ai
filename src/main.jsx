@@ -3367,10 +3367,7 @@ function App() {
           </nav>
 
           {/* Action Buttons Right (Desktop) */}
-          <div className="desktop-nav-actions">
-            <a href="#plans" className="nav-btn-signin">Sign in</a>
-            <a href="#top" className="nav-btn-begin">Begin Here</a>
-          </div>
+          
 
           {/* Hamburger Button Right (Mobile) */}
           <button 
