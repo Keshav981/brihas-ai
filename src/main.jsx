@@ -2833,8 +2833,8 @@ function App() {
       <header className="target-nav-header">
         <div className="target-nav-inner wrap">
           {/* Brand Logo Left */}
-          <a href="#top" className="target-nav-brand" aria-label="Brihas.ai Home">
-            <span className="brand-bold">brihas</span><span className="brand-muted">.ai</span>
+          <a href="#top" aria-label="Brihas.ai Home" style={{ textDecoration: 'none' }}>
+            <BrihasLogo size={28} />
           </a>
 
           {/* Hamburger Button Right */}
