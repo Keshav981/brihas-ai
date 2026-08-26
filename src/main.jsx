@@ -3566,8 +3566,11 @@ function App() {
       {/* 4TH SECTION: MODERN INTERACTIVE READING / QUOTIENT SECTION (WHAT THIS IS FOR) */}
       <motion.section className="section quotient" id="quotient" {...sectionMotion}>
         <div className="wrap">
-          <div className="reading-header" style={{ textAlign: 'center', marginBottom: '24px' }}>
-            <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> YOUR DAILY CLARITY SCORE</p>
+          <div className="reading-header" style={{ textAlign: 'left', marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
+            <p className="eyebrow green-eyebrow" style={{ marginBottom: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> YOUR DAILY CLARITY SCORE</p>
+            <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 4.5vw, 42px)', fontWeight: 700, color: '#1C251D', margin: 0, textAlign: 'left', lineHeight: 1.2 }}>
+              See how your clarity <span style={{ fontStyle: 'italic', color: '#237446', fontWeight: 600 }}>changes over time.</span>
+            </h2>
           </div>
 
           <div className="reading-toolbar">
