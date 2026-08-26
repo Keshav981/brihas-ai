@@ -1851,10 +1851,9 @@ topic-orb { display:block; container-type:inline-size; width:100%; }
           <div class="orb-head">
             <div class="orb-head-badge">
               <span class="dot"></span>
-              <span>INTERACTIVE MIND MAP</span>
+              <span>WHAT&rsquo;S ON YOUR MIND?</span>
             </div>
-            <h3>What&rsquo;s on <em>your mind?</em></h3>
-            <p class="orb-sub">Explore what matters to you.</p>
+            <h3>Explore what <em>matters to you.</em></h3>
             
           </div>
           <div class="orb-right-col">
