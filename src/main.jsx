@@ -1854,7 +1854,7 @@ topic-orb { display:block; container-type:inline-size; width:100%; }
               <span>WHAT&rsquo;S ON YOUR MIND?</span>
             </div>
             <h3>Explore what <em>matters to you.</em></h3>
-            <p class="orb-sub">Discover the patterns, thoughts, and emotions behind your daily reflection.</p>
+            
           </div>
           <div class="orb-right-col">
             <div class="orb-stage">
