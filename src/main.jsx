@@ -1544,8 +1544,11 @@ const InteractiveHowItWorksSection = ({ sectionMotion, stagger, item }) => {
     <motion.section className="section how-mock-style" id="how" {...sectionMotion}>
       <div className="wrap">
         {/* Section Header */}
-        <div className="how-mock-header" style={{ textAlign: 'left', marginBottom: '24px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
-          <p className="eyebrow green-eyebrow" style={{ marginBottom: 0, display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> HOW IT WORKS</p>
+        <div className="how-mock-header" style={{ textAlign: 'left', marginBottom: '28px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
+          <p className="eyebrow green-eyebrow" style={{ marginBottom: '4px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}><i></i> HOW IT WORKS</p>
+          <h2 className="section-title" style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 4.5vw, 42px)', fontWeight: 700, color: '#1C251D', margin: 0, textAlign: 'left', lineHeight: 1.2 }}>
+            One conversation a day. <span style={{ fontStyle: 'italic', color: '#237446', fontWeight: 600 }}>A reading of your life.</span>
+          </h2>
         </div>
 
         {/* 4 Pipeline Step Cards Row */}
