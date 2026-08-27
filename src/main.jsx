@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { createRoot } from 'react-dom/client';
-// styles.css is <link>-ed by the host page (browser modules can't import CSS)
+import './styles.css';
 const Icon = ({ name, size = 20 }) => {
   const paths = {
     arrow: <><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></>,
